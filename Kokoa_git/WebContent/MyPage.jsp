@@ -6,6 +6,10 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
+	body{
+		text-align: center;
+		align-content: center;
+	}
 	.topbar{
 		position: sticky;
 		top: 0;
@@ -13,56 +17,46 @@
 		height: 150px;
 		padding:20px;
 	}
-	.banner{
-		margin: 50px;
-		width: 900px;
-	}
 	.bottombar{
 		position: sticky;
 		bottom: 0;
 		height: 150px;
 		background-color: white;
 	}
-	#menu{
-		position: absolute;
-		left:25px;
-		top: 50%;
-		transform: translate(0,-50%);
-	}
-	#logo{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-	}
-	#chat{
-		position: absolute;
-		right:25px;
-		top: 50%;
-		transform: translate(0,-50%);
+	button{
+		background-color: #61da94;
+		color: white;
+		height: 100px;
+		width: 400px;
+		border-radius: 10px;
+		font-size: 50px;
 	}
 </style>
 </head>
 <body>
+	<%String info = ""; %>
 	<div class="topbar">
-		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
+		<a href="" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-	<div class="banner" style="margin-top:150px;">
-		<a href=""><img src="icons/puppy.jpg" width="800px" height="500px"></a>
-	</div>
-	<div class="banner">
-		<a href=""></a>
-	</div>
-	<div class="banner">
-		<h1 style="font-size:60px">우리 아이 어때요?
-		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;"></h1>
-	</div>
-	<div class="banner">
-		<h1 style="font-size:60px">오늘의 추천 산책 코스
-		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;"></h1>
-	</div>
+	<%if(info != ""){ %>
+		<div>
+			
+		</div>
+	<%} else{ %>
+		<div>
+			<div>
+				<img src="" style=""><br>
+				<p style="font-size:50px">로그인이 필요합니다.</p>
+			</div>
+			<div>
+				<button type="button" onClick="location.href=''">로그인</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" onClick="location.href=''">회원가입</button>
+			</div>
+		</div>
+	<%} %>
 	<div class="bottombar">
 		<hr>
 		<a href="" style="position: absolute; left:17%; top:50%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="100px"></a>
