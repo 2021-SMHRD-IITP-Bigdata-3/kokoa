@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style>
 	.topbar{
-		position: absolute;
+		position: sticky;
 		top: 0;
 		background-color: #61da94;
 		height: 150px;
@@ -17,26 +17,39 @@
 		margin: 50px;
 	}
 	.bottombar{
-		position: absolute;
+		position: sticky;
 		bottom: 0;
-		background-color: #61da94;
 		height: 150px;
-		margin: 50px;
+		background-color: white;
+	}
+	#menu{
+		position: absolute;
+		left:25px;
+		top: 50%;
+		transform: translate(0,-50%);
 	}
 	#logo{
-		margin-left: 275px;
-		margin-right: 275px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	#chat{
+		position: absolute;
+		right:25px;
+		top: 50%;
+		transform: translate(0,-50%);
 	}
 </style>
 </head>
 <body>
 	<div class="topbar">
-		<a href="" id="menu"><img src="menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="together.PNG" width="153px" height="100px"></a>
-		<a href="" id="chat"><img src="chat.png" width="100px" height="100px"></a>
+		<a href="" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
+		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+		<a href="" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
 	<div class="banner" style="margin-top:150px;">
-		<a href=""><img src="puppy.jpg" width="850px" height="500px"></a>
+		<a href=""><img src="icons/puppy.jpg" width="850px" height="500px"></a>
 	</div>
 	<div class="banner">
 		<a href=""></a>
@@ -46,11 +59,16 @@
 		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray; position:absolute; right:50px;"></h1>
 	</div>
 	<div class="banner">
-		<h1 style="font-size:60px">오늘의 추천 산책 코스&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<h1 style="font-size:60px">오늘의 추천 산책 코스
 		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray; position:absolute; right:50px;"></h1>
 	</div>
 	<div class="bottombar">
-		<h1>하단 바</h1>
+		<hr>
+		<a href="" style="position: absolute; left:50px; top:50%; transform: translate(0,-50%)"><img src="icons/home.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:250px; top:50%; transform: translate(0,-50%)"><img src="icons/map.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:450px; top:50%; transform: translate(0,-50%)"><img src="icons/matching.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:650px; top:50%; transform: translate(0,-50%)"><img src="icons/shopping_basket.png" width="100px" height="100px"></a>
+		<a href="" style="position: aboslute; left:850px; top:50%; transform: translate(0,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
 	</div>
 </body>
 </html>
