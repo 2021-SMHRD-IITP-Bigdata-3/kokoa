@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="topbar">
-		<a href="" id="menu"><img src="menu.png"></a>
+		<a href="" id="menu"><img src="menu.png" width="100px" height="100px"></a>
 		<div class="">
 		</div>
 	</div>
