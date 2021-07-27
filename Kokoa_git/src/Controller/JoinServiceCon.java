@@ -48,6 +48,7 @@ public class JoinServiceCon extends HttpServlet {
 				System.out.println("회원가입 성공");
 				moveURL = "Main.jsp";
 				HttpSession session = request.getSession();
+				session.setAttribute("mem_num", mem_num);
 			} else {
 				System.out.println("회원가입 실패");
 				moveURL = "Main.jsp";
