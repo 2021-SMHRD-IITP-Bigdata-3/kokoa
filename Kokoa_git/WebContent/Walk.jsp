@@ -42,6 +42,28 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
+	#btn1{
+		color: green;
+		font-size:40px;
+		font-weight: bold;
+		background-color: #e8ffe8;
+		border-style: solid;
+		border-width:0px;
+		border-bottom-width: 10px;
+		border-bottom-color: green;
+		width: 400px;
+		height: 100px;
+	}
+	#btn2{
+		color: green;
+		font-size:40px;
+		font-weight: bold;
+		background-color: white;
+		border: 0;
+		width: 400px;
+		height: 100px;
+
+	}
 </style>
 </head>
 <body>
@@ -52,7 +74,9 @@
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
 	<div class="btn">
-		<button>산책하기</button><button onclick="location.href='WalkHistory.jsp'">산책기록</button>
+		<br>
+		<button id="btn1">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
+		<br><br><br>
 	</div>
 	<div id="map" style="width:100%;height:350px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951"></script>
