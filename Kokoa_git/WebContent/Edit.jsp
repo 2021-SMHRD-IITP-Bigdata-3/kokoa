@@ -18,6 +18,19 @@
 			height: 150px;
 			padding:20px;
 			}
+	.backbutton{
+			background-color: white;
+			border: none;
+  			color: block;
+  			padding: 15px 30px;
+  			text-align: left;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 50px;
+  			margin: 4px 2px;
+  			cursor: pointer;
+  }
+	
 	.bottombar{
 		position: sticky;
 		bottom: 0;
@@ -51,7 +64,10 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-
+	
+	<div class="backbutton">
+			ก็
+	</div>
 	
 	<div class="bottombar">
 		<hr>
