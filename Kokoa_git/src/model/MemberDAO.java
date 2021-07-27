@@ -77,5 +77,5 @@ public class MemberDAO {
 			close();
 		}
 		return cnt;
-}
+	}
 }

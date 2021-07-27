@@ -2,7 +2,6 @@ package model;
 
 public class MemberDTO {
 	
-	private int mem_num;
 	private String id;
 	private String nickname;
 	private String pw;
@@ -22,11 +21,10 @@ public class MemberDTO {
 	private String dog_size;
 	private String dog_type;
 
-	public MemberDTO(int mem_num, String id, String nickname, String pw, String name, int age, String gender,
+	public MemberDTO(String id, String nickname, String pw, String name, int age, String gender,
 			String birth, String addr, String tel, String email, String intrd, String dog_name, int dog_age,
 			String dog_gender, String dog_pic, int dog_num, String dog_size, String dog_type) {
 		super();
-		this.mem_num = mem_num;
 		this.id = id;
 		this.nickname = nickname;
 		this.pw = pw;
@@ -47,12 +45,6 @@ public class MemberDTO {
 		this.dog_type = dog_type;
 	}
 	
-	public int getMem_num() {
-		return mem_num;
-	}
-	public void setMem_num(int mem_num) {
-		this.mem_num = mem_num;
-	}
 	public String getId() {
 		return id;
 	}

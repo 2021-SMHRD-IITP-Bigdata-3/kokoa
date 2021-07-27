@@ -69,9 +69,9 @@
 				<p style="font-size:50px">로그인이 필요합니다.</p>
 			</div>
 			<div>
-				<button type="button" onClick="location.href=''">로그인</button>
+				<button type="button" onClick="location.href='Login.jsp'">로그인</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href=''">회원가입</button>
+				<button type="button" onClick="location.href='Join.jsp'">회원가입</button>
 			</div>
 		</div>
 	<%} %>
