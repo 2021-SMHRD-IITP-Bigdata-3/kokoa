@@ -49,27 +49,26 @@ public class MemberDAO {
 	public int join(MemberDTO dto) {	
 		try {
 			conn();	// connect to DB
-			String sql = "insert into k_member values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into k_member values(mem_num_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dto.getMem_num());
-			psmt.setString(2, dto.getId());
-			psmt.setString(3, dto.getNickname());
-			psmt.setString(4, dto.getPw());
-			psmt.setString(5, dto.getName());
-			psmt.setInt(6, dto.getAge());
-			psmt.setString(7, dto.getGender());
-			psmt.setString(8, dto.getBirth());
-			psmt.setString(9, dto.getAddr());
-			psmt.setString(10, dto.getTel());
-			psmt.setString(11, dto.getEmail());
-			psmt.setString(12, dto.getIntrd());
-			psmt.setString(13, dto.getDog_name());
-			psmt.setInt(14, dto.getDog_age());
-			psmt.setString(15, dto.getDog_gender());
-			psmt.setString(16, dto.getDog_pic());
-			psmt.setInt(17, dto.getDog_num());
-			psmt.setString(18, dto.getDog_size());
-			psmt.setString(19, dto.getDog_type());
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getNickname());
+			psmt.setString(3, dto.getPw());
+			psmt.setString(4, dto.getName());
+			psmt.setInt(5, dto.getAge());
+			psmt.setString(6, dto.getGender());
+			psmt.setString(7, dto.getBirth());
+			psmt.setString(8, dto.getAddr());
+			psmt.setString(9, dto.getTel());
+			psmt.setString(10, dto.getEmail());
+			psmt.setString(11, dto.getIntrd());
+			psmt.setString(12, dto.getDog_name());
+			psmt.setInt(13, dto.getDog_age());
+			psmt.setString(14, dto.getDog_gender());
+			psmt.setString(15, dto.getDog_pic());
+			psmt.setInt(16, dto.getDog_num());
+			psmt.setString(17, dto.getDog_size());
+			psmt.setString(18, dto.getDog_type());
 			
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
