@@ -44,7 +44,7 @@ create table block_list (
 
 create table sns (
 	story_num number(15),
-	dog_pic varchar2(100),
+	dog_pic varchar2(100) not null,
 	story_con varchar2(200),
 	story_pic varchar2(100),
 	write_time date,
