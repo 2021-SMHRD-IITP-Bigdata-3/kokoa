@@ -50,18 +50,18 @@
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
 	<div class="banner" style="margin-top:150px;">
-		<a href=""><img src="icons/puppy.jpg" width="800px" height="500px"></a>
+		<a href="Matching.jsp"><img src="icons/puppy.jpg" width="800px" height="500px"></a>
 	</div>
 	<div class="banner">
 		<a href=""></a>
 	</div>
 	<div class="banner">
 		<h1 style="font-size:60px">우리 아이 어때요?
-		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;"></h1>
+		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;" onclick="location.href='SNS.jsp'"></h1>
 	</div>
 	<div class="banner">
-		<h1 style="font-size:60px">오늘의 추천 산책 코스
-		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;"></h1>
+		<h1 style="font-size:60px">신규 등록 물품
+		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;" onclick="location.href='FleaMarket.jsp'"></h1>
 	</div>
 	<div class="bottombar">
 		<hr>

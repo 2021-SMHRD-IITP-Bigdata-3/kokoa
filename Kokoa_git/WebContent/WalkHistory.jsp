@@ -42,6 +42,28 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
+	#btn1{
+		color: green;
+		font-size:40px;
+		font-weight: bold;
+		background-color: #e8ffe8;
+		border-style: solid;
+		border-width:0px;
+		border-bottom-width: 10px;
+		border-bottom-color: green;
+		width: 400px;
+		height: 100px;
+	}
+	#btn2{
+		color: green;
+		font-size:40px;
+		font-weight: bold;
+		background-color: white;
+		border: 0;
+		width: 400px;
+		height: 100px;
+
+	}
 </style>
 </head>
 <body>
@@ -53,7 +75,7 @@
 	</div>
 		<div class="btn">
 		<br>
-		<button id="btn1">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
+		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
 		<br><br><br>
 	</div>
 	<div class="bottombar">

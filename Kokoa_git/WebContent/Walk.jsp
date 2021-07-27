@@ -75,10 +75,10 @@
 	</div>
 	<div class="btn">
 		<br>
-		<button id="btn1">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
+		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
 		<br><br><br>
 	</div>
-	<div id="map" style="width:100%;height:350px;"></div>
+	<div id="map" style="width:100%;height:500px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951"></script>
 	<script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
