@@ -180,7 +180,11 @@ create table course_review(
 	constraint course_review_id_fk foreign key(id) references member(id),
 	constraint course_review_nickname_fk foreign key(nickname) references member(nickname)
 )
+create sequence course_latter_seq
+increment by 1
+start with 1
 
+insert into course_review(course_latter_num) values(course_latter_seq.nextval);
 
 create table buyer(
 	mem_num number(8),
@@ -192,11 +196,6 @@ create table buyer(
 	constraint buyer_nickname_fk foreign key(nickname) references member(nickname),
 	constraint buyer_product_num_fk foreign key(product_num) references flea_market(product_num)
 )
-create sequence buyer_seq
-increment by 1
-start with 1
-
-insert into buyer(mem_num) values(buyer_seq.nextval);
 
 
 create table seller(
@@ -209,11 +208,6 @@ create table seller(
 	constraint seller_nickname_fk foreign key(nickname) references member(nickname),
 	constraint seller_product_num_fk foreign key(product_num) references flea_market(product_num)
 )
-create sequence seller_seq
-increment by 1
-start with 1
-
-insert into seller(mem_num) values(seller_seq.nextval);
 
 
 create table flea_market(
@@ -238,11 +232,7 @@ create table matching_host(
 	constraint matching_host_nickname_fk foreign key(nickname) references member(nickname),
 	constraint matching_host_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
 )
-create sequence host_seq
-increment by 1
-start with 1
 
-insert into matching_host(mem_num) values(host_seq.nextval);
 
 
 create table matching_part(
@@ -255,11 +245,6 @@ create table matching_part(
 	constraint matching_part_nickname_fk foreign key(nickname) references member(nickname),
 	constraint matching_part_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
 )
-create sequence part_seq
-increment by 1
-start with 1
-
-insert into matching_part(mem_num) values(part_seq.nextval);
 
 
 create table matching_chat_list(
