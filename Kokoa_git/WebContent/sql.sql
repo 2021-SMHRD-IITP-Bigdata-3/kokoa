@@ -1,7 +1,8 @@
-create table member (
+
+create table k_member(
 	mem_num number(8),
-	id varchar2(20),
-	nickname varchar2(20),
+	id varchar2(20) not null unique,
+	nickname varchar2(20) not null unique,
 	pw varchar2(20) not null,
 	name varchar2(10) not null,
 	age number(4) not null,
@@ -12,23 +13,20 @@ create table member (
 	email varchar2(20),
 	intrd varchar2(200),
 	dog_name varchar2(20) not null,
-	dog_age number4) not null,
+	dog_age number(4) not null,
 	dog_gender varchar2(4) not null,
 	dog_pic varchar2(100),
 	dog_num number(20) not null,
 	dog_size varchar2(4) not null,
 	dog_type varchar2(30) not null,
-	
 	constraint member_mem_num_pk primary key(mem_num),
-	constraint member_id_pk primary key (id),
-	constraint member_nickname_pk primary key (nickname),
-	constraint member_nickname_pk primary key (nickname)
+	constraint member_dog_type_fk foreign key(dog_type) references dog(dog_type)
 )
 create sequence mem_num_seq
 increment by 1
 start with 1
 
-insert into member(mem_num) values(mem_num_seq.nextval);
+insert into k_member(mem_num) values(mem_num_seq.nextval);
 
 
 
@@ -38,14 +36,17 @@ create table dog (
 	constraint dog_dog_type_pk primary key(dog_type)
 )
 
-create table block_list (
+
+	
+
+	
+create table block_list(
 	ban_num number(10),
 	mem_num number(8),
 	b_mem_num number(8),
-	
 	constraint block_list_ban_num_pk primary key(ban_num),
-	constraint block_list_mem_num_fk foreign key(mem_num) references member(mem_num),
-	constraint block_list_b_mem_num_fk foreign key(mem_num) references member(mem_num)
+	constraint block_list_mem_num_fk foreign key(mem_num) references k_member(mem_num),
+	constraint block_list_b_mem_num_fk foreign key(b_mem_num) references k_member(mem_num)
 )
 
 create sequence ban_num_seq
@@ -66,10 +67,11 @@ create table sns (
 	nickname varchar2(20),
 	
 	constraint sns_story_num_pk primary key(story_num),
-	constraint sns_id_fk foreign key(id) references member(id),
-	constraint sns_nickname_fk foreign key(nickname) references member(nickname)
+	constraint sns_id_fk foreign key(id) references k_member(id),
+	constraint sns_nickname_fk foreign key(nickname) references k_member(nickname)
 	
 )
+
 create sequence story_num_seq
 increment by 1
 start with 1
@@ -115,8 +117,8 @@ create table customer_service(
 	nickname varchar2(20),
 	
 	constraint customer_write_num_pk primary key(write_num),
-	constraint customer_service_id_fk foreign key(id) references member(id),
-	constraint customer_service_nickname_fk foreign key(nickname) references member(nickname)
+	constraint customer_service_id_fk foreign key(id) references k_member(id),
+	constraint customer_service_nickname_fk foreign key(nickname) references k_member(nickname)
 	
 )
 create sequence customer_seq
@@ -127,7 +129,7 @@ insert into customer_service(write_num) values(customer_seq.nextval)
 
 
 create table report_list(
-	report_number number(15),
+	report_num number(15),
 	report_content varchar2(1000) not null,
 	report_date date,
 	mem_num number(8),
@@ -137,9 +139,9 @@ create table report_list(
 	r_nickname varchar2(20) not null,
 	
 	constraint report_list_report_number_pk primary key(report_num),
-	constraint report_list_mem_num_fk foreign key(mem_num) references member(mem_num),
-	constraint report_list_id_fk foreign key(id) references member(id),
-	constraint report_list_nickname_fk foreign key(nickname) references member(nickname)
+	constraint report_list_mem_num_fk foreign key(mem_num) references k_member(mem_num),
+	constraint report_list_id_fk foreign key(id) references k_member(id),
+	constraint report_list_nickname_fk foreign key(nickname) references k_member(nickname)
 )
 create sequence report_number_seq
 increment by 1
@@ -155,9 +157,9 @@ create table course_list(
 	id varchar2(20),
 	nickname varchar2(20),
 	
-	constraint coure_list_course_num_pk primary key(course_num),
-	constraint coure_list_id_fk foreign key(id) references member(id),
-	constraint report_list_nickname_fk foreign key(nickname) references member(nickname)
+	constraint course_list_course_num_pk primary key(course_num),
+	constraint course_list_id_fk foreign key(id) references k_member(id),
+	constraint course_list_nickname_fk foreign key(nickname) references k_member(nickname)
 )
 create sequence course_num_seq
 increment by 1
@@ -176,9 +178,9 @@ create table course_review(
 	id varchar2(20),
 	nickname varchar2(20),
 	
-	constraint course_review_course_latter_num_pk primary key(course_latter_num),
-	constraint course_review_id_fk foreign key(id) references member(id),
-	constraint course_review_nickname_fk foreign key(nickname) references member(nickname)
+	constraint course_review_latter_num_pk primary key(course_latter_num),
+	constraint course_review_id_fk foreign key(id) references k_member(id),
+	constraint course_review_nickname_fk foreign key(nickname) references k_member(nickname)
 )
 create sequence course_latter_seq
 increment by 1
@@ -190,10 +192,10 @@ create table buyer(
 	mem_num number(8),
 	id varchar2(20),
 	nickname varchar2(20),
-	product number(15),
-	constraint buyer_mem_num_fk foreign key(mem_num) references member(mem_num),
-	constraint buyer_id_fk foreign key(id) references member(id),
-	constraint buyer_nickname_fk foreign key(nickname) references member(nickname),
+	product_num number(15),
+	constraint buyer_mem_num_fk foreign key(mem_num) references k_member(mem_num),
+	constraint buyer_id_fk foreign key(id) references k_member(id),
+	constraint buyer_nickname_fk foreign key(nickname) references k_member(nickname),
 	constraint buyer_product_num_fk foreign key(product_num) references flea_market(product_num)
 )
 
@@ -202,10 +204,10 @@ create table seller(
 	mem_num number(8),
 	id varchar2(20),
 	nickname varchar2(20),
-	product number(15),
-	constraint seller_mem_num_fk foreign key(mem_num) references member(mem_num),
-	constraint seller_id_fk foreign key(id) references member(id),
-	constraint seller_nickname_fk foreign key(nickname) references member(nickname),
+	product_num number(15),
+	constraint seller_mem_num_fk foreign key(mem_num) references k_member(mem_num),
+	constraint seller_id_fk foreign key(id) references k_member(id),
+	constraint seller_nickname_fk foreign key(nickname) references k_member(nickname),
 	constraint seller_product_num_fk foreign key(product_num) references flea_market(product_num)
 )
 
@@ -227,10 +229,10 @@ create table matching_host(
 	id varchar2(20),
 	nickname varchar2(20),
 	chatting_room_num number(10),
-	constraint matching_host_mem_num_fk foreign key(mem_num) references member(mem_num),
-	constraint matching_host_id_fk foreign key(id) references member(id),
-	constraint matching_host_nickname_fk foreign key(nickname) references member(nickname),
-	constraint matching_host_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
+	constraint matching_host_mem_num_fk foreign key(mem_num) references k_member(mem_num),
+	constraint matching_host_id_fk foreign key(id) references k_member(id),
+	constraint matching_host_nickname_fk foreign key(nickname) references k_member(nickname),
+	constraint matching_host_chatting_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
 )
 
 
@@ -240,17 +242,17 @@ create table matching_part(
 	id varchar2(20),
 	nickname varchar2(20),
 	chatting_room_num number(15),
-	constraint matching_part_mem_num_fk foreign key(mem_num) references member(mem_num),
-	constraint matching_part_id_fk foreign key(id) references member(id),
-	constraint matching_part_nickname_fk foreign key(nickname) references member(nickname),
-	constraint matching_part_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
+	constraint matching_part_mem_num_fk foreign key(mem_num) references k_member(mem_num),
+	constraint matching_part_id_fk foreign key(id) references k_member(id),
+	constraint matching_part_nickname_fk foreign key(nickname) references k_member(nickname),
+	constraint matching_part_chatting_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
 )
 
 
 create table matching_chat_list(
 	chatting_room_num number(15),
 	chatting_room_title varchar2(50) not null,
-	constraint matching_chat_list_chatting_room_num_pk primary key(chatting_room_num)
+	constraint matching_chat_list_chatting_pk primary key(chatting_room_num)
 )
 create sequence chat_num_seq
 increment by 1
@@ -262,8 +264,8 @@ insert into matching_chat_list(chatting_room_num) values(chat_num_seq.netxval)
 create table matching_chat_ban_list(
 	chatting_room_num number(15),
 	id varchar2(20),
-	constraint matching_chat_ban_list_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num),
-	constraint matching_chat_ban_list_id_fk foreign key(id) references member(id)
+	constraint matching_chat_ban_list_chat_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num),
+	constraint matching_chat_ban_list_id_fk foreign key(id) references k_member(id)
 )
 create sequence ban_list_seq
 increment by 1
