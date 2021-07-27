@@ -21,7 +21,18 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-	
+	<div id="map" style="width:500px;height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
+</body>
 	<div class="bottombar">
 		<hr>
 		<a href="" style="position: absolute; left:17%; top:50%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="100px"></a>
