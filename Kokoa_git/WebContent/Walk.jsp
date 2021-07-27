@@ -166,8 +166,9 @@
 	}    
 	</script>
 	<br><br><br><br>
-	<div id='box' class="box" align="center">
+	<div id='box' class="box">
 		<div id='timerBox' class="timerBox">
+			<div class="timerBox"><p style="font-size:30px">산책 타이머<p></div>
 			<div id="time" class="time">00:00:00</div>
 		</div>
 		<div class="btnBox">
