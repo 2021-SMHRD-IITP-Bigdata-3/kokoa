@@ -8,17 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.model.MemberDAO;
-import com.model.MemberDTO;
+import model.MemberDAO;
+import model.MemberDTO;
 
-vlet("/JoinServiceCon")
+@WebServlet("/JoinServiceCon")
 public class JoinServiceCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// post방식 인코딩
 			request.setCharacterEncoding("EUC-KR");
 			
-			// email, pw, name, tel, address
 			int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 			String id = request.getParameter("id");
 			String nickname = request.getParameter("nickname");
@@ -39,20 +38,19 @@ public class JoinServiceCon extends HttpServlet {
 			String dog_size = request.getParameter("dog_size");
 			String dog_type = request.getParameter("dog_type");
 			
-			model.MemberDTO dto = new model.MemberDTO(mem_num,id,nickname,pw,name,age,gender,birth,tel,addr,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
-			model.MemberDAO dao = new model.MemberDAO();
+			MemberDTO dto = new MemberDTO(mem_num,id,nickname,pw,name,age,gender,birth,tel,addr,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
+			MemberDAO dao = new MemberDAO();
 			int cnt = dao.join(dto);
 			
 			String moveURL = "";
 			
 			if(cnt > 0) {
 				System.out.println("회원가입 성공");
-				moveURL = "join_success.jsp";
+				moveURL = "Main.jsp";
 				HttpSession session = request.getSession();
-				session.setAttribute("name", email);
 			} else {
 				System.out.println("회원가입 실패");
-				moveURL = "main.jsp";
+				moveURL = "Main.jsp";
 			}
 			
 			response.sendRedirect(moveURL);
