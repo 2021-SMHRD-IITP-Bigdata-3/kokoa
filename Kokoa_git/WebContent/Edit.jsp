@@ -18,24 +18,14 @@
 			height: 150px;
 			padding:20px;
 			}
-	.backbutton{
-			background-color: white;
-			border: none;
-  			color: block;
-  			padding: 15px 30px;
-  			text-align: left;
-  			text-decoration: none;
-  			display: inline-block;
-  			font-size: 50px;
-  			margin: 4px 2px;
-  			cursor: pointer;
-  }
 	
 	.bottombar{
 		position: sticky;
 		bottom: 0;
 		height: 150px;
 		background-color: white;
+		
+	
 	}
 	#menu{
 		position: absolute;
@@ -55,6 +45,21 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
+	#backbtn{
+		background-color:white;
+		height:70px;
+		width:80px;
+		font-size: 50px;
+		border-color:white;
+
+		
+	}
+	#title{
+		position: relative;
+        right: 280px;
+        font-size: 50px;
+	}
+	
 </style>
 </head>
 <body>
@@ -65,8 +70,10 @@
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
 	
-	<div class="backbutton">
-			←
+	<div class="pagetitle">	
+		
+		<h1 id="title"><button type="button" id="backbtn"> ← </button> 회원정보수정 </h1>
+		
 	</div>
 	
 	<div class="bottombar">
