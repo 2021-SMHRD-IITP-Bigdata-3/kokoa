@@ -47,7 +47,7 @@
 	<div class="topbar">
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
-		<a href="" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
+		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
 	<div class="banner" style="margin-top:150px;">
 		<a href=""><img src="icons/puppy.jpg" width="800px" height="500px"></a>

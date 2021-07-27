@@ -31,6 +31,24 @@
 		border-radius: 10px;
 		font-size: 50px;
 	}
+	#menu{
+		position: absolute;
+		left:25px;
+		top: 50%;
+		transform: translate(0,-50%);
+	}
+	#logo{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	#chat{
+		position: absolute;
+		right:25px;
+		top: 50%;
+		transform: translate(0,-50%);
+	}
 </style>
 </head>
 <body>
@@ -59,11 +77,11 @@
 	<%} %>
 	<div class="bottombar">
 		<hr>
-		<a href="" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="100px"></a>
-		<a href="" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="100px"></a>
-		<a href="" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="100px"></a>
-		<a href="" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="100px"></a>
-		<a href="" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:17%; top:50%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:34%; top:50%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:51%; top:50%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:68%; top:50%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="100px"></a>
+		<a href="" style="position: absolute; left:85%; top:50%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
 	</div>
 </body>
 </html>

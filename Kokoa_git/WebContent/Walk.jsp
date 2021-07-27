@@ -6,18 +6,40 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
+	body{
+		text-align: center;
+		align-content: center;
+	}
 	.topbar{
-			position: sticky;
-			top: 0;
-			background-color: #61da94;
-			height: 150px;
-			padding:20px;
-			}
+		position: sticky;
+		top: 0;
+		background-color: #61da94;
+		height: 150px;
+		padding:20px;
+	}
 	.bottombar{
 		position: sticky;
 		bottom: 0;
 		height: 150px;
 		background-color: white;
+	}
+	#menu{
+		position: absolute;
+		left:25px;
+		top: 50%;
+		transform: translate(0,-50%);
+	}
+	#logo{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	#chat{
+		position: absolute;
+		right:25px;
+		top: 50%;
+		transform: translate(0,-50%);
 	}
 </style>
 </head>
@@ -26,6 +48,9 @@
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
+	</div>
+	<div class="btn">
+		<button>산책하기</button><button onclick="location.href='WalkHistory.jsp'">산책기록</button>
 	</div>
 	<div id="map" style="width:100%;height:350px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951"></script>
