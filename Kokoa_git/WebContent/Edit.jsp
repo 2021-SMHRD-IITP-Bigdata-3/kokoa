@@ -52,7 +52,6 @@
 		font-size: 50px;
 		border-color:white;
 
-		
 	}
 	#title{
 		position: relative;

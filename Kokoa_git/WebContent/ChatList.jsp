@@ -42,6 +42,19 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
+	#backbtn{
+		background-color:white;
+		height:70px;
+		width:80px;
+		font-size: 50px;
+		border-color:white;
+
+	}
+	#title{
+		position: relative;
+        right: 370px;
+        font-size: 50px;
+	}
 </style>
 </head>
 <body>
@@ -50,6 +63,15 @@
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
+	</div>
+	
+	<div class="pagetitle">	
+		<h1 id="title"><button type="button" id="backbtn"> ¡ç </button> Ã¤ÆÃ </h1>
+	</div>
+	
+	<div>
+	
+	
 	</div>
 	
 	<div class="bottombar">

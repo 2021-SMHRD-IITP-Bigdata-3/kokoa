@@ -45,6 +45,14 @@ public class MemberDTO {
 		this.dog_type = dog_type;
 	}
 	
+
+	public MemberDTO(String id, String pw) {
+		super();
+		this.id = id;
+		this.pw = pw;
+	}
+	
+
 	public String getId() {
 		return id;
 	}
