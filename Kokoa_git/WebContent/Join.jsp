@@ -99,6 +99,13 @@
 	</tr>
 	</table>
 	
+	<h5 align = "left">나이</h5>
+	<table>
+	<tr>
+	<td><input type = "text" id ="age"></td>
+	</tr>
+	</table>
+	
 	<h5 align = "left">성별</h5>
 	<table>
 	<tr>
@@ -135,14 +142,6 @@
 	<td><input type = "text" id ="permission" placeholder = "인증번호를 입력해주세요"></td>
 	</tr>
 	</table>
-
-
-	<h5 align = "left">반려견 이름</h5>
-	<table>
-	<tr>
-	<td><input type = "text" id ="dog_name" placeholder = "이름을 입력해주세요"></td>
-	</tr>
-	</table>
 	
 	<h5 align = "left">소개글(선택)</h5>
 	
@@ -154,6 +153,16 @@
 	</td>
 	</tr>
 	</table>
+	
+
+
+	<h5 align = "left">반려견 이름</h5>
+	<table>
+	<tr>
+	<td><input type = "text" id ="dog_name" placeholder = "이름을 입력해주세요"></td>
+	</tr>
+	</table>
+	
 	
 	
 	
@@ -182,6 +191,51 @@
 	<option value ="">그레이하운드</option>
 	<option value ="">시츄</option>
 	</select></td>
+	</tr>
+	</table>
+	
+	<h5 align = "left">반려견 크기</h5>
+	<table>
+	<tr>
+	<td>소형<input type = "radio" value = "소형" name ="dog_size"></td>
+	<td>중형<input type = "radio" value = "중형" name ="dog_size"></td>
+	<td>대형<input type = "radio" value = "대형" name ="dog_size"></td>
+	</tr>
+	</table>
+	
+	
+	<h5 align = "left">반려견 사진(선택)</h5>
+	<table>
+	<tr>
+	<td><input type = "file" id ="photo"></td>
+	</tr>
+	</table>
+	
+	
+	
+	<h5 align = "left">소개글(선택)</h5>
+	
+	<table>
+	<tr>
+	<td>
+	<textarea rows ="10" cols = "20">	
+	</textarea>
+	</td>
+	</tr>
+	</table>
+	
+	<h5 align = "left">반려견 번호</h5>
+	<table>
+	<tr>
+	<td><input type = "text" id ="dog_id"></td>
+	<td><input type = "submit" value ="반려견 인증"></td>
+	</tr>
+	</table>
+	
+	
+	<table>
+	<tr>
+	<td colspan = "2" align = "center"><input type = "submit" value ="가입 하기"></td>
 	</tr>
 	</table>
 	
