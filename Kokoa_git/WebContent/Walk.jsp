@@ -9,7 +9,7 @@
 	body{
 		text-align: center;
 		align-content: center;
-	}
+	}	
 	
 	.topbar{
 			position: sticky;
@@ -62,9 +62,35 @@
 		border: 0;
 		width: 400px;
 		height: 100px;
-
+	}
+	.box{
+		width: 200px;
+		height: 200px;
+	}
+	.timerBox{
+		width: 200px;
+		outline: 2px solid black;
+	}
+	.timerBox .time{
+		font-size: 30pt;
+		color: #4C4C4C;
+		text-align: center;
+		font-family: sans-serif;
+	}
+	.btnBox{
+		margin: 20px auto;
+		text-align: center;
+	}
+	.btnBox .fa{
+		margin: 0px 5px;
+		font-size: 30pt;
+		color: #FAED7D;
+		cursor: pointer;
 	}
 </style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="Stopwatch.js"></script>
 </head>
 <body>
 	
@@ -139,6 +165,18 @@
 	    map.setCenter(locPosition);      
 	}    
 	</script>
+	<br><br><br><br>
+	<div id='box' class="box" align="center">
+		<div id='timerBox' class="timerBox">
+			<div id="time" class="time">00:00:00</div>
+		</div>
+		<div class="btnBox">
+			<i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
+			<i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
+			<i id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
+		</div>
+	</div>
+
 	<div class="bottombar">
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
