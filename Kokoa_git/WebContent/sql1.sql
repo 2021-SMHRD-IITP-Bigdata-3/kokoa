@@ -15,7 +15,7 @@ create table customer_service(
 	write_num num(100),
 	write_title varchar2(100),
 	write_content varchar2(100),
-	write_date varchar2(100),
+	write_date date,
 	id varchar2(100),
 	nickname varchar2(100)
 )
@@ -23,7 +23,7 @@ create table customer_service(
 create table report_list(
 	report_number num(100),
 	report_content varchar2(100),
-	report_date varchar2(100),
+	report_date date,
 	mem_num num(100),
 	id varchar2(100),
 	nickname varchar2(100),
