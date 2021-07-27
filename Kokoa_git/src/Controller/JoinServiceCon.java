@@ -19,27 +19,28 @@ public class JoinServiceCon extends HttpServlet {
 			request.setCharacterEncoding("EUC-KR");
 			
 			// email, pw, name, tel, address
+			int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
 			String nickname = request.getParameter("nickname");
+			String pw = request.getParameter("pw");
 			String name = request.getParameter("name");
 			int age = Integer.parseInt(request.getParameter("age"));
-			String birthday = request.getParameter("birthday");
 			String gender = request.getParameter("gender");
-			String address = request.getParameter("address");
-			String email = request.getParameter("email");
+			String birth = request.getParameter("birth");
 			String tel = request.getParameter("tel");
-			String intro = request.getParameter("intro");
-			String dog_name = request.getParameter("dog_age");
-			String dog_age = request.getParameter("dog_age");
+			String addr = request.getParameter("addr");
+			String email = request.getParameter("email");
+			String intrd = request.getParameter("intrd");
+			String dog_name = request.getParameter("dog_name");
+			int dog_age = Integer.parseInt(request.getParameter("dog_age"));
 			String dog_gender = request.getParameter("dog_gender");
-			String dog_picture = request.getParameter("dog_picture");
-			String dog_num = request.getParameter("dog_num");
+			String dog_pic = request.getParameter("dog_pic");
+			int dog_num = Integer.parseInt(request.getParameter("dog_num"));
 			String dog_size = request.getParameter("dog_size");
 			String dog_type = request.getParameter("dog_type");
 			
-			MemberDTO dto = new MemberDTO(email,pw,tel,addr);
-			MemberDAO dao = new MemberDAO();
+			model.MemberDTO dto = new model.MemberDTO(mem_num,id,nickname,pw,name,age,gender,birth,tel,addr,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
+			model.MemberDAO dao = new model.MemberDAO();
 			int cnt = dao.join(dto);
 			
 			String moveURL = "";

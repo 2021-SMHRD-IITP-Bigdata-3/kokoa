@@ -3,27 +3,28 @@ package model;
 public class MemberDTO {
 	
 	private int mem_num;
+	private String id;
 	private String nickname;
 	private String pw;
 	private String name;
 	private int age;
 	private String gender;
 	private String birth;
-	private String address;
+	private String addr;
 	private String tel;
 	private String email;
-	private String intro;
+	private String intrd;
 	private String dog_name;
 	private int dog_age;
 	private String dog_gender;
-	private String dog_picture;
+	private String dog_pic;
 	private int dog_num;
 	private String dog_size;
 	private String dog_type;
 
 	public MemberDTO(int mem_num, String id, String nickname, String pw, String name, int age, String gender,
-			String birth, String address, String tel, String email, String intro, String dog_name, int dog_age,
-			String dog_gender, String dog_picture, int dog_num, String dog_size, String dog_type) {
+			String birth, String addr, String tel, String email, String intrd, String dog_name, int dog_age,
+			String dog_gender, String dog_pic, int dog_num, String dog_size, String dog_type) {
 		super();
 		this.mem_num = mem_num;
 		this.id = id;
@@ -33,20 +34,19 @@ public class MemberDTO {
 		this.age = age;
 		this.gender = gender;
 		this.birth = birth;
-		this.address = address;
+		this.addr = addr;
 		this.tel = tel;
 		this.email = email;
-		this.intro = intro;
+		this.intrd = intrd;
 		this.dog_name = dog_name;
 		this.dog_age = dog_age;
 		this.dog_gender = dog_gender;
-		this.dog_picture = dog_picture;
+		this.dog_pic = dog_pic;
 		this.dog_num = dog_num;
 		this.dog_size = dog_size;
 		this.dog_type = dog_type;
 	}
 	
-	private String id;
 	public int getMem_num() {
 		return mem_num;
 	}
@@ -95,11 +95,11 @@ public class MemberDTO {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getAddress() {
-		return address;
+	public String getAddr() {
+		return addr;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	public String getTel() {
 		return tel;
@@ -113,11 +113,11 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getIntro() {
-		return intro;
+	public String getIntrd() {
+		return intrd;
 	}
-	public void setIntro(String intro) {
-		this.intro = intro;
+	public void setIntrd(String intrd) {
+		this.intrd = intrd;
 	}
 	public String getDog_name() {
 		return dog_name;
@@ -137,11 +137,11 @@ public class MemberDTO {
 	public void setDog_gender(String dog_gender) {
 		this.dog_gender = dog_gender;
 	}
-	public String getDog_picture() {
-		return dog_picture;
+	public String getDog_pic() {
+		return dog_pic;
 	}
-	public void setDog_picture(String dog_picture) {
-		this.dog_picture = dog_picture;
+	public void setDog_pic(String dog_pic) {
+		this.dog_pic = dog_pic;
 	}
 	public int getDog_num() {
 		return dog_num;
