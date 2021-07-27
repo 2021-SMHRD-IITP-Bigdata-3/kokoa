@@ -65,7 +65,7 @@
 	</div>
 	<div class="bottombar">
 		<hr>
-		<a href="" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/homee.png" width="100px" height="160px"></a>
+		<a href="" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>

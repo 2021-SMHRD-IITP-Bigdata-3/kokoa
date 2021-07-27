@@ -13,6 +13,12 @@
 			height: 150px;
 			padding:20px;
 			}
+	.bottombar{
+		position: sticky;
+		bottom: 0;
+		height: 150px;
+		background-color: white;
+	}
 </style>
 </head>
 <body>
