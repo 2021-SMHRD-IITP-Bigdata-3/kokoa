@@ -7,12 +7,40 @@
 <title>Insert title here</title>
 <style>
 	.topbar{
-			position: sticky;
-			top: 0;
-			background-color: #61da94;
-			height: 150px;
-			padding:20px;
-			}
+		position: sticky;
+		top: 0;
+		background-color: #61da94;
+		height: 150px;
+		padding:20px;
+	}
+	.banner{
+		margin: 50px;
+		width: 900px;
+	}
+	.bottombar{
+		position: sticky;
+		bottom: 0;
+		height: 150px;
+		background-color: white;
+	}
+	#menu{
+		position: absolute;
+		left:25px;
+		top: 50%;
+		transform: translate(0,-50%);
+	}
+	#logo{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	#chat{
+		position: absolute;
+		right:25px;
+		top: 50%;
+		transform: translate(0,-50%);
+	}
 </style>
 </head>
 <body>
