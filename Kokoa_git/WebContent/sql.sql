@@ -22,7 +22,7 @@ create table member (
 	constraint member_mem_num_pk primary key(mem_num),
 	constraint member_id_pk primary key (id),
 	constraint member_nickname_pk primary key (nickname),
-	constraint member_nickname_pk primary key (nickname),
+	constraint member_nickname_pk primary key (nickname)
 )
 
 
@@ -143,7 +143,7 @@ create table buyer(
 	constraint buyer_mem_num_fk foreign key(mem_num) references member(mem_num),
 	constraint buyer_id_fk foreign key(id) references member(id),
 	constraint buyer_nickname_fk foreign key(nickname) references member(nickname),
-	constraint buyer_product_pk primary key(product)
+	constraint buyer_product_num_fk foreign key(product_num) references flea_market(product_num)
 )
 
 create table seller(
@@ -154,7 +154,7 @@ create table seller(
 	constraint seller_mem_num_fk foreign key(mem_num) references member(mem_num),
 	constraint seller_id_fk foreign key(id) references member(id),
 	constraint seller_nickname_fk foreign key(nickname) references member(nickname),
-	constraint seller_product_pk primary key(product)
+	constraint seller_product_num_fk foreign key(product_num) references flea_market(product_num)
 )
 
 create table flea_market(
@@ -171,7 +171,7 @@ create table matching_host(
 	constraint matching_host_mem_num_fk foreign key(mem_num) references member(mem_num),
 	constraint matching_host_id_fk foreign key(id) references member(id),
 	constraint matching_host_nickname_fk foreign key(nickname) references member(nickname),
-	constraint matching_host_chatting_room_num_pk primary key(chatting_room_num)
+	constraint matching_host_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
 )
 
 create table matching_part(
@@ -182,7 +182,7 @@ create table matching_part(
 	constraint matching_part_mem_num_fk foreign key(mem_num) references member(mem_num),
 	constraint matching_part_id_fk foreign key(id) references member(id),
 	constraint matching_part_nickname_fk foreign key(nickname) references member(nickname),
-	constraint matching_part_chatting_room_num_pk primary key(chatting_room_num)
+	constraint matching_part_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num)
 )
 
 create table matching_chat_list(
@@ -194,7 +194,7 @@ create table matching_chat_list(
 create table matching_chat_ban_list(
 	chatting_room_num number(15),
 	id varchar2(20),
-	constraint matching_chat_ban_list_chatting_romm_num_pk primary key(chatting_room_num number),
+	constraint matching_chat_ban_list_chatting_room_num_fk foreign key(chatting_room_num) references matching_chat_list(chatting_room_num),
 	constraint matching_chat_ban_list_id_fk foreign key(id) references member(id)
 )
 
