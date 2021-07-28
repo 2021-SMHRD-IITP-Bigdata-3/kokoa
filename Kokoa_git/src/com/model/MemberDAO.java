@@ -1,11 +1,11 @@
-package model;
+package com.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import model.MemberDTO;
+import com.model.MemberDTO;
 
 public class MemberDAO {
 	Connection conn = null;
