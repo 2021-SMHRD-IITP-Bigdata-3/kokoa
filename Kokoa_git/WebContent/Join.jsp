@@ -7,17 +7,17 @@
 <title>Insert title here</title>
 <style>
 	body{
+		padding-bottom:150px;
 		text-align: center;
 		align-content: center;
 	}
 	
-	.topbar{
-			position: sticky;
-			top: 0;
-			background-color: #61da94;
-			height: 150px;
-			padding:20px;
-			}
+	header{
+		position: fixed;
+		background-color: #61da94;
+		height: 150px;
+		width: 100%;
+	}
 	footer{
 		position: fixed;
 		bottom: 0;
@@ -27,7 +27,7 @@
 	}
 	#menu{
 		position: absolute;
-		left:25px;
+		left:25%;
 		top: 50%;
 		transform: translate(0,-50%);
 	}
@@ -39,21 +39,19 @@
 	}
 	#chat{
 		position: absolute;
-		right:25px;
+		right:25%;
 		top: 50%;
 		transform: translate(0,-50%);
 	}
 </style>
 </head>
 <body>
-		
-	
-	<div class="topbar">
+	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-	</div>
-	
+	</header>
+	<div style="width:100%; height:150px;"></div>
 	<form action="JoinServiceCon" method="POST">
 		<h1>회원가입</h1>
 		<h5 align = "left">아이디</h5>
