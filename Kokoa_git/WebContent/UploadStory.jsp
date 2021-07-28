@@ -80,7 +80,10 @@
 	  margin-bottom: 30px;
 	  color: white;
 	}
-	
+	.icon{
+	  text-align : left;
+	  padding:10px;
+	}
 </style>
 </head>
 <body>
@@ -89,7 +92,13 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-		<i class="fas fa-arrow-left fa-3x"></i>
+		<table class='icon' width="530px" align="center">
+			<tr>
+				<td>
+					<i class="fas fa-arrow-left fa-2x"><span> 스토리 작성</span></i>
+				</td>
+			</tr>
+		</table>
 	<div>
 		<form class="UploadStory">
       		<input type="text" name="title" class="text-field" placeholder="제목을 입력해주세요"><br>
@@ -98,13 +107,13 @@
       		<input type="submit" value="등록" class="submit-btn">
     	</form>
     </div>
-	<div class="bottombar">
+	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
-	</div>
+	</footer>
 </body>
 </html>
