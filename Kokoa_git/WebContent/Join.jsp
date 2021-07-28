@@ -14,6 +14,8 @@
 	
 	header{
 		position: fixed;
+		top:0;
+		left:0;
 		background-color: #61da94;
 		height: 150px;
 		width: 100%;
@@ -21,13 +23,14 @@
 	footer{
 		position: fixed;
 		bottom: 0;
+		left: 0;
 		height: 150px;
 		width:100%;
 		background-color: white;
 	}
 	#menu{
 		position: absolute;
-		left:25%;
+		left:1%;
 		top: 50%;
 		transform: translate(0,-50%);
 	}
@@ -39,7 +42,7 @@
 	}
 	#chat{
 		position: absolute;
-		right:25%;
+		right:1%;
 		top: 50%;
 		transform: translate(0,-50%);
 	}
