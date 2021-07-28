@@ -107,7 +107,7 @@ body{
 	<div style="margin-top:150px;">
 		<a href="Matching.jsp"><img src="icons/event.jpg" width="700px" height="500px"></a>
 	</div>
-  	<div class="bottombar">
+	  	<div class="bottombar">
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
@@ -115,6 +115,6 @@ body{
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="160px"></a>
 	</div>
-
+	
 </body>
 </html>
