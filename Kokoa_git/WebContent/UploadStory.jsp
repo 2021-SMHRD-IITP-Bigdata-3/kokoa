@@ -5,12 +5,13 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
+</head>
 <style>
 	body{
 		text-align: center;
 		align-content: center;
 	}
-	
 	.topbar{
 			position: sticky;
 			top: 0;
@@ -42,16 +43,61 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
+	.UploadStory {
+	  width: 800px;
+	  height: 700px;
+	  margin-right: auto;
+	  margin-left: auto;
+	  margin-top: 50px;
+	  padding: 20px;
+	  text-align: center;
+	  border: none;
+	    
+	}
+	.text-field {
+	  font-size: 14px;
+	  padding: 10px;
+	  border: a3a3a3;
+	  width: 500px;
+	  margin-bottom: 10px;
+	 
+	}
+	.text-field2 {
+	  font-size: 14px;
+	  padding: 10px;
+	  border: a3a3a3;
+	  width: 500px;
+	  height: 400px;
+	  margin-bottom: 10px;
+	 
+	}
+	.submit-btn {
+	  font-size: 14px;
+	  border: none;
+	  padding: 10px;
+	  width: 260px;
+	  background-color: #1BBC9B;
+	  margin-bottom: 30px;
+	  color: white;
+	}
+	
 </style>
 </head>
 <body>
-	
 	<div class="topbar">
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-	
+		<i class="fas fa-arrow-left fa-3x"></i>
+	<div>
+		<form class="UploadStory">
+      		<input type="text" name="title" class="text-field" placeholder="제목을 입력해주세요"><br>
+      		<input type="text" name="content" class="text-field2" placeholder="내용을 입력해주세요"><br>
+      		<input type="submit" value="파일 첨부" class="submit-btn">
+      		<input type="submit" value="등록" class="submit-btn">
+    	</form>
+    </div>
 	<div class="bottombar">
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
