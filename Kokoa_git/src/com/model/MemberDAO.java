@@ -1,12 +1,11 @@
-package model;
+package com.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import model.MemberDTO;
+import com.model.MemberDTO;
 
 public class MemberDAO {
 	Connection conn = null;
@@ -78,28 +77,5 @@ public class MemberDAO {
 			close();
 		}
 		return cnt;
-	}
-
-	public MemberDTO login(String getId, String getPw) {
-		try {
-			conn();	
-			String sql = "select * from k_member where id = ? and pw = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, getId);
-			psmt.setString(2, getPw);
-			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
-				String id = rs.getString(1);
-				String pw = rs.getString(2);
-				
-				info = new MemberDTO(id,pw);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		} return info;
 	}
 }
