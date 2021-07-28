@@ -14,13 +14,12 @@ create table k_member(
 	intrd varchar2(200),
 	dog_name varchar2(20) not null,
 	dog_age number(4) not null,
-	dog_gender varchar2(4) not null,
+	dog_gender varchar2(10) not null,
 	dog_pic varchar2(100),
 	dog_num number(20) not null,
-	dog_size varchar2(4) not null,
+	dog_size varchar2(10) not null,
 	dog_type varchar2(30) not null,
-	constraint member_mem_num_pk primary key(mem_num),
-	constraint member_dog_type_fk foreign key(dog_type) references dog(dog_type)
+	constraint member_mem_num_pk primary key(mem_num)
 )
 
 create sequence mem_num_seq
@@ -29,17 +28,10 @@ start with 1
 
 insert into k_member(mem_num) values(mem_num_seq.nextval);
 
-
-
 create table dog (
 	dog_type varchar2(30),
-	
 	constraint dog_dog_type_pk primary key(dog_type)
 )
-
-
-	
-
 	
 create table block_list(
 	ban_num number(10),

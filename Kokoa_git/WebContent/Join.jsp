@@ -135,7 +135,7 @@
 		<h5 align = "left">휴대전화</h5>
 		<table>
 			<tr>
-				<td><input type = "text" name ="phone"></td>
+				<td><input type = "text" name ="tel"></td>
 				<td>input type = "submit" value ="인증번호 전송"</td>
 			</tr>
 			<tr>
@@ -180,9 +180,9 @@
 			<tr>
 				<td>
 					<select name="dog_type">
-						<option value ="">견종선택</option>
-						<option value ="">그레이하운드</option>
-						<option value ="">시츄</option>
+						<option>견종선택</option>
+						<option value ="그레이하운드">그레이하운드</option>
+						<option value ="시츄">시츄</option>
 					</select>
 				</td>
 			</tr>
