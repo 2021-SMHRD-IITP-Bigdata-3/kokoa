@@ -52,6 +52,37 @@
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
 	
+	<h1> 매칭 하는 곳 </h1>
+	
+	<h4 align ="left"> 필터링 </h4>
+	<table>
+	<tr>
+	<td><b>견주 성별</b><td>
+	<td colspan = "2">남자<input type = "checkbox" value = "남자" name ="gender">
+	여자<input type = "checkbox" value = "여자" name ="gender"></td>
+	</tr>
+	
+	<tr>
+	<td><b>날짜와 시간</b><td>
+	<td colspan = "2"> <input type = "datetime-local"> ~ <input type = "datetime-local"></td>
+	</tr>
+	
+	<tr>
+	<td><b>반려견 크기</b><td>
+	<td colspan ="2">소형<input type = "checkbox" value = "소형" name ="dog_size">
+	중형<input type = "checkbox" value = "중형" name ="dog_size">
+	대형<input type = "checkbox" value = "대형" name ="dog_size"></td>
+	</tr>
+	
+	<tr>
+	<td><b>반려견 성별</b><td>
+	<td colspan ="2">수컷<input type = "checkbox" value = "수컷" name ="dog_gender">
+	암컷<input type = "checkbox" value = "암컷" name ="dog_gender">
+	중성<input type = "checkbox" value = "중성" name ="dog_gender"></td>
+	</tr>
+	
+	</table>
+	
 	<div class="bottombar">
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
