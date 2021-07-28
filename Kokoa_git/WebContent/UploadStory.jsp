@@ -9,51 +9,55 @@
 </head>
 <style>
 	body{
-		padding-bottom: 150px;
-		text-align: center;
-		align-content: center;
-	}
-	.topbar{
-			position: sticky;
-			top: 0;
-			background-color: #61da94;
-			height: 150px;
-			padding:20px;
-			}
-	footer{
-		position: fixed;
-		bottom: 0;
-		height: 150px;
-		width: 100%;
-		background-color: white;
-	}
-	#menu{
-		position: absolute;
-		left:25px;
-		top: 50%;
-		transform: translate(0,-50%);
-	}
-	#logo{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-	}
-	#chat{
-		position: absolute;
-		right:25px;
-		top: 50%;
-		transform: translate(0,-50%);
+      padding-bottom:150px;
+      text-align: center;
+      align-content: center;
+   }
+   header{
+      position: fixed;
+      top:0;
+      left:0;
+      background-color: #61da94;
+      height: 150px;
+      width: 100%;
+      
+   }
+   footer{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 150px;
+      width:100%;
+      background-color: white;
+   }
+   #menu{
+      position: absolute;
+      left:1%;
+      top: 50%;
+      transform: translate(0,-50%);
+   }
+   #logo{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+   }
+   #chat{
+      position: absolute;
+      right:1%;
+      top: 50%;
+      transform: translate(0,-50%);
 	}
 	.UploadStory {
-	  width: 800px;
-	  height: 700px;
-	  margin-right: auto;
-	  margin-left: auto;
-	  margin-top: 50px;
-	  padding: 20px;
-	  text-align: center;
-	  border: none;
+	    width: 800px;
+	    height: 700px;
+	    margin-right: auto;
+	    margin-left: auto;
+        margin-top: 50px;
+	    padding: 20px;
+        text-align: center;
+	    border: none;
+	    padding-top:300px;
 	    
 	}
 	.text-field {
@@ -83,21 +87,26 @@
 	  color: white;
 	}
 	.icon{
-	  text-align : left;
-	  padding:10px;
+		position:relative;
+	   	padding-top :100px;
+	   	top:50px;
+	   	left:50px;
+	}
+	.back{
+		color:black;
 	}
 </style>
 </head>
 <body>
-	<div class="topbar">
+	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-	</div>
-		<table class='icon' width="530px" align="center">
+	</header>
+		<table class="icon" align="left">
 			<tr>
 				<td>
-					<i class="fas fa-arrow-left fa-2x"><span> 스토리 작성</span></i>
+					<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-4x"><span style="font-size:45px"> 스토리 작성</span></i></a>
 				</td>
 			</tr>
 		</table>
