@@ -9,6 +9,7 @@
 </head>
 <style>
 	body{
+		padding-bottom: 150px;
 		text-align: center;
 		align-content: center;
 	}
@@ -19,10 +20,11 @@
 			height: 150px;
 			padding:20px;
 			}
-	.bottombar{
-		position: sticky;
+	footer{
+		position: fixed;
 		bottom: 0;
 		height: 150px;
+		width: 100%;
 		background-color: white;
 	}
 	#menu{
