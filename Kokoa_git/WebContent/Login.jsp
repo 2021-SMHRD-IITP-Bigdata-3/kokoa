@@ -48,7 +48,8 @@ body{
 	}
 
 	.login-form {
-	  width: 300px;
+	  width: 500px;
+	  height: 400px;
 	  margin-right: auto;
 	  margin-left: auto;
 	  margin-top: 50px;
@@ -57,7 +58,6 @@ body{
 	  border: none;
 	    
 	}
-	 
 	.text-field {
 	  font-size: 14px;
 	  padding: 10px;
@@ -66,7 +66,6 @@ body{
 	  margin-bottom: 10px;
 	 
 	}
-	 
 	.submit-btn {
 	  font-size: 14px;
 	  border: none;
