@@ -80,6 +80,12 @@
 	암컷<input type = "checkbox" value = "암컷" name ="dog_gender">
 	중성<input type = "checkbox" value = "중성" name ="dog_gender"></td>
 	</tr>
+	<tr>
+	<td>
+	<input type = "submit" value = "필터적용">
+	<input type = "reset" value = "초기화">
+	</td>
+	</tr>
 	
 	</table>
 	
