@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <style>
 	body{
+		padding-bottom: 150px;
 		text-align: center;
 		align-content: center;
 	}
@@ -18,10 +19,11 @@
 			height: 150px;
 			padding:20px;
 			}
-	.bottombar{
-		position: sticky;
+	footer{
+		position: fixed;
 		bottom: 0;
 		height: 150px;
+		width: 100%;
 		background-color: white;
 	}
 	#menu{
@@ -81,7 +83,7 @@
 	중성<input type = "checkbox" value = "중성" name ="dog_gender"></td>
 	</tr>
 	<tr>
-	<td>
+	<td colspan = "2" align = "center">
 	<input type = "submit" value = "필터적용">
 	<input type = "reset" value = "초기화">
 	</td>
@@ -89,14 +91,18 @@
 	
 	</table>
 	
-	<div class="bottombar">
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
-	</div>
+	</footer>
 
 </body>
 </html>
