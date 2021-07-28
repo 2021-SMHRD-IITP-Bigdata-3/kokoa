@@ -7,26 +7,30 @@
 <title>Insert title here</title>
 <style>
 	body{
+		padding-bottom:150px;
 		text-align: center;
 		align-content: center;
 	}
 	
-	.topbar{
-			position: sticky;
-			top: 0;
-			background-color: #61da94;
-			height: 150px;
-			padding:20px;
-			}
-	.bottombar{
-		position: sticky;
-		bottom: 0;
+	header{
+		position: fixed;
+		top:0;
+		left:0;
+		background-color: #61da94;
 		height: 150px;
+		width: 100%;
+	}
+	footer{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		height: 150px;
+		width:100%;
 		background-color: white;
 	}
 	#menu{
 		position: absolute;
-		left:25px;
+		left:1%;
 		top: 50%;
 		transform: translate(0,-50%);
 	}
@@ -38,21 +42,19 @@
 	}
 	#chat{
 		position: absolute;
-		right:25px;
+		right:1%;
 		top: 50%;
 		transform: translate(0,-50%);
 	}
 </style>
 </head>
 <body>
-		
-	
-	<div class="topbar">
+	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-	</div>
-	
+	</header>
+	<div style="width:100%; height:150px;"></div>
 	<form action="JoinServiceCon" method="POST">
 		<h1>회원가입</h1>
 		<h5 align = "left">아이디</h5>
@@ -135,7 +137,7 @@
 		<h5 align = "left">휴대전화</h5>
 		<table>
 			<tr>
-				<td><input type = "text" name ="phone"></td>
+				<td><input type = "text" name ="tel"></td>
 				<td>input type = "submit" value ="인증번호 전송"</td>
 			</tr>
 			<tr>
@@ -180,9 +182,9 @@
 			<tr>
 				<td>
 					<select name="dog_type">
-						<option value ="">견종선택</option>
-						<option value ="">그레이하운드</option>
-						<option value ="">시츄</option>
+						<option>견종선택</option>
+						<option value ="그레이하운드">그레이하운드</option>
+						<option value ="시츄">시츄</option>
 					</select>
 				</td>
 			</tr>
@@ -219,14 +221,14 @@
 		</table>
 	</form>
 	
-	<div class="bottombar">
+	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
-	</div>
+	</footer>
 
 </body>
 </html>

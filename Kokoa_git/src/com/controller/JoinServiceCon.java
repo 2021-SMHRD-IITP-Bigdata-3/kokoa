@@ -38,6 +38,17 @@ public class JoinServiceCon extends HttpServlet {
 		String dog_type = request.getParameter("dog_type");
 		
 		System.out.println(id);
+		System.out.println(nickname);
+		System.out.println(pw);
+		System.out.println(name);
+		System.out.println(age);
+		System.out.println(gender);
+		System.out.println(birth);
+		System.out.println(tel);
+		System.out.println(addr);
+		System.out.println(email);
+		System.out.println(intrd);
+		System.out.println(dog_type);
 		
 		MemberDTO dto = new MemberDTO(id,nickname,pw,name,age,gender,birth,tel,addr,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
 		MemberDAO dao = new MemberDAO();
