@@ -13,7 +13,7 @@ public class MemberDAO {
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	MemberDTO info = null;
+	String dog_type = "";
 	
 	
 	public void conn() {
