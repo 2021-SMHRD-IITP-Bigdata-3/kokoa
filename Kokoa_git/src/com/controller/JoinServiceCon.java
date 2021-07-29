@@ -66,7 +66,7 @@ public class JoinServiceCon extends HttpServlet {
 		System.out.println(intrd);
 		System.out.println(dog_type);
 		
-		MemberDTO dto = new MemberDTO(id,nickname,pw,name,age,gender,birth,tel,addr,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
+		MemberDTO dto = new MemberDTO(id,nickname,pw,name,age,gender,birth,addr,tel,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(dto);
 		
