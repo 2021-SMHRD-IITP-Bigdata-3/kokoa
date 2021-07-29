@@ -14,7 +14,7 @@ public class MemberDAO {
 	int cnt = 0;
 	ResultSet rs = null;
 	String dog_type = "";
-	
+	MemberDTO info = null;
 	
 	public void conn() {
 		try {
@@ -47,6 +47,7 @@ public class MemberDAO {
 		}
 	}
 	
+	// 회원가입
 	public int join(MemberDTO dto) {	
 		try {
 			conn();	// connect to DB
@@ -80,44 +81,66 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
-	
-	public boolean idcheck(String inputid) {
-		boolean check = false;
+	//로그인
+	public MemberDTO login(String getId, String getPw) {
 		try {
-			conn();
-			String sql ="select id from k_member where id=?";
-			
+			conn();	
+			String sql = "select * from k_member where id = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, inputid);
+			psmt.setString(1, getId);
+			psmt.setString(2, getPw);
 			rs = psmt.executeQuery();
+			
 			if(rs.next()) {
-				check = true;
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				
+				info = new MemberDTO(id,pw);
 			}
-		} catch (Exception e) {
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
-		} return check;
+		} return info;
 	}
 	
-	public boolean nickcheck(String inputnickname) {
-		boolean check = false;
-		try {
-			conn();
-			String sql ="select nickname from k_member where nickname=?";
-			
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, inputnickname);
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				check = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		} return check;
-	}
+   public boolean idcheck(String inputid) {
+	      boolean check = false;
+	      try {
+	         conn();
+	         String sql ="select id from k_member where id=?";
+	         
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, inputid);
+	         rs = psmt.executeQuery();
+	         if(rs.next()) {
+	            check = true;
+	         }
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      } return check;
+	  }
 
+   public boolean nickcheck(String inputnickname) {
+	      boolean check = false;
+	      try {
+	         conn();
+	         String sql ="select nickname from k_member where nickname=?";
+	         
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, inputnickname);
+	         rs = psmt.executeQuery();
+	         if(rs.next()) {
+	            check = true;
+	         }
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      } return check;
+	 }
 }
 
