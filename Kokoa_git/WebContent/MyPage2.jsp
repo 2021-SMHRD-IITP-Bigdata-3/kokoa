@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -62,6 +63,12 @@
 </style>
 </head>
 <body>
+
+	<%
+     // 로그인 정보 받아오기
+     MemberDTO info = (MemberDTO)session.getAttribute("info");
+	
+   	%>
 	
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>

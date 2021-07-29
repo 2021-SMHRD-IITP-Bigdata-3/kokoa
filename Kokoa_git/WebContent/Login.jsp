@@ -96,9 +96,9 @@
 	</header>
 	<div class="login-form">
 	<h1 style="color:gray">ID 로그인</h1>
-    <form>
+    <form action="LoginServiceCon" method="post">
       <input type="text" name="id" class="text-field" placeholder="아이디">
-      <input type="password" name="password" class="text-field" placeholder="비밀번호">
+      <input type="password" name="pw" class="text-field" placeholder="비밀번호">
       <input type="submit" value="로그인" class="submit-btn">
     </form>
  
