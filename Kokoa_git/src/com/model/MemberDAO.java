@@ -142,5 +142,31 @@ public class MemberDAO {
             close();
          } return check;
     }
+
+   public int update(MemberDTO dto) {
+	   try {
+	   conn();
+	   String sql = "update k_member set nickname=?, pw=?, email=?, addr=?, tel=?, intrd=?, dog_name=?, dog_gender=?, dog_pic=?";
+	   
+	   psmt = conn.prepareStatement(sql);
+	   
+	   psmt.setString(1, dto.getId());
+	   psmt.setString(2, dto.getPw());
+	   psmt.setString(3, dto.getEmail());
+	   psmt.setString(4, dto.getAddr());
+	   psmt.setString(5, dto.getTel());
+	   psmt.setString(6, dto.getIntrd());
+	   psmt.setString(7, dto.getDog_name());
+	   psmt.setString(8, dto.getDog_gender());
+	   psmt.setString(9, dto.getDog_pic());
+	   
+	   cnt = psmt.executeUpdate();
+	   
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	} return cnt;
+   }
 }
 

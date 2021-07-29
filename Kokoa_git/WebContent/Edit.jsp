@@ -149,12 +149,7 @@
 					<td><input type="submit" value="사진업로드"></td>
 				</tr>
 				
-				<tr>
-					<td>반려견 소개글</td>
-					<td>
-					<textarea rows ="10" cols = "20" name="dog_intrd"></textarea>
-				</td>
-				</tr>
+			
 				
 				<tr >
 					<td>
