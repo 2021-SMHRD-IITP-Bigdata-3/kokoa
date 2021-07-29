@@ -61,7 +61,7 @@
 		<table>
 			<tr>
 				<td><input type = "text" name ="id" placeholder = "아이디를 입력해주세요"></td>
-				<td>input type = "submit" value = "중복확인"</td>
+				<td><input type = "submit" value = "중복확인"></td>
 			</tr>
 		</table>
 	
@@ -83,7 +83,7 @@
 		<table>
 			<tr>
 				<td><input type = "text" name ="nickname" placeholder = "닉네임을 입력해주세요"></td>
-				<td>input type = "submit" value = "중복확인"</td>
+				<td><input type = "submit" value = "중복확인"></td>
 			</tr>
 		</table>
 		
@@ -120,7 +120,7 @@
 		<table>
 			<tr>
 				<td><input type = "text" name ="addr"></td>
-				<td>input type = "submit" value ="주소찾기"</td>
+				<td><input type = "submit" value ="주소찾기"></td>
 			</tr>
 			<tr>
 				<td><input type = "text" id ="addr_detail" placeholder = "상세주소를 입력해주세요"></td>
@@ -137,8 +137,13 @@
 		<h5 align = "left">휴대전화</h5>
 		<table>
 			<tr>
+<<<<<<< HEAD
+				<td><input type = "text" name ="phone"></td>
+				<td><input type = "submit" value ="인증번호 전송"></td>
+=======
 				<td><input type = "text" name ="tel"></td>
 				<td>input type = "submit" value ="인증번호 전송"</td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git
 			</tr>
 			<tr>
 				<td><input type = "text" id ="permission" placeholder = "인증번호를 입력해주세요"></td>
@@ -210,7 +215,7 @@
 		<table>
 			<tr>
 				<td><input type = "text" name ="dog_num"></td>
-				<td>input type = "submit" value ="반려견 인증"</td>
+				<td><input type = "submit" value ="반려견 인증"></td>
 			</tr>
 		</table>
 			
