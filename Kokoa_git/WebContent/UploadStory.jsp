@@ -20,7 +20,6 @@
       background-color: #61da94;
       height: 150px;
       width: 100%;
-      
    }
    footer{
       position: fixed;
@@ -58,7 +57,6 @@
         text-align: center;
 	    border: none;
 	    padding-top:300px;
-	    
 	}
 	.text-field {
 	  font-size: 14px;
@@ -66,7 +64,6 @@
 	  border: a3a3a3;
 	  width: 500px;
 	  margin-bottom: 10px;
-	 
 	}
 	.text-field2 {
 	  font-size: 14px;
@@ -75,7 +72,6 @@
 	  width: 500px;
 	  height: 400px;
 	  margin-bottom: 10px;
-	 
 	}
 	.submit-btn {
 	  font-size: 14px;
@@ -93,7 +89,9 @@
 	   	left:50px;
 	}
 	.back{
+		position:fixed;
 		color:black;
+		z-index:1;
 	}
 </style>
 </head>
@@ -102,12 +100,11 @@
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-<<<<<<< HEAD
 	</header>
 		<table class="icon" align="left">
 			<tr>
 				<td>
-					<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-4x"><span style="font-size:45px"> 스토리 작성</span></i></a>
+					<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-3x"><span style="font-size:30px"> 스토리 작성</span></i></a>
 				</td>
 			</tr>
 		</table>
@@ -120,11 +117,6 @@
     	</form>
     </div>
 	<footer>
-=======
-	</div>
-
-	<div class="bottombar">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>

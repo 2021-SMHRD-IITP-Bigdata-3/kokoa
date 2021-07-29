@@ -105,6 +105,7 @@
 		left:100px;
 	}
 	.back{
+		position:fixed;
 		color:black;
 	}
 	.write{
@@ -113,7 +114,6 @@
 		right:120px;
 		bottom:180px;
 		color:#61da94;
-		
 	}
 </style>
 <body>
