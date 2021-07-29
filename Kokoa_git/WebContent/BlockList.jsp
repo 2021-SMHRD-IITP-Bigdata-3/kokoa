@@ -62,7 +62,7 @@
 	   		top:50px;
 	   		left:50px;
 	   		padding-top:150px;
-	   		color:black;
+	   		color:#61da94;
 	   }
 	   .fas.fa-user-minus.fa-3x{
 	   		position:relative;

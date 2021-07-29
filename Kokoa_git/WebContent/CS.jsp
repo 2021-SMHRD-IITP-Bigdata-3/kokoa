@@ -93,7 +93,7 @@
 	   	left:50px;
 	}
 	.back{
-		color : black;
+		color : #61da94;
 	}
 </style>
 </head>

@@ -106,7 +106,7 @@
 	}
 	.back{
 		position:fixed;
-		color:black;
+		color:#61da94;
 	}
 	.write{
 		position:fixed;
@@ -131,7 +131,7 @@
 		</table>
     <div id="wrap">
         <ul id="gallery">
-            <a href=""><li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbbI251%2FbtqKNniGrDp%2Fd0Z9B1ozCZH3MgkE5PKVzK%2Fimg.jpg"></li></a>
+            <a href="#" onclick="location.href='Stories.jsp'"><li><img src="icons/event.jpg"></li></a>
             <a href=""><li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FSoosf%2FbtqKylmt39P%2FXOeIq8efKda6RoULEZs5s1%2Fimg.jpg"></li></a>
             <a href=""><li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwWksO%2FbtqKIpoe0tj%2FP9MNYIjy9DEYhOjC1X5kmK%2Fimg.jpg"></li></a>
             <a href=""><li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FqENoA%2FbtqKJ1gmhTS%2Fyw7thwnctobZmhwhmvKBF0%2Fimg.jpg"></li></a>

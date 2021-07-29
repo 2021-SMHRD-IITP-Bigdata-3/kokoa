@@ -90,7 +90,7 @@
 	}
 	.back{
 		position:fixed;
-		color:black;
+		color:#61da94;
 		z-index:1;
 	}
 </style>
