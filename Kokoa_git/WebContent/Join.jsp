@@ -112,11 +112,7 @@
       <h5 align = "left">주소</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="addr"></td>
-            <td>input type = "submit" value ="주소찾기"</td>
-         </tr>
-         <tr>
-            <td><input type = "text" id ="addr_detail" placeholder = "상세주소를 입력해주세요"></td>
+            <td><input style="width: 400px;" id="member_addr" name="addr" type="text" placeholder="주소" readonly onclick="findAddr()"></td>
          </tr>
       </table>
       
@@ -131,10 +127,6 @@
       <table>
          <tr>
             <td><input type = "text" name ="tel"></td>
-            <td>input type = "submit" value ="인증번호 전송"</td>
-         </tr>
-         <tr>
-            <td><input type = "text" id ="permission" placeholder = "인증번호를 입력해주세요"></td>
          </tr>
       </table>
       
@@ -203,7 +195,6 @@
       <table>
          <tr>
             <td><input type = "text" name ="dog_num"></td>
-            <td>input type = "submit" value ="반려견 인증"</td>
          </tr>
       </table>
          
@@ -222,6 +213,26 @@
       <a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
       <a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
    </footer>
-
+	<script>
+	function findAddr(){
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	
+	        	console.log(data);
+	        	
+	            var roadAddr = data.roadAddress; // 도로명 주소 변수
+	            var jibunAddr = data.jibunAddress; // 지번 주소 변수
+	            
+	            if(roadAddr !== ''){
+	                document.getElementById("member_addr").value = roadAddr;
+	            } 
+	            else if(jibunAddr !== ''){
+	                document.getElementById("member_addr").value = jibunAddr;
+	            }
+	        }
+	    }).open();
+	}
+	</script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>
