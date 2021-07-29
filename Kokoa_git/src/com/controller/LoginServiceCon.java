@@ -27,11 +27,11 @@ public class LoginServiceCon extends HttpServlet {
 	         System.out.println("로그인 성공");
 	         HttpSession session = request.getSession();
 	         session.setAttribute("info", info);
-	         response.sendRedirect("Mypage2.jsp");
+	         response.sendRedirect("MyPage2.jsp");
 	        
 	    }else {
 	         System.out.println("로그인 실패");
-	         response.sendRedirect("Mypage.jsp");
+	         response.sendRedirect("MyPage.jsp");
 	    }
 
 	}
