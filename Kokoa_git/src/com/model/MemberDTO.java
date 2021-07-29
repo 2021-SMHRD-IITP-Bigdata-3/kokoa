@@ -45,6 +45,7 @@ public class MemberDTO {
 		this.dog_type = dog_type;
 	}
 	
+	
 	public String getId() {
 		return id;
 	}

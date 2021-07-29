@@ -6,6 +6,11 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
+	body{
+		padding-bottom: 150px;
+		text-align: center;
+		align-content: center;
+		}
 	
 	.topbar{
 			position: sticky;
@@ -15,10 +20,11 @@
 			padding:20px;
 			}
 	
-	.bottombar{
-		position: sticky;
+	footer{
+		position: fixed;
 		bottom: 0;
 		height: 150px;
+		width: 100%;
 		background-color: white;
 		
 	
@@ -60,7 +66,6 @@
 	}
 	input{	
 		font-size: 20px;
-		align:center;
 	}
 	
 </style>
@@ -77,14 +82,14 @@
 		<h1 id="title"><button type="button" id="backbtn"> ← </button> 회원정보수정 </h1>
 	</div>
 	
-	<form  action="" name="">
+	<form  action="" name="" >
 		<div class="join">
 			<table>
 				
 				<tr>
 					<td>닉네임</td>
 					<td><input type="text" id="id" name="nickname"></td>
-					<td> <button id=""> 중복확인 </button></td>
+					<td><input type="submit" value="중복확인"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -96,7 +101,7 @@
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td><input type="text" id="firstmail" name="firstmail">@<select id="mail" name="mail" size="1">
+					<td><input type="text" id="firstmail" name="firstmail">@<select id="lattermail" name="mail" size="1">
 							<option value="">선택하세요</option>
 							<option value="gmail">gmail.com</option>
 							<option value="naver">naver.com</option>
@@ -107,7 +112,7 @@
 				<tr>
 					<td>주소</td>
 					<td><input type="text" id="firstaddr" name="firstaddr"> 상세주소 <input type="text" id="lastaddr" name="lastaddr"></td>
-					<td> <button id="find" name="find"> 주소찾기 </button></td>
+					<td><input type="submit" value="주소찾기"></td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
@@ -116,7 +121,9 @@
 				
 				<tr>
 					<td>소개글</td>
-					<td><input type="text" id="intrd" name="intrd" ></td>
+					<td>
+					<textarea rows ="10" cols = "20" name="intrd"></textarea>
+				</td>
 				</tr>
 				
 				<tr>
@@ -139,32 +146,33 @@
 				<tr>
 					<td>반려견 사진</td>
 					<td><input type="text" id="dog_pic" name="dog_pic"></td>
-					<td> <button id="dog_pic"> 사진업로드 </button></td>
+					<td><input type="submit" value="사진업로드"></td>
 				</tr>
 				
 				<tr>
 					<td>반려견 소개글</td>
-					<td><input type="text" id="dog_intrd" name="dog_intrd" ></td>
+					<td>
+					<textarea rows ="10" cols = "20" name="dog_intrd"></textarea>
+				</td>
 				</tr>
 				
 				<tr >
 					<td>
-					<button id=" " name=" "> 회원정보수정 </button>
+					<input type="submit" value="회원정보수정">
 					</td>
 				</tr>
 				
 				</table>
 				</div>
-				
-				
+	</form>
 	
-	<div class="bottombar">
+	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="160px"></a>
-	</div>
+	</footer>
 </body>
 </html>

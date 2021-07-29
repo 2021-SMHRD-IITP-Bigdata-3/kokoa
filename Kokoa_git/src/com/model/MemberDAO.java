@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.model.MemberDTO;
 
@@ -50,6 +51,7 @@ public class MemberDAO {
 		try {
 			conn();	// connect to DB
 			String sql = "insert into k_member values(mem_num_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getNickname());
@@ -78,4 +80,7 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
+	
+
 }
+
