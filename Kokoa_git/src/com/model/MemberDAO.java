@@ -81,6 +81,43 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	public boolean idcheck(String inputid) {
+		boolean check = false;
+		try {
+			conn();
+			String sql ="select id from k_member where id=?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, inputid);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				check = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return check;
+	}
+	
+	public boolean nickcheck(String inputnickname) {
+		boolean check = false;
+		try {
+			conn();
+			String sql ="select nickname from k_member where nickname=?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, inputnickname);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				check = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return check;
+	}
 
 }
 
