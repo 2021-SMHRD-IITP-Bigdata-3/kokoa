@@ -55,14 +55,13 @@
       <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
    </header>
    <div style="width:100%; height:150px;"></div>
-   <form action="JoinServiceCon" method="post">
+   <form action="JoinServiceCon" method="POST">
       <h1>회원가입</h1>
       <h5 align = "left">아이디</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="id" placeholder = "아이디를 입력해주세요" onkeydown="inputIdCk()"></td>
-            <td><input type = "submit" value = "중복확인" onclick="openIdCk()"></td>
-            <td><input type = "hidden" name="idDuplication" value="idUncheck"></td>
+            <td><input type = "text" name ="checkid" placeholder = "아이디를 입력해주세요"></td>
+            <td><input type = "button" value = "중복확인" onclick='window.open("IdCheck/IdCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
          </tr>
       </table>
    
@@ -72,19 +71,12 @@
             <td><input type = "password" name ="pw" placeholder = "비밀번호를 입력해주세요"></td>
          </tr>
       </table>
-      
-      <h5 align = "left">비밀번호 재확인</h5>
-      <table>
-         <tr>
-            <td><input type = "password" placeholder = "비밀번호를 재입력해주세요"></td>
-         </tr>
-      </table>
-      
+            
       <h5 align = "left">닉네임</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="nickname" placeholder = "닉네임을 입력해주세요"></td>
-            <td>input type = "submit" value = "중복확인"</td>
+            <td><input type = "text" name ="checknick" placeholder = "닉네임을 입력해주세요"></td>
+            <td><input type = "button" value = "중복확인" onclick='window.open("NickCheck/NickCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
          </tr>
       </table>
       
@@ -232,4 +224,4 @@
    </footer>
 
 </body>
-</html>
+</html></html>
