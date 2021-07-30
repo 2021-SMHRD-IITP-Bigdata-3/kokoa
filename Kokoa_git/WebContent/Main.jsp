@@ -6,22 +6,25 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
-	.topbar{
-		position: sticky;
-		top: 0;
-		background-color: #61da94;
-		height: 150px;
-		padding:20px;
-	}
+	header{
+      position: fixed;
+      top:0;
+      left:0;
+      background-color: #61da94;
+      height: 150px;
+      width: 100%;
+   }
+   footer{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 150px;
+      width:100%;
+      background-color: white;
+   }
 	.banner{
 		margin: 50px;
 		width: 900px;
-	}
-	.bottombar{
-		position: sticky;
-		bottom: 0;
-		height: 150px;
-		background-color: white;
 	}
 	#menu{
 		position: absolute;
@@ -44,11 +47,11 @@
 </style>
 </head>
 <body>
-	<div class="topbar">
-		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
-		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-	</div>
+	<header>
+      <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
+      <a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+      <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
+   </header>
 	<div class="banner" style="margin-top:150px;">
 		<a href="Matching.jsp"><img src="icons/puppy.jpg" width="800px" height="500px"></a>
 	</div>
@@ -63,13 +66,13 @@
 		<h1 style="font-size:60px">신규 등록 물품
 		<input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;" onclick="location.href='FleaMarket.jsp'"></h1>
 	</div>
-	<div class="bottombar">
-		<hr>
-		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
-		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
-		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
-		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="160px"></a>
-	</div>
+	<footer>
+      <hr>
+      <a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
+      <a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
+      <a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
+      <a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
+      <a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
+   </footer>
 </body>
 </html>
