@@ -134,10 +134,8 @@
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
 	var linePath = [];
-	
-	getLoc();
-	
-	function getLoc(){// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+	getLoc(true);
+	function getLoc(bool){// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 		if (navigator.geolocation) {
 		    
 		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -150,8 +148,13 @@
 		            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
 		        
 		        // 마커와 인포윈도우를 표시합니다
-		        displayMarker(locPosition, message);
-		        tracker(lat,lon);
+		        if(bool){
+			        displayMarker(locPosition, message);
+			        tracker(lat,lon);
+		        } else{
+		        	tracker(lat,lon);
+		        	map.setCenter(locPosition);
+		        }
 		      });
 		    
 		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -205,7 +208,7 @@
 	    polyline.setMap(map);
 	}
 	
-	// 타이머
+	// 타이머	
 	var stTime = 0
 	var endTime = 0
 	var timerStart
@@ -218,8 +221,8 @@
 	
 	startBtn.addEventListener('click', function() {
 		// RECORD
-		setInterval(function(){
-			getLoc();
+		updateMap = setInterval(function(){
+			getLoc(false);
 		},1000);
 		if(this.innerText == 'RECORD' && milisec) {
 			console.log(min, sec, milisec)
@@ -252,24 +255,26 @@
 	})
 	
 	stopBtn.addEventListener('click', function() {
+		clearInterval(updateMap);
+		getLoc(true);
 		if(timerStart) {
 			clearInterval(timerStart) // STOP
 			if(this.innerText == 'STOP') {
-			endTime = Date.now()
-			this.innerText = 'RESET'
-			startBtn.innerText = 'RESTART'
+				endTime = Date.now()
+				this.innerText = 'RESET'
+				startBtn.innerText = 'RESTART'
 			} else { // RESET
-			stTime = 0
-			min = 0
-			sec = 0
-			milisec = 0
-			document.getElementById('postTestMin').innerText = '00'
-			document.getElementById('postTestSec').innerText = '00'
-			document.getElementById('postTestMilisec').innerText = '00'
-			startBtn.innerText = 'START'
-			this.innerText = 'STOP'
-			timerStart = null
-			recordList.innerHTML = ''
+				stTime = 0
+				min = 0
+				sec = 0
+				milisec = 0
+				document.getElementById('postTestMin').innerText = '00'
+				document.getElementById('postTestSec').innerText = '00'
+				document.getElementById('postTestMilisec').innerText = '00'
+				startBtn.innerText = 'START'
+				this.innerText = 'STOP'
+				timerStart = null
+				recordList.innerHTML = ''
 			}
 		}
 	})
