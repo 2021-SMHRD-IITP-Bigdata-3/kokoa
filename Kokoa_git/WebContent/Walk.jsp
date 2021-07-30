@@ -91,9 +91,6 @@
 		cursor: pointer;
 	}
 </style>
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="Stopwatch.js"></script>
 </head>
 <body>
 	
@@ -109,44 +106,65 @@
 		<br><br><br>
 	</div>
 	<div id="map" style="width:100%;height:500px;"></div>
+	<div>
+	<div>
+	<span id="postTestMin">00</span><!-- 분 -->
+	<span>:</span>
+	<span id="postTestSec">00</span><!--초-->
+	<span>.</span>
+	<span id="postTestMilisec">00</span><!--밀리초-->
+	</div>
+	<div>
+	<ul id="testRecordList"></ul><!--중간 기록할 리스트-->
+	</div>
+	<div>
+	<button type="button" id="testStartBtn">START</button><!--시작/재시작/기록 버튼-->
+	<button type="button" id="testStopBtn">STOP</button><!--스톱 버튼-->
+	</div>
+	</div>
+
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951"></script>
 	<script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
 	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-	        level: 10 // 지도의 확대 레벨 
+	        level: 3 // 지도의 확대 레벨 
 	    }; 
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
-	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-	if (navigator.geolocation) {
-	    
-	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-	    navigator.geolocation.getCurrentPosition(function(position) {
-	        
-	        var lat = position.coords.latitude, // 위도
-	            lon = position.coords.longitude; // 경도
-	        
-	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-	            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
-	        
-	        // 마커와 인포윈도우를 표시합니다
-	        displayMarker(locPosition, message);
-	            
-	      });
-	    
-	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-	    
-	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
-	        message = 'geolocation을 사용할수 없어요..'
-	        
-	    displayMarker(locPosition, message);
-	}
+	var linePath = [];
 	
+	getLoc();
+	
+	function getLoc(){// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+		if (navigator.geolocation) {
+		    
+		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		        
+		        var lat = position.coords.latitude, // 위도
+		            lon = position.coords.longitude; // 경도
+		        
+		        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+		        
+		        // 마커와 인포윈도우를 표시합니다
+		        displayMarker(locPosition, message);
+		        tracker(lat,lon);
+		      });
+		    
+		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+		    
+		    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+		        message = 'geolocation을 사용할수 없어요..'
+		        
+		    displayMarker(locPosition, message);
+		}
+	}
 	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
 	function displayMarker(locPosition, message) {
-	
+		
 	    // 마커를 생성합니다
 	    var marker = new kakao.maps.Marker({  
 	        map: map, 
@@ -166,22 +184,100 @@
 	    infowindow.open(map, marker);
 	    
 	    // 지도 중심좌표를 접속위치로 변경합니다
-	    map.setCenter(locPosition);      
-	}    
-	</script>
-	<br><br><br><br>
-	<div id='box' class="box">
-		<div id='timerBox' class="timerBox">
-			<div class="timerBox"><p style="font-size:30px">산책 타이머<p></div>
-			<div id="time" class="time">00:00:00</div>
-		</div>
-		<div class="btnBox">
-			<i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
-			<i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
-			<i id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
-		</div>
-	</div>
+	    map.setCenter(locPosition);
+	    
 
+	}
+	
+	function tracker(lat, lon){
+	    linePath.push(new kakao.maps.LatLng(lat,lon));
+
+	    // 지도에 표시할 선을 생성합니다
+	    var polyline = new kakao.maps.Polyline({
+	        path: linePath, // 선을 구성하는 좌표배열 입니다
+	        strokeWeight: 5, // 선의 두께 입니다
+	        strokeColor: '#FFAE00', // 선의 색깔입니다
+	        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	        strokeStyle: 'solid' // 선의 스타일입니다
+	    });
+
+	    // 지도에 선을 표시합니다 
+	    polyline.setMap(map);
+	}
+	
+	// 타이머
+	var stTime = 0
+	var endTime = 0
+	var timerStart
+	var min
+	var sec
+	var milisec
+	var startBtn = document.getElementById('testStartBtn')
+	var stopBtn = document.getElementById('testStopBtn')
+	var recordList = document.getElementById('testRecordList')
+	
+	startBtn.addEventListener('click', function() {
+		// RECORD
+		setInterval(function(){
+			getLoc();
+		},1000);
+		if(this.innerText == 'RECORD' && milisec) {
+			console.log(min, sec, milisec)
+			var li = document.createElement('li')
+			li.style.color = "black"
+			li.innerText = min + ' : ' + sec + ' : ' + milisec
+			if(! recordList.firstChild) {
+				recordList.append(li)
+			} else {
+				recordList.insertBefore(li, recordList.firstChild)
+			}
+			return false
+		}
+		this.innerText = 'RECORD'
+		if(!stTime) {
+			stTime = Date.now() // 최초 START
+		} else {
+			stopBtn.innerText = 'STOP'
+			stTime += (Date.now() - endTime) // RESTART
+		}
+		timerStart = setInterval(function() {
+			var nowTime = new Date(Date.now() - stTime)
+			min = addZero(nowTime.getMinutes())
+			sec = addZero(nowTime.getSeconds())
+			milisec = addZero(Math.floor(nowTime.getMilliseconds() / 10))
+			document.getElementById('postTestMin').innerText = min
+			document.getElementById('postTestSec').innerText = sec
+			document.getElementById('postTestMilisec').innerText = milisec
+		}, 1)
+	})
+	
+	stopBtn.addEventListener('click', function() {
+		if(timerStart) {
+			clearInterval(timerStart) // STOP
+			if(this.innerText == 'STOP') {
+			endTime = Date.now()
+			this.innerText = 'RESET'
+			startBtn.innerText = 'RESTART'
+			} else { // RESET
+			stTime = 0
+			min = 0
+			sec = 0
+			milisec = 0
+			document.getElementById('postTestMin').innerText = '00'
+			document.getElementById('postTestSec').innerText = '00'
+			document.getElementById('postTestMilisec').innerText = '00'
+			startBtn.innerText = 'START'
+			this.innerText = 'STOP'
+			timerStart = null
+			recordList.innerHTML = ''
+			}
+		}
+	})
+	function addZero(num) {
+		return (num < 10 ? '0'+num : ''+num)
+	}
+
+	</script>
 	<footer>
       <hr>
       <a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
