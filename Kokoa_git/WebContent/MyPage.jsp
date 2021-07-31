@@ -53,9 +53,7 @@
 </style>
 </head>
 <body>
-	<%MemberDTO info = (MemberDTO)session.getAttribute("info");
-		System.out.print(info.getDog_pic());
-	%>
+	<%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
 	<div class="topbar">
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
