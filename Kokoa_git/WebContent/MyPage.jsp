@@ -64,7 +64,7 @@
 	<%if(info != null){ %>
 		<div>
 			<div>
-				<img src="<%=info.getDog_pic() %>" style=""><br>
+				<img src="img/<%=info.getDog_pic() %>" style=""><br>
 				<p style="font-size:50px"><%=info.getNickname() %></p>
 			</div>
 			<div>
