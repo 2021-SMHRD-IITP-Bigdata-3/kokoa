@@ -11,7 +11,7 @@
 	body{
       padding-bottom:150px;
       position:relative;
-	  padding-bottom:150px;
+	  padding-top:150px;
 	  top:150px;
 	  text-align:center;
    }
@@ -50,47 +50,87 @@
       top: 50%;
       transform: translate(0,-50%);
    }
- 	.back{
-  		position:fixed;
-  		top:20px;
-  		left:40px;
-  		padding-top:150px;
-  		color:#61da94;
+    .answer {
+    display: none;
+    padding-bottom: 30px;
+  }
+  #faq-title {
+    font-size: 25px;
+  }
+  .faq-content {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .question {
+    font-size: 19px;
+    padding: 30px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    text-align: center;
+  }
+  .question:hover {
+    color: #61da94;
+  }
+  [id$="-toggle"] {
+    margin-right: 15px;
+  }
+  .back{
+	position:fixed;
+	top:20px;
+	left:40px;
+	padding-top:150px;
+	color:#61da94;
+  }
 </style>
 </head>
 <body>
 	<header>
-      <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-      <a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
-      <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-   </header>
-	<div>
-		<a class="back" href="#" onclick="location.href='MyPage2.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 공지사항</span></i></a>
+		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
+		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
+	</header>
+	<div class="wrap">
+		<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 공지사항</span></i></a>
 	</div>
-	<div>
-		<ul style="list-style:none">
-			<li>여름과 함께 찾아온 9.4 업데이트</li>
-			<details>
-			   <summary>Click Me!</summary>
-			   <p>details, summary 같이 적용</p>
-			</details>
-		</ul>
+	
+	<div class="faq-content">
+	  <button class="question" id="que-1"><span id="que-1-toggle">+</span><span>공지사항</span></button>
+	  <div class="answer" id="ans-1">공지사항</div>
 	</div>
-	<div>
-		<ul>
-			<li>벌써 2021년의 네번째 업데이트 9.3 업데이트</li>
-		</ul>
+	<div class="faq-content">
+	  <button class="question" id="que-2"><span id="que-2-toggle">+</span><span>홈페이지 수정 v1.1</span></button>
+	  <div class="answer" id="ans-2">수정됐습니다</div>
 	</div>
-	<div>
-		<ul>
-			<li>꼭 읽어주세요. 오픈채팅 변경사항</li>
-		</ul>
+	<div class="faq-content">
+	  <button class="question" id="que-3"><span id="que-3-toggle">+</span><span>홈페이지 수정 v1.2</span></button>
+	  <div class="answer" id="ans-3">수정됐습니다</div>
 	</div>
-	<div>
-		<ul>
-			<li>봄과 함께 찾아온 9.2 업데이트</li>
-		</ul>
+	<div class="faq-content">
+	  <button class="question" id="que-4"><span id="que-4-toggle">+</span><span>홈페이지 수정 v1.3</span></button>
+	  <div class="answer" id="ans-4">수정됐습니다</div>
 	</div>
+
+
+	<script>
+	  const items = document.querySelectorAll('.question');
+	
+	  function openCloseAnswer() {
+	    const answerId = this.id.replace('que', 'ans');
+	
+	    if(document.getElementById(answerId).style.display === 'block') {
+	      document.getElementById(answerId).style.display = 'none';
+	      document.getElementById(this.id + '-toggle').textContent = '+';
+	    } else {
+	      document.getElementById(answerId).style.display = 'block';
+	      document.getElementById(this.id + '-toggle').textContent = '-';
+	    }
+	  }
+	
+	  items.forEach(item => item.addEventListener('click', openCloseAnswer));
+	</script>
+	
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
