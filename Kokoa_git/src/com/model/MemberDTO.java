@@ -2,7 +2,7 @@ package com.model;
 
 public class MemberDTO {
 	
-	private String mem_num;
+	private int mem_num;
 	private String id;
 	private String nickname;
 	private String pw;
@@ -22,7 +22,7 @@ public class MemberDTO {
 	private String dog_size;
 	private String dog_type;
 
-	public MemberDTO(String mem_num, String id, String nickname, String pw, String name, int age, String gender,
+	public MemberDTO(int mem_num, String id, String nickname, String pw, String name, int age, String gender,
 			String birth, String addr, String tel, String email, String intrd, String dog_name, int dog_age,
 			String dog_gender, String dog_pic, int dog_num, String dog_size, String dog_type) {
 		super();
@@ -77,7 +77,7 @@ public class MemberDTO {
 		this.pw = pw;
 	}
 	
-	public MemberDTO(String mem_num, String id, String nickname) {
+	public MemberDTO(int mem_num, String id, String nickname) {
 		super();
 		this.mem_num = mem_num;
 		this.id = id;
@@ -99,11 +99,11 @@ public class MemberDTO {
 		this.dog_pic = dog_pic;
 	}
 	
-	public String getMem_num() {
+	public int getMem_num() {
 		return mem_num;
 	}
 
-	public void setMem_num(String mem_num) {
+	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
 

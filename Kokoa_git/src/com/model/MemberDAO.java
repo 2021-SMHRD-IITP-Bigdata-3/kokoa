@@ -109,17 +109,33 @@ public class MemberDAO {
    public MemberDTO sess(String getId) {
 	      try {
 	         conn();   
-	         String sql = "select mem_num, id, nickname from k_member where id = ?";
+	         String sql = "select * from k_member where id = ?";
 	         psmt = conn.prepareStatement(sql);
 	         psmt.setString(1, getId);
 	         rs = psmt.executeQuery();
 	         
 	         if(rs.next()) {
-	            String mem_num = rs.getString(1);
+	            int mem_num = rs.getInt(1);
 	            String id = rs.getString(2);
 	            String nickname = rs.getString(3);
+	            String pw = rs.getString(4);
+	            String name = rs.getString(5);
+	            int age = rs.getInt(6);
+	            String gender = rs.getString(7);
+	            String birth = rs.getString(8);
+	            String addr = rs.getString(9);
+	            String tel = rs.getString(10);
+	            String email = rs.getString(11);
+	            String intrd = rs.getString(12);
+	            String dog_name = rs.getString(13);
+	            int dog_age = rs.getInt(14);
+	            String dog_gender = rs.getString(15);
+	            String dog_pic = rs.getString(16);
+	            int dog_num = rs.getInt(17);
+	            String dog_size = rs.getString(18);
+	            String dog_type = rs.getString(19);
 	            
-	            info = new MemberDTO(mem_num, id, nickname);
+	            info = new MemberDTO(mem_num, id, nickname, pw, name, age, gender, birth, addr, tel, email, intrd, dog_name, dog_age, dog_gender, dog_pic, dog_num, dog_size, dog_type);
 	         }
 	         
 	      } catch (SQLException e) {

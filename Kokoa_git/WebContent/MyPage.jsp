@@ -53,7 +53,9 @@
 </style>
 </head>
 <body>
-	<%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
+	<%MemberDTO info = (MemberDTO)session.getAttribute("info");
+		System.out.print(info.getDog_pic());
+	%>
 	<div class="topbar">
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -62,13 +64,25 @@
 	<%if(info != null){ %>
 		<div>
 			<div>
-				<img src="icons/profile.png" style=""><br>
+				<img src="<%=info.getDog_pic() %>" style=""><br>
 				<p style="font-size:50px"><%=info.getNickname() %></p>
 			</div>
 			<div>
-				<button type="button" onClick="location.href='LogoutServiceCon'">로그아웃</button>
+			
+				<button type="button" onClick="location.href='CS.jsp'">고객의소리</button>				
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='Edit.jsp'">회원정보수정</button>
+				<button type="button" onClick="location.href='Edit.jsp'">회원정보수정</button>	
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" onClick="location.href='Notice.jsp'">공지사항</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" onClick="location.href='BlockList.jsp'">차단목록</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;															
+				<button type="button" onClick="location.href='FAQ.jsp'">자주묻는질문</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" onClick="location.href='LogoutServiceCon'">로그아웃</button>
+				
+				
+				
 			</div>
 		</div>
 	<%} else{ %>
