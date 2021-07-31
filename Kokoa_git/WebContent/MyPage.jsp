@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -52,15 +53,23 @@
 </style>
 </head>
 <body>
-	<%String info = ""; %>
+	<%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
 	<div class="topbar">
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-	<%if(info != ""){ %>
+	<%if(info != null){ %>
 		<div>
-			
+			<div>
+				<img src="icons/profile.png" style=""><br>
+				<p style="font-size:50px"><%=info.getNickname() %>.</p>
+			</div>
+			<div>
+				<button type="button" onClick="location.href='Login.jsp'">로그인</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" onClick="location.href='Join.jsp'">회원가입</button>
+			</div>
 		</div>
 	<%} else{ %>
 		<div>

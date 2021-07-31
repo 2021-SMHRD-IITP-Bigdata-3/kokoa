@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.model.MemberDTO;
 
@@ -85,7 +86,7 @@ public class MemberDAO {
    public MemberDTO login(String getId, String getPw) {
       try {
          conn();   
-         String sql = "select * from k_member where id = ? and pw = ?";
+         String sql = "select id,pw from k_member where id = ? and pw = ?";
          psmt = conn.prepareStatement(sql);
          psmt.setString(1, getId);
          psmt.setString(2, getPw);
@@ -104,6 +105,29 @@ public class MemberDAO {
          close();
       } return info;
    }
+   
+   public MemberDTO sess(String getId) {
+	      try {
+	         conn();   
+	         String sql = "select mem_num, id, nickname from k_member where id = ?";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, getId);
+	         rs = psmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            String mem_num = rs.getString(1);
+	            String id = rs.getString(2);
+	            String nickname = rs.getString(3);
+	            
+	            info = new MemberDTO(mem_num, id, nickname);
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      } return info;
+	   }
    
    public boolean idcheck(String inputid) {
          boolean check = false;
@@ -142,15 +166,16 @@ public class MemberDAO {
             close();
          } return check;
     }
-
+   
+   //회원정보수정
    public int update(MemberDTO dto) {
 	   try {
 	   conn();
-	   String sql = "update k_member set nickname=?, pw=?, email=?, addr=?, tel=?, intrd=?, dog_name=?, dog_gender=?, dog_pic=?";
+	   String sql = "update k_member set nickname=?, pw=?, email=?, addr=?, tel=?, intrd=?, dog_name=?, dog_gender=?, dog_pic=? where id=?";
 	   
 	   psmt = conn.prepareStatement(sql);
 	   
-	   psmt.setString(1, dto.getId());
+	   psmt.setString(1, dto.getNickname());
 	   psmt.setString(2, dto.getPw());
 	   psmt.setString(3, dto.getEmail());
 	   psmt.setString(4, dto.getAddr());
@@ -159,14 +184,47 @@ public class MemberDAO {
 	   psmt.setString(7, dto.getDog_name());
 	   psmt.setString(8, dto.getDog_gender());
 	   psmt.setString(9, dto.getDog_pic());
+	   psmt.setString(10, dto.getId());
 	   
 	   cnt = psmt.executeUpdate();
 	   
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		close();
-	} return cnt;
+	   } catch (SQLException e) {
+		   e.printStackTrace();
+	   } finally {
+		   close();
+	   } return cnt;
    }
+   
+   public ArrayList<MemberDTO> showMember(){
+	  ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+	  try {
+		  conn();
+		  String sql = "select * from k_member";
+		  psmt = conn.prepareStatement(sql);
+		  rs = psmt.executeQuery();
+		  
+		  while(rs.next()) {
+			  String id = rs.getString("id");
+			  String nickname = rs.getString("nickname");
+			  String pw = rs.getString("pw");
+			  String email = rs.getString("email");
+			  String addr = rs.getString("addr");
+			  String tel = rs.getString("tel");
+			  String intrd = rs.getString("intrd");
+			  String dog_name = rs.getString("dog_name");
+			  String dog_gender = rs.getString("dog_gender");
+			  String dog_pic = rs.getString("dog_pic");
+			  
+			  MemberDTO dto = new MemberDTO(id,nickname,pw,email,addr,tel,intrd,dog_name,dog_gender,dog_pic);
+			  list.add(dto);
+		  }
+		  
+	  } catch (SQLException e) {
+		  e.printStackTrace();
+	  }finally {
+		  close();
+	  }return list;
+   }
+
 }
 

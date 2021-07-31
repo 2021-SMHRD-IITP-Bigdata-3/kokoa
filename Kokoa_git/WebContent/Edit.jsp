@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -71,7 +72,14 @@
 </style>
 </head>
 <body>
-	
+
+
+	<%
+		
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		String id = info.getId();
+		System.out.print(id);
+	%>
 	<div class="topbar">
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -82,41 +90,32 @@
 		<h1 id="title"><button type="button" id="backbtn"> ← </button> 회원정보수정 </h1>
 	</div>
 	
-	<form  action="" name="" >
+	<form  action="UpdateServiceCon" method="post" >
 		<div class="join">
 			<table>
-				
+				<tr>
+					<td><input type="text" name="id" hidden="hidden" value="<%=id%>"></td>
+				</tr>
 				<tr>
 					<td>닉네임</td>
-					<td><input type="text" id="id" name="nickname"></td>
+					<td><input type="text" name="nickname"></td>
 					<td><input type="submit" value="중복확인"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" id="password" name="password"></td>
-				</tr>
-				<tr>
-					<td>비밀번호 확인</td>
-					<td><input type="password" id="repassword" name="repassword"></td>
+					<td><input type="password" name="pw"></td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td><input type="text" id="firstmail" name="firstmail">@<select id="lattermail" name="mail" size="1">
-							<option value="">선택하세요</option>
-							<option value="gmail">gmail.com</option>
-							<option value="naver">naver.com</option>
-							<option value="daum">daum.net</option>
-							<option value="nate">nate.com</option>
-					</select></td>
+					<td><input type = "text" name ="email" ></td>
 				</tr>
 				<tr>
 					<td>주소</td>
-					<td><input type="text" id="firstaddr" name="firstaddr"> 상세주소 <input type="text" id="lastaddr" name="lastaddr"></td>
-					<td><input type="submit" value="주소찾기"></td>
+					 <td><input style="width: 400px;" id="member_addr" name="addr" type="text" placeholder="주소" readonly onclick="findAddr()"></td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
-					<td><input type="text" id="tel" name="tel"></td>
+					<td><input type="text" name="tel"></td>
 				</tr>
 				
 				<tr>
@@ -128,25 +127,24 @@
 				
 				<tr>
 					<td>반려견 이름</td>
-					<td><input type="text" id="dog_name" name="dog_name"></td>
+					<td><input type="text" name="dog_name"></td>
 				</tr>
 				
 				<tr>
 					<td>반려견 성별</td>
 					<td>
             			수컷
-            		<input type="radio" name="gender"> 
+            		<input type="radio" name="dog_gender"> 
            				암컷
-            		<input type="radio" name="gender">
+            		<input type="radio" name="dog_gender">
             			중성화
-            		<input type="radio" name="gender">
+            		<input type="radio" name="dog_gender">
           			</td>
 				</tr>
 				
 				<tr>
 					<td>반려견 사진</td>
-					<td><input type="text" id="dog_pic" name="dog_pic"></td>
-					<td><input type="submit" value="사진업로드"></td>
+					 <td><input type = "file" name ="dog_pic"></td>
 				</tr>
 				
 			
@@ -169,5 +167,26 @@
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="160px"></a>
 	</footer>
+	<script>
+	function findAddr(){
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	
+	        	console.log(data);
+	        	
+	            var roadAddr = data.roadAddress; // 도로명 주소 변수
+	            var jibunAddr = data.jibunAddress; // 지번 주소 변수
+	            
+	            if(roadAddr !== ''){
+	                document.getElementById("member_addr").value = roadAddr;
+	            } 
+	            else if(jibunAddr !== ''){
+	                document.getElementById("member_addr").value = jibunAddr;
+	            }
+	        }
+	    }).open();
+	}
+	</script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>
