@@ -107,9 +107,10 @@ public class Main extends Application {
 		toggleButton.setMaxWidth(Double.MAX_VALUE);
 		BorderPane.setMargin(toggleButton, new Insets(1, 0, 0, 0));
 		root.setBottom(toggleButton);
-		
-		String IP = "127.0.01";
-		int port = 9876;
+		//127.0.01 - 9876
+		//59.0.100.45 - 1521
+		String IP = "59.0.100.45";
+		int port = 8001;
 		
 		toggleButton.setOnAction(event -> {
 			if(toggleButton.getText().equals("시작하기")) {

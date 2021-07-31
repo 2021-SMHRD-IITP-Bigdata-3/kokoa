@@ -112,9 +112,10 @@ public class Main extends Application {
 			userName.setPrefWidth(150);
 			userName.setPromptText("닉네임을 입력하세요.");
 			HBox.setHgrow(userName, Priority.ALWAYS);
-			
-			TextField IPText = new TextField("127.0.01");
-			TextField portText = new TextField ("9876");
+			//59.0.100.45 port = 8001
+			//IP = 127.0.01 - PORT = 9876
+			TextField IPText = new TextField("59.0.100.45");
+			TextField portText = new TextField ("8001");
 			portText.setPrefWidth(80);
 			
 			hbox.getChildren().addAll(userName, IPText, portText);
@@ -145,7 +146,8 @@ public class Main extends Application {
 			Button connectionButton = new Button("접속하기");
 			connectionButton.setOnAction(event -> {
 				if(connectionButton.getText().equals("접속하기")) {
-					int port = 9876;
+					//9876
+					int port = 8001;
 					try {
 						port = Integer.parseInt(portText.getText());
 					}catch (Exception e) {
