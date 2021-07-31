@@ -1,3 +1,4 @@
+<%@page import="com.model.CourseDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -69,6 +70,7 @@
 </style>
 </head>
 <body>
+	<%CourseDTO info = (CourseDTO)session.getAttribute("courseInfo");%>
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
       <a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -80,6 +82,7 @@
 		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
 		<br><br><br>
 	</div>
+	
 	<footer>
       <hr>
       <a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

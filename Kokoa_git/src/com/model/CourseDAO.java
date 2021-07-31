@@ -42,15 +42,15 @@ public class CourseDAO {
 	   }
 	}
 	
-	public int upload() {	
+	public int upload(CourseDTO dto) {	
 		try {
 			conn();
-			String sql = "insert into web_board values(course_num_seq.nextval, ?,?,?,?)";
+			String sql = "insert into course_list values(course_num_seq.nextval, 'pic',?,?,?)";
 			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, dto.getTracking_image());
-			psmt.setString(2, dto.getTracking_time());
-			psmt.setString(3, dto.getId());
-			psmt.setString(4, dto.getNickname());
+			//psmt.setString(1, dto.getTracking_image());
+			psmt.setString(1, dto.getTracking_time());
+			psmt.setString(2, dto.getId());
+			psmt.setString(3, dto.getNickname());
 			
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {

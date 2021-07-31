@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -90,9 +91,18 @@
 		color: #FAED7D;
 		cursor: pointer;
 	}
+	div>span{
+		font-size: 100px;
+	}
+	div>button{
+		width:200px;
+		height:100px;
+		font-size:40px;
+	}
 </style>
 </head>
 <body>
+	<%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
       <a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -104,7 +114,9 @@
 		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
 		<br><br><br>
 	</div>
-	<form action="CourseSaveServiceCon">
+	<form action="CourseSaveServiceCon" method="post">
+		<input type="text" name="id" value="<%=info.getId() %>" hidden="hidden">
+		<input type="text" name="nickname" value="<%=info.getNickname() %>" hidden="hidden">	
 		<div id="map" style="width:100%;height:1000px;"></div>
 		<div>
 			<div>
@@ -113,7 +125,7 @@
 				<span id="postTestSec">00</span><!--초-->
 				<span>.</span>
 				<span id="postTestMilisec">00</span><!--밀리초-->
-				<input type="text" id="courseTime" name="courseTime" hidden="hidden">
+				<input type="text" id="courseTime" name="tracking_time" hidden="hidden">
 			</div>
 			<div>
 				<ul id="testRecordList"></ul><!--중간 기록할 리스트-->
@@ -142,12 +154,12 @@
 			    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
 			    navigator.geolocation.getCurrentPosition(function(position) {
 			        
-			        var lat = position.coords.latitude, // 위도
-			            lon = position.coords.longitude; // 경도
+			        var lat = position.coords.latitude+count, // 위도
+			            lon = position.coords.longitude+count; // 경도
 			        
 			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-			            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
-			        
+			            message = '<div style="font-size: 20px;">시작</div>'; // 인포윈도우에 표시될 내용입니다
+
 			        // 마커와 인포윈도우를 표시합니다
 			        if(bool){
 				        displayMarker(locPosition, message);
@@ -196,7 +208,6 @@
 		function tracker(lat, lon){
 		    linePath.push(new kakao.maps.LatLng(lat,lon));
 	
-		    // 지도에 표시할 선을 생성합니다
 		    var polyline = new kakao.maps.Polyline({
 		        path: linePath, // 선을 구성하는 좌표배열 입니다
 		        strokeWeight: 5, // 선의 두께 입니다
@@ -204,8 +215,8 @@
 		        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
 		        strokeStyle: 'solid' // 선의 스타일입니다
 		    });
-	
-		    // 지도에 선을 표시합니다 
+		    
+		 	// 지도에 선을 표시합니다 
 		    polyline.setMap(map);
 		}
 		
@@ -220,10 +231,14 @@
 		var stopBtn = document.getElementById('testStopBtn')
 		var recordList = document.getElementById('testRecordList')
 		
+		var count = 0;
+		var cntSec = 0;
 		startBtn.addEventListener('click', function() {
 			// RECORD
 			updateMap = setInterval(function(){
 				getLoc(false);
+				count += 0.0001;
+				cntSec += 1;
 			},1000);
 			if(this.innerText == 'RECORD' && milisec) {
 				console.log(min, sec, milisec)
@@ -296,8 +311,10 @@
 		function addZero(num) {
 			return (num < 10 ? '0'+num : ''+num)
 		}
-	
+
+
 		</script>
+	
 		<input type="submit" value="저장하기">
 	</form>
 	<br><br><br><br>
