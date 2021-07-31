@@ -63,7 +63,7 @@
 		<div>
 			<div>
 				<img src="icons/profile.png" style=""><br>
-				<p style="font-size:50px"><%=info.getNickname() %>.</p>
+				<p style="font-size:50px"><%=info.getNickname() %></p>
 			</div>
 			<div>
 				<button type="button" onClick="location.href='LogoutServiceCon'">·Î±×¾Æ¿ô</button>
