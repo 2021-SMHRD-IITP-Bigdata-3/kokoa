@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
+<title>차단목록</title>
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 </head>
 <style>
@@ -59,14 +60,14 @@
 	   }
 	   .fas.fa-arrow-left.fa-3x{
 	   		position:relative;
-	   		top:50px;
-	   		left:50px;
+	   		top:30px;
+	   		left:40px;
 	   		padding-top:150px;
 	   		color:#61da94;
 	   }
-	   .fas.fa-user-minus.fa-3x{
+	   .far.fa-minus-square.fa-3x{
 	   		position:relative;
-	   		left:210px;
+	   		left:165px;
 	   		color:#61da94;
 	   		top:10px;
 	   	}
@@ -75,11 +76,13 @@
 	   	}
 	   	.confirm{
 	   		posision:relative;
-	   		transform:scale(2.0);
-	   		color:#61da94;
-	   		top:100px;
+	   		background-color:#61da94;
+	   		color:white;
 	   		margin-top:30px;
 	   		margin-left:100px;
+	   		padding:15px 30px;
+	   		border-radius:5px;
+	   		border:0;
 	   	}
 </style>
 </head>
@@ -118,7 +121,7 @@
 				<td><span class="blockDate">차단한 날짜</span></td>
 			</tr>
 		</table>
-		<a href="#" onclick=""><i class="fas fa-user-minus fa-3x"></i></a>
+		<a href="#" onclick=""><i class="far fa-minus-square fa-3x"></i></a>
 	</form>
 	<div>
 		<button class="confirm">확인</button>

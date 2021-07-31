@@ -56,7 +56,7 @@
    	  position: relative;
 	  padding-top: 60px;
 	  max-width: 935px;
-	  top: 200px;
+	  top: 180px;
 	  left: 37%;
 	}
 	
