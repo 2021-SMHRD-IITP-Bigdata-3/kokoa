@@ -265,5 +265,3 @@ increment by 1
 start with 1
 
 insert into matching_chat_ban_list(chatting_room_num) values(ban_list_seq.nextval);
-
-
