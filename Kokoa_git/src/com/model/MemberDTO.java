@@ -47,6 +47,30 @@ public class MemberDTO {
 		this.dog_type = dog_type;
 	}
 	
+	public MemberDTO(String id, String nickname, String pw, String name, int age, String gender, String birth,
+			String addr, String tel, String email, String intrd, String dog_name, int dog_age, String dog_gender,
+			String dog_pic, int dog_num, String dog_size, String dog_type) {
+		super();
+		this.id = id;
+		this.nickname = nickname;
+		this.pw = pw;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.birth = birth;
+		this.addr = addr;
+		this.tel = tel;
+		this.email = email;
+		this.intrd = intrd;
+		this.dog_name = dog_name;
+		this.dog_age = dog_age;
+		this.dog_gender = dog_gender;
+		this.dog_pic = dog_pic;
+		this.dog_num = dog_num;
+		this.dog_size = dog_size;
+		this.dog_type = dog_type;
+	}
+
 	public MemberDTO(String id, String pw) {
 		super();
 		this.id = id;
