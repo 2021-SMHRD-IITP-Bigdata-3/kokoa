@@ -109,7 +109,7 @@ public class Main extends Application {
 		root.setBottom(toggleButton);
 		//127.0.01 - 9876
 		//59.0.100.45 - 1521
-		String IP = "59.0.100.45";
+		String IP = "222.102.104.123";
 		int port = 8001;
 		
 		toggleButton.setOnAction(event -> {

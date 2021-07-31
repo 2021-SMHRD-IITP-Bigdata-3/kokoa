@@ -114,7 +114,7 @@ public class Main extends Application {
 			HBox.setHgrow(userName, Priority.ALWAYS);
 			//59.0.100.45 port = 8001
 			//IP = 127.0.01 - PORT = 9876
-			TextField IPText = new TextField("59.0.100.45");
+			TextField IPText = new TextField("222.102.104.123");
 			TextField portText = new TextField ("8001");
 			portText.setPrefWidth(80);
 			

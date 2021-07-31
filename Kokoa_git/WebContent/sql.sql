@@ -22,6 +22,7 @@ create table k_member(
 	constraint member_mem_num_pk primary key(mem_num)
 )
 
+
 create sequence mem_num_seq
 increment by 1
 start with 1

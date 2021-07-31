@@ -25,19 +25,22 @@ public class UpdateServiceCon extends HttpServlet {
 		String intrd = request.getParameter("intrd");
 		String dog_name = request.getParameter("dog_name");
 		String dog_gender = request.getParameter("dog_gender");
-		String dog_pic = request.getParameter("dog_pic");
+		String dog_pic = request.getParameter("dog_pic");		
 		
-		String id = request.getParameter("id");
 		HttpSession session = request.getSession();		
 	    MemberDTO info = (MemberDTO)session.getAttribute("info");
+	    String id = info.getId();
 	    
-	    info = new MemberDTO(id, nickname, pw, email, addr, tel, intrd, dog_name, dog_gender, dog_pic);
+	    System.out.println();
+	    System.out.println(nickname+"/"+pw+"/"+email+"/"+addr+"/"+tel+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);
+	    
+	    MemberDTO dto = new MemberDTO(id, nickname, pw, email, addr, tel, intrd, dog_name, dog_gender, dog_pic);
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.update(info);
 		
 		if(cnt >0) {
 	         System.out.println("회원 정보 수정");
-	         session.setAttribute("info", info);
+	         session.setAttribute("info", dto);
 	      }else {
 	         System.out.println("회원 정보 수정 실패");
 	      }
