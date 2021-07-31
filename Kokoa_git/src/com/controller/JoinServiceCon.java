@@ -19,56 +19,44 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 public class JoinServiceCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int cnt = 0;
+		
 		String savePath = request.getServletContext().getRealPath("img");
 		System.out.println(savePath);
 		
 		int maxSize = 5*1024*1024;
 		
 		String encoding = "EUC-KR";
-		String dog_pic="";
-		request.setCharacterEncoding("EUC-KR");
 		try {
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
-			dog_pic = URLEncoder.encode(multi.getFilesystemName("dog_pic"),"EUC-KR");
+			String id = multi.getParameter("id");
+			String nickname = multi.getParameter("nickname");
+			String pw = multi.getParameter("pw");
+			String name = multi.getParameter("name");
+			int age = Integer.parseInt(multi.getParameter("age"));
+			String gender = multi.getParameter("gender");
+			String birth = multi.getParameter("birth");
+			String tel = multi.getParameter("tel");
+			String addr = multi.getParameter("addr");
+			String email = multi.getParameter("email");
+			String intrd = multi.getParameter("intrd");
+			String dog_name = multi.getParameter("dog_name");
+			int dog_age = Integer.parseInt(multi.getParameter("dog_age"));
+			String dog_gender = multi.getParameter("dog_gender");
+			String dog_pic = URLEncoder.encode(multi.getFilesystemName("dog_pic"),"EUC-KR");
+			int dog_num = Integer.parseInt(multi.getParameter("dog_num"));
+			String dog_size = multi.getParameter("dog_size");
+			String dog_type = multi.getParameter("dog_type");
+			
+			MemberDTO dto = new MemberDTO(id,nickname,pw,name,age,gender,birth,addr,tel,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
+			MemberDAO dao = new MemberDAO();
+			cnt = dao.join(dto);
+			
+			
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
-		String id = request.getParameter("id");
-		String nickname = request.getParameter("nickname");
-		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String gender = request.getParameter("gender");
-		String birth = request.getParameter("birth");
-		String tel = request.getParameter("tel");
-		String addr = request.getParameter("addr");
-		String email = request.getParameter("email");
-		String intrd = request.getParameter("intrd");
-		String dog_name = request.getParameter("dog_name");
-		int dog_age = Integer.parseInt(request.getParameter("dog_age"));
-		String dog_gender = request.getParameter("dog_gender");
-
-
-		int dog_num = Integer.parseInt(request.getParameter("dog_num"));
-		String dog_size = request.getParameter("dog_size");
-		String dog_type = request.getParameter("dog_type");
 		
-		System.out.println(id);
-		System.out.println(nickname);
-		System.out.println(pw);
-		System.out.println(name);
-		System.out.println(age);
-		System.out.println(gender);
-		System.out.println(birth);
-		System.out.println(tel);
-		System.out.println(addr);
-		System.out.println(email);
-		System.out.println(intrd);
-		System.out.println(dog_type);
-		
-		MemberDTO dto = new MemberDTO(id,nickname,pw,name,age,gender,birth,addr,tel,email,intrd,dog_name,dog_age,dog_gender,dog_pic,dog_num,dog_size,dog_type);
-		MemberDAO dao = new MemberDAO();
-		int cnt = dao.join(dto);
 		
 		String moveURL = "";
 		

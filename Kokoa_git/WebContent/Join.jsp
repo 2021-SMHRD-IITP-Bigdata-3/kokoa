@@ -55,7 +55,7 @@
       <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
    </header>
    <div style="width:100%; height:150px;"></div>
-   <form action="JoinServiceCon" method="POST">
+   <form action="JoinServiceCon" method="post" enctype="multipart/form-data">
       <h1>회원가입</h1>
       <h5 align = "left">아이디</h5>
       <table>

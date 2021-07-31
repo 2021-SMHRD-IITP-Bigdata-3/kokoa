@@ -66,9 +66,9 @@
 				<p style="font-size:50px"><%=info.getNickname() %>.</p>
 			</div>
 			<div>
-				<button type="button" onClick="location.href='Login.jsp'">로그인</button>
+				<button type="button" onClick="location.href='LogoutServiceCon'">로그아웃</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='Join.jsp'">회원가입</button>
+				<button type="button" onClick="location.href='Edit.jsp'">회원정보수정</button>
 			</div>
 		</div>
 	<%} else{ %>
