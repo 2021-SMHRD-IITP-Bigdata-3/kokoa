@@ -19,13 +19,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 
 
-public class Main extends Application {
+public class ServerMain extends Application {
 	
 	public static ExecutorService threadPool;
-	public static Vector<Client> clients = new Vector<Client>();
+	public static Vector<ServerClient> clients = new Vector<ServerClient>();
 	
 	ServerSocket serverSocket;
-	
+	//112번째줄 IP
 	//서버를 구동시켜서 클라이언트의 연결을 기다리는 메소드
 	public void startServer (String IP, int port) {
 		try {
@@ -46,7 +46,7 @@ public class Main extends Application {
 				while (true) {
 					try {
 						Socket socket = serverSocket.accept();
-						clients.add(new Client(socket));
+						clients.add(new ServerClient(socket));
 						System.out.println("[클라이언트 접속]"
 								+ socket.getRemoteSocketAddress()
 								+ ": " + Thread.currentThread().getName());
@@ -71,9 +71,9 @@ public class Main extends Application {
 	public void stopServer() {
 		try {
 			// 현재 작동 중인 모든 소켓 닫기
-			Iterator<Client> iterator = clients.iterator();
+			Iterator<ServerClient> iterator = clients.iterator();
 			while(iterator.hasNext()) {
-				Client client = iterator.next();
+				ServerClient client = iterator.next();
 				client.socket.close();
 				iterator.remove();
 			}
@@ -108,8 +108,8 @@ public class Main extends Application {
 		BorderPane.setMargin(toggleButton, new Insets(1, 0, 0, 0));
 		root.setBottom(toggleButton);
 		//127.0.01 - 9876
-		//59.0.100.45 - 1521
-		String IP = "222.102.104.123";
+		//59.0.100.45 - 8001
+		String IP = "59.0.100.45";
 		int port = 8001;
 		
 		toggleButton.setOnAction(event -> {

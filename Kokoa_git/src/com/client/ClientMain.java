@@ -19,11 +19,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
 
-public class Main extends Application {
+public class ClientMain extends Application {
 	
 	Socket socket;
 	TextArea textArea;
-	
+	//117, 150 번줄 IP, PORT 작성
 	//클라이언트 프로그램 동작 메소드
 	public void startClient (String IP, int port) {
 		Thread thread = new Thread() {
@@ -114,7 +114,7 @@ public class Main extends Application {
 			HBox.setHgrow(userName, Priority.ALWAYS);
 			//59.0.100.45 port = 8001
 			//IP = 127.0.01 - PORT = 9876
-			TextField IPText = new TextField("222.102.104.123");
+			TextField IPText = new TextField("59.0.100.45");
 			TextField portText = new TextField ("8001");
 			portText.setPrefWidth(80);
 			

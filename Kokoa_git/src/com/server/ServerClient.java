@@ -5,11 +5,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class Client {
+public class ServerClient {
 	
 	Socket socket;
 	
-	public Client(Socket socket) {
+	public ServerClient(Socket socket) {
 		this.socket = socket;
 		receive();
 	}
@@ -29,7 +29,7 @@ public class Client {
 							+ socket.getRemoteSocketAddress()
 							+ ": " +Thread.currentThread().getName());
 						String message = new String (buffer,0,length,"UTF-8");
-						for (Client client : Main.clients) {
+						for (ServerClient client : ServerMain.clients) {
 							client.send(message);
 						}
 						
@@ -49,7 +49,7 @@ public class Client {
 			}
 			
 		};
-		Main.threadPool.submit(thread);
+		ServerMain.threadPool.submit(thread);
 		
 	}
 	// 클라이언트에게 메세지를 전송하는 메소드
@@ -69,7 +69,7 @@ public class Client {
 						System.out.println("[메세지 송신 오류]"
 								+ socket.getRemoteSocketAddress()
 								+": " + Thread.currentThread().getName());
-						Main.clients.remove(Client.this);
+						ServerMain.clients.remove(ServerClient.this);
 						socket.close();
 						
 					}catch (Exception e2) {
@@ -80,7 +80,7 @@ public class Client {
 			}
 			
 		};
-		Main.threadPool.submit(thread);
+		ServerMain.threadPool.submit(thread);
 	}
 
 }
