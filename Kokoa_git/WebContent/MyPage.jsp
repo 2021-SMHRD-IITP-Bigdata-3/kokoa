@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
+<title>MyPage</title>
+<script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
 		text-align: center;
@@ -27,10 +29,12 @@
 	button{
 		background-color: #61da94;
 		color: white;
-		height: 100px;
-		width: 400px;
+		height: 70px;
+		width: 180px;
 		border-radius: 10px;
-		font-size: 50px;
+		font-size: 25px;
+		margin-top:15px;
+		margin-left:15px;
 	}
 	#menu{
 		position: absolute;
@@ -50,6 +54,42 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
+	.btn-group button {
+		background-color:#61da94; 
+		border: 1px solid gray; 
+		color: white;
+		cursor: pointer;
+		border-radius:5px;
+	}
+	
+	/* Clear floats (clearfix hack) */
+	.btn-group:after {
+		content: "";
+		clear: both;
+		display: flex;
+	}
+	
+	.btn-group button:not(:last-child) {
+		border-right: none;
+	}
+	
+	.btn-group button:hover {
+		background-color: tomato;
+	}
+   .back{
+   		position:relative;
+   		padding-bottom:150px;
+		color:#61da94;
+		left:21%;
+ 	}
+ 	.container{
+ 		margin-top:35px;
+ 		text-align:center;
+ 	}
+ 	.logout_text{
+		position:relative;
+		bottom:4px;
+ 	}
 </style>
 </head>
 <body>
@@ -62,26 +102,22 @@
 	<%if(info != null){ %>
 		<div>
 			<div>
-				<img src="img/<%=info.getDog_pic() %>" style=""><br>
-				<p style="font-size:50px"><%=info.getNickname() %></p>
+				<img src="img/<%=info.getDog_pic() %>" style="width:400px; height:400px;"><br>
+				<p style="font-size:30px"><%=info.getNickname() %></p>
 			</div>
-			<div>
-			
-				<button type="button" onClick="location.href='CS.jsp'">고객의소리</button>				
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='Edit.jsp'">회원정보수정</button>	
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='Notice.jsp'">공지사항</button>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='BlockList.jsp'">차단목록</button>
-				&nbsp;&nbsp;&nbsp;&nbsp;															
-				<button type="button" onClick="location.href='FAQ.jsp'">자주묻는질문</button>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='LogoutServiceCon'">로그아웃</button>
-				
-				
-				
+			<div class="btn-group a">
+				<button class="menu_btn" type="button" onClick="location.href='Edit.jsp'">회원 정보 수정</button>				
+				<button class="menu_btn" type="button" onClick="location.href='BlockList.jsp'">차단 목록</button>	
+				<button class="menu_btn" type="button" onClick="location.href='LogoutServiceCon'">회원 탈퇴</button>
 			</div>
+			<div class="btn-group a">
+				<button class="menu_btn" type="button" onClick="location.href='Notice.jsp'">공지사항</button>
+				<button class="menu_btn" type="button" onClick="location.href='FAQ.jsp'">자주 묻는 질문</button>
+				<button class="menu_btn" type="button" onClick="location.href='CS.jsp'">고객의 소리</button>
+			</div>
+		</div>
+		<div class="container">
+			<a class="back" href="#" onclick="location.href='LogoutServiceCon'"><i class="fas fa-chevron-left fa-2x"><span class="logout_text" style="font-size:20px"> 로그아웃</span></i></a>
 		</div>
 	<%} else{ %>
 		<div>

@@ -64,21 +64,13 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</div>
-	
-<<<<<<< HEAD
-	
-	
-	
-=======
 	<div class="pagetitle">	
 		<h1 id="title"><button type="button" id="backbtn"> ¡ç </button> Ã¤ÆÃ </h1>
 	</div>
 	
 	<div>
-	
-	
+
 	</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git 
 	
 	<div class="bottombar">
 		<hr>

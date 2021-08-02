@@ -11,8 +11,10 @@
 <style>
 		body{
 	      padding-bottom:150px;
-	      text-align: center;
-	      align-content: center;
+	      position:relative;
+		  padding-bottom:150px;
+		  top:150px;
+		  text-align:center;
 	   }
 	   
 	   header{
@@ -49,41 +51,53 @@
 	      top: 50%;
 	      transform: translate(0,-50%);
 	   }
-	   .blocklist{
-	   		padding-top:350px;
-	   		padding-right:200px;
-	   		font-size:30px;
-	   		border: gray;
-	   }
-	   .blocktitle{
-	   	
-	   }
-	   .fas.fa-arrow-left.fa-3x{
-	   		position:relative;
-	   		top:30px;
-	   		left:40px;
-	   		padding-top:150px;
-	   		color:#61da94;
-	   }
-	   .far.fa-minus-square.fa-3x{
-	   		position:relative;
-	   		left:165px;
-	   		color:#61da94;
-	   		top:10px;
-	   	}
-	   input[type="checkbox"]{
-	   		transform: scale(2.0);
-	   	}
-	   	.confirm{
-	   		posision:relative;
+	   .back{
+			position:fixed;
+			top:20px;
+			left:40px;
+			padding-top:150px;
+			color:#61da94;
+ 		}
+ 		.blocklist{
+ 			margin-left:auto;
+ 			margin-right:auto;
+ 			padding-top:120px;
+ 		}
+ 		.blockTitle{
+ 			font-weight:medium;
+ 			font-size:30px;
+ 		}
+ 		.block_content{
+ 			font-size:25px;
+ 		}
+ 		input[type="checkbox"]{
+
+			width: 30px; /*Desired width*/
+			height: 30px; /*Desired height*/
+			cursor: pointer;
+ 		}
+ 		.delete{
+ 			position:relative;
+ 			top:-20px;
+ 			padding-left:430px;
+ 			font-size:25px;
+ 		}
+ 		.delete > a{
+ 			color:#61da94;
+ 		}
+ 		.confirm{
+	   		font-size:15px;
 	   		background-color:#61da94;
+	   		padding:15px 35px;
+	   		border:1;
+	   		outline:0;
+	   		border: 1px solid gray;
+	   		border-radius:5%;
 	   		color:white;
-	   		margin-top:30px;
-	   		margin-left:100px;
-	   		padding:15px 30px;
-	   		border-radius:5px;
-	   		border:0;
-	   	}
+	   		top:163px;
+	   		right:33px;
+	   		z-index:99;
+ 		}
 </style>
 </head>
 <body>
@@ -92,37 +106,39 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
-		<table class="icon" align="left">
-			<tr>
+		<table class="icon">
+			<tr align="left">
 				<td>
-					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-3x"><span style="font-size:30px"> 차단 목록</span></i></a>
+					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 차단 목록</span></i></a>
 				</td>
 			</tr>
 		</table>
-	<form>
-		<table class="blocklist" align="center">
-			<tr>
+	<form class="blocklist_form" >
+		<table class="blocklist" style="border:1px; width:600px; height:400px;">
+			<tr style="height:50px;">
 				<td></td>
 				<td><span class="blockTitle"><b>차단ID</b></span></td>
 				<td><span class="blockTitle"><b>차단한 날짜</b></span></td>
 			</tr>
-			<tr>
+			<tr >
 				<td>
 					<input type="checkbox">
 				</td>
-				<td><span class="blockId">차단한 아이디</span></td>
-				<td><span class="blockDate">차단한 날짜</span></td>
+				<td><span class="block_content">차단한 아이디</span></td>
+				<td><span class="block_content">차단한 날짜</span></td>
 			</tr>
 			<tr>
 				<td>
 					<input type="checkbox">
 				</td>
-				<td><span class="blockId">차단한 아이디</span></td>
-				<td><span class="blockDate">차단한 날짜</span></td>
+				<td><span class="block_content">차단한 아이디</span></td>
+				<td><span class="block_content">차단한 날짜</span></td>
 			</tr>
 		</table>
-		<a href="#" onclick=""><i class="far fa-minus-square fa-3x"></i></a>
 	</form>
+	<div class="delete">
+		<a href="#" onclick=""><i class="far fa-minus-square fa-2x"></i></a>
+	</div>
 	<div>
 		<button class="confirm">확인</button>
 	</div>

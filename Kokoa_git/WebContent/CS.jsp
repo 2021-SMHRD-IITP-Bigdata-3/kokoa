@@ -82,17 +82,19 @@
 	  border: none;
 	  padding: 10px;
 	  width: 260px;
-	  background-color: #1BBC9B;
+	  background-color: #61da94;
 	  margin-bottom: 30px;
 	  color: white;
+	  border-radius:5px;
 	}
 	.icon{
 		position:relative;
 	   	padding-top :100px;
-	   	top:50px;
-	   	left:50px;
+	   	top:30px;
+	   	left:30px;
 	}
 	.back{
+		position:fixed;
 		color : #61da94;
 	}
 </style>
@@ -106,7 +108,7 @@
 		<table class="icon" align="left">
 			<tr>
 				<td>
-					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-4x"><span style="font-size:45px"> 绊按狼 家府</span></i></a>
+					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-3x"><span style="font-size:30px"> 绊按狼 家府</span></i></a>
 				</td>
 			</tr>
 		</table>
