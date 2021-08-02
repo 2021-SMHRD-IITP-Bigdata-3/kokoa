@@ -243,6 +243,7 @@ create table matching_part(
 )
 
 
+
 create table matching_chat_list(
 	chatting_room_num number(15),
 	chatting_room_title varchar2(50) not null,
