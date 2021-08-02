@@ -88,8 +88,8 @@
 	.icon{
 		position:relative;
 	   	padding-top :100px;
-	   	top:50px;
-	   	left:50px;
+	   	top:70px;
+	   	left:30px;
 	}
 	.back{
 		position:fixed;

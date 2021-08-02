@@ -56,7 +56,7 @@
 	}
 	.btn-group button {
 		background-color:#61da94; 
-		border: 1px solid gray; 
+		border: 1px solid #61da94; 
 		color: white;
 		cursor: pointer;
 		border-radius:5px;
@@ -90,6 +90,10 @@
 		position:relative;
 		bottom:4px;
  	}
+ 	.pic{
+ 		border-radius: 25%;
+ 		
+ 	}
 </style>
 </head>
 <body>
@@ -101,8 +105,8 @@
 	</div>
 	<%if(info != null){ %>
 		<div>
-			<div>
-				<img src="img/<%=info.getDog_pic() %>" style="width:400px; height:400px;"><br>
+			<div class="box">
+				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:400px; height:400px;"><br>
 				<p style="font-size:30px"><%=info.getNickname() %></p>
 			</div>
 			<div class="btn-group a">
@@ -121,8 +125,8 @@
 		</div>
 	<%} else{ %>
 		<div>
-			<div>
-				<img src="icons/profile.png" style="width:400px; height:400px;"><br>
+			<div class="box">
+				<img class="pic" src="icons/profile.png" style="width:400px; height:400px;"><br>
 				<p style="font-size:50px">로그인이 필요합니다.</p>
 			</div>
 			<div>

@@ -49,90 +49,90 @@
       transform: translate(0,-50%);
    }
    ul{
-    /* flex box 생성 */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* unordered list 기본 스타일 제거(점, 들여쓰기) */
-    list-style: none;
-    padding-left: 0;
+	    /* flex box 생성 */
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: flex-start;
+	    /* unordered list 기본 스타일 제거(점, 들여쓰기) */
+	    list-style: none;
+	    padding-left: 0;
 	}
 	li{
 	    /* 안에 또 다른 flex box 생성 */
-	    display: flex;
-	    flex-basis:5rem; /*16 브라우저 기준 80px */
-	    flex-shrink: 0;
-	    flex-direction: row;
-	    flex-wrap: nowrap;
-	    justify-content: flex-start;
-	    align-items: center;
-	    padding-left:130px;
-	    padding-top:30px;
+		display: flex;
+		flex-basis:5rem; /*16 브라우저 기준 80px */
+		flex-shrink: 0;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		padding-left:130px;
+		padding-top:30px;
 	    
 	    
 	}
 	li > img{
-	    width: 200px;
+		width: 200px;
 	}
 	li > .talk{
 	    /* 프로필 사진과 메시지(채팅) 내용 사이 간격 조절 */
-	    margin-left: 0.9375rem; /* 16 브라우저 기준 15px */
-	    flex-grow: 0.85; /* 메시지 내용과 시간 사이에 빈 공간 채우기 위한 flex-grow 설정 */
+		margin-left: 0.9375rem; /* 16 브라우저 기준 15px */
+		flex-grow: 0.85; /* 메시지 내용과 시간 사이에 빈 공간 채우기 위한 flex-grow 설정 */
 	}
 	.talk > *, .time{
-	    margin-top: 0.3125rem ; /* 16 브라우저 기준 5px */
-	    margin-bottom: 0.3125rem;
+		margin-top: 0.3125rem ; /* 16 브라우저 기준 5px */
+		margin-bottom: 0.3125rem;
 	}
 	.friend-name{
 	    /* 프로필명(이름) 스타일 조정 */
-	    font-weight: bold;
-	    font-size: 20px; /* 16 브라우저 기준 14px */
+		font-weight: bold;
+		font-size: 20px; /* 16 브라우저 기준 14px */
 	}
 	.chat-content{
 	    /* 메시지(채팅) 내용 스타일 조정 */
-	    color: gray;
-	    font-size: 16px; /* 16 브라우저 기준 12px */
+		color: gray;
+		font-size: 16px; /* 16 브라우저 기준 12px */
 	
 	}
 	.member_cnt{
 	    /* 그룹 채팅방 경우, 인원 수 표시 */
-	    color: rgb(194, 194, 194);
-	    font-size: 16px;
-	    margin-left: 0.4375rem; /* 7px (!6폰트 브라우저 기준) */
+		color: rgb(194, 194, 194);
+		font-size: 16px;
+		margin-left: 0.4375rem; /* 7px (!6폰트 브라우저 기준) */
 	}
 	.me{
-	    display: inline-block;
-	    background-repeat: no-repeat;
-	    background-size: contain;
-	    padding: 0.125rem; /* 16폰트 브라우저 기준 2px */
-	    margin-right: 0.125rem;
-	    vertical-align: middle;
-	    font-size: 14px; /* 16 브라우저 기준 10px */
-	    color: white;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
+		padding: 0.125rem; /* 16폰트 브라우저 기준 2px */
+		margin-right: 0.125rem;
+		vertical-align: middle;
+		font-size: 14px; /* 16 브라우저 기준 10px */
+		color: white;
 	}
 	
 	.chat-status{
-	    flex-basis: 4.5rem; /* 72p */
-	    flex-shrink: 0; /* 유연하게 사이즈 조절 불가토록 설정 */
-	    text-align: right;
+		flex-basis: 4.5rem; /* 72p */
+		flex-shrink: 0; /* 유연하게 사이즈 조절 불가토록 설정 */
+		text-align: right;
 	}
 	.time{
-	    color: rgb(194, 194, 194);
-	    font-size: 12px; /* 16 브라우저 기준 10px */
+		color: rgb(194, 194, 194);
+		font-size: 12px; /* 16 브라우저 기준 10px */
 	}
 	.chat-balloon{
 	    /* 안읽은 메시지 수(count) 표시 스타일 지정 */    
-	    display:inline-block;
-	    border: 1px solid tomato;
-	    background-color: tomato;
-	    border-radius: 0.625rem;
-	    font-size: 8px;
-	    color: white;
-	    font-weight: bold;
-	    padding-top: 0.0625rem; /* 16 브라우저 기준 1px */
-	    padding-bottom: 0.0625rem;
-	    padding-left: 0.25rem; /* 16 브라우저 기준 4px */
-	    padding-right:0.25rem;
+		display:inline-block;
+		border: 1px solid tomato;
+		background-color: tomato;
+		border-radius: 0.625rem;
+		font-size: 8px;
+		color: white;
+		font-weight: bold;
+		padding-top: 0.0625rem; /* 16 브라우저 기준 1px */
+		padding-bottom: 0.0625rem;
+		padding-left: 0.25rem; /* 16 브라우저 기준 4px */
+		padding-right:0.25rem;
 	}
 	.back{
 		position:fixed;

@@ -15,7 +15,8 @@
 @import "content.css";
 @import "aside.css";
 	body{
-      padding-bottom:150px;
+      padding-bottom:130px;
+      height:1000px;
    }
    
    header{
@@ -25,6 +26,7 @@
       background-color: #61da94;
       height: 150px;
       width: 100%;
+      z-index:100;
    }
    footer{
       position: fixed;
@@ -57,7 +59,7 @@
 	  padding-top: 60px;
 	  max-width: 935px;
 	  top: 180px;
-	  left: 37%;
+	  left: 24%;
 	}
 	
 	.section {
@@ -114,11 +116,6 @@
 	  padding-left: 8px;
 	  list-style:none;
 	  
-	}
-	.content-menuRight {
-	  width: auto;
-	  display: flex;
-	  list-style:none;
 	}
 	
 	.content-menuIcon > i {
@@ -194,8 +191,8 @@
 	  min-width: 390px;
 	}
 	.back{
-		position:relative;
-		top:190px;
+		position:fixed;
+		top:170px;
 		left:40px;
 		color:#61da94;
 		
@@ -216,7 +213,7 @@
 	<table class="icon" align="left">
 		<tr>
 			<td>
-				<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-3x"></i></a>
+				<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-2x"></i></a>
 			</td>
 		</tr>
 	</table>
@@ -236,12 +233,8 @@
                 <div class="content_bottom">
                     <div class="content-menuDiv">
                         <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-heart"></i></li>
-                            <li class="content-menuIcon"><i class="far fa-comment"></i></li>
-                            <li class="content-menuIcon"><i class="far fa-paper-plane"></i></li>
-                        </ul>
-                        <ul class="content-menuRight">
-                            <li class="content-menuIcon"><i class="far fa-bookmark"></i></li>
+                            <li class="content-menuIcon"><i class="far fa-heart"></i><span> 43 </span></li>
+                            <li class="content-menuIcon"><i class="far fa-comment"></i><span> 23 </span></li>
                         </ul>
                     </div>
                     <div class="views">Á¶È¸ 2,331,635È¸</div>

@@ -12,7 +12,8 @@
 	body{
 	    padding-bottom:150px;
 	    align-content: center;
-	    padding-top : 50px;
+	    padding-top: 50px;
+	    height:2500px;
    }
    header{
 	    position: fixed;

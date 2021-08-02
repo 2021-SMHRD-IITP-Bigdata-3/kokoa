@@ -91,6 +91,7 @@
 	   		border: gray;
 	   		border-radius:5%;
 	   		right:150px;
+	   		color:white;
 	   }
 	   .chatButton{
 	   		position:relative;
@@ -103,6 +104,7 @@
 	   		border: gray;
 	   		border-radius:5%;
 	   		left:150px;
+	   		color:white;
 	   }
 	   .writerName{
 	   		position:relative;
@@ -135,7 +137,7 @@
 	</div>
 	<div>
 		<button class="priceButton" value="price">가격 :15000원</button>
-		<button class="chatButton" value="chat">채팅 제안</button>
+		<button class="chatButton" value="chat" onclick="location.href='MatchingChat.jsp'">채팅 제안</button>
 	</div>
 	<footer>
 		<hr>
