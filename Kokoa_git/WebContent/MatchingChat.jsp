@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
+<title>중고마켓 채팅</title>
+<script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
       padding-top:150px;
       margin-left:30px;
-      height:1300px;
    }
    
    header{
@@ -65,10 +66,13 @@
 	    flex-wrap: nowrap;
 	    justify-content: flex-start;
 	    align-items: center;
-	    padding-left:100px;
+	    padding-left:130px;
+	    padding-top:30px;
+	    
+	    
 	}
 	li > img{
-	    width: 100px;
+	    width: 200px;
 	}
 	li > .talk{
 	    /* 프로필 사진과 메시지(채팅) 내용 사이 간격 조절 */
@@ -82,18 +86,18 @@
 	.friend-name{
 	    /* 프로필명(이름) 스타일 조정 */
 	    font-weight: bold;
-	    font-size: 0.875rem; /* 16 브라우저 기준 14px */
+	    font-size: 20px; /* 16 브라우저 기준 14px */
 	}
 	.chat-content{
 	    /* 메시지(채팅) 내용 스타일 조정 */
 	    color: gray;
-	    font-size: 0.75rem; /* 16 브라우저 기준 12px */
+	    font-size: 16px; /* 16 브라우저 기준 12px */
 	
 	}
 	.member_cnt{
 	    /* 그룹 채팅방 경우, 인원 수 표시 */
 	    color: rgb(194, 194, 194);
-	    font-size: 0.75rem;
+	    font-size: 16px;
 	    margin-left: 0.4375rem; /* 7px (!6폰트 브라우저 기준) */
 	}
 	.me{
@@ -103,7 +107,7 @@
 	    padding: 0.125rem; /* 16폰트 브라우저 기준 2px */
 	    margin-right: 0.125rem;
 	    vertical-align: middle;
-	    font-size: 0.625rem; /* 16 브라우저 기준 10px */
+	    font-size: 14px; /* 16 브라우저 기준 10px */
 	    color: white;
 	}
 	
@@ -114,7 +118,7 @@
 	}
 	.time{
 	    color: rgb(194, 194, 194);
-	    font-size: 0.625rem; /* 16 브라우저 기준 10px */
+	    font-size: 12px; /* 16 브라우저 기준 10px */
 	}
 	.chat-balloon{
 	    /* 안읽은 메시지 수(count) 표시 스타일 지정 */    
@@ -122,13 +126,24 @@
 	    border: 1px solid tomato;
 	    background-color: tomato;
 	    border-radius: 0.625rem;
-	    font-size: 0.3125rem;
+	    font-size: 8px;
 	    color: white;
 	    font-weight: bold;
 	    padding-top: 0.0625rem; /* 16 브라우저 기준 1px */
 	    padding-bottom: 0.0625rem;
 	    padding-left: 0.25rem; /* 16 브라우저 기준 4px */
 	    padding-right:0.25rem;
+	}
+	.back{
+		position:fixed;
+		color:#61da94;
+		z-index:1;
+		top:20px;
+		left:40px;
+		padding-top:150px;
+	}
+	.wrap li{
+		border-bottom:1px solid #ebebeb;
 	}
 </style>
 </head>
@@ -138,6 +153,13 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
+		<table class='icon'>
+			<tr>
+				<td>
+					<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 채팅</span></i></a>
+				</td>
+			</tr>
+		</table>
 	        <div id="content">
             <main>
                 <ul class="wrap">
@@ -185,10 +207,6 @@
                     </li>
                 </ul>
             </main>
-            <!-- aside: 광고 -->
-            <aside>
-                <img src="icons/puppy.jpg" class="ad" style="width:auto; height:300px align:center;" alt="광고이미지">
-            </aside>
         </div>
 	<footer>
 		<hr>
