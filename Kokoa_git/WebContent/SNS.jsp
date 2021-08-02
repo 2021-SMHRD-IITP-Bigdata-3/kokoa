@@ -60,7 +60,7 @@
 		background-color: #000;
 		width: 400px;
 		height: 400px;
-		margin: 15px;
+		margin: 20px;
 		overflow: hidden;
 	}
 	ul#gallery>a>li::after{
@@ -98,12 +98,11 @@
 	
 	.icon{
 		text-align:left;
-		left : 100px;
-		padding-top : 120px;
+		padding-top : 110px;
 	}
-	.fas.fa-arrow-left.fa-3x{
+	.fas.fa-arrow-left.fa-2x{
 		position:relative;
-		left:100px;
+		left:30px;
 	}
 	.back{
 		position:fixed;
@@ -127,7 +126,7 @@
 		<table class='icon'>
 			<tr>
 				<td>
-					<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-3x"></i></a>
+					<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"></i></a>
 				</td>
 			</tr>
 		</table>
@@ -152,7 +151,7 @@
             <a href=""><li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FqENoA%2FbtqKJ1gmhTS%2Fyw7thwnctobZmhwhmvKBF0%2Fimg.jpg"></li></a>
         </ul>
     </div>
-    <a class="write" href="#" onclick="location.href='UploadStory.jsp'"><i class="fas fa-plus-square fa-5x"></i></a>
+    <a class="write" href="#" onclick="location.href='UploadStory.jsp'"><i class="fas fa-plus-square fa-3x"></i></a>
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

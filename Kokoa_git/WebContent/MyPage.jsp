@@ -122,7 +122,7 @@
 	<%} else{ %>
 		<div>
 			<div>
-				<img src="icons/profile.png" style=""><br>
+				<img src="icons/profile.png" style="width:400px; height:400px;"><br>
 				<p style="font-size:50px">로그인이 필요합니다.</p>
 			</div>
 			<div>

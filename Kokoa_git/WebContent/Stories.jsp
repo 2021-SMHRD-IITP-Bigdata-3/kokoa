@@ -196,7 +196,7 @@
 	.back{
 		position:relative;
 		top:190px;
-		left:80px;
+		left:40px;
 		color:#61da94;
 		
 	}

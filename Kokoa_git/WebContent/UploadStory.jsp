@@ -79,9 +79,11 @@
 	  border: none;
 	  padding: 10px;
 	  width: 260px;
-	  background-color: #1BBC9B;
+	  background-color: #61da94;
 	  margin-bottom: 30px;
 	  color: white;
+	  border-radius:5px;
+	  
 	}
 	.icon{
 		position:relative;
@@ -102,7 +104,7 @@
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
-		<table class="icon" align="left">
+		<table class="icon">
 			<tr>
 				<td>
 					<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 스토리 작성</span></i></a>

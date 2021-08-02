@@ -9,83 +9,83 @@
 </head>
 <style>
 	body{
-      padding-bottom:150px;
-      text-align: center;
-      align-content: center;
+    padding-bottom:150px;
+    text-align: center;
+    align-content: center;
    }
    
-   header{
-      position: fixed;
-      top:0;
-      left:0;
-      background-color: #61da94;
-      height: 150px;
-      width: 100%;
+ 	header{
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: #61da94;
+    height: 150px;
+    width: 100%;
    }
-   footer{
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      height: 150px;
-      width:100%;
-      background-color: white;
+ 	footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 150px;
+    width:100%;
+    background-color: white;
    }
-   #menu{
-      position: absolute;
-      left:1%;
-      top: 50%;
-      transform: translate(0,-50%);
+	#menu{
+    position: absolute;
+    left:1%;
+    top: 50%;
+    transform: translate(0,-50%);
    }
-   #logo{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
+   	#logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
    }
-   #chat{
-      position: absolute;
-      right:1%;
-      top: 50%;
-      transform: translate(0,-50%);
+   	#chat{
+	    position: absolute;
+	    right:1%;
+	    top: 50%;
+	    transform: translate(0,-50%);
    }
 	.CS {
-	  width: 800px;
-	  height: 700px;
-	  margin-right: auto;
-	  margin-left: auto;
-	  margin-top: 50px;
-	  padding: 20px;
-	  text-align: center;
-	  border: none;
-	  padding-top:300px;
+		width: 800px;
+		height: 700px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 50px;
+		padding: 20px;
+		text-align: center;
+		border: none;
+		padding-top:300px;
 	    
 	}
 	.text-field {
-	  font-size: 20px;
-	  padding: 10px;
-	  border: a3a3a3;
-	  width: 500px;
-	  margin-bottom: 10px;
+		font-size: 20px;
+		padding: 10px;
+		border: a3a3a3;
+		width: 500px;
+		margin-bottom: 10px;
 	 
 	}
 	.text-field2 {
-	  font-size: 20px;
-	  padding: 10px;
-	  border: a3a3a3;
-	  width: 500px;
-	  height: 400px;
-	  margin-bottom: 10px;
+		font-size: 20px;
+		padding: 10px;
+		border: a3a3a3;
+		width: 500px;
+		height: 400px;
+		margin-bottom: 10px;
 	 
 	}
 	.submit-btn {
-	  font-size: 20px;
-	  border: none;
-	  padding: 10px;
-	  width: 260px;
-	  background-color: #61da94;
-	  margin-bottom: 30px;
-	  color: white;
-	  border-radius:5px;
+		font-size: 20px;
+		border: none;
+		padding: 10px;
+		width: 260px;
+		background-color: #61da94;
+		margin-bottom: 30px;
+		color: white;
+		border-radius:5px;
 	}
 	.icon{
 		position:relative;
@@ -108,7 +108,7 @@
 		<table class="icon" align="left">
 			<tr>
 				<td>
-					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-3x"><span style="font-size:30px"> 绊按狼 家府</span></i></a>
+					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 绊按狼 家府</span></i></a>
 				</td>
 			</tr>
 		</table>
