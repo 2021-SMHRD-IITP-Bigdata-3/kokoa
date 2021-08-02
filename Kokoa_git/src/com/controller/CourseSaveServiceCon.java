@@ -32,8 +32,6 @@ public class CourseSaveServiceCon extends HttpServlet {
 			if(cnt > 0) {
 				System.out.println("코스 저장 성공");
 				moveURL = "WalkHistory.jsp";
-				HttpSession session = request.getSession();
-				session.setAttribute("courseInfo", dto);
 			} else {
 				System.out.println("코스 저장 실패");
 				moveURL = "WalkHistory.jsp";

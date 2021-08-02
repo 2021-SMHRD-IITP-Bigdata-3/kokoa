@@ -59,7 +59,29 @@ public class CourseDAO {
 			close();
 		}
 		return cnt;
-		
+	}
 	
+	public CourseDTO show(String nickname) {	
+		try {
+			conn();
+			String sql = "select * course_list from course_list where nickname = ?";
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, nickname);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				int course_num = rs.getInt(1);
+				String tracking_image = rs.getString(2);
+				String tracking_time = rs.getString(3);
+				String id = rs.getNString(4);
+				dto = new CourseDTO(course_num, tracking_image, tracking_time, id);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
 	}
 }

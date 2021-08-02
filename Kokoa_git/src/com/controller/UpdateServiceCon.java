@@ -32,11 +32,11 @@ public class UpdateServiceCon extends HttpServlet {
 	    String id = info.getId();
 	    
 	    System.out.println();
-	    System.out.println(nickname+"/"+pw+"/"+email+"/"+addr+"/"+tel+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);
+	    System.out.println(id+"/"+nickname+"/"+pw+"/"+email+"/"+addr+"/"+tel+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);
 	    
 	    MemberDTO dto = new MemberDTO(id, nickname, pw, email, addr, tel, intrd, dog_name, dog_gender, dog_pic);
 		MemberDAO dao = new MemberDAO();
-		int cnt = dao.update(info);
+		int cnt = dao.update(dto);
 		
 		if(cnt >0) {
 	         System.out.println("회원 정보 수정");
