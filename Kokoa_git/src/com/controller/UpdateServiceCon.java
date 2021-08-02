@@ -19,9 +19,9 @@ public class UpdateServiceCon extends HttpServlet {
 		
 		String nickname = request.getParameter("nickname");
 		String pw = request.getParameter("pw");
-		String email = request.getParameter("email");
 		String addr = request.getParameter("addr");
 		String tel = request.getParameter("tel");
+		String email = request.getParameter("email");		
 		String intrd = request.getParameter("intrd");
 		String dog_name = request.getParameter("dog_name");
 		String dog_gender = request.getParameter("dog_gender");
@@ -32,9 +32,9 @@ public class UpdateServiceCon extends HttpServlet {
 	    String id = info.getId();
 	    
 	    System.out.println();
-	    System.out.println(id+"/"+nickname+"/"+pw+"/"+email+"/"+addr+"/"+tel+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);
+	    System.out.println(id+"/"+nickname+"/"+pw+"/"+addr+"/"+tel+"/"+email+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);
 	    
-	    MemberDTO dto = new MemberDTO(id, nickname, pw, email, addr, tel, intrd, dog_name, dog_gender, dog_pic);
+	    MemberDTO dto = new MemberDTO(id, nickname, pw, addr, tel, email, intrd, dog_name, dog_gender, dog_pic);
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.update(dto);
 		
