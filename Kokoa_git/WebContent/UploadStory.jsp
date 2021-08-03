@@ -32,7 +32,7 @@
    }
    #menu{
       position: absolute;
-      left:1%;
+      left:25px;
       top: 50%;
       transform: translate(0,-50%);
    }
@@ -44,7 +44,7 @@
    }
    #chat{
       position: absolute;
-      right:1%;
+      right:25px;
       top: 50%;
       transform: translate(0,-50%);
 	}
@@ -74,14 +74,16 @@
 	  margin-bottom: 10px;
 	}
 	.submit-btn {
+	  position:relative;
 	  font-size: 14px;
 	  border: none;
-	  padding: 10px;
-	  width: 260px;
+	  padding: 13px;
+	  width: 200px;
 	  background-color: #61da94;
 	  margin-bottom: 30px;
 	  color: white;
 	  border-radius:5px;
+	  right:30px;
 	  
 	}
 	.icon{
@@ -94,6 +96,18 @@
 		position:fixed;
 		color:#61da94;
 		z-index:1;
+	}
+	.submit-btn-2{
+	  position:relative;
+	  font-size: 14px;
+	  border: none;
+	  padding: 10px;
+	  width: 200px;
+	  background-color: #61da94;
+	  margin-bottom: 30px;
+	  color: white;
+	  border-radius:5px;
+	  right:150px;
 	}
 </style>
 </head>
@@ -111,10 +125,10 @@
 			</tr>
 		</table>
 	<div>
-		<form class="UploadStory">
-      		<input type="text" name="title" class="text-field" placeholder="제목을 입력해주세요"><br>
-      		<input type="text" name="content" class="text-field2" placeholder="내용을 입력해주세요"><br>
-      		<input type="submit" value="파일 첨부" class="submit-btn">
+		<form class="UploadStory" action="WriteBoardServiceCon">
+      		<input type="text" name="story_title" class="text-field" placeholder="제목을 입력해주세요"><br>
+      		<input type="text" name="story_con" class="text-field2" placeholder="내용을 입력해주세요"><br>
+      		<input  type="file" class="submit-btn-2" style="float: right;">
       		<input type="submit" value="등록" class="submit-btn">
     	</form>
     </div>

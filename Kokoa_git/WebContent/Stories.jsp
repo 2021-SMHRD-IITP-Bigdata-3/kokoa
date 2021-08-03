@@ -38,7 +38,7 @@
    }
    #menu{
       position: absolute;
-      left:1%;
+      left:25px;
       top: 50%;
       transform: translate(0,-50%);
    }
@@ -50,7 +50,7 @@
    }
    #chat{
       position: absolute;
-      right:1%;
+      right:25px;
       top: 50%;
       transform: translate(0,-50%);
    }
