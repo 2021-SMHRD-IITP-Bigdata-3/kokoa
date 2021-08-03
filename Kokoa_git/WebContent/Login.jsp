@@ -79,13 +79,26 @@
 	  width: 350px;
 	  color: #9B9B9B;
 	}
+	.back{
+	position:fixed;
+	top:170px;
+	color:#61da94;
+	left:40px;
+	z-index:99;
+	}
 </style>
 </head>
 <body>
 	<header>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 	</header>
-
+	<table class="icon">
+		<tr align="left">
+			<td>
+				<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 홈으로</span></i></a>
+			</td>
+		</tr>
+	</table>
 	<div class="login-form">
 		<h1 style="color:gray">ID 로그인</h1>
     		<form action="LoginServiceCon" method="post">
