@@ -115,7 +115,7 @@
 	<div>
 		<form class="CS">
       		<input type="text" name="title" class="text-field" placeholder="제목을 입력해주세요"><br>
-      		<input type="text" name="content" class="text-field2" placeholder="내용을 입력해주세요"><br>
+      		<textarea name="content" class="text-field2" placeholder="내용을 입력해주세요"></textarea><br>
       		<input type="submit" value="파일 첨부" class="submit-btn">
       		<input type="submit" value="등록" class="submit-btn">
     	</form>

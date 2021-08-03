@@ -117,7 +117,8 @@
 	</div>
 	<form action="CourseSaveServiceCon" method="post">
 		<input type="text" name="id" value="<%=info.getId() %>" hidden="hidden">
-		<input type="text" name="nickname" value="<%=info.getNickname() %>" hidden="hidden">	
+		<input type="text" name="nickname" value="<%=info.getNickname() %>" hidden="hidden">
+		<input type="text" id="location" name="location">	
 		<div id="map" style="width:100%;height:1000px;"></div>
 		<div>
 			<div>
@@ -137,7 +138,7 @@
 			</div>
 		</div>
 	
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951"></script>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb060d5b952e15d2ecafb2786bbb951&libraries=services"></script>
 		<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = { 
@@ -160,6 +161,16 @@
 			        
 			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 			            message = '<div style="font-size: 20px;">시작</div>'; // 인포윈도우에 표시될 내용입니다
+			        navigator.geolocation.getCurrentPosition(function(position){
+			        	var geocoder = new kakao.maps.sevices.Geocoder();
+			        	var callback = function(result, status){
+			        		if(status === kakao.maps.services.Status.OK){
+			        			var locate = result[0].address_name;
+			        		}
+			        	}
+			        	geocoder.coord2RegionCode(position.coords.longitude, position.coords.latitude, callback);
+			        })
+			        
 
 			        // 마커와 인포윈도우를 표시합니다
 			        if(bool){

@@ -162,7 +162,9 @@
       <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
    </header>
    <div style="width:100%; height:150px;"></div>
-   <span><%=info.getTracking_time() %></span>>
+   <%if(dto.getTracking_time()!=null){%>
+   <span><%=dto.getTracking_time() %></span>>
+   <%} %>
 	<div class="btn">
 		<br>
 		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
