@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>로그인</title>
+<script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
       padding-bottom:150px;
@@ -21,14 +22,6 @@
       background-color: #61da94;
       height: 150px;
       width: 100%;
-   }
-   footer{
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      height: 150px;
-      width:100%;
-      background-color: white;
    }
    #menu{
       position: absolute;
@@ -90,33 +83,24 @@
 </head>
 <body>
 	<header>
-		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
-		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
+
 	<div class="login-form">
-	<h1 style="color:gray">ID 로그인</h1>
-    <form action="LoginServiceCon" method="post">
-      <input type="text" name="id" class="text-field" placeholder="아이디">
-      <input type="password" name="pw" class="text-field" placeholder="비밀번호">
-      <input type="submit" value="로그인" class="submit-btn">
-    </form>
+		<h1 style="color:gray">ID 로그인</h1>
+    		<form action="LoginServiceCon" method="post">
+      			<input type="text" name="id" class="text-field" placeholder="아이디">
+      			<input type="password" name="pw" class="text-field" placeholder="비밀번호">
+      			<input type="submit" value="로그인" class="submit-btn">
+    		</form>
  
-    <div class="links">
-      <a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#" onclick="location.href='Join.jsp'">회원가입</a>
-    </div>
+    	<div class="links">
+      		<a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#" onclick="location.href='Join.jsp'">회원가입</a>
+    	</div>
   	</div>
 	<div style="margin-top:150px;">
 		<a href="Matching.jsp"><img src="icons/event.jpg" width="700px" height="500px"></a>
 	</div>
-  	<footer>
-		<hr>
-		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
-		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
-		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
-		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="160px"></a>
-	</footer>
 
 </body>
 </html>
