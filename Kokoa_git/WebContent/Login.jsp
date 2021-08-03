@@ -95,7 +95,7 @@
 	<table class="icon">
 		<tr align="left">
 			<td>
-				<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 홈으로</span></i></a>
+				<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 홈으로</span></i></a>
 			</td>
 		</tr>
 	</table>
