@@ -10,21 +10,26 @@
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
+		position:relative;
+		top:200px;
 		text-align: center;
 		align-content: center;
 	}
-	.topbar{
-		position: sticky;
-		top: 0;
-		background-color: #61da94;
-		height: 150px;
-		padding:20px;
+	header{
+      position: fixed;
+      top:0;
+      left:0;
+      background-color: #61da94;
+      height: 150px;
+      width: 100%;
 	}
-	.bottombar{
-		position: sticky;
-		bottom: 0;
-		height: 150px;
-		background-color: white;
+	footer{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 150px;
+      width:100%;
+      background-color: white;
 	}
 	button{
 		background-color: #61da94;
@@ -98,15 +103,15 @@
 </head>
 <body>
 	<%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
-	<div class="topbar">
+	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-	</div>
+	</header>
 	<%if(info != null){ %>
 		<div>
 			<div class="box">
-				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:400px; height:400px;"><br>
+				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:250px; height:250px;"><br>
 				<p style="font-size:30px"><%=info.getNickname() %></p>
 			</div>
 			<div class="btn-group a">
@@ -126,8 +131,8 @@
 	<%} else{ %>
 		<div>
 			<div class="box">
-				<img class="pic" src="icons/profile.png" style="width:400px; height:400px;"><br>
-				<p style="font-size:50px">로그인이 필요합니다.</p>
+				<img class="pic" src="icons/profile.png" style="width:250px; height:250px;"><br>
+				<p style="font-size:30px">로그인이 필요합니다.</p>
 			</div>
 			<div>
 				<button type="button" onClick="location.href='Login.jsp'">로그인</button>
@@ -136,13 +141,13 @@
 			</div>
 		</div>
 	<%} %>
-	<div class="bottombar">
+	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
 		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
-	</div>
+	</footer>
 </body>
 </html>

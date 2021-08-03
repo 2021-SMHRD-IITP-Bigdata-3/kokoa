@@ -53,21 +53,20 @@
 	    height: 700px;
 	    margin-right: auto;
 	    margin-left: auto;
-        margin-top: 50px;
+        margin-top: 100px;
 	    padding: 20px;
         text-align: center;
 	    border: none;
-	    padding-top:300px;
 	}
 	.text-field {
-	  font-size: 14px;
+	  font-size: 20px;
 	  padding: 10px;
 	  border: a3a3a3;
 	  width: 500px;
 	  margin-bottom: 10px;
 	}
 	.text-field2 {
-	  font-size: 14px;
+	  font-size: 20px;
 	  padding: 10px;
 	  border: a3a3a3;
 	  width: 500px;

@@ -57,7 +57,7 @@
 		padding: 20px;
 		text-align: center;
 		border: none;
-		padding-top:300px;
+		padding-top:200px;
 	    
 	}
 	.text-field {
@@ -78,7 +78,7 @@
 	 
 	}
 	.submit-btn {
-		font-size: 20px;
+		font-size: 14px;
 		border: none;
 		padding: 10px;
 		width: 260px;

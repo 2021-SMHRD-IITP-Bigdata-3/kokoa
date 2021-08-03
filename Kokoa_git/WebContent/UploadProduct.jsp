@@ -10,6 +10,7 @@
 <style>
 	body{
       padding-bottom:150px;
+      height:1000px;
    }
    
    header{
@@ -19,6 +20,7 @@
       background-color: #61da94;
       height: 150px;
       width: 100%;
+      z-index:10;
    }
    footer{
       position: fixed;
@@ -51,6 +53,7 @@
    		top:170px;
    		left:30px;
    		color:#61da94;
+   		z-index:10;
    }
    	.confirm{
    		position:fixed;

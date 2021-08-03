@@ -11,6 +11,7 @@
 	body{
       padding-top:150px;
       margin-left:30px;
+      height:800px;
    }
    
    header{
