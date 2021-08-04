@@ -125,7 +125,7 @@
 			</tr>
 		</table>
 	<div>
-		<form class="UploadStory" action="WriteBoardServiceCon">
+		<form method="post" class="UploadStory" action="WriteBoardServiceCon" enctype="multipart/form-data">
       		<input type="text" name="story_title" class="text-field" placeholder="제목을 입력해주세요"><br>
       		<input type="text" name="story_con" class="text-field2" placeholder="내용을 입력해주세요"><br>
       		<input  type="file" class="submit-btn-2" style="float: right;" name="story_pic">
