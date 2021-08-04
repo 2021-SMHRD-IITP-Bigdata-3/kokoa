@@ -86,6 +86,11 @@
 	left:40px;
 	z-index:99;
 	}
+	#form{
+	top:50%;
+	left:50%;
+	}
+	
 </style>
 </head>
 <body>
@@ -99,21 +104,22 @@
 			</td>
 		</tr>
 	</table>
-	<div class="login-form">
-		<h1 style="color:gray">ID 로그인</h1>
-    		<form action="LoginServiceCon" method="post">
-      			<input type="text" name="id" class="text-field" placeholder="아이디">
-      			<input type="password" name="pw" class="text-field" placeholder="비밀번호">
-      			<input type="submit" value="로그인" class="submit-btn">
-    		</form>
- 
-    	<div class="links">
-      		<a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#" onclick="location.href='Join.jsp'">회원가입</a>
-    	</div>
-  	</div>
-	<div style="margin-top:150px;">
-		<a href="Matching.jsp"><img src="icons/event.jpg" width="700px" height="500px"></a>
+	<div id="form">
+		<div class="login-form">
+			<h1 style="color:gray">ID 로그인</h1>
+	    		<form action="LoginServiceCon" method="post">
+	      			<input type="text" name="id" class="text-field" placeholder="아이디">
+	      			<input type="password" name="pw" class="text-field" placeholder="비밀번호">
+	      			<input type="submit" value="로그인" class="submit-btn">
+	    		</form>
+	 
+	    	<div class="links">
+	      		<a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#" onclick="location.href='Join.jsp'">회원가입</a>
+	    	</div>
+	  	</div>
+		<div style="margin-top:150px;">
+			<a href="Matching.jsp"><img src="icons/event.jpg" width="700px" height="500px"></a>
+		</div>
 	</div>
-
 </body>
 </html>
