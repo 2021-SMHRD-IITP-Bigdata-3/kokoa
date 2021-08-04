@@ -1,0 +1,17 @@
+<Context path="/Kokoa_git" docBase="www">
+<Resource
+	name="jdbc/Kokoa_git"
+	auth="Container"
+	type="javax.sql.DataSource"
+	driverClassName="com.mysql.jdbc.Driver"
+	loginTimeout="10"
+	validationQuery="SELECT 1 FROM DUAL"
+	maxWait="5000"
+	username="hr"
+	password="hr"
+	testOnBorrow="true"
+	url="jdbc:mysql://localhost:3306/Kokoa_git"/>
+<ResourceLink type="javax.sql.data.Datasource"
+	name="jdbc/Kokoa_git"
+	global="jdbc/Kokoa_git"/>
+</Context>

@@ -218,6 +218,15 @@ start with 1
 insert into flea_market(product_num) values(product_num_seq.nextval);
 
 
+
+
+
+
+
+
+drop table matching_host
+
+
 create table matching_host(
 	mem_num number(8),
 	id varchar2(20),
@@ -244,16 +253,53 @@ create table matching_part(
 
 
 
+
+
+
+
+
+
+
+
+alter table matching_chat_list add (gender varchar2(10))
+alter table matching_chat_list add (nickname varchar2(20))
+alter table matching_chat_list add (id varchar2(20))
+alter table matching_chat_list add (age varchar2(10))
+alter table matching_chat_list add (matching_date date)
+alter table matching_chat_list add (dog_gender varchar2(10))
+alter table matching_chat_list add (dog_size varchar2(10))
+alter table matching_chat_list add (dog_type varchar2(10))
+
+
+select * from matching_chat_list
+
+
+
+
+
+
+
 create table matching_chat_list(
 	chatting_room_num number(15),
 	chatting_room_title varchar2(50) not null,
 	constraint matching_chat_list_chatting_pk primary key(chatting_room_num)
 )
+
 create sequence chat_num_seq
 increment by 1
 start with 1
 
 insert into matching_chat_list(chatting_room_num) values(chat_num_seq.netxval)
+
+
+
+
+
+
+
+
+
+
 
 
 create table matching_chat_ban_list(
@@ -267,3 +313,23 @@ increment by 1
 start with 1
 
 insert into matching_chat_ban_list(chatting_room_num) values(ban_list_seq.nextval);
+
+
+
+
+
+
+create table chat(
+	chat_room_num number(15),
+	fromID varchar2(20),
+	toID varchar2(20),
+	chatContent varchar2(100),
+	chatTime timestamp
+	
+)
+
+create sequence chat_list_seq
+increment by 1
+start with 1
+
+select * from chat

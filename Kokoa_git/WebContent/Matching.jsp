@@ -96,12 +96,15 @@
 	
 	</table>
 	<hr>
+		
+	<input type ="button" value ="방만들기" name ="make">
+	<br><br>
 	
 	<table border = 1>
 	<tr>
 	<td rowspan = 5><img src="icons/puppy.jpg" width="153px" height="100px"></td>
 	<td> 닉네임 (남성, 20대)</td>
-	<td rowspan = 5> <input type = "submit" value ="산책 매칭 "><br>2/5명</td>
+	<td rowspan = 5> <input type = "submit" value ="산책 매칭 " onclick="location.href='Chat.jsp'"><br>2/5명</td>
 	</tr>
 	
 	<tr>
