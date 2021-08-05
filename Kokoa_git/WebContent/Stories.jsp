@@ -267,7 +267,7 @@ count++;
                         </div>
                     </div>
                     <div class="comment-registration">
-                        <input type="text" class="input-comment" placeholder="댓글 달기...">
+                        <input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요">
                         <div class="regist">게시하기</div>
                     </div>
                 </div>
