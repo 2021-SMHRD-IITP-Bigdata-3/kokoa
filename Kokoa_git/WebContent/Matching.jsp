@@ -97,13 +97,13 @@
 	</table>
 	<hr>
 		
-	<input type ="button" value ="방만들기" name ="make">
+	<input type ="button" value ="방만들기" name ="make" onclick="location.href='CreateMatching.jsp'">
 	<br><br>
 	
 	<table border = 1>
 	<tr>
 	<td rowspan = 5><img src="icons/puppy.jpg" width="153px" height="100px"></td>
-	<td> 닉네임 (남성, 20대)</td>
+	<td> 닉네임 (남자만, 20~30대)</td>
 	<td rowspan = 5> <input type = "submit" value ="산책 매칭 " onclick="location.href='Chat.jsp'"><br>2/5명</td>
 	</tr>
 	
@@ -112,11 +112,11 @@
 	</tr>
 	
 	<tr>
-	<td>대형견</td>
+	<td>크기 상관 없음</td>
 	</tr>
 	
 	<tr>
-	<td>골든 리트리버 (남, 활달)</td>
+	<td>아이 성별 수컷만</td>
 	</tr>
 	
 	
