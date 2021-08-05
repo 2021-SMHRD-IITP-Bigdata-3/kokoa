@@ -1,3 +1,6 @@
+<%@page import="com.model.BoardDTO"%>
+<%@page import="com.model.BoardDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -10,13 +13,9 @@
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>함께하게</title>
 <style>
-@import "reset.css";
-@import "topNav.css";
-@import "content.css";
-@import "aside.css";
 	body{
-      padding-bottom:130px;
-      height:1000px;
+      padding-bottom:150px;
+      height:2000px;
    }
    
    header{
@@ -38,7 +37,7 @@
    }
    #menu{
       position: absolute;
-      left:25px;
+      left:1%;
       top: 50%;
       transform: translate(0,-50%);
    }
@@ -50,16 +49,15 @@
    }
    #chat{
       position: absolute;
-      right:25px;
+      right:1%;
       top: 50%;
       transform: translate(0,-50%);
    }
    .view {
    	  position: relative;
 	  padding-top: 60px;
-	  max-width: 935px;
+	  width: 935px;
 	  top: 180px;
-	  left: 24%;
 	}
 	
 	.section {
@@ -78,7 +76,6 @@
 	.content-profile {
 	  display: flex;
 	  align-items: center;
-	
 	  padding: 16px;
 	  height: 27px;
 	}
@@ -141,10 +138,6 @@
 	  font-weight: bold;
 	}
 	
-	.contents-contents-hashtag {
-	  color: #00376b;
-	}
-	
 	.comment {
 	  display: flex;
 	}
@@ -195,16 +188,42 @@
 		top:170px;
 		left:40px;
 		color:#61da94;
+		z-index:10;
 		
 	}
-	
-	
-
-
+	.section{
+		position:relative;
+		width:800px;
+		left:8%;
+	}
 </style>
 </head>
 <body>
+<%
+int story_num = Integer.parseInt(request.getParameter("story_num"));
+
+BoardDAO dao = new BoardDAO();
+BoardDTO dto = dao.showOne(story_num);
+
+%>
+<%
+
+int count;
+
+if(session.getAttribute("count") != null)
+{
+	count = ((Integer)session.getAttribute("count")).intValue();
 	
+}
+
+else
+{
+	count = 0;	
+}
+
+count++;
+
+%>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -221,14 +240,14 @@
         <section class="section">
             <div class="content">
                 <div class="content-profile">
-                    <div><img src="icons/puppy.jpg" alt="" class="content-profilePhoto"></div>
+                    <div><img src="img/<%=dto.getStory_pic() %>" alt="" class="content-profilePhoto"></div>
                     <div class="content-more">
-                        <div class="content-id">보여줄게</div>
+                        <div class="content-id"><%= dto.getStory_title() %></div>
                         <div class="content-moreIcon"><i class="fas fa-ellipsis-h"></i></div>
                     </div>
                 </div>
                 <div class="content-contents">
-                    <img src="icons/event.jpg" class="content-contents" alt="">
+                    <img src="img/<%=dto.getStory_pic() %>" class="content-contents" alt="">
                 </div>
                 <div class="content_bottom">
                     <div class="content-menuDiv">
@@ -237,11 +256,10 @@
                             <li class="content-menuIcon"><i class="far fa-comment"></i><span> 23 </span></li>
                         </ul>
                     </div>
-                    <div class="views">조회 2,331,635회</div>
+                    <div class="views"> 조회수 <%= count%></div>
                     <div class="content-contents-contents">
-                        <div class="contents-id">보여줄게</div>
-                        <div class="contents-contents">이벤트합니다</div>
-                        <div class="contents-contents-hashtag">#이벤트</div>
+                        <div class="contents-id"><%= dto.getStory_title() %></div>
+                        <div class="contents-contents"><p class="contents-contents" style="white-space: pre-line;"><%= dto.getStory_con() %></p></div>
                         <div class="comment">
                             <div class="comment-id">tahiti8505</div>
                             <div class="comment-content">귀엽네요</div>
@@ -256,6 +274,9 @@
             </div>
         </section>
         </div>
+        <%
+		session.setAttribute("count", new Integer(count));
+		%>
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

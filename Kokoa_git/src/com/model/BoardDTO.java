@@ -23,6 +23,10 @@ public class BoardDTO {
 		this.story_pic = story_pic;
 		this.write_time = write_time;
 	}
+	public BoardDTO(int story_num) {
+		super();
+		this.story_num = story_num;
+	}
 	public String getStory_title() {
 		return Story_title;
 	}

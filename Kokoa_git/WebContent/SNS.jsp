@@ -15,8 +15,8 @@
 	body{
 	    padding-bottom:150px;
 	    align-content: center;
-	    padding-top: 50px;
-	    height:2500px;
+	    padding-top: 40px;
+	    height:1500px;
    }
    header{
 	    position: fixed;
@@ -77,8 +77,6 @@
 		border: 2px #fff;
 		transform: translate(-50%, -50%);
 		text-align: center;
-		content: '¥Û¥Û¿Ãø°∞‘ πŸ∑Œ∞°±‚';
-		font-size: 35px;
 		color: #fff;
 		opacity: 0;
 		transition: 0.8s;
@@ -121,13 +119,10 @@
 	}
 </style>
 <body>
-	<%
-	
-		BoardDAO dao = new BoardDAO();
-		ArrayList<BoardDTO> board_list = dao.showBoard();
-		// "select * from web_board where num= ?"
-		
-	%>
+<%
+	BoardDAO dao = new BoardDAO();
+	ArrayList<BoardDTO> board_list = dao.showBoard();
+%>
 
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -143,13 +138,13 @@
 		</table>
     <div id="wrap">
         <ul id="gallery">
-        	<% for (int i=0; i<board_list.size(); i++) {%>
-            <li><%=board_list.get(i).getStory_pic()%></li>
-            <%} %>
+        	<% for(int i=0; i<board_list.size(); i++) {%>
+        		<a href="Stories.jsp?story_num=<%= board_list.get(i).getStory_num() %>"><li><img src="img/<%=board_list.get(i).getStory_pic() %>"></li></a>
+        	<%} %>
         </ul>
     </div>
     <a class="write" href="#" onclick="location.href='UploadStory.jsp'"><i class="fas fa-plus-square fa-3x"></i></a>
-	<footer>
+    <footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>

@@ -51,7 +51,7 @@ public class BoardDAO {
 	public int upload(BoardDTO dto) {
 		try {
 			conn();
-			String sql="insert into sns values(?,?,?,sysdate)";
+			String sql="insert into sns values(story_num_seq.nextval, ?,?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getStory_title());
 			psmt.setString(2, dto.getStory_con());
@@ -74,12 +74,13 @@ public class BoardDAO {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
+				int story_num = rs.getInt("story_num");
 				String story_title= rs.getString("story_title");
 				String story_con= rs.getString("story_con");
 				String story_pic= rs.getString("story_pic");
 				String write_time= rs.getString("write_time");
 				
-				BoardDTO dto = new BoardDTO(story_title, story_con, story_pic, write_time);
+				BoardDTO dto = new BoardDTO(story_num, story_title, story_con, story_pic, write_time);
 				board_list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -88,5 +89,30 @@ public class BoardDAO {
 			close();
 		}
 		return board_list;
+	}
+//개별 게시글 보여주기 메소드
+	public BoardDTO showOne(int story_num) {
+		try {
+			conn();
+			String sql="select * from sns where story_num=? ";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, story_num);
+			rs = psmt.executeQuery();
+
+			if(rs.next()) {
+				String story_title = rs.getString("story_title");
+				String story_con = rs.getString("story_con");
+				String story_pic = rs.getString("story_pic");
+				String write_time = rs.getString("write_time");
+				
+				dto = new BoardDTO(story_num, story_title, story_con, story_pic, write_time);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return dto; 
 	}
 }

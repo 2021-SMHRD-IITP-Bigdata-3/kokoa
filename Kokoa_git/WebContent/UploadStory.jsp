@@ -1,3 +1,6 @@
+<%@page import="com.model.BoardDAO"%>
+<%@page import="com.model.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -127,7 +130,7 @@
 	<div>
 		<form method="post" class="UploadStory" action="WriteBoardServiceCon" enctype="multipart/form-data">
       		<input type="text" name="story_title" class="text-field" placeholder="제목을 입력해주세요"><br>
-      		<input type="text" name="story_con" class="text-field2" placeholder="내용을 입력해주세요"><br>
+      		<textarea name="story_con" class="text-field2" placeholder="내용을 입력해주세요" cols="20" wrap="hard"></textarea><br>
       		<input  type="file" class="submit-btn-2" style="float: right;" name="story_pic">
       		<input type="submit" value="등록" class="submit-btn">
     	</form>
