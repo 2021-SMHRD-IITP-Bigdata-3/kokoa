@@ -34,7 +34,7 @@ public class CreateMatchingServiceCon extends HttpServlet {
 		MatchingDTO dto = new MatchingDTO(chatting_room_title,gender,nickname,id,min_age,max_age,matching_date,hour,minute,dog_gender,dog_size);
 		int cnt = dao.create(dto);
 		
-		if(cnt>1) {
+		if(cnt < 1) {
 			System.out.println("매칭방 개설 성공");
 		} else {
 			System.out.println("매칭방 개설 실패");

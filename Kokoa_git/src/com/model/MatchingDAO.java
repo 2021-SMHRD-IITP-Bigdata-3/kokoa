@@ -49,7 +49,7 @@ public class MatchingDAO {
 	   public int create(MatchingDTO dto) {
 			try {
 				conn();
-				String sql = "insert into matching_chat_list values (chat_num_seq.netxval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into matching_chat_list values (chat_num_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, dto.getChatting_room_title());
 				psmt.setString(2, dto.getGender());
