@@ -4,21 +4,21 @@ public class BoardDTO {
 	
 	
 	private int story_num;
-	private String Story_title;
+	private String story_title;
 	private String story_con;
 	private String story_pic;
 	private String write_time;
 	 
 	public BoardDTO(String story_title, String story_con, String story_pic) {
 		super();
-		Story_title = story_title;
+		this.story_title = story_title;
 		this.story_con = story_con;
 		this.story_pic = story_pic;
 	}
 	public BoardDTO(int story_num, String story_title, String story_con, String story_pic, String write_time) {
 		super();
 		this.story_num = story_num;
-		this.Story_title = story_title;
+		this.story_title = story_title;
 		this.story_con = story_con;
 		this.story_pic = story_pic;
 		this.write_time = write_time;
@@ -28,10 +28,10 @@ public class BoardDTO {
 		this.story_num = story_num;
 	}
 	public String getStory_title() {
-		return Story_title;
+		return story_title;
 	}
 	public void setStory_title(String story_title) {
-		Story_title = story_title;
+		this.story_title = story_title;
 	}
 	public int getStory_num() {
 		return story_num;
@@ -49,7 +49,7 @@ public class BoardDTO {
 
 	public BoardDTO(String story_title, String story_con, String story_pic, String write_time) {
 		super();
-		this.Story_title = story_title;
+		this.story_title = story_title;
 		this.story_con = story_con;
 		this.story_pic = story_pic;
 		this.write_time = write_time;

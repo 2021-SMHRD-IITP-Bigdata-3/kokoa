@@ -48,14 +48,7 @@
 		top: 50%;
 		transform: translate(0,-50%);
 	}
-	#backbtn{
-		background-color:white;
-		height:70px;
-		width:80px;
-		font-size: 50px;
-		border-color:white;
 
-	}
 	#title{
 		position: relative;
         font-size: 50px;
@@ -68,6 +61,7 @@
 	input{	
 		font-size: 20px;
 	}
+	
 	
 </style>
 </head>
@@ -87,7 +81,8 @@
 	</div>
 	
 	<div class="pagetitle">	
-		<h1 id="title"><button type="button" id="backbtn"> ← </button> 회원정보수정 </h1>
+		<button onclick="history.back()"> ← </button>
+		<h1> 회원정보수정 </h1>
 	</div>
 	
 	<form  action="UpdateServiceCon" method="post" >
@@ -99,7 +94,8 @@
 				<tr>
 					<td>닉네임</td>
 					<td><input type="text" name="nickname"></td>
-					<td><input type="submit" value="중복확인"></td>
+					<td><input type="button" value="중복확인" onclick='window.open("NickCheck/NickCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
+					
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -187,6 +183,8 @@
 	    }).open();
 	}
 	</script>
+		
+
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

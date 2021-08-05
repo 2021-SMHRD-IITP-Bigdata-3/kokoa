@@ -113,10 +113,10 @@
 			</tr>
 		</table>
 	<div>
-		<form class="CS">
-      		<input type="text" name="title" class="text-field" placeholder="제목을 입력해주세요"><br>
-      		<textarea name="content" class="text-field2" placeholder="내용을 입력해주세요"></textarea><br>
-      		<input type="submit" value="파일 첨부" class="submit-btn">
+		<form method="post" class="CS" action="CSWriteBoardServiceCon" enctype="multipart/form-data">
+      		<input type="text" name="cs_title" class="text-field" placeholder="제목을 입력해주세요"><br>
+      		<textarea name="cs_con" class="text-field2" placeholder="내용을 입력해주세요" cols="20" wrap="hard"></textarea><br>
+      		<input  type="file" class="submit-btn-2" style="float: right;" name="cs_pic">
       		<input type="submit" value="등록" class="submit-btn">
     	</form>
     </div>
