@@ -7,7 +7,7 @@ public class BoardDTO {
 	private String story_title;
 	private String story_con;
 	private String story_pic;
-	private String write_time;
+	private String write_time; 
 	 
 	public BoardDTO(String story_title, String story_con, String story_pic) {
 		super();

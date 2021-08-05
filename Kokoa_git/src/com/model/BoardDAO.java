@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class BoardDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
-	ResultSet rs = null;
+	ResultSet rs = null; 
 	int cnt=0;
 	BoardDTO dto =null;
  
