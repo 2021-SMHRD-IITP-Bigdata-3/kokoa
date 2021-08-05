@@ -2,30 +2,51 @@ package com.model;
 
 public class MatchingDTO {
 	private int chatting_room_num;
-	private int chatting_room_title;
+	private String chatting_room_title;
 	private String gender;
 	private String nickname;
 	private String id;
-	private String age;
+	private int min_age;
+	private int max_age;
 	private String matching_date;
+	private int hour;
+	private int minute;
 	private String dog_gender;
 	private String dog_size;
-	private String dog_type;
-	
-	
-	public MatchingDTO(int chatting_room_num, int chatting_room_title, String gender, String nickname, String id,
-			String age, String matching_date, String dog_gender, String dog_size, String dog_type) {
+
+
+	public MatchingDTO(int chatting_room_num, String chatting_room_title, String gender, String nickname, String id,
+			int min_age, int max_age, String matching_date, int hour, int minute, String dog_gender, String dog_size) {
 		super();
 		this.chatting_room_num = chatting_room_num;
 		this.chatting_room_title = chatting_room_title;
 		this.gender = gender;
 		this.nickname = nickname;
 		this.id = id;
-		this.age = age;
+		this.min_age = min_age;
+		this.max_age = max_age;
 		this.matching_date = matching_date;
+		this.hour = hour;
+		this.minute = minute;
 		this.dog_gender = dog_gender;
 		this.dog_size = dog_size;
-		this.dog_type = dog_type;
+	}
+
+
+	public MatchingDTO(String chatting_room_title, String gender, String nickname, String id, int min_age, int max_age,
+			String matching_date, int hour, int minute, String dog_gender, String dog_size) {
+		super();
+		this.chatting_room_title = chatting_room_title;
+		this.gender = gender;
+		this.nickname = nickname;
+		this.id = id;
+		this.min_age = min_age;
+		this.max_age = max_age;
+		this.matching_date = matching_date;
+		this.hour = hour;
+		this.minute = minute;
+		this.dog_gender = dog_gender;
+		this.dog_size = dog_size;
 	}
 
 
@@ -39,12 +60,12 @@ public class MatchingDTO {
 	}
 
 
-	public int getChatting_room_title() {
+	public String getChatting_room_title() {
 		return chatting_room_title;
 	}
 
 
-	public void setChatting_room_title(int chatting_room_title) {
+	public void setChatting_room_title(String chatting_room_title) {
 		this.chatting_room_title = chatting_room_title;
 	}
 
@@ -79,16 +100,6 @@ public class MatchingDTO {
 	}
 
 
-	public String getAge() {
-		return age;
-	}
-
-
-	public void setAge(String age) {
-		this.age = age;
-	}
-
-
 	public String getMatching_date() {
 		return matching_date;
 	}
@@ -119,14 +130,45 @@ public class MatchingDTO {
 	}
 
 
-	public String getDog_type() {
-		return dog_type;
+	public int getMin_age() {
+		return min_age;
 	}
 
 
-	public void setDog_type(String dog_type) {
-		this.dog_type = dog_type;
+	public void setMin_age(int min_age) {
+		this.min_age = min_age;
 	}
+
+
+	public int getMax_age() {
+		return max_age;
+	}
+
+
+	public void setMax_age(int max_age) {
+		this.max_age = max_age;
+	}
+
+
+	public int getHour() {
+		return hour;
+	}
+
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+
+	public int getMinute() {
+		return minute;
+	}
+
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
 
 
 }

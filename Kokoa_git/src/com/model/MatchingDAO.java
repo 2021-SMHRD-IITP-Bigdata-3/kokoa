@@ -46,23 +46,24 @@ public class MatchingDAO {
 	   }
 	   
 	   
-	   public int upload(MatchingDTO dto) {
+	   public int create(MatchingDTO dto) {
 			try {
 				conn();
-				String sql = "insert into matching_chat_list values (chat_num_seq.netxval, ?, ?, ?, ?, sysdate)";
+				String sql = "insert into matching_chat_list values (chat_num_seq.netxval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, dto.getChatting_room_num());
-				psmt.setString(2, dto.get());
-				psmt.setString(3, dto.get());
-				psmt.setString(4, dto.get());
-				psmt.setString(4, dto.get());
-				psmt.setString(4, dto.get());
-				psmt.setString(4, dto.get());
-				
-//				결과값 어디에 담았어요 물음표에 값 넣고 sql 문 실행시켜서 나온 결과값을 cnt에 담아줘야 return값에 담기겠죠?
-//						지금은 cnt가 위에ㅓㅅ 전역변수로 0이라고 선언해놓아서 데이터베이스에 들어가더라도 무조건 return이 0으로 됩니다.!
+				psmt.setString(1, dto.getChatting_room_title());
+				psmt.setString(2, dto.getGender());
+				psmt.setString(3, dto.getNickname());
+				psmt.setString(4, dto.getId());
+				psmt.setString(5, dto.getMatching_date());
+				psmt.setString(6, dto.getDog_gender());
+				psmt.setString(7, dto.getDog_size());
+				psmt.setInt(8, dto.getHour());
+				psmt.setInt(9, dto.getMinute());
+				psmt.setInt(10, dto.getMin_age());
+				psmt.setInt(11, dto.getMax_age());
 						
-						cnt = psmt.executeUpdate();
+				cnt = psmt.executeUpdate();
 
 			} catch (SQLException e) {
 				e.printStackTrace();
