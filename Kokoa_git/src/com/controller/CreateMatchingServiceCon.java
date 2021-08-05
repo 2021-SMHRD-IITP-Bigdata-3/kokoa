@@ -28,6 +28,7 @@ public class CreateMatchingServiceCon extends HttpServlet {
 		System.out.println(nickname+id+gender+chatting_room_title+matching_date+hour+minute+min_age+max_age+dog_gender+dog_size);
 		
 		response.sendRedirect("Matching.jsp");
+		
 	}
 
 }
