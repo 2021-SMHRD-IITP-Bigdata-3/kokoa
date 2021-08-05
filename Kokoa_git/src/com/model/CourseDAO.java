@@ -16,9 +16,9 @@ public class CourseDAO {
 	   try {
 	      Class.forName("oracle.jdbc.driver.OracleDriver");
 	        
-	      String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	      String dbid = "hr";
-	      String dbpw = "hr";
+	      String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+	      String dbid = "campus_f1";
+	      String dbpw = "smhrd1";
 	         
 	      conn = DriverManager.getConnection(url, dbid, dbpw);
 	         
