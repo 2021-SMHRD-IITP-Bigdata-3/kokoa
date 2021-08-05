@@ -11,7 +11,7 @@
 <title>스토리 올리기</title>
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 </head>
-<style>
+<style> 
 	body{
       padding-bottom:150px;
       text-align: center;

@@ -13,7 +13,7 @@ public class BoardDAO {
 	ResultSet rs = null;
 	int cnt=0;
 	BoardDTO dto =null;
-
+ 
 	public void conn() {
 		try {
 			// model1 객체에서 사용하지 않았던 이유는 Exception 객체가 내장객체로 존재하기 때문

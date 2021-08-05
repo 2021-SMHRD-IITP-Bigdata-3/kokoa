@@ -11,7 +11,7 @@
 <title>SNS</title>
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 </head>
-<style>
+<style> 
 	body{
 	    padding-bottom:150px;
 	    align-content: center;
