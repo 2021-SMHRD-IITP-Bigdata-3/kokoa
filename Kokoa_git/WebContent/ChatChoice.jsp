@@ -12,6 +12,7 @@
 <input type="button" value="1锅规" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
 <input type="button" value="2锅规" name="2" onClick="location.href='ChatTest.jsp?chatnum=2'">
 <input type="button" value="3锅规" name="3" onClick="location.href='ChatTest.jsp?chatnum=3'">
+<input type="button" value="4锅规" name="4" onClick="location.href='ChatTest.jsp?chatnum=4'">
 </form>
 </body>
 </html>

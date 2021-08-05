@@ -11,7 +11,9 @@
 	#main{
 		width: 500px;
 		height: 500px;
-		background-color: yellow;
+		background-color: #34862E;
+		background-image: url("icons/chatbacksmall.png");
+		color: white;
 		overflow: scroll;
 	}
 </style>
