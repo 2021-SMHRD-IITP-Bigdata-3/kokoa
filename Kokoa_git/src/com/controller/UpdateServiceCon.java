@@ -15,11 +15,12 @@ import com.model.MemberDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/UpdateServiceCon")
+@WebServlet("/UpdateServiceCon2")
 public class UpdateServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("ddddddddddddddddddddddddds");
 		int cnt = 0;
-		MemberDTO dto = null;
+		MemberDTO info = null;
 		
 		HttpSession session = request.getSession();	
 		String savePath = request.getServletContext().getRealPath("img");
@@ -41,23 +42,23 @@ public class UpdateServiceCon extends HttpServlet {
 			String dog_pic = URLEncoder.encode(multi.getFilesystemName("dog_pic"),"EUC-KR");
 			
 			
-			dto = (MemberDTO)session.getAttribute("dto");
-			String id = dto.getId();
+			info = (MemberDTO)session.getAttribute("info");
+			String id = info.getId();
 
 		    System.out.println();
 		    System.out.println(id+"/"+nickname+"/"+pw+"/"+addr+"/"+tel+"/"+email+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);
 			
-			dto = new MemberDTO(id,nickname,pw,addr,tel,email,intrd,dog_name,dog_gender,dog_pic);
+			info = new MemberDTO(id,nickname,pw,addr,tel,email,intrd,dog_name,dog_gender,dog_pic);
 			MemberDAO dao = new MemberDAO();
-			cnt = dao.update(dto);
-			
+			cnt = dao.update(info);
+			System.out.println("회원정보 수정!!!!!!!");
 		} catch (Exception e) {
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 
 		if(cnt >0) {
 	         System.out.println("회원 정보 수정");
-	         session.setAttribute("info", dto);
+	         session.setAttribute("info", info);
 	      }else {
 	         System.out.println("회원 정보 수정 실패");
 	      }

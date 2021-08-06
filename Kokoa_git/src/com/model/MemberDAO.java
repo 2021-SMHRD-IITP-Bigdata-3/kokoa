@@ -185,6 +185,7 @@ public class MemberDAO {
    
    //회원정보수정
    public int update(MemberDTO dto) {
+	   System.out.println(dto.getId());
 	   try {
 	   conn();
 	   String sql = "update k_member set nickname=?, pw=?, email=?, addr=?, tel=?, intrd=?, dog_name=?, dog_gender=?, dog_pic=? where id=?";

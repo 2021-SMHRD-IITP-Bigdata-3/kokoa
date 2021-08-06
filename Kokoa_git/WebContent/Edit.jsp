@@ -85,7 +85,7 @@
 		<h1> 회원정보수정 </h1>
 	</div>
 	
-	<form  action="UpdateServiceCon" method="post" >
+	<form action="UpdateServiceCon2" method="post" enctype="multipart/form-data">
 		<div class="join">
 			<table>
 				<tr>
