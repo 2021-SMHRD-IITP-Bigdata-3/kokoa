@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MatchingDAO {
 	Connection conn = null;
@@ -13,6 +14,7 @@ public class MatchingDAO {
 	   ResultSet rs = null;
 	   String dog_type = "";
 	   MemberDTO info = null;
+	   MatchingDTO dto = null;
 	   
 	   public void conn() {
 	      try {
@@ -73,5 +75,33 @@ public class MatchingDAO {
 			return cnt;
 
 		}
-
+	   
+	   public ArrayList<MatchingDTO> show() {
+		   ArrayList<MatchingDTO> matchingList = new ArrayList<MatchingDTO>();
+		   try {
+			   conn();
+			   String sql = "select * from matching_chat_list order by chatting_room_num";
+			   psmt = conn.prepareStatement(sql);
+			   rs = psmt.executeQuery();
+			   while(rs.next()) {
+				   int chatting_room_num = rs.getInt(1);
+				   String chatting_room_title = rs.getString(2);
+				   String gender = rs.getString(3);
+				   String nickname = rs.getString(4);
+				   String id = rs.getString(5);
+				   String matching_date = rs.getString(6);
+				   String dog_gender = rs.getString(7);
+				   String dog_size = rs.getString(8);
+				   int hour = rs.getInt(9);
+				   int minute = rs.getInt(10);
+				   int min_age = rs.getInt(11);
+				   int max_age = rs.getInt(12);
+				   
+				   dto = new MatchingDTO(chatting_room_num, chatting_room_title, gender, nickname, id, matching_date, dog_gender, dog_size, hour, minute, min_age, max_age);
+				   matchingList.add(dto);
+			   }
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   } return matchingList;
+	   }
 }

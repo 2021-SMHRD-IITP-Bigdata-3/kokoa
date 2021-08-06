@@ -6,30 +6,31 @@ public class MatchingDTO {
 	private String gender;
 	private String nickname;
 	private String id;
-	private int min_age;
-	private int max_age;
 	private String matching_date;
-	private int hour;
-	private int minute;
 	private String dog_gender;
 	private String dog_size;
+	private int hour;
+	private int minute;
+	private int min_age;
+	private int max_age;
+
 
 
 	public MatchingDTO(int chatting_room_num, String chatting_room_title, String gender, String nickname, String id,
-			int min_age, int max_age, String matching_date, int hour, int minute, String dog_gender, String dog_size) {
+			String matching_date, String dog_gender, String dog_size, int hour, int minute, int min_age, int max_age) {
 		super();
 		this.chatting_room_num = chatting_room_num;
 		this.chatting_room_title = chatting_room_title;
 		this.gender = gender;
 		this.nickname = nickname;
 		this.id = id;
-		this.min_age = min_age;
-		this.max_age = max_age;
 		this.matching_date = matching_date;
-		this.hour = hour;
-		this.minute = minute;
 		this.dog_gender = dog_gender;
 		this.dog_size = dog_size;
+		this.hour = hour;
+		this.minute = minute;
+		this.min_age = min_age;
+		this.max_age = max_age;
 	}
 
 

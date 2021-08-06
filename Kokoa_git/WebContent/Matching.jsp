@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.MatchingDTO"%>
+<%@page import="com.model.MatchingDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -46,11 +49,39 @@
       top: 50%;
       transform: translate(0,-50%);
    }
+	ul>li{
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		margin: 20px;
+		overflow: hidden;
+		font-size: 50px;
+		color: white;
+		background-color: #61da94;
+	}
+	ul>li::after{
+		box-sizing: border-box;
+		position: absolute;
+		display: block;
+		top: 50%;
+		left: 50%;
+		width: 87%;
+		height: 87%;
+		border: 2px #fff;
+		transform: translate(-50%, -50%);
+		text-align: left;
+		color: #fff;
+		opacity: 0;
+		transition: 0.8s;
+	}
  
 </style>
 </head>
 <body>
-	
+	<%
+		MatchingDAO dao = new MatchingDAO();
+		ArrayList<MatchingDTO> matchingList = dao.show();
+	%>
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
       <a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -100,27 +131,22 @@
 	<input type ="button" value ="방만들기" name ="make" onclick="location.href='CreateMatching.jsp'">
 	<br><br>
 	
-	<table border = 1>
-	<tr>
-	<td rowspan = 5><img src="icons/puppy.jpg" width="153px" height="100px"></td>
-	<td> 닉네임 (남자만, 20~30대)</td>
-	<td rowspan = 5> <input type = "submit" value ="산책 매칭 " onclick="location.href='Chat.jsp'"><br>2/5명</td>
-	</tr>
-	
-	<tr>
-	<td>2021.07.28  16시</td>
-	</tr>
-	
-	<tr>
-	<td>크기 상관 없음</td>
-	</tr>
-	
-	<tr>
-	<td>아이 성별 수컷만</td>
-	</tr>
-	
-	
-	</table>
+	<div>
+		<ul>
+			<%for(int i = 0; i<matchingList.size(); i++){ %>
+			<li>
+				방제목: <%= matchingList.get(i).getChatting_room_title() %><br>
+				방장: <%= matchingList.get(i).getNickname() %><br>
+				산책일: <%= matchingList.get(i).getMatching_date() %> <%= matchingList.get(i).getHour() %>시 <%= matchingList.get(i).getMinute() %>분<br>
+				성별 제한: <%= matchingList.get(i).getGender() %><br>
+				나이 제한: <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %><br>
+				강아지 성별 제한: <%= matchingList.get(i).getDog_gender() %><br>
+				강아지 크기 제한: <%= matchingList.get(i).getDog_size() %>
+				<input type="button" value="참여하기">
+			</li>
+			<%} %>
+		</ul>
+	</div>
 	
 	
 	<footer>
