@@ -107,13 +107,15 @@
 						<td>번호</td>
 						<td>제목</td>
 						<td>시간</td>
+						<td>삭제</td>
 					</tr>
 					<% for(int i=0; i<board_list.size(); i++){ %>
 						<tr>
 							<td><%= i+1 %> </td>	
-							<td> <a href="CS_Boardes.jsp?num=<%=board_list.get(i).getcs_num() %>">
-							<%= board_list.get(i).getcs_title() %> </a> </td>
+							<td> <a href="CS_Boardes.jsp?cs_num=<%=board_list.get(i).getcs_num() %>">
+							<%= board_list.get(i).getcs_title()%> </a> </td>
 							<td><%= board_list.get(i).getWrite_time()%></td>
+							<td> <a href="DeleteCS_BoardServiceCon?cs_num=<%=board_list.get(i).getcs_num()%>"> 삭제 </a> </td>
 						</tr>					
 					<%} %>
     			</table>

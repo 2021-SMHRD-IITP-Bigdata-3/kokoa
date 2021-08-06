@@ -63,11 +63,11 @@ public class CSWriteBoardServiceCon extends HttpServlet {
 				int cnt = dao.upload(dto);
 				
 				if(cnt>0) {
-					System.out.println("이미지 업로드 성공");
+					System.out.println("고객의 소리 전송 성공");
 				}else {
-					System.out.println("이미지 업로드 실패");
+					System.out.println("고객의 소리 전송 실패");
 				}
-				response.sendRedirect("CS_Board.jsp");
+				response.sendRedirect("MyPage.jsp");
 			}
 
 		}

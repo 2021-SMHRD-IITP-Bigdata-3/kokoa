@@ -117,4 +117,22 @@ public class CSBoardDAO {
 			close();
 		} return dto; 
 	}
+
+	public int deleteCS(int cs_num) {
+		try {
+			 conn();
+		 	
+			 String sql = "delete from cs where cs_num = ?";	
+			 psmt = conn.prepareStatement(sql);
+			 psmt.setInt(1, cs_num);
+			 cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 return cnt;
+		
+	 }
 }

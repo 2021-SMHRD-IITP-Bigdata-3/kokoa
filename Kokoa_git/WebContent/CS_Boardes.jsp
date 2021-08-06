@@ -55,33 +55,7 @@
       right:1%;
       top: 50%;
       transform: translate(0,-50%);
-   }
-   .answer {
-    display: none;
-    padding-bottom: 30px;
-  }
-  #faq-title {
-    font-size: 25px;
-  }
-  .faq-content {
-    border-bottom: 1px solid #e0e0e0;
-  }
-  .question {
-    font-size: 19px;
-    padding: 30px 0;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    width: 100%;
-    text-align: center;
-  }
-  .question:hover {
-    color: #61da94;
-  }
-  [id$="-toggle"] {
-    margin-right: 15px;
-  }
+  
   .back{
 	position:fixed;
 	top:20px;
@@ -93,6 +67,14 @@
 </head>
 <body>
 
+<%
+	int cs_num = Integer.parseInt(request.getParameter("cs_num"));
+
+	CSBoardDAO dao = new CSBoardDAO();
+	CSBoardDTO dto = dao.showOne(cs_num);
+
+%>
+
 <header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
@@ -101,8 +83,34 @@
 	<table class="icon" align="left">
 		<tr>
 			<td>
+			
 				<a class="back" href="#" onclick="location.href='CS_Board.jsp'"><i class="fas fa-arrow-left fa-2x"></i></a>
 			</td>
+			</tr>
+	</table>
+	
+	<div id = "board">
+				<table id="list">
+					
+					<tr>
+						<td colspan="2">³»¿ë</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						
+						<% if(dto.getcs_pic() != null){%>
+								<img src="img/<%= dto.getcs_pic() %>">
+								<br>							
+							<%} %>
+							<%if(dto.getcs_con() != null){ %>
+							<h3> <%= dto.getcs_con() %></h3>
+							<%} %>
+							
+						</td>
+					</tr>
+				</table>
+	</div>
+			
 		
 	<footer>
 		<hr>

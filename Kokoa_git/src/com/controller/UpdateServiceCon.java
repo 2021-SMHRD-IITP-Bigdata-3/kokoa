@@ -40,7 +40,9 @@ public class UpdateServiceCon extends HttpServlet {
 			String dog_gender = multi.getParameter("dog_gender");
 			String dog_pic = URLEncoder.encode(multi.getFilesystemName("dog_pic"),"EUC-KR");
 			
-			String id = session.getId();
+			
+			dto = (MemberDTO)session.getAttribute("dto");
+			String id = dto.getId();
 
 		    System.out.println();
 		    System.out.println(id+"/"+nickname+"/"+pw+"/"+addr+"/"+tel+"/"+email+"/"+intrd+"/"+dog_name+"/"+dog_gender+"/"+dog_pic);

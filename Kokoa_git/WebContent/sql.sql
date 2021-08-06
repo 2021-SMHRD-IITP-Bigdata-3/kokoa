@@ -94,7 +94,7 @@ create table cs (
 )
 
 
-create sequence customer_seq
+create sequence cs_num_seq
 increment by 1
 start with 1
 

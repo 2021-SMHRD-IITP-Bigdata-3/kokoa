@@ -122,7 +122,11 @@
 			<div class="btn-group a">
 				<button class="menu_btn" type="button" onClick="location.href='Notice.jsp'">공지사항</button>
 				<button class="menu_btn" type="button" onClick="location.href='FAQ.jsp'">자주 묻는 질문</button>
+				<%if(info.getId().equals("admin")){ %>
+				<button class="menu_btn" type="button" onClick="location.href='CS_Board.jsp'">고객의 소리</button>
+				 <%}else{ %>
 				<button class="menu_btn" type="button" onClick="location.href='CS.jsp'">고객의 소리</button>
+				 <%} %>
 			</div>
 		</div>
 		<div class="container">
