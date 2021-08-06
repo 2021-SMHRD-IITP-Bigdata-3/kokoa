@@ -186,6 +186,7 @@ increment by 1
 start with 1
 
 
+
 create table chat(
 	chat_num number(15),
 	id varchar2(20),
@@ -194,9 +195,11 @@ create table chat(
 )
 
 
+
 create sequence chat_list_seq
 increment by 1
 start with 1
+
 
 
 create table chattest(
@@ -205,30 +208,4 @@ create table chattest(
 	content varchar(200),
 	day date);
 	
-	select * from chattest
-	
-	insert into chattest values('1','test','test', sysdate );
 
-	
-	
-	-- 사용자 member
-create table c_member(
-	member_id varchar2(100), -- 아이디
-	member_pw varchar2(100), -- 비밀번호
-	member_name varchar2(100), -- 이름
-	member_age number, -- 나이
-	member_addr varchar2(100), -- 주소지
-	member_plog_own char(20), -- 플로깅 참여 여부
-	member_plog_count number, -- 플로깅 횟수
-	constraint member_pk primary key (member_id)	
-);
-
-drop table c_member;
-
-insert into c_member(member_id,member_pw,member_name,member_age,member_addr,member_plog_own,member_plog_count) values('test','test','test',1,'test','o',1);
-insert into c_member(member_id,member_pw,member_name,member_age,member_addr,member_plog_own,member_plog_count) values('test1','test1','test1',1,'test','o',1);
-
-
-
-select * from c_member
-select * from chat
