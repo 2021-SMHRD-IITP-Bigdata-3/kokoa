@@ -196,7 +196,7 @@ create table chat(
 
 
 
-create sequence chat_list_seq
+create sequence chats_seq
 increment by 1
 start with 1
 
@@ -208,4 +208,7 @@ create table chattest(
 	content varchar(200),
 	day date);
 	
+	
+select * from chattest
+select * from chat
 
