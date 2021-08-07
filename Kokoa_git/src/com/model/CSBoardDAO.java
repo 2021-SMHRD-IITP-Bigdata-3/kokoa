@@ -20,7 +20,7 @@ public class CSBoardDAO {
 			// model1 객체에서 사용하지 않았던 이유는 Exception 객체가 내장객체로 존재하기 때문
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url="jdbc:oracle:thin:@localhost:1521:xe";
+			String url="jdbc:oracle:thin:@118.40.119.10:1524:xe";
 			String dbid="hr";
 			String dbpw="hr";
 			

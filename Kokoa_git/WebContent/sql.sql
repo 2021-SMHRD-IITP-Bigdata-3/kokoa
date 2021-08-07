@@ -143,21 +143,28 @@ create table buyer(
 
 
 create table seller(
-	mem_num number(10),
+	seller_num number(20),
+	mem_num number(20),
 	id varchar2(20),
 	nickname varchar2(20),
 	product_num number(15),
-	constraint seller_mem_num_fk foreign key(mem_num) references k_member(mem_num)
+	
+	constraint seller_seller_num_pk primary key(seller_num)
 )
+
+create sequence seller_num_seq
+increment by 1
+start with 1
 
 
 create table flea_market(
+
 	product_num number(15),
 	prodcut varchar2(20) not null,
 	product_title varchar2(100) not null,
 	product_con varchar2(1000) not null,
 	product_pic varchar2(100) not null,
-	product_price varchar2()
+	product_price varchar2(20) not null,
 	constraint flea_market_product_num_pk primary key(product_num)
 )
 
@@ -173,7 +180,7 @@ create table matching_chat_list(
 	gender varchar2(20),
 	nickname varchar2(20),
 	id varchar2(20),
-	matching_date varchar2(20),
+	matching_date date,
 	dog_gender varchar2(20),
 	dog_size varchar2(20),
 	hour number(10),
@@ -183,7 +190,6 @@ create table matching_chat_list(
 	
 	constraint matching_chat_list_chatting_pk primary key(chatting_room_num)
 )
-
 
 create sequence chat_num_seq
 increment by 1
