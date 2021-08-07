@@ -105,16 +105,17 @@ public class MatchingDAO {
 		   } return matchingList;
 	   }
 	   
-	   public ArrayList<MatchingDTO> showF(String input_gender, String input_matching_date, String input_dog_size, String input_dog_gender) {
+	   public ArrayList<MatchingDTO> showF(String input_gender, String input_min_date, String input_max_date, String input_dog_size, String input_dog_gender) {
 		   ArrayList<MatchingDTO> matchingList = new ArrayList<MatchingDTO>();
 		   try {
 			   conn();
-			   String sql = "select * from matching_chat_list where gender=? and matching_date=? and dog_size=? and dog_gender=? order by chatting_room_num";
+			   String sql = "select * from matching_chat_list where gender like ? and matching_date between ? and ? and dog_size like ? and dog_gender like ? order by chatting_room_num";
 			   psmt = conn.prepareStatement(sql);
 			   psmt.setString(1, input_gender);
-			   psmt.setString(2, input_matching_date);
-			   psmt.setString(3, input_dog_size);
-			   psmt.setString(4, input_dog_gender);
+			   psmt.setString(2, input_min_date);
+			   psmt.setString(3, input_max_date);
+			   psmt.setString(4, input_dog_size);
+			   psmt.setString(5, input_dog_gender);
 			   rs = psmt.executeQuery();
 			   while(rs.next()) {
 				   int chatting_room_num = rs.getInt(1);

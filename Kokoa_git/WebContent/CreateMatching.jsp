@@ -128,12 +128,12 @@
    							<option value="수컷중성">수컷과 중성만</option>
    							<%} else if(info.getDog_gender().equals("암컷")){ %>
    							<option value="암컷">암컷만</option>
-   							<option value="암컷수컷">암컷과 수컷만</option>
+   							<option value="수컷암컷">암컷과 수컷만</option>
    							<option value="암컷중성">암컷과 중성만</option>
    							<%} else{ %>
    							<option value="중성">중성만</option>
-   							<option value="중성수컷">중성과 수컷만</option>
-   							<option value="중성암컷">중성과 암컷만</option>
+   							<option value="수컷중성">중성과 수컷만</option>
+   							<option value="암컷중성">중성과 암컷만</option>
    							<%} %>
    							<option value="상관없음">상관없음</option>
    						</select>
@@ -151,12 +151,12 @@
    							<option value="소형대형">소형과 대형만</option>
    							<%}else if(info.getDog_size().equals("중형")){ %>
    							<option value="중형">중형만</option>
-   							<option value="중형소형">중형과 소형만</option>
+   							<option value="소형중형">중형과 소형만</option>
    							<option value="중형대형">중형과 대형만</option>
    							<%}else{ %>
    							<option value="대형">대형만</option>
-   							<option value="대형소형">대형과 소형만</option>
-   							<option value="대형중형">대형과 중형만</option>
+   							<option value="소형대형">대형과 소형만</option>
+   							<option value="중형대형">대형과 중형만</option>
    							<%} %>
    							<option value="상관없음">상관없음</option>
    						</select>

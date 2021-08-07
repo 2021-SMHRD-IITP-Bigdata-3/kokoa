@@ -1,12 +1,14 @@
 package com.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 @WebServlet("/FilteringServiceCon")
 public class FilteringServiceCon extends HttpServlet {
@@ -21,7 +23,11 @@ public class FilteringServiceCon extends HttpServlet {
 		System.out.println(gender+ min_date + max_date + dog_size + dog_gender);
 		
 		HttpSession session = request.getSession();
-        //session.setAttribute("filter", filter);
+        session.setAttribute("gender", gender);
+        session.setAttribute("min_date", min_date);
+        session.setAttribute("max_date", max_date);
+        session.setAttribute("dog_size", dog_size);
+        session.setAttribute("dog_gender", dog_gender);
 		response.sendRedirect("Matching.jsp");
 	}
 

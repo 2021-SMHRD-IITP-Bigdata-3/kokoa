@@ -80,9 +80,20 @@
 </head>
 <body>
 	<%
+		ArrayList<MatchingDTO> matchingList = null;
+		ArrayList<MatchingDTO> matchingFilterList = null;
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		MatchingDAO dao = new MatchingDAO();
-		ArrayList<MatchingDTO> matchingList = dao.show();
+		if((String)session.getAttribute("gender") == null){
+			matchingList = dao.show();
+		} else{
+			String gender = (String)session.getAttribute("gender");
+			String min_date = (String)session.getAttribute("min_date");
+			String max_date = (String)session.getAttribute("max_date");
+			String dog_size = (String)session.getAttribute("dog_size");
+			String dog_gender = (String)session.getAttribute("dog_gender");
+			matchingFilterList = dao.showF(gender, min_date, max_date, dog_size, dog_gender);
+		}
 	%>
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -104,7 +115,7 @@
 				<%}else{ %>
 				여자<input type="radio" value="여자" name="gender">
 				<%} %>
-				상관없음<input type="radio" value="상관없음" name="gender">
+				상관없음<input type="radio" value="%" name="gender">
 			</div>
 			<br>
 			<div>
@@ -120,13 +131,14 @@
 				소형과 대형<input type="radio" value="소형대형" name="dog_size">
 				<%} else if(info.getDog_size().equals("중형")){ %>
 				중형<input type="radio" value="중형" name="dog_size">
-				중형과 소형<input type="radio" value="중형소형" name="dog_size">
+				중형과 소형<input type="radio" value="소형대형" name="dog_size">
 				중형과 대형<input type="radio" value="중형대형" name="dog_size">
 				<%} else{ %>
 				대형<input type="radio" value="대형" name="dog_size">
-				대형과 소형<input type="radio" value="대형소형" name="dog_size">
-				대형과 중형<input type="radio" value="대형중형" name="dog_size">
+				대형과 소형<input type="radio" value="소형중형" name="dog_size">
+				대형과 중형<input type="radio" value="중형대형" name="dog_size">
 				<%} %>
+				상관없음<input type="radio" value="%" name="dog_size">
 			</div>
 			<br>
 			<div>
@@ -137,12 +149,14 @@
 				수컷과 중성<input type="radio" value="수컷중성" name="dog_gender">
 				<%} else if(info.getDog_gender().equals("암컷")){ %>
 				암컷<input type="radio" value="암컷" name="dog_gender">
-				암컷과 수컷<input type="radio" value="암컷수컷" name="dog_gender">
+				암컷과 수컷<input type="radio" value="수컷암컷" name="dog_gender">
 				암컷과 중성<input type="radio" value="암컷중성" name="dog_gender">
-				<%} %>
+				<%} else{ %>
 				중성<input type="radio" value="중성" name="dog_gender">
-				중성과 수컷<input type="radio" value="중성수컷" name="dog_gender">
-				중성과 암컷<input type="radio" value="중성암컷" name="dog_gender">
+				중성과 수컷<input type="radio" value="수컷중성" name="dog_gender">
+				중성과 암컷<input type="radio" value="암컷중성" name="dog_gender">
+				<%} %>
+				상관없음<input type="radio" value="%" name="dog_gender">
 			</div>
 			<br>
 			<div>
@@ -159,18 +173,32 @@
 	
 	<div>
 		<ul>
-			<%for(int i = 0; i<matchingList.size(); i++){ %>
-			<li>
-				방제목: <%= matchingList.get(i).getChatting_room_title() %><br>
-				방장: <%= matchingList.get(i).getNickname() %><br>
-				산책일: <%= matchingList.get(i).getMatching_date() %> <%= matchingList.get(i).getHour() %>시 <%= matchingList.get(i).getMinute() %>분<br>
-				성별 제한: <%= matchingList.get(i).getGender() %><br>
-				나이 제한: <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %><br>
-				강아지 성별 제한: <%= matchingList.get(i).getDog_gender() %><br>
-				강아지 크기 제한: <%= matchingList.get(i).getDog_size() %>
-				<input type="button" value="참여하기" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
-			</li>
-			<%} %>
+			
+			<% if(matchingList != null){
+				for(int i = 0; i<matchingList.size(); i++){ %>
+				<li>
+					방제목: <%= matchingList.get(i).getChatting_room_title() %><br>
+					방장: <%= matchingList.get(i).getNickname() %><br>
+					산책일: <%= matchingList.get(i).getMatching_date() %> <%= matchingList.get(i).getHour() %>시 <%= matchingList.get(i).getMinute() %>분<br>
+					성별 제한: <%= matchingList.get(i).getGender() %><br>
+					나이 제한: <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %><br>
+					강아지 성별 제한: <%= matchingList.get(i).getDog_gender() %><br>
+					강아지 크기 제한: <%= matchingList.get(i).getDog_size() %>
+					<input type="button" value="참여하기" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
+				</li>
+			<%}}else{
+				for(int i = 0; i<matchingFilterList.size(); i++){ %>
+				<li>
+					방제목: <%= matchingFilterList.get(i).getChatting_room_title() %><br>
+					방장: <%= matchingFilterList.get(i).getNickname() %><br>
+					산책일: <%= matchingFilterList.get(i).getMatching_date() %> <%= matchingFilterList.get(i).getHour() %>시 <%= matchingFilterList.get(i).getMinute() %>분<br>
+					성별 제한: <%= matchingFilterList.get(i).getGender() %><br>
+					나이 제한: <%= matchingFilterList.get(i).getMin_age() %> ~ <%= matchingFilterList.get(i).getMax_age() %><br>
+					강아지 성별 제한: <%= matchingFilterList.get(i).getDog_gender() %><br>
+					강아지 크기 제한: <%= matchingFilterList.get(i).getDog_size() %>
+					<input type="button" value="참여하기" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
+				</li>
+				<%}} %>
 		</ul>
 	</div>
 	
