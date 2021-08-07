@@ -80,7 +80,7 @@ public class MatchingDAO {
 		   ArrayList<MatchingDTO> matchingList = new ArrayList<MatchingDTO>();
 		   try {
 			   conn();
-			   String sql = "select * from matching_chat_list order by chatting_room_num";
+			   String sql = "select * from matching_chat_list order by chatting_room_num desc";
 			   psmt = conn.prepareStatement(sql);
 			   rs = psmt.executeQuery();
 			   while(rs.next()) {
@@ -105,17 +105,28 @@ public class MatchingDAO {
 		   } return matchingList;
 	   }
 	   
-	   public ArrayList<MatchingDTO> showF(String input_gender, String input_min_date, String input_max_date, String input_dog_size, String input_dog_gender) {
+	   public ArrayList<MatchingDTO> showF(String input_gender, int input_min_age, int input_max_age, String input_min_date, String input_max_date, String input_dog_size, String input_dog_gender) {
 		   ArrayList<MatchingDTO> matchingList = new ArrayList<MatchingDTO>();
 		   try {
 			   conn();
-			   String sql = "select * from matching_chat_list where gender like ? and matching_date between ? and ? and dog_size like ? and dog_gender like ? order by chatting_room_num";
+			   String sql = "select * from matching_chat_list "
+			   		+ "where gender like ? "
+			   		+ "and min_age between ? and ? "
+			   		+ "and max_age between ? and ? "
+			   		+ "and matching_date between ? and ? "
+			   		+ "and dog_size like ? "
+			   		+ "and dog_gender like ? "
+			   		+ "order by chatting_room_num desc";
 			   psmt = conn.prepareStatement(sql);
 			   psmt.setString(1, input_gender);
-			   psmt.setString(2, input_min_date);
-			   psmt.setString(3, input_max_date);
-			   psmt.setString(4, input_dog_size);
-			   psmt.setString(5, input_dog_gender);
+			   psmt.setInt(2, input_min_age);
+			   psmt.setInt(3,  input_max_age);
+			   psmt.setInt(4, input_min_age);
+			   psmt.setInt(5, input_max_age);
+			   psmt.setString(6, input_min_date);
+			   psmt.setString(7, input_max_date);
+			   psmt.setString(8, input_dog_size);
+			   psmt.setString(9, input_dog_gender);
 			   rs = psmt.executeQuery();
 			   while(rs.next()) {
 				   int chatting_room_num = rs.getInt(1);
@@ -137,5 +148,22 @@ public class MatchingDAO {
 		   } catch(Exception e) {
 			   e.printStackTrace();
 		   } return matchingList;
+	   }
+	   
+	   public String showI(String id, int room_num) {
+		   String chatting_room_title="";
+		   try {
+			   conn();
+			   String sql = "select * from matching_chat_list where id = ? and chatting_room_num = ? order by chatting_room_num desc";
+			   psmt = conn.prepareStatement(sql);
+			   psmt.setString(1, id);
+			   psmt.setInt(2, room_num);
+			   rs = psmt.executeQuery();
+			   while(rs.next()) {
+				   chatting_room_title = rs.getString("chatting_room_title");
+			   }
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   } return chatting_room_title;
 	   }
 }

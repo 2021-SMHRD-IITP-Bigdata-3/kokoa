@@ -34,7 +34,7 @@
    }
    #menu{
       position: absolute;
-      left:1%;
+      left:25px;
       top: 50%;
       transform: translate(0,-50%);
    }
@@ -46,7 +46,7 @@
    }
    #chat{
       position: absolute;
-      right:1%;
+      right:25px;
       top: 50%;
       transform: translate(0,-50%);
    }
@@ -84,15 +84,17 @@
 		ArrayList<MatchingDTO> matchingFilterList = null;
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		MatchingDAO dao = new MatchingDAO();
-		if((String)session.getAttribute("gender") == null){
+		if((String)session.getAttribute("dog_gender") == null){
 			matchingList = dao.show();
 		} else{
 			String gender = (String)session.getAttribute("gender");
+			int min_age = (Integer)session.getAttribute("min_age");
+			int max_age = (Integer)session.getAttribute("max_age");
 			String min_date = (String)session.getAttribute("min_date");
 			String max_date = (String)session.getAttribute("max_date");
 			String dog_size = (String)session.getAttribute("dog_size");
 			String dog_gender = (String)session.getAttribute("dog_gender");
-			matchingFilterList = dao.showF(gender, min_date, max_date, dog_size, dog_gender);
+			matchingFilterList = dao.showF(gender, min_age, max_age, min_date, max_date, dog_size, dog_gender);
 		}
 	%>
 	<header>
@@ -116,6 +118,11 @@
 				여자<input type="radio" value="여자" name="gender">
 				<%} %>
 				상관없음<input type="radio" value="%" name="gender">
+			</div>
+			<br>
+			<div>
+				<b>나이 | </b>
+				<input type="text" name="min_age" placeholder="최소 나이"> ~ <input type="text" name="max_age" placeholder="최대 나이">
 			</div>
 			<br>
 			<div>
@@ -166,16 +173,19 @@
 		</div>
 	</form>
 
-	<hr>
-		
-	<input type ="button" value ="방만들기" name ="make" onclick="location.href='CreateMatching.jsp'">
 	<br><br>
 	
 	<div>
+		<hr>
+		<h1>필터링을 먼저 해야 방에 참여하실 수 있습니다.</h1>
+		<hr>
+		<div align="right">	
+			<input type ="button" value ="방만들기" name ="make" onclick="location.href='CreateMatching.jsp'">
+		</div>
 		<ul>
 			
 			<% if(matchingList != null){
-				for(int i = 0; i<matchingList.size(); i++){ %>
+				for(int i = 0; i<matchingList.size(); i++){ %>	
 				<li>
 					방제목: <%= matchingList.get(i).getChatting_room_title() %><br>
 					방장: <%= matchingList.get(i).getNickname() %><br>
@@ -184,11 +194,11 @@
 					나이 제한: <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %><br>
 					강아지 성별 제한: <%= matchingList.get(i).getDog_gender() %><br>
 					강아지 크기 제한: <%= matchingList.get(i).getDog_size() %>
-					<input type="button" value="참여하기" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
 				</li>
 			<%}}else{
 				for(int i = 0; i<matchingFilterList.size(); i++){ %>
 				<li>
+					필터링 후<br>
 					방제목: <%= matchingFilterList.get(i).getChatting_room_title() %><br>
 					방장: <%= matchingFilterList.get(i).getNickname() %><br>
 					산책일: <%= matchingFilterList.get(i).getMatching_date() %> <%= matchingFilterList.get(i).getHour() %>시 <%= matchingFilterList.get(i).getMinute() %>분<br>
@@ -196,13 +206,20 @@
 					나이 제한: <%= matchingFilterList.get(i).getMin_age() %> ~ <%= matchingFilterList.get(i).getMax_age() %><br>
 					강아지 성별 제한: <%= matchingFilterList.get(i).getDog_gender() %><br>
 					강아지 크기 제한: <%= matchingFilterList.get(i).getDog_size() %>
-					<input type="button" value="참여하기" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
+					<input type="button" value="참여하기" name="<%=matchingFilterList.get(i).getChatting_room_num() %>" onClick="location.href='ChatTest.jsp?chatnum=<%=matchingFilterList.get(i).getChatting_room_num() %>'">
 				</li>
-				<%}} %>
+			<%}} %>
 		</ul>
 	</div>
-	
-	
+	<%
+		session.removeAttribute("gender");
+		session.removeAttribute("min_age");
+		session.removeAttribute("max_age");
+		session.removeAttribute("min_date");
+		session.removeAttribute("max_date");
+		session.removeAttribute("dog_size");
+		session.removeAttribute("dog_gender");
+	%>
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

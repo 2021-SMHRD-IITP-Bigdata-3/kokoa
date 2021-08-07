@@ -1,3 +1,5 @@
+<%@page import="com.model.IndivisualChatDTO"%>
+<%@page import="com.model.IndivisualChatDAO"%>
 <%@page import="javax.xml.bind.ParseConversionEvent"%>
 <%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -32,19 +34,19 @@
 	// 방 선택시 필요
 	request.setCharacterEncoding("EUC-KR");
 	int chatnum = Integer.parseInt(request.getParameter("chatnum"));
-
 	System.out.println("chatnum(chatTest1페이지) : " + chatnum);
+	
+	IndivisualChatDAO dao = new IndivisualChatDAO();
+	dao.joinChat(info.getMem_num(), chatnum);
 
 %>	
 	<div id="main">
 		<div id="chat">
 		</div>
 	</div>
-  <% if (info!=null){%>
-		내 아이디 : <%= info.getId() %>  
-  <%} else{ %>
-  	<input id="id" type="text" placeholder="아이디 입력" name="id">
-  <%} %>
+
+	내 아이디 : <%= info.getId() %>  
+
 	<input id="content" type="text" placeholder="내용 입력" name="content">
 	
 	<button id="send">입력</button>

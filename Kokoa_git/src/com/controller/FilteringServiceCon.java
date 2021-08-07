@@ -15,15 +15,19 @@ public class FilteringServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
 		String gender = request.getParameter("gender");
+		int min_age = Integer.parseInt(request.getParameter("min_age"));
+		int max_age = Integer.parseInt(request.getParameter("max_age"));
 		String min_date = request.getParameter("min_date");
 		String max_date = request.getParameter("max_date");
 		String dog_size = request.getParameter("dog_size");
 		String dog_gender = request.getParameter("dog_gender");
 		
-		System.out.println(gender+ min_date + max_date + dog_size + dog_gender);
+		System.out.println(gender + min_age + max_age + min_date + max_date + dog_size + dog_gender);
 		
 		HttpSession session = request.getSession();
         session.setAttribute("gender", gender);
+        session.setAttribute("min_age", min_age);
+        session.setAttribute("max_age", max_age);
         session.setAttribute("min_date", min_date);
         session.setAttribute("max_date", max_date);
         session.setAttribute("dog_size", dog_size);
