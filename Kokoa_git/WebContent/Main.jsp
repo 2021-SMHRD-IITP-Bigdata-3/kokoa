@@ -51,7 +51,7 @@
    <%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
    <header>
        <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-       <a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+       <a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
        <%if(info != null){ %>
          <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
       <%} else{ %>
@@ -94,7 +94,7 @@
           <a href="Login.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
           <a href="Login.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
           <a href="Login.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-          <a href="Login.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
+          <a href="Login.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="175px"></a>
        <%} %>
    </footer>
 </body>
