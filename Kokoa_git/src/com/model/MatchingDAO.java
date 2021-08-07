@@ -104,4 +104,37 @@ public class MatchingDAO {
 			   e.printStackTrace();
 		   } return matchingList;
 	   }
+	   
+	   public ArrayList<MatchingDTO> showF(String input_gender, String input_matching_date, String input_dog_size, String input_dog_gender) {
+		   ArrayList<MatchingDTO> matchingList = new ArrayList<MatchingDTO>();
+		   try {
+			   conn();
+			   String sql = "select * from matching_chat_list where gender=? and matching_date=? and dog_size=? and dog_gender=? order by chatting_room_num";
+			   psmt = conn.prepareStatement(sql);
+			   psmt.setString(1, input_gender);
+			   psmt.setString(2, input_matching_date);
+			   psmt.setString(3, input_dog_size);
+			   psmt.setString(4, input_dog_gender);
+			   rs = psmt.executeQuery();
+			   while(rs.next()) {
+				   int chatting_room_num = rs.getInt(1);
+				   String chatting_room_title = rs.getString(2);
+				   String gender = rs.getString(3);
+				   String nickname = rs.getString(4);
+				   String id = rs.getString(5);
+				   String matching_date = rs.getString(6);
+				   String dog_gender = rs.getString(7);
+				   String dog_size = rs.getString(8);
+				   int hour = rs.getInt(9);
+				   int minute = rs.getInt(10);
+				   int min_age = rs.getInt(11);
+				   int max_age = rs.getInt(12);
+				   
+				   dto = new MatchingDTO(chatting_room_num, chatting_room_title, gender, nickname, id, matching_date, dog_gender, dog_size, hour, minute, min_age, max_age);
+				   matchingList.add(dto);
+			   }
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   } return matchingList;
+	   }
 }
