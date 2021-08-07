@@ -136,22 +136,16 @@
 	<div class="container">
 		<div class="top">
 			<a class="back" href="#" onclick="location.href='FleaMarket.jsp'" align="left"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 중고거래 글쓰기</span></i></a>
-			<button class="confirm" value="confirm" onclick="location.href='FleaMarket.jsp'">완료</button>
 		</div>
+		
 	</div>
-	<div class="UploadProducts">
-	<form method="post" action="MarketServiceCon" enctype="multipart/form-data">
-		<table class="photo">
-			<tr class="line">
-				<td><i class="fas fa-camera fa-3x"></i></td>
-			</tr>
-			<tr align="center">
-				<td><input type="text" placeholder="제목" class="saleTitle"></td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<select class="category">
+	<div>
+	<form method="post" class="UploadProducts" action="MarketServiceCon" enctype="multipart/form-data">
+				
+				<i class="fas fa-camera fa-3x"> <input  type="file" class="product_pic" name="product_pic"></i>
+				<input type="text" name="product_title" placeholder="제목" class="saleTitle">
+			
+						<select class="category" name="product">
 							<option value="" selected>category</option>
 						 	<option value="feed">사료</option>
 						 	<option value="snack">간식</option>
@@ -161,22 +155,14 @@
 						 	<option value="toy">장난감</option>
 						 	<option value="fashion">패션</option>
 						</select>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="text" placeholder="가격" class="salePrice">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<textarea class="intro">소개글</textarea>
-				</td>
-			</tr>
-		</table>
-	</form>
+		
+					<input type="text" name="product_price"placeholder="가격" class="salePrice">
+					<textarea class="intro" name="product_con">소개글</textarea>
+					<button class="confirm" value="confirm" onclick="location.href='FleaMarket.jsp'">상품등록</button>
+			</form>
+	
 	</div>
+	
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

@@ -139,7 +139,7 @@
     <div id="wrap">
         <ul id="gallery">
         	<% for(int i=0; i<board_list.size(); i++) {%>
-        		<a href="Stories.jsp?story_num=<%= board_list.get(i).getStory_num() %>"><li><img src="img/<%=board_list.get(i).getStory_pic() %>"></li></a>
+        	<li><a href="Stories.jsp?story_num=<%= board_list.get(i).getStory_num() %>"><li><img src="img/<%=board_list.get(i).getStory_pic() %>"></li></a>
         	<%} %>
         </ul>
     </div>

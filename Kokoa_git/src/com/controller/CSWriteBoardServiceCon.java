@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.BoardDAO;
-import com.model.BoardDTO;
 import com.model.CSBoardDAO;
 import com.model.CSBoardDTO;
 import com.oreilly.servlet.MultipartRequest;

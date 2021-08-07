@@ -47,7 +47,6 @@ public class MarketServiceCon extends HttpServlet {
 		String product = multi.getParameter("product");
 		String product_title = multi.getParameter("product_title");
 		String product_con = multi.getParameter("product_con");
-		String product_pic = multi.getParameter("product_pic");
 		String product_price = multi.getParameter("product_price");
 		
 
@@ -61,16 +60,16 @@ public class MarketServiceCon extends HttpServlet {
 		System.out.println(product_price);
 
 		
-		MarketDTO dto= new MarketDTO(product, product_title, product_con,product_pic, product_price);
-		MarketDTO dao = new MarketDTO();
+		MarketDTO dto= new MarketDTO(product, product_title, product_con, product_pic, product_price);
+		MarketDAO dao = new MarketDAO();
 		int cnt = dao.upload(dto);
 		
 		if(cnt>0) {
-			System.out.println("고객의 소리 전송 성공");
+			System.out.println("상품등록 성공");
 		}else {
-			System.out.println("고객의 소리 전송 실패");
+			System.out.println("상품등록 실패");
 		}
-		response.sendRedirect("MyPage.jsp");
+		response.sendRedirect("FleaMarket.jsp");
 	}
 
 }

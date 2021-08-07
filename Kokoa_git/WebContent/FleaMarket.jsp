@@ -1,3 +1,6 @@
+<%@page import="com.model.MarketDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.MarketDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -120,6 +123,13 @@
 </style>
 </head>
 <body>
+
+<%
+	MarketDAO dao = new MarketDAO();
+	ArrayList<MarketDTO> board_list = dao.showBoard();
+%>
+
+
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
@@ -129,40 +139,33 @@
 			<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 마켓</span></i></a>
 			<button class="sell" value="sell" onclick="location.href='UploadProduct.jsp'" >판매등록</button>
 	</div>
-	<div class="cate_wrap">
-		<select class="category">
-			<option value="" selected>category</option>
-		 	<option value="feed">사료</option>
-		 	<option value="snack">간식</option>
-		 	<option value="care">케어</option>
-		 	<option value="living">리빙</option>
-		 	<option value="stuff">잡화</option>
-		 	<option value="toy">장난감</option>
-		 	<option value="fashion">패션</option>
-		</select>
-	</div>
-		<div class="wrap">
-				<div class="sale_pic"><a href="#" onclick="location.href='Products.jsp'"><img class="img" src="icons/puppy.jpg" width="300px" height="200px"></a></div>
-					<div id="sale">
-					 <div class="sale_info"><span class="sale_title">강아지 옷 팝니다.</span></div>
-					 <div class="sale_info"><span class="sale_price">25000원</span></div>
-				</div>
-		</div>
-		<div class="wrap">
-				<div class="sale_pic"><a href="#" onclick="location.href='Products.jsp'"><img class="img" src="icons/puppy.jpg" width="300px" height="200px"></a></div>
-					<div id="sale">
-					 <div class="sale_info"><span class="sale_title">강아지 옷 팝니다.</span></div>
-					 <div class="sale_info"><span class="sale_price">25000원</span></div>
-				</div>
-		</div>
-		<div class="wrap">
-				<div class="sale_pic"><a href="#" onclick="location.href='Products.jsp'"><img class="img" src="icons/puppy.jpg" width="300px" height="200px"></a></div>
-					<div id="sale">
-					 <div class="sale_info"><span class="sale_title">강아지 옷 팝니다.</span></div>
-					 <div class="sale_info"><span class="sale_price">25000원</span></div>
-				</div>
-		</div>
-		
+	
+	<div id="product">
+				<table id = "list">
+				
+					<tr>
+						<td>카테고리</td>
+						<td>번호</td>
+						<td>사진</td>
+						<td>제목</td>
+						<td>내용</td>
+						<td>가격</td>
+					</tr>
+					
+					<% for(int i=0; i<board_list.size(); i++){ %>
+						<tr>
+							
+							<td><%= board_list.get(i).getProduct() %> </td>	
+							<td><%=i+1 %>"></td>
+							<td><a href="FleaMarket.jsp?product_pic=<%= board_list.get(i).getProduct_pic() %>"></a></td>
+							<td><%= board_list.get(i).getProduct_title()%>"> </td>
+							<td><%= board_list.get(i).getProduct_con()%>"> </td>
+							<td><%= board_list.get(i).getProduct_price()%>"></td>
+					
+						</tr>
+					<%} %>
+				</table>
+		</div>	
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

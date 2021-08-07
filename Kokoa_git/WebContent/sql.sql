@@ -167,7 +167,7 @@ create table flea_market(
 	product_price varchar2(20) not null,
 	constraint flea_market_product_num_pk primary key(product_num)
 )
-
+select * from flea_market
 
 create sequence product_num_seq
 increment by 1

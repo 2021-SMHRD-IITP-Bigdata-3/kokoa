@@ -20,9 +20,9 @@ public class CSBoardDAO {
 			// model1 객체에서 사용하지 않았던 이유는 Exception 객체가 내장객체로 존재하기 때문
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url="jdbc:oracle:thin:@118.40.119.10:1524:xe";
-			String dbid="hr";
-			String dbpw="hr";
+			String url="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String dbid="campus_f1";
+	        String dbpw = "smhrd1";
 			
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 			
@@ -66,6 +66,7 @@ public class CSBoardDAO {
 			close();
 		}return cnt;
 	}
+	
 	public ArrayList<CSBoardDTO> showBoard() {
 		ArrayList<CSBoardDTO> board_list = new ArrayList<CSBoardDTO>();
 		try {

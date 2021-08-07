@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MarketDAO {
 	
@@ -20,8 +21,8 @@ public class MarketDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			String url="jdbc:oracle:thin:@118.40.119.10:1524:xe";
-			String dbid="hr";
-			String dbpw="hr";
+			String dbid="campus_f1";
+	        String dbpw = "smhrd1";
 			
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 			
@@ -55,11 +56,11 @@ public class MarketDAO {
 			String sql="insert into flea_market values(product_num_seq.nextval, ?,?,?,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getproduct());
-			psmt.setString(2, dto.getproduct_title());
-			psmt.setString(3, dto.getproduct_con());
-			psmt.setString(4, dto.getproduct_pic());
-			psmt.setString(5, dto.getproduct_price());
+			psmt.setString(1, dto.getProduct());
+			psmt.setString(2, dto.getProduct_title());
+			psmt.setString(3, dto.getProduct_con());
+			psmt.setString(4, dto.getProduct_pic());
+			psmt.setString(5, dto.getProduct_price());
 			
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -68,4 +69,34 @@ public class MarketDAO {
 			close();
 		}return cnt;
 	}
+	
+	public ArrayList<MarketDTO> showBoard() {
+		ArrayList<MarketDTO> board_list = new ArrayList<MarketDTO>();
+		try {
+			conn();
+			String sql="select * from flea_market";
+			psmt = conn.prepareStatement(sql);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+
+				String product= rs.getString("product");
+				String product_title= rs.getString("product_title");
+				String product_con= rs.getString("product_con");
+				String product_pic= rs.getString("product_pic");
+				String product_price= rs.getString("product_price");
+				
+				MarketDTO dto = new MarketDTO(product, product_title, product_con, product_pic, product_price);
+				board_list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return board_list;
+	}
+
+	
 }
