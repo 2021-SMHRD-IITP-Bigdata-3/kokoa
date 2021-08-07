@@ -95,7 +95,7 @@
 </head>
 <body>
 	<header>
-		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
 	</header>
 	<table class="icon">
 		<tr align="left">
