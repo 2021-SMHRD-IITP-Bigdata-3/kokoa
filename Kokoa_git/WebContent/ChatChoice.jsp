@@ -9,10 +9,10 @@
 <body>
 <form>
  <!-- 공고테이블, 채팅테이블 완성되면 DTO, DAO 사용하는 방향으로  수정하기 -->
-<input type="button" value="1번방" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
-<input type="button" value="2번방" name="2" onClick="location.href='ChatTest.jsp?chatnum=2'">
-<input type="button" value="3번방" name="3" onClick="location.href='ChatTest.jsp?chatnum=3'">
-<input type="button" value="4번방" name="4" onClick="location.href='ChatTest.jsp?chatnum=4'">
+ <%for(int i=1; i<10; i++){ %>
+<input type="button" value="<%=i %>번방" name="<%=i %>" onClick="location.href='ChatTest.jsp?chatnum=<%=i%>'">
+<%} %>
+
 </form>
 </body>
 </html>

@@ -168,7 +168,7 @@
 				나이 제한: <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %><br>
 				강아지 성별 제한: <%= matchingList.get(i).getDog_gender() %><br>
 				강아지 크기 제한: <%= matchingList.get(i).getDog_size() %>
-				<input type="button" value="참여하기">
+				<input type="button" value="참여하기" name="1" onClick="location.href='ChatTest.jsp?chatnum=1'">
 			</li>
 			<%} %>
 		</ul>
