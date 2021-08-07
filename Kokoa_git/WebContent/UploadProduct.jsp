@@ -136,11 +136,11 @@
 	<div class="container">
 		<div class="top">
 			<a class="back" href="#" onclick="location.href='FleaMarket.jsp'" align="left"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 중고거래 글쓰기</span></i></a>
-			<button class="confirm" value="confirm" >완료</button>
+			<button class="confirm" value="confirm" onclick="location.href='FleaMarket.jsp'">완료</button>
 		</div>
 	</div>
 	<div class="UploadProducts">
-	<form>
+	<form method="post" action="MarketServiceCon" enctype="multipart/form-data">
 		<table class="photo">
 			<tr class="line">
 				<td><i class="fas fa-camera fa-3x"></i></td>

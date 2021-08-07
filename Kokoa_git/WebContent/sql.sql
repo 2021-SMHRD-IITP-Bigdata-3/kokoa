@@ -154,6 +154,10 @@ create table seller(
 create table flea_market(
 	product_num number(15),
 	prodcut varchar2(20) not null,
+	product_title varchar2(100) not null,
+	product_con varchar2(1000) not null,
+	product_pic varchar2(100) not null,
+	product_price varchar2()
 	constraint flea_market_product_num_pk primary key(product_num)
 )
 
