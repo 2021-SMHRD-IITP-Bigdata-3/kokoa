@@ -88,7 +88,7 @@
       <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
    </header>
 	
-	<h1> 매칭 하는 곳 </h1>
+	<h1>매칭 하는 곳 </h1>
 	<br>
 	<br>
 	<hr>
