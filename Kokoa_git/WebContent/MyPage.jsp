@@ -34,12 +34,13 @@
 	button{
 		background-color: #61da94;
 		color: white;
-		height: 70px;
-		width: 180px;
+		height: 120px;
+		width: 220px;
 		border-radius: 10px;
-		font-size: 25px;
+		font-size: 30px;
 		margin-top:15px;
 		margin-left:15px;
+		font-weight:bold;
 	}
 	#menu{
 		position: absolute;
@@ -85,7 +86,8 @@
    		position:relative;
    		padding-bottom:150px;
 		color:#61da94;
-		left:21%;
+		top:30px;
+		left:25%;
  	}
  	.container{
  		margin-top:35px;
@@ -111,8 +113,8 @@
 	<%if(info != null){ %>
 		<div>
 			<div class="box">
-				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:250px; height:250px;"><br>
-				<p style="font-size:30px"><%=info.getNickname() %></p>
+				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:400px; height:400px;"><br>
+				<p style="font-size:40px; font-weight:bold;"><%=info.getNickname() %></p>
 			</div>
 			<div class="btn-group a">
 				<button class="menu_btn" type="button" onClick="location.href='Edit.jsp'">회원 정보 수정</button>				
@@ -130,7 +132,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<a class="back" href="#" onclick="location.href='LogoutServiceCon'"><i class="fas fa-chevron-left fa-2x"><span class="logout_text" style="font-size:20px"> 로그아웃</span></i></a>
+			<a class="back" href="#" onclick="location.href='LogoutServiceCon'"><i class="fas fa-chevron-left fa-4x"><span class="logout_text" style="font-size:40px"> 로그아웃</span></i></a>
 		</div>
 	<%} else{ %>
 		<div>
