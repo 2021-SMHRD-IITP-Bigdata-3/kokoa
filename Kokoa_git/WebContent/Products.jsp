@@ -149,7 +149,7 @@
 	</div>
 	<div class="introDiv">
 	<% if(dto.getproduct_con() != null){%>
-		<textarea class="intro"><%= dto.getproduct_con() %></textarea>
+		<textarea readonly="readonly" class="intro"><%= dto.getproduct_con() %></textarea>
 			<%} %>
 	</div>
 	<div>
