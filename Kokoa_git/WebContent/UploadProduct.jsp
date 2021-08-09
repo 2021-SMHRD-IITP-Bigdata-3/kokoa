@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -127,7 +128,7 @@
 </style>
 </head>
 <body>
-	
+	<%MemberDTO info = (MemberDTO)session.getAttribute("info"); %>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
@@ -159,6 +160,7 @@
 					<input type="text" name="product_price"placeholder="가격" class="salePrice">
 					<textarea class="intro" name="product_con">소개글</textarea>
 					<button class="confirm" value="confirm" onclick="location.href='FleaMarket.jsp'">상품등록</button>
+					<input type="text" name="product_seller" value="<%=info.getNickname() %>" hidden="hidden">
 			</form>
 	
 	</div>

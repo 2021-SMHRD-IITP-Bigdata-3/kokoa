@@ -53,14 +53,15 @@ public class MarketDAO {
 	public int upload(MarketDTO dto) {
 		try {
 			conn();
-			String sql="insert into flea_market values(product_num_seq.nextval, ?,?,?,?,?)";
+			String sql="insert into flea_market values(product_num_seq.nextval, ?,?,?,?,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getProduct());
-			psmt.setString(2, dto.getProduct_title());
-			psmt.setString(3, dto.getProduct_con());
-			psmt.setString(4, dto.getProduct_pic());
-			psmt.setString(5, dto.getProduct_price());
+			psmt.setString(1, dto.getproduct());
+			psmt.setString(2, dto.getproduct_title());
+			psmt.setString(3, dto.getproduct_con());
+			psmt.setString(4, dto.getproduct_pic());
+			psmt.setString(5, dto.getproduct_price());
+			psmt.setString(6, dto.getproduct_seller());
 			
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -80,14 +81,16 @@ public class MarketDAO {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-
+				
+				int product_num = rs.getInt("product_num");
 				String product= rs.getString("product");
 				String product_title= rs.getString("product_title");
 				String product_con= rs.getString("product_con");
 				String product_pic= rs.getString("product_pic");
 				String product_price= rs.getString("product_price");
+				String product_seller = rs.getString("product_seller");
 				
-				MarketDTO dto = new MarketDTO(product, product_title, product_con, product_pic, product_price);
+				MarketDTO dto = new MarketDTO(product_num, product, product_title, product_con, product_pic, product_price, product_seller);
 				board_list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -97,6 +100,31 @@ public class MarketDAO {
 		}
 		return board_list;
 	}
-
 	
+	public MarketDTO showOne(int product_num) {
+		try {
+			conn();
+			String sql="select * from flea_market where product_num=? ";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, product_num);
+			rs = psmt.executeQuery();
+
+			if(rs.next()) {
+				String product= rs.getString("product");
+				String product_title= rs.getString("product_title");
+				String product_con= rs.getString("product_con");
+				String product_pic= rs.getString("product_pic");
+				String product_price= rs.getString("product_price");
+				String product_seller= rs.getString("product_seller");
+				
+				dto = new MarketDTO(product_num, product, product_title, product_con, product_pic, product_price, product_seller);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return dto; 
+	}
 }

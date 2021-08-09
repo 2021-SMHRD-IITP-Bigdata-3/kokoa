@@ -106,6 +106,22 @@ public class MemberDAO {
       } return info;
    }
    
+   public String pic(String input_nickname) {
+	   String pic="";
+	   try {
+		   conn();
+		   String sql = "select dog_pic from k_member where nickname = ?";
+		   psmt = conn.prepareStatement(sql);
+		   psmt.setString(1,input_nickname);
+		   rs = psmt.executeQuery();
+		   if(rs.next()) {
+			   pic = rs.getString(1);
+		   }
+	   } catch(Exception e) {
+		   e.printStackTrace();
+	   } return pic;
+   }
+   
    public MemberDTO sess(String getId) {
 	      try {
 	         conn();   

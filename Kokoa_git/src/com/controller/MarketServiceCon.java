@@ -48,6 +48,7 @@ public class MarketServiceCon extends HttpServlet {
 		String product_title = multi.getParameter("product_title");
 		String product_con = multi.getParameter("product_con");
 		String product_price = multi.getParameter("product_price");
+		String product_seller = multi.getParameter("product_seller");
 		
 
 		// 이미지 태그에 경로 작성시 16진수로 적어줘야해서 인코딩 진행
@@ -60,7 +61,7 @@ public class MarketServiceCon extends HttpServlet {
 		System.out.println(product_price);
 
 		
-		MarketDTO dto= new MarketDTO(product, product_title, product_con, product_pic, product_price);
+		MarketDTO dto= new MarketDTO(product, product_title, product_con,product_pic, product_price, product_seller);
 		MarketDAO dao = new MarketDAO();
 		int cnt = dao.upload(dto);
 		

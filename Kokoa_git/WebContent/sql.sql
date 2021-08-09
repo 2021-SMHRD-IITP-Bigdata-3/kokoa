@@ -156,15 +156,17 @@ create sequence seller_num_seq
 increment by 1
 start with 1
 
+drop table flea_market;
 
 create table flea_market(
 
 	product_num number(15),
-	prodcut varchar2(20) not null,
+	product varchar2(20) not null,
 	product_title varchar2(100) not null,
 	product_con varchar2(1000) not null,
 	product_pic varchar2(100) not null,
 	product_price varchar2(20) not null,
+	product_seller varchar2(20) not null,
 	constraint flea_market_product_num_pk primary key(product_num)
 )
 select * from flea_market

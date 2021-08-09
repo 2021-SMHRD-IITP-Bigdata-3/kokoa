@@ -14,6 +14,9 @@
 	body{
       padding-bottom:150px;
       position:relative;
+	  top:150px;
+	  text-align:center;
+	  padding-top:150px;
    }
    
    header{
@@ -79,11 +82,6 @@
 	   		font-size:20px;
 	   		bottom:20px;
 	   }
-	   .sale_pic{
-	   		position:relative;
-			top:55px;
-			border-bottom:1px solid #e0e0e0;
-	   }
 	   .wrap{
 			text-align:center;
 	   }
@@ -91,35 +89,13 @@
 	   		position:relative;
 	   		text-align:right;
 	   }
-	   .sale_info{
-	   		position:relative;
-	   		top:-50px;
-	   		text-align:center;
-	   		margin-bottom:30px;
-	   }
-	   .sale_info > span{
-	   		position:relative;
-	   		top:-70px;
-	   }
 	   .img{
 	   		position:relative;
 	   		right:300px;
 	   		top:-30px;
-	   }
-	   .sale_title{
-	   		font-weight:bold;
-	   		font-size:25px;
-	   }
-	   .sale_price{
-	   		font-size:20px;
-	   }
-	   .cate_wrap{
-	   		text-align:center;
-	   		position:relative;
-	   		padding-top:300px;
-	   		border-bottom:1px solid #e0e0e0;
-	   		
-	   }
+	   	}
+
+	   
 </style>
 </head>
 <body>
@@ -140,7 +116,7 @@
 			<button class="sell" value="sell" onclick="location.href='UploadProduct.jsp'" >판매등록</button>
 	</div>
 	
-	<div id="product">
+	<div class="product">
 				<table id = "list">
 				
 					<tr>
@@ -148,19 +124,17 @@
 						<td>번호</td>
 						<td>사진</td>
 						<td>제목</td>
-						<td>내용</td>
 						<td>가격</td>
 					</tr>
 					
 					<% for(int i=0; i<board_list.size(); i++){ %>
 						<tr>
 							
-							<td><%= board_list.get(i).getProduct() %> </td>	
-							<td><%=i+1 %>"></td>
-							<td><a href="FleaMarket.jsp?product_pic=<%= board_list.get(i).getProduct_pic() %>"></a></td>
-							<td><%= board_list.get(i).getProduct_title()%>"> </td>
-							<td><%= board_list.get(i).getProduct_con()%>"> </td>
-							<td><%= board_list.get(i).getProduct_price()%>"></td>
+							<td><%= board_list.get(i).getproduct() %> </td>	
+							<td><%=i+1 %></td>
+							<td ><a href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
+							<td><%= board_list.get(i).getproduct_title()%> </td>
+							<td><%= board_list.get(i).getproduct_price()%></td>
 					
 						</tr>
 					<%} %>

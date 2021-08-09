@@ -1,3 +1,7 @@
+<%@page import="com.model.MemberDAO"%>
+<%@page import="com.model.MemberDTO"%>
+<%@page import="com.model.MarketDTO"%>
+<%@page import="com.model.MarketDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -116,6 +120,17 @@
 </style>
 </head>
 <body class="pt-5">
+
+
+<%
+	int product_num = Integer.parseInt(request.getParameter("product_num"));
+
+	MarketDAO dao = new MarketDAO();
+	MarketDTO dto = dao.showOne(product_num);
+	MemberDTO info = (MemberDTO)session.getAttribute("info");
+	MemberDAO dao2 = new MemberDAO();
+	String pic = dao2.pic(dto.getproduct_seller());
+%>
 	
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -126,18 +141,20 @@
 		<a class="back" href="#" onclick="location.href='FleaMarket.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 판매 상품</span></i></a>
 	</div>
 	<div class="container">
-		<img class="product_pic" src="icons/puppy.jpg" style="display:block; margin:0 auto; width:700px; height:700px;">
+		<img class="product_pic" src="img/<%= dto.getproduct_pic() %>" style="display:block; margin:0 auto; width:700px; height:700px;">
 	</div>
 	<div class="sellerInfo">
-		<img class="profile_pic" src="icons/puppy.jpg" style="width:80px; height:80px;">
-		<span class="writerName">작성자</span>
+		<img class="profile_pic" src="img/<%=pic %>" style="width:80px; height:80px;">
+		<span class="writerName"><%=dto.getproduct_seller() %></span>
 	</div>
 	<div class="introDiv">
-		<textarea class="intro">소개글</textarea>
+	<% if(dto.getproduct_con() != null){%>
+		<textarea class="intro"><%= dto.getproduct_con() %></textarea>
+			<%} %>
 	</div>
 	<div>
 		<button class="priceButton" value="price">가격 :15000원</button>
-		<button class="chatButton" value="chat" onclick="location.href='MatchingChat.jsp'">채팅 제안</button>
+
 	</div>
 	<footer>
 		<hr>
