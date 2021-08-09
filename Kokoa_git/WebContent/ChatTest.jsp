@@ -1,3 +1,5 @@
+<%@page import="com.model.IndivisualChatDTO"%>
+<%@page import="com.model.IndivisualChatDAO"%>
 <%@page import="javax.xml.bind.ParseConversionEvent"%>
 <%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -9,8 +11,8 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#main{
-		width: 500px;
-		height: 500px;
+		width: 100%;
+		height: 1000px;
 		background-color: #34862E;
 		background-image: url("icons/chatbacksmall.png");
 		color: white;
@@ -32,19 +34,19 @@
 	// 방 선택시 필요
 	request.setCharacterEncoding("EUC-KR");
 	int chatnum = Integer.parseInt(request.getParameter("chatnum"));
-
 	System.out.println("chatnum(chatTest1페이지) : " + chatnum);
+	
+	IndivisualChatDAO dao = new IndivisualChatDAO();
+	dao.joinChat(info.getMem_num(), chatnum);
 
 %>	
 	<div id="main">
 		<div id="chat">
 		</div>
 	</div>
-  <% if (info!=null){%>
-		내 아이디 : <%= info.getId() %>  
-  <%} else{ %>
-  	<input id="id" type="text" placeholder="아이디 입력" name="id">
-  <%} %>
+
+	내 닉네임 : <%= info.getNickname() %>  
+
 	<input id="content" type="text" placeholder="내용 입력" name="content">
 	
 	<button id="send">입력</button>
@@ -89,7 +91,7 @@
 				var num = <%=chatnum %>;
 				
 				<%if (info!=null){ %>
-					var id = "<%=info.getId()%>";
+					var id = "<%=info.getNickname()%>";
 				<%} else{ %>
 					var id = $('#id').val();
 				<%} %>

@@ -1,3 +1,9 @@
+<%@page import="com.model.MatchingDTO"%>
+<%@page import="com.model.MatchingDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.IndivisualChatDAO"%>
+<%@page import="com.model.IndivisualChatDTO"%>
+<%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -148,6 +154,14 @@
 </style>
 </head>
 <body>
+	<%
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		IndivisualChatDAO dao = new IndivisualChatDAO();
+		ArrayList<IndivisualChatDTO> dto = dao.showChat(info.getMem_num());
+		MatchingDAO dao2 = new MatchingDAO();
+		String title = "";
+		String nickname = "";
+	%>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
@@ -162,49 +176,38 @@
 		</table>
 	        <div id="content">
             <main>
-                <ul class="wrap">
-                    <li>
-                        <img src="icons/puppy.jpg" alt="영훈프로필사진">
-                        <div class="talk">
-                            <p class="friend-name">김영훈</p>
-                            <p class="chat-content">메시지가 도착했습니다.</p>
-                        </div>
-                        <div class="chat-status">
-                            <p class="time">오후 3:40</p>
-                            <span class="chat-balloon">1</span>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="icons/puppy.jpg" alt="동희프로필사진">
-                        <div class="talk">
-                            <p class="friend-name">신동희</p>
-                            <p class="chat-content">메시지가 도착했습니다.</p>
-                        </div>
-                        <div class="chat-status">
-                                <p class="time">오후 3:39</p>
-                                <span class="chat-balloon">1</span>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="icons/puppy.jpg" alt="동일프로필사진">
-                        <div class="talk">
-                            <p class="friend-name">양동일</p>
-                            <p class="chat-content">메시지가 도착했습니다.</p>
-                        </div>
-                        <div class="chat-status">
-                            <p class="time">오전 10:15</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="icons/puppy.jpg" alt="동일프로필사진">
-                        <div class="talk">
-                            <p class="friend-name">양동일</p>
-                            <p class="chat-content">메시지가 도착했습니다.</p>
-                        </div>
-                        <div class="chat-status">
-                            <p class="time">오전 10:15</p>
-                        </div>
-                    </li>
+                <ul class="wrap">                	
+                	<%
+	                	if(dto != null){
+	                		for(int i = 0; i<dto.size(); i++){
+                	%>
+	                    <li onClick="location.href='ChatTest.jsp?chatnum=<%=dto.get(i).getChatting_room_num() %>'">
+	                        <img src="icons/puppy.jpg" alt="영훈프로필사진">
+	                        <div class="talk">
+	                        	<%
+	                        		title = dao2.showI(dto.get(i).getChatting_room_num());
+	                        		nickname = dao2.showN(dto.get(i).getChatting_room_num());
+	                        	%>
+	                            <p class="friend-name"><%=title %></p>
+	                            <p class="chat-content"></p>
+	                        </div>
+	                        <div class="chat-status">
+	                            <p class="time">방장: <%=nickname %></p>
+	                            <form action="LeaveChat" method="post">
+	                            	<input type="text" name="mem_num" value="<%=info.getMem_num()%>" hidden="hidden">
+	                            	<input type="text" name="chatting_room_num" value="<%=dto.get(i).getChatting_room_num()%>" hidden="hidden">
+	                            	<input type="submit" value="나가기">
+	                            </form>
+	                        </div>
+	                    </li>
+	                <%}}else{ %>
+	                    <li>
+	                    	<img src="icons/puppy.jpg" alt="영훈프로필사진">
+	                        <div class="talk">
+	                            <p class="friend-name">채팅목록이 없습니다.</p>
+	                        </div>
+	                     <li>
+                     <%} %>
                 </ul>
             </main>
         </div>

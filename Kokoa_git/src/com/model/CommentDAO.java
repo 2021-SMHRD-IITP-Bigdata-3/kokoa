@@ -7,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class BoardDAO {
+public class CommentDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null; 
 	int cnt=0;
-	BoardDTO dto =null;
+	CommentDTO dto =null;
  
 	public void conn() {
 		try {
@@ -48,14 +48,15 @@ public class BoardDAO {
 			}
 
 	}
-	public int upload(BoardDTO dto) {
+	public int upload_com(CommentDTO dto) {
 		try {
 			conn();
-			String sql="insert into sns values(story_num_seq.nextval, ?,?,?,sysdate)";
+			String sql="insert into comment_info values(comment_num_seq.nextval,?,?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getStory_title());
-			psmt.setString(2, dto.getStory_con());
-			psmt.setString(3, dto.getStory_pic());
+			psmt.setInt(1, dto.getBoard_num());
+			psmt.setString(2, dto.getComment_con());
+			psmt.setString(3, dto.getId());
+			
 			
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -64,48 +65,47 @@ public class BoardDAO {
 			close();
 		}return cnt;
 	}
-	public ArrayList<BoardDTO> showBoard() {
-		ArrayList<BoardDTO> board_list = new ArrayList<BoardDTO>();
+	public ArrayList<CommentDTO> showComment() {
+		ArrayList<CommentDTO> comment_list = new ArrayList<CommentDTO>();
 		try {
 			conn();
-			String sql="select * from sns order by write_time";
+			String sql="select * from comment_info order by write_time";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				int story_num = rs.getInt("story_num");
-				String story_title= rs.getString("story_title");
-				String story_con= rs.getString("story_con");
-				String story_pic= rs.getString("story_pic");
+				int comment_num = rs.getInt("comment_num");
+				int board_num = rs.getInt("board_num");				
+				String comment_con= rs.getString("comment_con");
+				String id= rs.getString("id");
 				String write_time= rs.getString("write_time");
 				
-				BoardDTO dto = new BoardDTO(story_num, story_title, story_con, story_pic, write_time);
-				board_list.add(dto);
+				CommentDTO dto = new CommentDTO(comment_num, board_num, comment_con, id, write_time);
+				comment_list.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return board_list;
+		return comment_list;
+		
 	}
-//개별 게시글 보여주기 메소드
-	public BoardDTO showOne(int story_num) {
+	public CommentDTO showOne_com(int board_num) {
 		try {
 			conn();
-			String sql="select * from sns where story_num=? ";
+			String sql="select * from sns where board_num=? ";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, story_num);
+			psmt.setInt(1, board_num);
 			rs = psmt.executeQuery();
 
 			if(rs.next()) {
-				String story_title = rs.getString("story_title");
-				String story_con = rs.getString("story_con");
-				String story_pic = rs.getString("story_pic");
+				String comment_con = rs.getString("comment_con");
+				String id = rs.getString("id");
 				String write_time = rs.getString("write_time");
 				
-				dto = new BoardDTO(story_num, story_title, story_con, story_pic, write_time);
+				dto = new CommentDTO(comment_con, id, write_time);
 				
 			}
 		} catch (SQLException e) {
@@ -115,3 +115,5 @@ public class BoardDAO {
 		} return dto; 
 	}
 }
+
+

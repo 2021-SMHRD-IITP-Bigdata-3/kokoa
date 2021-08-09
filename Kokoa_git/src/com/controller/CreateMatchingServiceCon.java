@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.IndivisualChatDAO;
 import com.model.MatchingDAO;
 import com.model.MatchingDTO;
 
@@ -27,11 +28,12 @@ public class CreateMatchingServiceCon extends HttpServlet {
 		int max_age = Integer.parseInt(request.getParameter("max_age"));
 		String dog_gender = request.getParameter("dog_gender");
 		String dog_size = request.getParameter("dog_size");
+		String location = request.getParameter("location");
 		
-		System.out.println(nickname+id+gender+chatting_room_title+matching_date+hour+minute+min_age+max_age+dog_gender+dog_size);
+		System.out.println(nickname+id+gender+chatting_room_title+matching_date+hour+minute+min_age+max_age+dog_gender+dog_size+location);
 		
 		MatchingDAO dao = new MatchingDAO();
-		MatchingDTO dto = new MatchingDTO(chatting_room_title,gender,nickname,id,min_age,max_age,matching_date,hour,minute,dog_gender,dog_size);
+		MatchingDTO dto = new MatchingDTO(chatting_room_title,gender,nickname,id,min_age,max_age,matching_date,hour,minute,dog_gender,dog_size,location);
 		int cnt = dao.create(dto);
 		
 		if(cnt > 0) {
@@ -39,7 +41,14 @@ public class CreateMatchingServiceCon extends HttpServlet {
 		} else {
 			System.out.println("매칭방 개설 실패");
 		}
-	
+
+		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
+		int chatnum = Integer.parseInt(request.getParameter("chatnum"))+1;
+		System.out.println("chatnum(chatTest1페이지) : " + chatnum);
+		
+		IndivisualChatDAO dao2 = new IndivisualChatDAO();
+		dao2.joinChat(mem_num, chatnum);
+		
 		response.sendRedirect("Matching.jsp");
 		
 	}

@@ -82,14 +82,18 @@
  		}
  		.delete{
  			position:relative;
+ 			top:-20px;
+ 			padding-left:360px;
  			font-size:25px;
- 			left:150px;
+ 			
  			
  		}
  		.delete > a{
  			color:#61da94;
  		}
- 		.confirm{
+ 		#cancelBtn{
+ 			position:relative;
+ 			left:170px;
 	   		font-size:15px;
 	   		background-color:#61da94;
 	   		padding:15px 35px;
@@ -105,26 +109,21 @@
 <body>
 
 <% 
-	MemberDTO info = (MemberDTO)session.getAttribute("info");
-%>
 
+	MemberDTO info = (MemberDTO)session.getAttribute("info");
+	
+%>
 	<%if (info == null) {%>
-	<%  response.sendRedirect("Login.jsp"); } %>
+	<% response.sendRedirect("Login.jsp"); } %>
 	<header>
-		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
-		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
+		<a href="MyPage.jsp" id="menu"><img src="../icons/menu.png" width="100px" height="100px"></a>
+		<a id="logo"><img src="../icons/together1.PNG" width="153px" height="100px"></a>
+		<a href="ChatList.jsp" id="chat"><img src="../icons/chat.png" width="100px" height="100px"></a>
 	</header>
-		<table class="icon">
-			<tr align="left">
-				<td>
-					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 차단 목록</span></i></a>
-				</td>
-			</tr>
-		</table>
-	<form class="blocklist_form" >
+	<form class="blocklist_form" action="DeleteBanMemberServiceCon" method="post" >
 		<table class="blocklist" style="border:1px; width:600px; height:400px;">
-			<tr>
+			<tr >
+				<td></td>
 				<td><span class="blockTitle"><b>차단ID</b></span></td>
 				<td><span class="blockTitle"><b>차단한 날짜</b></span></td>
 			</tr>
@@ -135,28 +134,28 @@
 			<%if(info.getMem_num() == block_list.get(0).getBan_mem_num()) {%>
 			<%for(int i=0; i<block_list.size(); i++){ %>
 			<tr>
+				<td>
+					<input type="checkbox" name="chk" value="<%=block_list.get(i).getBan_num()%>">
+				</td>
 				<td><span class="block_content"><%=block_list.get(i).getBan_id() %></span></td>
 				<td><span class="block_content"><%=block_list.get(i).getBlock_date() %></span></td>
 			</tr>
 			<%} %>
 			<%} %>
-		</table>
+			<tr>
+				<td>
+					<input id="cancelBtn" type="submit" value="삭제">
+				</td>
+			</tr>
+	</table>
 	</form>
-	<div class="delete">
-		<a href="#" onclick='window.open("BlockMem/Delete_mem.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'><i class="far fa-minus-square fa-2x"></i></a>
-		<a href="#" onclick='window.open("BlockMem/Block_mem.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'><i class="far fa-plus-square fa-2x"></i></a>
-	</div>
-	<div>
-		<button class="confirm">확인</button>
-	</div>
-
 	<footer>
 		<hr>
-		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
-		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
-		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
-		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="175px"></a>
+		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="../icons/home.png" width="100px" height="160px"></a>
+		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="../icons/map.png" width="100px" height="160px"></a>
+		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="../icons/matching.png" width="100px" height="160px"></a>
+		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="../icons/shopping_basket.png" width="100px" height="160px"></a>
+		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="../icons/pawprint.png" width="100px" height="175px"></a>
 	</footer>
 </body>
 </html>
