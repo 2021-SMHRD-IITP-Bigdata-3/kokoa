@@ -1,5 +1,6 @@
 <%@page import="com.model.BoardDTO"%>
 <%@page import="com.model.BoardDAO"%>
+<%@page import="com.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -11,7 +12,7 @@
 <title>SNS</title>
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 </head>
-<style> 
+<style>
 	body{
 	    padding-bottom:150px;
 	    align-content: center;
@@ -92,7 +93,7 @@
 		transform: scale(1.18);
 		opacity: 0.65;
 	}
-	
+
 	ul#gallery>a>li:hover::after{
 		opacity: 1;
 	}
@@ -122,11 +123,14 @@
 <%
 	BoardDAO dao = new BoardDAO();
 	ArrayList<BoardDTO> board_list = dao.showBoard();
+	
+	MemberDTO info = (MemberDTO)session.getAttribute("info");
 %>
-
+	<%if (info == null) {%>
+	<% response.sendRedirect("Login.jsp"); } %>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
+		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
 		<table class='icon'>
@@ -139,18 +143,22 @@
     <div id="wrap">
         <ul id="gallery">
         	<% for(int i=0; i<board_list.size(); i++) {%>
-        	<li><a href="Stories.jsp?story_num=<%= board_list.get(i).getStory_num() %>"><li><img src="img/<%=board_list.get(i).getStory_pic() %>"></li></a>
+        		<a href="Stories.jsp?story_num=<%= board_list.get(i).getStory_num() %>"><li><img src="img/<%=board_list.get(i).getStory_pic() %>"></li></a>
         	<%} %>
         </ul>
     </div>
-    <a class="write" href="#" onclick="location.href='UploadStory.jsp'"><i class="fas fa-plus-square fa-3x"></i></a>
+    <% if(info!=null){%>
+    <% if(info.getId().equals("admin")){ %>
+    	<a class="write" href="#" onclick="location.href='UploadStory.jsp'"><i class="fas fa-plus-square fa-3x"></i></a>
+    <%}%>
+    <%}%>
     <footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="175px"></a>
+		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
 	</footer>
 	
 </body>

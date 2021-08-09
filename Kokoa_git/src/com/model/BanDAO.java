@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class BoardDAO {
+public class BanDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null; 
 	int cnt=0;
+	int res=0;
+	int[] cnt1=null;
 	BoardDTO dto =null;
  
 	public void conn() {
@@ -48,14 +50,14 @@ public class BoardDAO {
 			}
 
 	}
-	public int upload(BoardDTO dto) {
+	public int block(BanDTO dto) {
 		try {
 			conn();
-			String sql="insert into sns values(story_num_seq.nextval, ?,?,?,sysdate)";
+			String sql="insert into block_list values(ban_num_seq.nextval,?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getStory_title());
-			psmt.setString(2, dto.getStory_con());
-			psmt.setString(3, dto.getStory_pic());
+			psmt.setInt(1, dto.getBan_mem_num());
+			psmt.setString(2, dto.getBan_id());
+			
 			
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -64,54 +66,46 @@ public class BoardDAO {
 			close();
 		}return cnt;
 	}
-	public ArrayList<BoardDTO> showBoard() {
-		ArrayList<BoardDTO> board_list = new ArrayList<BoardDTO>();
+	public ArrayList<BanDTO> showBanMem(int input_mem_num) {
+		ArrayList<BanDTO> block_list = new ArrayList<BanDTO>();
 		try {
 			conn();
-			String sql="select * from sns order by write_time";
+			String sql="select * from block_list where ban_mem_num = ? order by block_date";
 			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, input_mem_num);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				int story_num = rs.getInt("story_num");
-				String story_title= rs.getString("story_title");
-				String story_con= rs.getString("story_con");
-				String story_pic= rs.getString("story_pic");
-				String write_time= rs.getString("write_time");
+				int ban_num = rs.getInt("ban_num");
+				int ban_mem_num = rs.getInt("ban_mem_num");				
+				String ban_id= rs.getString("ban_id");
+				String block_date= rs.getString("block_date");
 				
-				BoardDTO dto = new BoardDTO(story_num, story_title, story_con, story_pic, write_time);
-				board_list.add(dto);
+				BanDTO dto = new BanDTO(ban_num, ban_mem_num, ban_id, block_date);
+				block_list.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return board_list;
-	}
-//개별 게시글 보여주기 메소드
-	public BoardDTO showOne(int story_num) {
+		return block_list;
+}
+	public int DeleteBan(String[] ban_num) {
 		try {
 			conn();
-			String sql="select * from sns where story_num=? ";
-			
+			String sql="delete from block_list where ban_num=? ";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, story_num);
-			rs = psmt.executeQuery();
-
-			if(rs.next()) {
-				String story_title = rs.getString("story_title");
-				String story_con = rs.getString("story_con");
-				String story_pic = rs.getString("story_pic");
-				String write_time = rs.getString("write_time");
-				
-				dto = new BoardDTO(story_num, story_title, story_con, story_pic, write_time);
-				
+			for(int i=0; i<ban_num.length; i++) {
+				psmt.setString(0, ban_num[i]);
+				cnt = psmt.executeUpdate();
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
-		} return dto; 
+		}
+		return cnt;
 	}
 }

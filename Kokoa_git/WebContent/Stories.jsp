@@ -1,6 +1,11 @@
 <%@page import="com.model.BoardDTO"%>
 <%@page import="com.model.BoardDAO"%>
+<%@page import="com.model.CommentDAO"%>
+<%@page import="com.model.CommentDTO"%>
+<%@page import="com.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
+<%@page session="true"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -12,6 +17,7 @@
 <link rel="stylesheet" href="styles.css" />
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>함께하게</title>
+<script src="jquery.js"></script>
 <style> 
 	body{
       padding-bottom:150px;
@@ -166,6 +172,8 @@
 	}
 	
 	.input-comment {
+	  position:relative;
+	  top:10px;
 	  flex: 9;
 	  width: 100%;
 	  height: 18px;
@@ -175,10 +183,15 @@
 	}
 	
 	.regist {
+	  position:relative;
+	  top:-10px;
 	  width: 30px;
 	  font-size: 14px;
-	  color: #0095f6;
+	  color: #61da94;
 	  width: auto;
+	  border: 1px solid #ebebeb;
+	  float:right;
+	  
 	}
 	html {
 	  min-width: 390px;
@@ -199,20 +212,36 @@
 </style>
 </head>
 <body>
-<%
-int story_num = Integer.parseInt(request.getParameter("story_num"));
 
+<%
+int story_num = 0;
+if(session.getAttribute("board_num") == null){
+story_num = Integer.parseInt(request.getParameter("story_num"));
+} else{
+story_num = (Integer)session.getAttribute("board_num");
+}
 BoardDAO dao = new BoardDAO();
 BoardDTO dto = dao.showOne(story_num);
+
+MemberDTO info = (MemberDTO)session.getAttribute("info");
+
+CommentDAO comment_dao = new CommentDAO();
+ArrayList<CommentDTO> comment_list = comment_dao.showComment();
+int cnt = 0;
+for(int i = 0; i<comment_list.size(); i++){
+	if(comment_list.get(i).getBoard_num()==story_num){
+		cnt++;
+	}
+}
 
 %>
 <%
 
 int count;
 
-if(session.getAttribute("count") != null)
+if(session.getAttribute(story_num+"count") != null)
 {
-	count = ((Integer)session.getAttribute("count")).intValue();
+	count = ((Integer)session.getAttribute(story_num+"count")).intValue();
 	
 }
 
@@ -226,7 +255,7 @@ count++;
 %>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
+		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
 	<table class="icon" align="left">
@@ -252,38 +281,45 @@ count++;
                 <div class="content_bottom">
                     <div class="content-menuDiv">
                         <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-heart"></i><span> 43 </span></li>
-                            <li class="content-menuIcon"><i class="far fa-comment"></i><span> 23 </span></li>
+                            <li class="content-menuIcon"><i class="far fa-comment"></i><span><%=cnt %></span></li>
                         </ul>
                     </div>
                     <div class="views"> 조회수 <%= count%></div>
                     <div class="content-contents-contents">
                         <div class="contents-id"><%= dto.getStory_title() %></div>
                         <div class="contents-contents"><p class="contents-contents" style="white-space: pre-line;"><%= dto.getStory_con() %></p></div>
+                    <% for(int i=0; i<comment_list.size(); i++) { %>
+                    	<% if(comment_list.get(i).getBoard_num()==dto.getStory_num()){ %>
                         <div class="comment">
-                            <div class="comment-id">tahiti8505</div>
-                            <div class="comment-content">귀엽네요</div>
-                            <div class="comment-heart"><i class="far fa-heart"></i></div>
+                            <div class="comment-id"><%=comment_list.get(i).getId() %></div>
+                            <div class="comment-content"><%=comment_list.get(i).getComment_con() %></div>
                         </div>
+                  		<%} %>
+                   <%} %>
                     </div>
                     <div class="comment-registration">
-                        <input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요">
-                        <div class="regist">게시하기</div>
+                    <form method="post" action="WriteCommentServiceCon" style="width:800px;">
+                    	<input type="hidden" name="id" value="<%=info.getId() %>">
+                    	<input type="hidden" name="board_num" value="<%=dto.getStory_num() %>">
+                        <input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요" name="comment_con">
+                        <input type="submit" value="게시하기" class="regist">
+                    </form>
                     </div>
                 </div>
             </div>
         </section>
-        </div>
+        </div>    
         <%
-		session.setAttribute("count", new Integer(count));
+		session.setAttribute(story_num+"count", new Integer(count));
 		%>
+		<%session.removeAttribute("board_num"); %>
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="175px"></a>
+		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
 	</footer>
 
 </body>
