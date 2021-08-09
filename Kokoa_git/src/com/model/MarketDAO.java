@@ -75,7 +75,7 @@ public class MarketDAO {
 		ArrayList<MarketDTO> board_list = new ArrayList<MarketDTO>();
 		try {
 			conn();
-			String sql="select * from flea_market";
+			String sql="select * from flea_market order by product_num desc";
 			psmt = conn.prepareStatement(sql);
 			
 			rs = psmt.executeQuery();
