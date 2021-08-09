@@ -21,8 +21,9 @@ public class FilteringServiceCon extends HttpServlet {
 		String max_date = request.getParameter("max_date");
 		String dog_size = request.getParameter("dog_size");
 		String dog_gender = request.getParameter("dog_gender");
+		String location = request.getParameter("location");
 		
-		System.out.println(gender + min_age + max_age + min_date + max_date + dog_size + dog_gender);
+		System.out.println(gender + min_age + max_age + min_date + max_date + dog_size + dog_gender + location);
 		
 		HttpSession session = request.getSession();
         session.setAttribute("gender", gender);
@@ -32,6 +33,7 @@ public class FilteringServiceCon extends HttpServlet {
         session.setAttribute("max_date", max_date);
         session.setAttribute("dog_size", dog_size);
         session.setAttribute("dog_gender", dog_gender);
+        session.setAttribute("location", location);
 		response.sendRedirect("Matching.jsp");
 	}
 

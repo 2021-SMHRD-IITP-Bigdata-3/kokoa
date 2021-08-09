@@ -52,7 +52,7 @@
 <%MemberDTO info = (MemberDTO)session.getAttribute("info");%>
 	<header>
     	<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-    	<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+    	<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
       	<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
    	</header>
    	<form action="CreateMatchingServiceCon" method="post">
@@ -70,6 +70,34 @@
 					<div>
 						<input style="font-size: 50px; width: 100%; height: 65px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;" type="text" name="chatting_room_title">
 					</div>
+   				</div>
+   				<br><br><br>
+   				<div>
+   					<div class='div1'>산책 날짜 및 시간</div>
+   					<br>
+   					<div>
+   						<input type="date" style="font-size: 50px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;" name="matching_date">
+   						<select name="hour" style="font-size: 50px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;">
+   							<%for(int i=1; i<25; i++){ %>
+   							<option value ="<%=i%>"><%=i%></option>
+   							<%} %>
+   						</select>
+   						<span style="font-size: 50px;">시</span>
+   						<select name="minute" style="font-size: 50px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;">
+   							<%for(int i=0; i<61; i++){ %>
+   							<option value ="<%=i%>"><%=i%></option>
+   							<%} %>
+   						</select>
+   						<span style="font-size: 50px;">분</span>
+   					</div>
+   				</div>
+   				<br><br><br>
+   				<div>
+   					<div class='div1'>산책할 동네</div>
+   					<br>
+   					<div>
+   						<input type="text" name="location" style="font-size: 50px; width: 100%; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;" placeholder="동 입력">
+   					</div>
    				</div>
    				<br><br><br>
    				<div>
@@ -94,26 +122,6 @@
 	  						<%} %>
    							<option value="상관없음">상관없음</option>
    						</select>
-   					</div>
-   				</div>
-   				<br><br><br>
-   				<div>
-   					<div class='div1'>산책 날짜 및 시간</div>
-   					<br>
-   					<div>
-   						<input type="date" style="font-size: 50px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;" name="matching_date">
-   						<select name="hour" style="font-size: 50px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;">
-   							<%for(int i=1; i<25; i++){ %>
-   							<option value ="<%=i%>"><%=i%></option>
-   							<%} %>
-   						</select>
-   						<span style="font-size: 50px;">시</span>
-   						<select name="minute" style="font-size: 50px; padding-left: 12px; padding-top: 6px; padding-bottom: 6px; padding-right: 12px; border-radius: 10px;">
-   							<%for(int i=0; i<61; i++){ %>
-   							<option value ="<%=i%>"><%=i%></option>
-   							<%} %>
-   						</select>
-   						<span style="font-size: 50px;">분</span>
    					</div>
    				</div>
    				<br><br><br>

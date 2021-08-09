@@ -187,9 +187,11 @@ create table matching_chat_list(
 	minute number(10),
 	min_age number(10),
 	max_age number(10),
+	location varchar2(20),
 	
 	constraint matching_chat_list_chatting_pk primary key(chatting_room_num)
 )
+
 
 create sequence chat_num_seq
 increment by 1

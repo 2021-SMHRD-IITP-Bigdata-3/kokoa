@@ -13,11 +13,13 @@ public class MatchingDTO {
 	private int minute;
 	private int min_age;
 	private int max_age;
+	private String location;
+
 
 
 
 	public MatchingDTO(int chatting_room_num, String chatting_room_title, String gender, String nickname, String id,
-			String matching_date, String dog_gender, String dog_size, int hour, int minute, int min_age, int max_age) {
+			String matching_date, String dog_gender, String dog_size, int hour, int minute, int min_age, int max_age, String location) {
 		super();
 		this.chatting_room_num = chatting_room_num;
 		this.chatting_room_title = chatting_room_title;
@@ -31,11 +33,12 @@ public class MatchingDTO {
 		this.minute = minute;
 		this.min_age = min_age;
 		this.max_age = max_age;
+		this.location = location;
 	}
 
 
 	public MatchingDTO(String chatting_room_title, String gender, String nickname, String id, int min_age, int max_age,
-			String matching_date, int hour, int minute, String dog_gender, String dog_size) {
+			String matching_date, int hour, int minute, String dog_gender, String dog_size, String location) {
 		super();
 		this.chatting_room_title = chatting_room_title;
 		this.gender = gender;
@@ -48,6 +51,7 @@ public class MatchingDTO {
 		this.minute = minute;
 		this.dog_gender = dog_gender;
 		this.dog_size = dog_size;
+		this.location = location;
 	}
 
 
@@ -171,6 +175,14 @@ public class MatchingDTO {
 	}
 
 
+	public String getLocation() {
+		return location;
+	}
+
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 }
 

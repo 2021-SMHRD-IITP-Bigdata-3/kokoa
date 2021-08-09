@@ -80,4 +80,17 @@ public class IndivisualChatDAO {
 			e.printStackTrace();
 		} return list;
 	}
+	
+	public int leaveChat(int mem_num, String chatting_room_num) {
+		try {
+			conn();
+			String sql = "delete from indivisual_chat_list where mem_num = ? and chatting_room_num = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, mem_num);
+			psmt.setString(2, chatting_room_num);
+			cnt = psmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} return cnt;
+	}
 }

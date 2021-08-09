@@ -51,7 +51,7 @@ public class MatchingDAO {
 	   public int create(MatchingDTO dto) {
 			try {
 				conn();
-				String sql = "insert into matching_chat_list values (chat_num_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into matching_chat_list values (chat_num_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, dto.getChatting_room_title());
 				psmt.setString(2, dto.getGender());
@@ -64,6 +64,7 @@ public class MatchingDAO {
 				psmt.setInt(9, dto.getMinute());
 				psmt.setInt(10, dto.getMin_age());
 				psmt.setInt(11, dto.getMax_age());
+				psmt.setString(12, dto.getLocation());
 						
 				cnt = psmt.executeUpdate();
 
@@ -89,15 +90,16 @@ public class MatchingDAO {
 				   String gender = rs.getString(3);
 				   String nickname = rs.getString(4);
 				   String id = rs.getString(5);
-				   String matching_date = rs.getString(6);
+				   String matching_date = rs.getString(6).substring(0,10);
 				   String dog_gender = rs.getString(7);
 				   String dog_size = rs.getString(8);
 				   int hour = rs.getInt(9);
 				   int minute = rs.getInt(10);
 				   int min_age = rs.getInt(11);
 				   int max_age = rs.getInt(12);
+				   String location = rs.getString(13);
 				   
-				   dto = new MatchingDTO(chatting_room_num, chatting_room_title, gender, nickname, id, matching_date, dog_gender, dog_size, hour, minute, min_age, max_age);
+				   dto = new MatchingDTO(chatting_room_num, chatting_room_title, gender, nickname, id, matching_date, dog_gender, dog_size, hour, minute, min_age, max_age, location);
 				   matchingList.add(dto);
 			   }
 		   } catch(Exception e) {
@@ -105,7 +107,7 @@ public class MatchingDAO {
 		   } return matchingList;
 	   }
 	   
-	   public ArrayList<MatchingDTO> showF(String input_gender, int input_min_age, int input_max_age, String input_min_date, String input_max_date, String input_dog_size, String input_dog_gender) {
+	   public ArrayList<MatchingDTO> showF(String input_gender, int input_min_age, int input_max_age, String input_min_date, String input_max_date, String input_dog_size, String input_dog_gender, String input_location) {
 		   ArrayList<MatchingDTO> matchingList = new ArrayList<MatchingDTO>();
 		   try {
 			   conn();
@@ -116,6 +118,7 @@ public class MatchingDAO {
 			   		+ "and matching_date between ? and ? "
 			   		+ "and dog_size like ? "
 			   		+ "and dog_gender like ? "
+			   		+ "and location = ?"
 			   		+ "order by chatting_room_num desc";
 			   psmt = conn.prepareStatement(sql);
 			   psmt.setString(1, input_gender);
@@ -127,6 +130,7 @@ public class MatchingDAO {
 			   psmt.setString(7, input_max_date);
 			   psmt.setString(8, input_dog_size);
 			   psmt.setString(9, input_dog_gender);
+			   psmt.setString(10, input_location);
 			   rs = psmt.executeQuery();
 			   while(rs.next()) {
 				   int chatting_room_num = rs.getInt(1);
@@ -134,15 +138,16 @@ public class MatchingDAO {
 				   String gender = rs.getString(3);
 				   String nickname = rs.getString(4);
 				   String id = rs.getString(5);
-				   String matching_date = rs.getString(6);
+				   String matching_date = rs.getString(6).substring(0,10);
 				   String dog_gender = rs.getString(7);
 				   String dog_size = rs.getString(8);
 				   int hour = rs.getInt(9);
 				   int minute = rs.getInt(10);
 				   int min_age = rs.getInt(11);
 				   int max_age = rs.getInt(12);
+				   String location = rs.getString(13);
 				   
-				   dto = new MatchingDTO(chatting_room_num, chatting_room_title, gender, nickname, id, matching_date, dog_gender, dog_size, hour, minute, min_age, max_age);
+				   dto = new MatchingDTO(chatting_room_num, chatting_room_title, gender, nickname, id, matching_date, dog_gender, dog_size, hour, minute, min_age, max_age, location);
 				   matchingList.add(dto);
 			   }
 		   } catch(Exception e) {

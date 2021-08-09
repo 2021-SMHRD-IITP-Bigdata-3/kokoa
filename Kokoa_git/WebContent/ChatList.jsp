@@ -180,16 +180,20 @@
 	                	if(dto != null){
 	                		for(int i = 0; i<dto.size(); i++){
                 	%>
-	                    <li>
+	                    <li onClick="location.href='ChatTest.jsp?chatnum=<%=dto.get(i).getChatting_room_num() %>'">
 	                        <img src="icons/puppy.jpg" alt="영훈프로필사진">
-	                        <div class="talk" onClick="location.href='ChatTest.jsp?chatnum=<%=dto.get(i).getChatting_room_num() %>'">
+	                        <div class="talk">
 	                        	<%title = dao2.showI(info.getId(),dto.get(i).getChatting_room_num()); %>
 	                            <p class="friend-name"><%=title %></p>
 	                            <p class="chat-content"></p>
 	                        </div>
 	                        <div class="chat-status">
 	                            <p class="time">오후 3:40</p>
-	                            <span class="chat-balloon">1</span>
+	                            <form action="LeaveChat" method="post">
+	                            	<input type="text" name="mem_num" value="<%=info.getMem_num()%>" hidden="hidden">
+	                            	<input type="text" name="chatting_room_num" value="<%=dto.get(i).getChatting_room_num()%>" hidden="hidden">
+	                            	<input type="submit" value="나가기">
+	                            </form>
 	                        </div>
 	                    </li>
 	                <%}}else{ %>
