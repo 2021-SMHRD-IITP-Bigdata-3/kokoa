@@ -160,6 +160,7 @@
 		ArrayList<IndivisualChatDTO> dto = dao.showChat(info.getMem_num());
 		MatchingDAO dao2 = new MatchingDAO();
 		String title = "";
+		String nickname = "";
 	%>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -183,12 +184,15 @@
 	                    <li onClick="location.href='ChatTest.jsp?chatnum=<%=dto.get(i).getChatting_room_num() %>'">
 	                        <img src="icons/puppy.jpg" alt="영훈프로필사진">
 	                        <div class="talk">
-	                        	<%title = dao2.showI(info.getId(),dto.get(i).getChatting_room_num()); %>
+	                        	<%
+	                        		title = dao2.showI(dto.get(i).getChatting_room_num());
+	                        		nickname = dao2.showN(dto.get(i).getChatting_room_num());
+	                        	%>
 	                            <p class="friend-name"><%=title %></p>
 	                            <p class="chat-content"></p>
 	                        </div>
 	                        <div class="chat-status">
-	                            <p class="time">오후 3:40</p>
+	                            <p class="time">방장: <%=nickname %></p>
 	                            <form action="LeaveChat" method="post">
 	                            	<input type="text" name="mem_num" value="<%=info.getMem_num()%>" hidden="hidden">
 	                            	<input type="text" name="chatting_room_num" value="<%=dto.get(i).getChatting_room_num()%>" hidden="hidden">

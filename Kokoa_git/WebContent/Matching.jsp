@@ -96,13 +96,18 @@
  	}
  	.limitation{
 		width: 100%;
-		border-top: 3px solid #61da94;
 		border-bottom: 3px solid #61da94;
 		text-align: center;
 		font-size: 30px;
 	}
 	.limitation>tr>td:first-child{
  		text-align: center;
+ 	}
+ 	#joinChat{
+ 		width: 100%;
+ 		background-color:#61da94;
+ 		color:white;
+ 		font-size: 50px;
  	}
 </style>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -116,12 +121,6 @@
 		$('#filter').hide();
 		$('#filter_btn1').show();
 		$('#filter_btn2').hide();
-	}
-	function showLimit(){
-		$('#limitation').show();
-	}
-	function hideLimit(){
-		$('#limitation').hide();
 	}
 </script>
 </head>
@@ -250,7 +249,7 @@
 			<% if(matchingList != null){
 				for(int i = 0; i<matchingList.size(); i++){ %>	
 				<li>
-					<div id=info align="left" onclick="showLimit()">
+					<div id=info align="left">
 						<table class="info">
 							<tr>
 								<td>방제목</td>
@@ -270,7 +269,7 @@
 						 	</tr>
 						</table>
 					</div>
-					<div id="limitation" align="left" hidden=hidden onclick="hideLimit()">
+					<div id="limitation" align="left">
 						<table class="limitation">
 							<tr>
 								<td>성별 제한 - <%= matchingList.get(i).getGender() %> / 나이 제한 - <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %></td>
@@ -284,19 +283,39 @@
 			<%}}else{
 				for(int i = 0; i<matchingFilterList.size(); i++){ %>
 				<li>
-					<div id=info align="left" onclick="showLimit()">
-						방제목: <%= matchingFilterList.get(i).getChatting_room_title() %><br>
-						방장: <%= matchingFilterList.get(i).getNickname() %><br>
-						산책일: <%= matchingFilterList.get(i).getMatching_date() %> <%= matchingFilterList.get(i).getHour() %>시 <%= matchingFilterList.get(i).getMinute() %>분<br>
-						산책장소: <%= matchingFilterList.get(i).getLocation() %><br>
+					<div id=info align="left">
+						<table class="info">
+							<tr>
+								<td>방제목</td>
+								<td><%= matchingFilterList.get(i).getChatting_room_title() %></td>
+						 	</tr>
+						 	<tr>
+								<td>방장</td>
+								<td><%= matchingFilterList.get(i).getNickname() %></td>
+						 	</tr>
+						 	<tr>
+								<td>산책일</td>
+								<td> <%= matchingFilterList.get(i).getMatching_date() %> <%= matchingFilterList.get(i).getHour() %>시 <%= matchingFilterList.get(i).getMinute() %>분</td>
+						 	</tr>
+						 	<tr>
+								<td>산책장소</td>
+								<td><%= matchingFilterList.get(i).getLocation() %></td>
+						 	</tr>
+						</table>
 					</div>
-					<div id="limitation" align="left" hidden=hidden onclick="hideLimit()">
-						성별 제한: <%= matchingFilterList.get(i).getGender() %><br>
-						나이 제한: <%= matchingFilterList.get(i).getMin_age() %> ~ <%= matchingFilterList.get(i).getMax_age() %><br>
-						강아지 성별 제한: <%= matchingFilterList.get(i).getDog_gender() %><br>
-						강아지 크기 제한: <%= matchingFilterList.get(i).getDog_size() %>
+					<div id="limitation" align="left">
+						<table class="limitation">
+							<tr>
+								<td>성별 제한 - <%= matchingFilterList.get(i).getGender() %> / 나이 제한 - <%= matchingFilterList.get(i).getMin_age() %> ~ <%= matchingFilterList.get(i).getMax_age() %></td>
+						 	</tr>
+						 	<tr>
+								<td>강아지 성별 제한 - <%= matchingFilterList.get(i).getDog_gender() %> / 강아지 크기 제한 - <%= matchingFilterList.get(i).getDog_size() %></td>
+						 	</tr>
+						</table>
 					</div>
-					<input type="button" value="참여하기" name="<%=matchingFilterList.get(i).getChatting_room_num() %>" onClick="location.href='ChatTest.jsp?chatnum=<%=matchingFilterList.get(i).getChatting_room_num() %>'">
+					<br>
+					<input type="button" id="joinChat" value="참 여 하 기" name="<%=matchingFilterList.get(i).getChatting_room_num() %>" onClick="location.href='ChatTest.jsp?chatnum=<%=matchingFilterList.get(i).getChatting_room_num() %>'">
+					<br><br><br>
 				</li>
 			<%}} %>
 		</ul>

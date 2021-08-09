@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#main{
-		width: 500px;
-		height: 500px;
+		width: 100%;
+		height: 1000px;
 		background-color: #34862E;
 		background-image: url("icons/chatbacksmall.png");
 		color: white;
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 
-	내 아이디 : <%= info.getId() %>  
+	내 닉네임 : <%= info.getNickname() %>  
 
 	<input id="content" type="text" placeholder="내용 입력" name="content">
 	
@@ -91,7 +91,7 @@
 				var num = <%=chatnum %>;
 				
 				<%if (info!=null){ %>
-					var id = "<%=info.getId()%>";
+					var id = "<%=info.getNickname()%>";
 				<%} else{ %>
 					var id = $('#id').val();
 				<%} %>

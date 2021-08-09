@@ -155,14 +155,13 @@ public class MatchingDAO {
 		   } return matchingList;
 	   }
 	   
-	   public String showI(String id, int room_num) {
+	   public String showI(int room_num) {
 		   String chatting_room_title="";
 		   try {
 			   conn();
-			   String sql = "select * from matching_chat_list where id = ? and chatting_room_num = ? order by chatting_room_num desc";
+			   String sql = "select * from matching_chat_list where chatting_room_num = ? order by chatting_room_num desc";
 			   psmt = conn.prepareStatement(sql);
-			   psmt.setString(1, id);
-			   psmt.setInt(2, room_num);
+			   psmt.setInt(1, room_num);
 			   rs = psmt.executeQuery();
 			   while(rs.next()) {
 				   chatting_room_title = rs.getString("chatting_room_title");
@@ -170,5 +169,20 @@ public class MatchingDAO {
 		   } catch(Exception e) {
 			   e.printStackTrace();
 		   } return chatting_room_title;
+	   }
+	   public String showN(int room_num) {
+		   String nickname="";
+		   try {
+			   conn();
+			   String sql = "select * from matching_chat_list where chatting_room_num = ? order by chatting_room_num desc";
+			   psmt = conn.prepareStatement(sql);
+			   psmt.setInt(1, room_num);
+			   rs = psmt.executeQuery();
+			   while(rs.next()) {
+				   nickname = rs.getString("nickname");
+			   }
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   } return nickname;
 	   }
 }

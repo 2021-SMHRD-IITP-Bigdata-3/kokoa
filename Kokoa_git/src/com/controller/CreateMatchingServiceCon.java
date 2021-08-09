@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.IndivisualChatDAO;
 import com.model.MatchingDAO;
 import com.model.MatchingDTO;
 
@@ -40,7 +41,14 @@ public class CreateMatchingServiceCon extends HttpServlet {
 		} else {
 			System.out.println("매칭방 개설 실패");
 		}
-	
+
+		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
+		int chatnum = Integer.parseInt(request.getParameter("chatnum"))+1;
+		System.out.println("chatnum(chatTest1페이지) : " + chatnum);
+		
+		IndivisualChatDAO dao2 = new IndivisualChatDAO();
+		dao2.joinChat(mem_num, chatnum);
+		
 		response.sendRedirect("Matching.jsp");
 		
 	}

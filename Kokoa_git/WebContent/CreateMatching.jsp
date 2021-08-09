@@ -1,3 +1,6 @@
+<%@page import="com.model.MatchingDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.MatchingDAO"%>
 <%@page import="com.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -178,6 +181,12 @@
    				</div>
    			</div>
    		</div>
+   		<%	
+   			MatchingDAO dao = new MatchingDAO();
+   			ArrayList<MatchingDTO> dto = dao.show(); 
+   		%>
+   		<input type="text" name="mem_num" value="<%=info.getMem_num() %>" hidden="hidden">
+   		<input type="text" name="chatnum" value="<%=dto.get(0).getChatting_room_num() %>" hidden="hidden">
    </form>
 </body>
 </html>
