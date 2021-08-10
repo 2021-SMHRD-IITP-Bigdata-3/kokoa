@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class CourseDAO {
 	Connection conn = null;
@@ -45,7 +46,7 @@ public class CourseDAO {
 	public int upload(CourseDTO dto) {	
 		try {
 			conn();
-			String sql = "insert into course_list values(course_num_seq.nextval, 'pic',?,?,?)";
+			String sql = "insert into course_list values(course_num_seq.nextval,?, sysdate, ?,?)";
 			psmt=conn.prepareStatement(sql);
 			//psmt.setString(1, dto.getTracking_image());
 			psmt.setString(1, dto.getTracking_time());
@@ -61,19 +62,21 @@ public class CourseDAO {
 		return cnt;
 	}
 	
-	public CourseDTO show(String id) {	
+	public ArrayList<CourseDTO> show(String id) {
+		ArrayList<CourseDTO> list = new ArrayList<CourseDTO>();
 		try {
 			conn();
-			String sql = "select * course_list from course_list where id = ?";
+			String sql = "select * from course_list where id = ?";
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
-				int course_num = rs.getInt(1);
+			while(rs.next()) {
 				String tracking_time = rs.getString(2);
-				String nickname = rs.getString(3);
-				dto = new CourseDTO(course_num, tracking_time, id, nickname);
+				String date = rs.getString(3);
+				String nickname = rs.getString(5);
+				dto = new CourseDTO(tracking_time, nickname, date);
+				list.add(dto);
 			}
 
 		} catch (Exception e) {
@@ -81,6 +84,6 @@ public class CourseDAO {
 		} finally {
 			close();
 		}
-		return dto;
+		return list;
 	}
 }
