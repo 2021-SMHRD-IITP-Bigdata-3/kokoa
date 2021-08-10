@@ -10,8 +10,9 @@
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
+	  position:relative;
       padding-bottom:150px;
-      height:1000px;
+      top:80px;
    }
    
    header{
@@ -57,22 +58,18 @@
    		z-index:10;
    }
    	.confirm{
-   		position:fixed;
-   		top:160px;
-   		font-size:15px;
-   		padding: 15px 35px;
+  		position:fixed;
+   		font-size:30px;
    		background-color:#61da94;
+   		padding:15px 35px;
    		border:1;
-   		left:90%;
    		outline:0;
    		border: gray;
    		border-radius:5%;
-   }
-   .fas.fa-camera.fa-3x{
-   		position:relative;
-   		top:200px;
-   		color:#61da94;
-   		right:45%;
+   		color:white;
+   		top:163px;
+   		right:33px;
+   		z-index:99;
    }
    .photo{
    		width:500px;
@@ -80,13 +77,14 @@
    }
    .saleTitle{
    		position:relative;
-   		top:220px;
-   		width:600px;
+   		top:320px;
+   		width:700px;
    		color:gray;
    		border:1px solid #ebebeb;
-   		font-size:25px;
+   		font-size:30px;
    		border-radius:5px;
    		x-index:999;
+   		right:130px;
    }
    .UploadProducts{
    		width:500px;
@@ -99,32 +97,47 @@
    }
    .category{
    		position:relative;
-   		top:250px;
-   		width:610px;
+   		top:350px;
+   		width:710px;
    		border:1px solid #ebebeb;
-   		font-size:25px;
+   		font-size:30px;
    		border-radius:5px;
+   		right:130px;
    }
    .salePrice{
    		position:relative;
-   		top:280px;
-   		width:600px;
+   		top:380px;
+   		width:700px;
    		color:gray;
    		border:1px solid #ebebeb;
-   		font-size:25px;
+   		font-size:30px;
    		border-radius:5px;
-   		
+   		right:130px;
    }
    .intro{
    		position:relative;
-   		top:310px;
-   		width:600px;
-   		height:300px;
+   		top:410px;
+   		width:700px;
+   		height:400px;
    		color:gray;
    		border:1px solid #ebebeb;
-   		font-size:25px;
+   		font-size:30px;
    		border-radius:5px;
+   		right:130px;
    }
+   .product_pic{
+   		position:relative;
+		font-size:25px;
+	   	background-color:#61da94;
+	   	padding:5px 10px;
+	   	border:1;
+	   	outline:0;
+	   	border: 1px solid #61da94;
+	   	border-radius:5%;
+	   	color:white;
+   		top:270px;
+   		right:25%;
+	   	}
 </style>
 </head>
 <body>
@@ -143,7 +156,7 @@
 	<div>
 	<form method="post" class="UploadProducts" action="MarketServiceCon" enctype="multipart/form-data">
 				
-				<i class="fas fa-camera fa-3x"> <input  type="file" class="product_pic" name="product_pic"></i>
+				<input  type="file" class="product_pic" name="product_pic">
 				<input type="text" name="product_title" placeholder="Á¦¸ñ" class="saleTitle">
 			
 						<select class="category" name="product">

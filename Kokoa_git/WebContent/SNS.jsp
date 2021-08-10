@@ -104,7 +104,8 @@
 	}
 	.fas.fa-arrow-left.fa-2x{
 		position:relative;
-		left:30px;
+		left:28px;
+		top:10px;
 	}
 	.back{
 		position:fixed;

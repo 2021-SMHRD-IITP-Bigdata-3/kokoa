@@ -21,7 +21,7 @@
 <style> 
 	body{
       padding-bottom:150px;
-      height:2000px;
+      height:1500px;
    }
    
    header{
@@ -64,6 +64,7 @@
 	  padding-top: 60px;
 	  width: 935px;
 	  top: 180px;
+	  font-size:27px;
 	}
 	
 	.section {
@@ -83,11 +84,11 @@
 	  display: flex;
 	  align-items: center;
 	  padding: 16px;
-	  height: 27px;
+	  height: 40px;
 	}
 	
 	.content-profilePhoto {
-	  width: 32px;
+	  width: 40px;
 	  border-radius: 50%;
 	}
 	
@@ -123,7 +124,7 @@
 	
 	.content-menuIcon > i {
 	  padding: 8px;
-	  font-size: 24px;
+	  font-size: 32px;
 	}
 	.content-munuIcon{
 		color:white;
@@ -131,11 +132,11 @@
 	
 	.views {
 		font-weight: bold;
-	  	font-size: 14px;
+	  	font-size: 22px;
 	}
 
 	.content-contents-contents > div {
-	  font-size: 14px;
+	  font-size: 30px;
 	  margin-top: 10px;
 	  padding: 0 16px;
 	}
@@ -151,9 +152,11 @@
 	.comment-id {
 	  font-weight: bold;
 	  margin-right: 8px;
+	  font-size:30px;
 	}
 	.comment-content {
 	  width: 100%;
+	  font-size:26px;
 	}
 	
 	.comment-heart > i {
@@ -173,20 +176,20 @@
 	
 	.input-comment {
 	  position:relative;
-	  top:10px;
+	  top:20px;
 	  flex: 9;
 	  width: 100%;
-	  height: 18px;
-	  font-size: 14px;
+	  height: 30px;
+	  font-size: 26px;
 	  border: 0;
 	  outline: none;
 	}
 	
 	.regist {
 	  position:relative;
-	  top:-10px;
+	  top:-15px;
 	  width: 30px;
-	  font-size: 14px;
+	  font-size: 30px;
 	  color: #61da94;
 	  width: auto;
 	  border: 1px solid #ebebeb;
@@ -207,7 +210,7 @@
 	.section{
 		position:relative;
 		width:800px;
-		left:8%;
+		left:10%;
 	}
 </style>
 </head>
@@ -269,7 +272,7 @@ count++;
         <section class="section">
             <div class="content">
                 <div class="content-profile">
-                    <div><img src="img/<%=dto.getStory_pic() %>" alt="" class="content-profilePhoto"></div>
+                    <div><img style="width:50px; height:50px;"src="img/<%=dto.getStory_pic() %>" alt="" class="content-profilePhoto"></div>
                     <div class="content-more">
                         <div class="content-id"><%= dto.getStory_title() %></div>
                         <div class="content-moreIcon"><i class="fas fa-ellipsis-h"></i></div>
@@ -281,7 +284,7 @@ count++;
                 <div class="content_bottom">
                     <div class="content-menuDiv">
                         <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-comment"></i><span><%=cnt %></span></li>
+                            <li class="content-menuIcon"><i class="far fa-comment" style="font-size:32px;"></i><span style="font-size:30px;"><%=cnt %></span></li>
                         </ul>
                     </div>
                     <div class="views"> Á¶È¸¼ö <%= count%></div>

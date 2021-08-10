@@ -56,13 +56,13 @@
     padding-bottom: 30px;
   }
   #faq-title {
-    font-size: 25px;
+    font-size: 32px;
   }
   .faq-content {
     border-bottom: 1px solid #e0e0e0;
   }
   .question {
-    font-size: 19px;
+    font-size: 30px;
     padding: 30px 0;
     cursor: pointer;
     border: none;

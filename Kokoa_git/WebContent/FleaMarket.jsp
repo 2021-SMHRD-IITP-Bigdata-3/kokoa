@@ -16,7 +16,7 @@
       position:relative;
 	  top:150px;
 	  text-align:center;
-	  padding-top:150px;
+	  padding-top:100px;
    }
    
    header{
@@ -65,7 +65,7 @@
 	   }
 	   .sell{
 	  		position:fixed;
-	   		font-size:15px;
+	   		font-size:30px;
 	   		background-color:#61da94;
 	   		padding:15px 35px;
 	   		border:1;
@@ -77,11 +77,6 @@
 	   		right:33px;
 	   		z-index:99;
 	   }
-	   .category{
-	   		position:relative;
-	   		font-size:20px;
-	   		bottom:20px;
-	   }
 	   .wrap{
 			text-align:center;
 	   }
@@ -91,9 +86,9 @@
 	   }
 	   .img{
 	   		position:relative;
-	   		right:300px;
 	   		top:-30px;
 	   	}
+<<<<<<< HEAD
 	   	.content-profile {
 	  
 	  align-items: center;
@@ -101,8 +96,21 @@
 	  height: 10px;
 	  width : 10px;
 	}
+=======
+	   	.tr{
+	   		width:100%;
+	   		font-size: 32px;
+			margin-top:50px;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git
 
-	   
+	   	}
+	   	.tr_title{
+	   		font-size: 35px;
+	   		margin-top:50px;
+	   		width:200px;
+	   		border-bottom : 1px solid #ebebeb;
+	   		font-weight:bold;
+	   	}
 </style>
 </head>
 <body>
@@ -124,22 +132,23 @@
 	</div>
 	
 	<div class="product">
-				<table id = "list">
-				
-					<tr>
+				<table id = "list" style="border-collapse:separate; border-spacing: 40px 40px; margin:auto; border-bottom:1px solid gray;">
+					<tr class="tr_title" style="">
 						<td>카테고리</td>
-						<td>번호</td>
 						<td>사진</td>
 						<td>제목</td>
 						<td>가격</td>
 					</tr>
 					
 					<% for(int i=0; i<board_list.size(); i++){ %>
-						<tr>
-							
+						<tr class="tr">
+							<td ><a href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img style="width:200px; height:200px;"src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
 							<td><%= board_list.get(i).getproduct() %> </td>	
+<<<<<<< HEAD
 							<td><%=board_list.get(i).getproduct_num() %></td>
 							<td ><a class="content-profile" href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git
 							<td><%= board_list.get(i).getproduct_title()%> </td>
 							<td><%= board_list.get(i).getproduct_price()%></td>
 					
