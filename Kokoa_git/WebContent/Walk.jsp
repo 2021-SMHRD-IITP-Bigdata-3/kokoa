@@ -99,6 +99,13 @@
 		height:100px;
 		font-size:40px;
 	}
+	#submit{
+		width: 80%;
+		background-color: #61da94;
+		color: white;
+		font-size: 50px;
+		border-radius: 10px;
+	}
 	
 </style>
 </head>
@@ -307,7 +314,7 @@
 
 		</script>
 		<br><br><br><br><br><br>
-		<input type="submit" width="100%" value="저장하기">
+		<input id="submit" type="submit" width="100%" value="저 장 하 기">
 	</form>
 	<br><br><br><br>
 	<footer>

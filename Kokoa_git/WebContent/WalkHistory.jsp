@@ -82,50 +82,25 @@
 	    top: 50%;
 	    transform: translate(0,-50%);
 	}
-	ul#gallery{
-		height : 400px;
-		text-align: center;
+
+	ul{
+	   list-style:none;
+	   padding-left:0px;
+	   width:100%;
+	   }
+	li{
+		border-top: 3px solid #61da94;
+		border-bottom: 3px solid #61da94;
+		margin-left: 10%;
+	  	margin-right:10%;
+	  	margin-bottom:5%;
 	}
-	ul#gallery>a>li{
-		position: relative;
-		display: inline-block;
-		background-color: #000;
-		width: 400px;
-		height: 400px;
-		margin: 15px;
-		overflow: hidden;
+	tr{
+		font-size: 40px;
 	}
-	ul#gallery>a>li::after{
-		box-sizing: border-box;
-		position: absolute;
-		display: block;
-		top: 50%;
-		left: 50%;
-		width: 87%;
-		height: 87%;
-		border: 2px #fff;
-		transform: translate(-50%, -50%);
-		text-align: center;
-		content: '댕댕이에게 바로가기';
-		font-size: 35px;
-		color: #fff;
-		opacity: 0;
-		transition: 0.8s;
-	}
-	
-	ul#gallery>a>li>img{
-		width: 100%;
-		height: 100%;
-		transition: 0.6s ease-in-out;
-	}
-	
-	ul#gallery>a>li:hover img{
-		transform: scale(1.18);
-		opacity: 0.65;
-	}
-	
-	ul#gallery>a>li:hover::after{
-		opacity: 1;
+	td{
+		text-align: left;
+		padding: 10px;
 	}
 	
 	.icon{
@@ -178,7 +153,7 @@
         			<li>
         				<table>
         					<tr>
-        						<td>날짜</td>
+        						<td>산책일</td>
         						<td><%=list.get(i).getDate() %></td>
         					</tr>
         					<tr>
@@ -186,6 +161,7 @@
         						<td><%=list.get(i).getTracking_time() %>
         					</tr>
         				</table>
+        			</li>
         			<%	
         			}
         		}
