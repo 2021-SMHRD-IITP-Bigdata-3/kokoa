@@ -94,6 +94,13 @@
 	   		right:300px;
 	   		top:-30px;
 	   	}
+	   	.content-profile {
+	  
+	  align-items: center;
+	  padding: 50px;
+	  height: 10px;
+	  width : 10px;
+	}
 
 	   
 </style>
@@ -131,8 +138,8 @@
 						<tr>
 							
 							<td><%= board_list.get(i).getproduct() %> </td>	
-							<td><%=i+1 %></td>
-							<td ><a href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
+							<td><%=board_list.get(i).getproduct_num() %></td>
+							<td ><a class="content-profile" href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
 							<td><%= board_list.get(i).getproduct_title()%> </td>
 							<td><%= board_list.get(i).getproduct_price()%></td>
 					

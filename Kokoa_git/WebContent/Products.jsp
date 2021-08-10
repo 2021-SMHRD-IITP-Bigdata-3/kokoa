@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.model.MemberDAO"%>
 <%@page import="com.model.MemberDTO"%>
 <%@page import="com.model.MarketDTO"%>
@@ -97,6 +98,19 @@
 	   		right:150px;
 	   		color:white;
 	   }
+	   .comment{
+	   		position:relative;
+	   		top:160px;
+	   		font-size:15px;
+	   		background-color:#61da94;
+	   		padding:15px 35px;
+	   		border:1;
+	   		outline:0;
+	   		border: gray;
+	   		border-radius:5%;
+	   		left:150px;
+	   		color:white;
+	   }
 	   .chatButton{
 	   		position:relative;
 	   		top:160px;
@@ -131,6 +145,10 @@
 	MemberDAO dao2 = new MemberDAO();
 	String pic = dao2.pic(dto.getproduct_seller());
 %>
+
+<%
+	ArrayList<MarketDTO> board_list = dao.showBoard();
+%>
 	
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -149,13 +167,15 @@
 	</div>
 	<div class="introDiv">
 	<% if(dto.getproduct_con() != null){%>
-		<textarea readonly="readonly" class="intro"><%= dto.getproduct_con() %></textarea>
+		<textarea readonly="readonly"class="intro"><%= dto.getproduct_con() %></textarea>
 			<%} %>
 	</div>
 	<div>
-		<button class="priceButton" value="price">가격 :15000원</button>
-
+		<button class="priceButton" value="price"><%= dto.getproduct_price() %></button>
+		<button class="comment" value="comment"> 댓글 남기기  </button>
 	</div>
+	
+	
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

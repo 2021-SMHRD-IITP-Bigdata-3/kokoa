@@ -176,6 +176,8 @@ increment by 1
 start with 1
 
 
+
+
 create table matching_chat_list(
 	chatting_room_num number(15),
 	chatting_room_title varchar2(50) not null,
