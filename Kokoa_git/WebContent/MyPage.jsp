@@ -35,7 +35,7 @@
 		background-color: #61da94;
 		color: white;
 		height: 120px;
-		width: 220px;
+		width: 250px;
 		border-radius: 10px;
 		font-size: 30px;
 		margin-top:15px;
@@ -66,6 +66,7 @@
 		color: white;
 		cursor: pointer;
 		border-radius:5px;
+		font-size:35px;
 	}
 	
 	/* Clear floats (clearfix hack) */
@@ -87,7 +88,7 @@
    		padding-bottom:150px;
 		color:#61da94;
 		top:30px;
-		left:25%;
+		left:28%;
  	}
  	.container{
  		margin-top:35px;
@@ -113,8 +114,8 @@
 	<%if(info != null){ %>
 		<div>
 			<div class="box">
-				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:400px; height:400px;"><br>
-				<p style="font-size:40px; font-weight:bold;"><%=info.getNickname() %></p>
+				<img class="pic" src="img/<%=info.getDog_pic() %>" style="width:450px; height:450px;"><br>
+				<p style="font-size:45px; font-weight:bold;"><%=info.getNickname() %></p>
 			</div>
 			<div class="btn-group a">
 				<button class="menu_btn" type="button" onClick="location.href='Edit.jsp'">회원 정보 수정</button>				
@@ -137,13 +138,13 @@
 	<%} else{ %>
 		<div>
 			<div class="box">
-				<img class="pic" src="icons/profile.png" style="width:250px; height:250px;"><br>
-				<p style="font-size:30px">로그인이 필요합니다.</p>
+				<img class="pic" src="icons/profile.png" style="width:450px; height:450px;"><br>
+				<p style="font-size:35px">로그인이 필요합니다.</p>
 			</div>
 			<div>
-				<button type="button" onClick="location.href='Login.jsp'">로그인</button>
+				<button style="border:none; background-color:61da94;" type="button" onClick="location.href='Login.jsp'">로그인</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='Join.jsp'">회원가입</button>
+				<button style="border:none; background-color:61da94;" type="button" onClick="location.href='Join.jsp'">회원가입</button>
 			</div>
 		</div>
 	<%} %>

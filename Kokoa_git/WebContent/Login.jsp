@@ -52,7 +52,7 @@
 	    
 	}
 	.text-field {
-	  font-size: 22px;
+	  font-size: 25px;
 	  padding: 10px;
 	  border: gray;
 	  width: 400px;
@@ -60,7 +60,7 @@
 	 
 	}
 	.submit-btn {
-	  font-size: 22px;
+	  font-size: 25px;
 	  border: none;
 	  padding: 10px;
 	  width: 400px;
@@ -74,23 +74,23 @@
 	}
 	 
 	.links a {
-	  font-size: 22px;
+	  font-size: 25px;
 	  width: 350px;
 	  color: #9B9B9B;
 	}
 	.back{
-	position:fixed;
-	top:170px;
-	color:#61da94;
-	left:40px;
-	z-index:99;
+		position:fixed;
+		top:170px;
+		color:#61da94;
+		left:40px;
+		z-index:99;
 	}
 	#form{
-	left:50%;
+		left:50%;
 	}
 	.pic{
-	position:relative;
-	top:-150px;
+		position:relative;
+		top:-150px;
 	}
 	
 </style>

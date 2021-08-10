@@ -6,20 +6,25 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
-		padding-bottom: 150px;
+		position:relative;
+		top:150px;
 		text-align: center;
 		align-content: center;
+		z-index:30;
 		}
 	
-	.topbar{
-			position: sticky;
-			top: 0;
-			background-color: #61da94;
-			height: 150px;
-			padding:20px;
-			}
+	   header{
+	      position: fixed;
+	      top:0;
+	      left:0;
+	      background-color: #61da94;
+	      height: 150px;
+	      width: 100%;
+	      z-index:100;
+	   }
 	
 	footer{
 		position: fixed;
@@ -56,17 +61,73 @@
 	
 	tr{	
 		font-size: 20px;
+		margin-top:50px;
 		
 	}
 	input{	
 		font-size: 20px;
 	}
-	
+	.join{
+		position:relative;
+		font-size:22px;
+	}
+	.title{
+		font-size:30px;
+	}
+	.button{
+		text-align:center;
+		font-size:25px;
+	   	background-color:#61da94;
+	   	padding:20px 35px;
+	   	border:1;
+	   	outline:0;
+	   	border: 1px solid #61da94;
+	   	border-radius:5%;
+	   	color:white;
+	   	position:relative;
+	   	top:45px;
+	   	left:320px;
+	}
+	.button_pic{
+		text-align:center;
+		font-size:25px;
+	   	background-color:#61da94;
+	   	padding:10px 20px;
+	   	border:1;
+	   	outline:0;
+	   	border: 1px solid #61da94;
+	   	border-radius:5%;
+	   	color:white;
+	}
+	.tr > td input{
+		width:100%;
+	}
+	.button_confirm{
+		position:relative;
+		left:20px;
+		font-size:25px;
+	   	background-color:#61da94;
+	   	padding:10px 25px;
+	   	border:1;
+	   	outline:0;
+	   	border: 1px solid #61da94;
+	   	border-radius:5%;
+	   	color:white;
+	}
+	.tr > td textarea{
+		width:100%;
+	}
+	.back{
+		position:fixed;
+		top:170px;
+		left:40px;
+		color:#61da94;
+		z-index:10;	
+	}
 	
 </style>
 </head>
 <body>
-
 
 	<%
 		
@@ -74,60 +135,67 @@
 		String id = info.getId();
 		System.out.print(id);
 	%>
-	<div class="topbar">
+	
+	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
-	</div>
+	</header>
+	<table class='icon'>
+		<tr>
+			<td>
+				<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"></i></a>
+			</td>
+		</tr>
+	</table>
 	
 	<div class="pagetitle">	
-		<button onclick="history.back()"> ← </button>
 		<h1> 회원정보수정 </h1>
 	</div>
 	
 	<form action="UpdateServiceCon2" method="post" enctype="multipart/form-data">
 		<div class="join">
-			<table>
-				<tr>
+			<table  style="text-align:left; border-collapse:separate; border-spacing: 0 30px; margin:auto;">
+				<tr class="tr">
 					<td><input type="text" name="id" hidden="hidden" value="<%=id%>"></td>
 				</tr>
-				<tr>
-					<td>닉네임</td>
-					<td><input type="text" name="nickname"></td>
-					<td><input type="button" value="중복확인" onclick='window.open("NickCheck/NickCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
+				<tr class="tr">
+					<td class="title">닉네임</td>
+					<td><input placeholder="닉네임" type="text" name="nickname"></td>
+					<td><input class="button_confirm" type="button" value="중복확인" onclick='window.open("NickCheck/NickCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
 					
 				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="pw"></td>
+				<tr class="tr">
+					<td class="title">비밀번호</td>
+					<td><input placeholder="비밀번호" type="password" name="pw"></td>
 				</tr>
-				<tr>
-					<td>이메일</td>
-					<td><input type = "text" name ="email" ></td>
+				<tr class="tr">
+					<td class="title">이메일</td>
+					<td><input placeholder="이메일" type = "text" name ="email" ></td>
 				</tr>
-				<tr>
-					<td>주소</td>
+				<tr class="tr">
+					<td class="title">주소</td>
 					 <td><input style="width: 400px;" id="member_addr" name="addr" type="text" placeholder="주소" readonly onclick="findAddr()"></td>
 				</tr>
-				<tr>
-					<td>전화번호</td>
-					<td><input type="text" name="tel"></td>
+				<tr class="tr">
+					<td class="title">전화번호</td>
+					<td><input placeholder="전화번호" type="text" name="tel"></td>
 				</tr>
 				
-				<tr>
-					<td>소개글</td>
+				<tr class="tr">
+					<td class="title">소개글</td>
 					<td>
 					<textarea rows ="10" cols = "20" name="intrd"></textarea>
-				</td>
+					</td>
+				</tr>
+				
+				<tr class="tr">
+					<td class="title">반려견 이름</td>
+					<td><input placeholder="반려견 이름" type="text" name="dog_name"></td>
 				</tr>
 				
 				<tr>
-					<td>반려견 이름</td>
-					<td><input type="text" name="dog_name"></td>
-				</tr>
-				
-				<tr>
-					<td>반려견 성별</td>
+					<td class="title">반려견 성별</td>
 					<td>
             			수컷
             		<input type="radio" name="dog_gender"> 
@@ -138,16 +206,16 @@
           			</td>
 				</tr>
 				
-				<tr>
-					<td>반려견 사진</td>
-					 <td><input type = "file" name ="dog_pic"></td>
+				<tr class="tr">
+					<td class="title">반려견 사진</td>
+					 <td><input class="button_pic" type = "file" name ="dog_pic"></td>
 				</tr>
 				
 			
 				
-				<tr >
+				<tr class="submit_wrap">
 					<td>
-					<input type="submit" value="회원정보수정">
+					<input class="button" type="submit" value="회원정보수정">
 					</td>
 				</tr>
 				

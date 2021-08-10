@@ -49,53 +49,60 @@
 	    transform: translate(0,-50%);
    }
 	.CS {
-		width: 800px;
-		height: 700px;
-		margin-right: auto;
-		margin-left: auto;
-		margin-top: 50px;
-		padding: 20px;
 		text-align: center;
 		border: none;
 		padding-top:200px;
 	    
 	}
 	.text-field {
-		font-size: 20px;
+		font-size: 30px;
 		padding: 10px;
 		border: a3a3a3;
-		width: 500px;
+		width: 70%;
 		margin-bottom: 10px;
 	 
 	}
 	.text-field2 {
-		font-size: 20px;
+		font-size: 30px;
 		padding: 10px;
 		border: a3a3a3;
-		width: 500px;
-		height: 400px;
+		width: 70%;
+		height:500px;
 		margin-bottom: 10px;
 	 
 	}
 	.submit-btn {
-		font-size: 14px;
+		font-size: 30px;
 		border: none;
-		padding: 10px;
+		padding: 20px;
 		width: 260px;
 		background-color: #61da94;
 		margin-bottom: 30px;
 		color: white;
 		border-radius:5px;
+		height:80px;
 	}
 	.icon{
 		position:relative;
 	   	padding-top :100px;
-	   	top:30px;
-	   	left:30px;
+	   	top:50px;
+	   	left:20px;
 	}
 	.back{
 		position:fixed;
 		color : #61da94;
+		
+	}
+	.submit-btn-2{
+		position:relative;
+		font-size: 30px;
+		border: none;
+	   	padding:10px 20px;
+		width: 400px;
+		background-color: #61da94;
+		color: white;
+		height:60px;
+		bottom:8px;
 	}
 </style>
 </head>
@@ -105,7 +112,7 @@
 		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
-		<table class="icon" align="left">
+		<table class="icon">
 			<tr>
 				<td>
 					<a class="back" href="#" onclick="location.href='MyPage.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 고객의 소리</span></i></a>
@@ -116,8 +123,8 @@
 		<form method="post" class="CS" action="CSWriteBoardServiceCon" enctype="multipart/form-data">
       		<input type="text" name="cs_title" class="text-field" placeholder="제목을 입력해주세요"><br>
       		<textarea name="cs_con" class="text-field2" placeholder="내용을 입력해주세요" cols="20" wrap="hard"></textarea><br>
-      		<input  type="file" class="submit-btn-2" style="float: right;" name="cs_pic">
       		<input type="submit" value="등록" class="submit-btn">
+      		<input type="file" class="submit-btn-2" value="파일선택" name="cs_pic">
     	</form>
     </div>
 	<footer>
