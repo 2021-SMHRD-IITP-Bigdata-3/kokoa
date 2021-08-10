@@ -186,7 +186,7 @@
    			ArrayList<MatchingDTO> dto = dao.show(); 
    		%>
    		<input type="text" name="mem_num" value="<%=info.getMem_num() %>" hidden="hidden">
-   		<input type="text" name="chatnum" value="<%if(dto.size()!=0){ dto.get(0).getChatting_room_num(); }else{ %>1<%} %>" hidden="hidden">
+   		<input type="text" name="chatnum" value="<%if(dto.size()!=0){ %><%=dto.get(0).getChatting_room_num()%><%}else{ %>1<%} %>" hidden="hidden">
    </form>
 </body>
 </html>
