@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberDAO"%>
 <%@page import="com.model.MatchingDTO"%>
 <%@page import="com.model.MatchingDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -159,8 +160,10 @@
 		IndivisualChatDAO dao = new IndivisualChatDAO();
 		ArrayList<IndivisualChatDTO> dto = dao.showChat(info.getMem_num());
 		MatchingDAO dao2 = new MatchingDAO();
+		MemberDAO dao3 = new MemberDAO();
 		String title = "";
 		String nickname = "";
+		String pic = "";
 	%>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -181,13 +184,15 @@
 	                	if(dto != null){
 	                		for(int i = 0; i<dto.size(); i++){
                 	%>
+                	<%
+                  		title = dao2.showI(dto.get(i).getChatting_room_num());
+                  		nickname = dao2.showN(dto.get(i).getChatting_room_num());
+                  		pic = dao3.pic(nickname);
+	                %>
 	                    <li onClick="location.href='ChatTest.jsp?chatnum=<%=dto.get(i).getChatting_room_num() %>'">
-	                        <img src="icons/puppy.jpg" alt="영훈프로필사진">
+	                        <img src="img/<%=pic %>">
 	                        <div class="talk">
-	                        	<%
-	                        		title = dao2.showI(dto.get(i).getChatting_room_num());
-	                        		nickname = dao2.showN(dto.get(i).getChatting_room_num());
-	                        	%>
+
 	                            <p class="friend-name"><%=title %></p>
 	                            <p class="chat-content"></p>
 	                        </div>
