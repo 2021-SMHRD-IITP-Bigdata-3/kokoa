@@ -142,13 +142,8 @@
 					
 					<% for(int i=0; i<board_list.size(); i++){ %>
 						<tr class="tr">
-							<td ><a href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img style="width:200px; height:200px;"src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
 							<td><%= board_list.get(i).getproduct() %> </td>	
-<<<<<<< HEAD
-							<td><%=board_list.get(i).getproduct_num() %></td>
-							<td ><a class="content-profile" href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git
+							<td ><a href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img style="width:200px; height:200px;"src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
 							<td><%= board_list.get(i).getproduct_title()%> </td>
 							<td><%= board_list.get(i).getproduct_price()%></td>
 					
