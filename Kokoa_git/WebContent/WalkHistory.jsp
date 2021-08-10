@@ -168,6 +168,7 @@
 		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
 		<br><br><br>
 	</div>
+	<br><br><br>
     <div id="wrap">
         <ul id="gallery">
         	<%
@@ -177,7 +178,7 @@
         			<li>
         				<table>
         					<tr>
-        						<td></td>
+        						<td>날짜</td>
         						<td><%=list.get(i).getDate() %></td>
         					</tr>
         					<tr>

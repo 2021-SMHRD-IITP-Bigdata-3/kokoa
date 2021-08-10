@@ -142,6 +142,7 @@
 			<%
 				BanDAO dao = new BanDAO(); 
 				ArrayList<BanDTO> block_list = dao.showBanMem(info.getMem_num());
+				if(block_list.size()!=0){
 			%>
 			<%if(info.getMem_num() == block_list.get(0).getBan_mem_num()) {%>
 			<%for(int i=0; i<block_list.size(); i++){ %>
@@ -150,6 +151,7 @@
 				<td><span class="block_content"><%=block_list.get(i).getBan_id() %></span></td>
 				<td><span class="block_content"><%=block_list.get(i).getBlock_date() %></span></td>
 			</tr>
+			<%} %>
 			<%} %>
 			<%} %>
 		</table>

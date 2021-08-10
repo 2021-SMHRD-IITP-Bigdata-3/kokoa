@@ -7,11 +7,11 @@ public class CourseDTO {
 	private String nickname;
 	private String date;
 
-	public CourseDTO(String tracking_time, String nickname, String date) {
+	public CourseDTO(String tracking_time, String id, String nickname) {
 		super();
 		this.tracking_time = tracking_time;
 		this.nickname = nickname;
-		this.date = date;
+		this.id = id;
 	}
 
 	public CourseDTO(String tracking_time, String id, String nickname, String date) {

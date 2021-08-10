@@ -62,20 +62,21 @@ public class CourseDAO {
 		return cnt;
 	}
 	
-	public ArrayList<CourseDTO> show(String id) {
+	public ArrayList<CourseDTO> show(String input_id) {
 		ArrayList<CourseDTO> list = new ArrayList<CourseDTO>();
 		try {
 			conn();
 			String sql = "select * from course_list where id = ?";
 			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, id);
+			psmt.setString(1, input_id);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				String tracking_time = rs.getString(2);
 				String date = rs.getString(3);
+				String id = rs.getString(4);
 				String nickname = rs.getString(5);
-				dto = new CourseDTO(tracking_time, nickname, date);
+				dto = new CourseDTO(tracking_time, nickname, id, date);
 				list.add(dto);
 			}
 
