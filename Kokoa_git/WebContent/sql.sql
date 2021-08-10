@@ -109,12 +109,13 @@ start with 1
 create table course_list(
 	course_num number(15),
 	tracking_time varchar2(20) not null,
-	tracking_distance varchar2(20),
+	tracking_date date,
 	id varchar2(20),
 	nickname varchar2(20),
 	
 	constraint course_list_course_num_pk primary key(course_num)
 )
+select * from course_list
 
 create sequence course_num_seq
 increment by 1

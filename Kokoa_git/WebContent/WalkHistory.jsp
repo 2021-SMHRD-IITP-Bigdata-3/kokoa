@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.model.CourseDTO"%>
 <%@page import="com.model.CourseDAO"%>
 <%@page import="com.model.MemberDTO"%>
@@ -154,7 +155,7 @@
 	<%MemberDTO info = (MemberDTO)session.getAttribute("info");
 		String id = info.getId();
 		CourseDAO dao = new CourseDAO();
-		CourseDTO dto = dao.show(id);
+		ArrayList<CourseDTO> list = dao.show(id);
 	%>
 	<header>
       <a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
@@ -162,9 +163,6 @@
       <a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
    </header>
    <div style="width:100%; height:150px;"></div>
-   <%if(dto.getTracking_time()!=null){%>
-   <span><%=dto.getTracking_time() %></span>>
-   <%} %>
 	<div class="btn">
 		<br>
 		<button id="btn1" onclick="location.href='Walk.jsp'">산 책 하 기</button><button id="btn2" onclick="location.href='WalkHistory.jsp'">산 책 기 록</button>
@@ -172,7 +170,25 @@
 	</div>
     <div id="wrap">
         <ul id="gallery">
-            <li><img src="img/20212021050738732210050911.png"></li>
+        	<%
+        		if(list!=null){
+        			for(int i = 0; i<list.size(); i++){
+        			%>
+        			<li>
+        				<table>
+        					<tr>
+        						<td></td>
+        						<td><%=list.get(i).getDate() %></td>
+        					</tr>
+        					<tr>
+        						<td>산책 소요 시간</td>
+        						<td><%=list.get(i).getTracking_time() %>
+        					</tr>
+        				</table>
+        			<%	
+        			}
+        		}
+        	%>
             
         </ul>
     </div>

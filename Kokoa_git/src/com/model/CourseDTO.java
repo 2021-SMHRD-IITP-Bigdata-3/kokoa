@@ -5,21 +5,38 @@ public class CourseDTO {
 	private String tracking_time;
 	private String id;
 	private String nickname;
+	private String date;
 
+	public CourseDTO(String tracking_time, String nickname, String date) {
+		super();
+		this.tracking_time = tracking_time;
+		this.nickname = nickname;
+		this.date = date;
+	}
 
-	public CourseDTO(String tracking_time, String id, String nickname) {
+	public CourseDTO(String tracking_time, String id, String nickname, String date) {
 		super();
 		this.tracking_time = tracking_time;
 		this.id = id;
 		this.nickname = nickname;
+		this.date = date;
 	}
 
-	public CourseDTO(int course_num, String tracking_time, String id, String nickname) {
+	public CourseDTO(int course_num, String tracking_time, String id, String nickname, String date) {
 		super();
 		this.course_num = course_num;
 		this.tracking_time = tracking_time;
 		this.id = id;
 		this.nickname = nickname;
+		this.date = date;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public int getCourse_num() {

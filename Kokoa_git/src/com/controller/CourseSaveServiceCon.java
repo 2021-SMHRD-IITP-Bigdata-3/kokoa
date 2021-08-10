@@ -21,7 +21,7 @@ public class CourseSaveServiceCon extends HttpServlet {
 			String tracking_time = request.getParameter("tracking_time");
 			String id = request.getParameter("id");
 			String nickname = request.getParameter("nickname");
-			
+			System.out.println(tracking_time+id+nickname);
 			CourseDTO dto = new CourseDTO(tracking_time, id, nickname);
 			CourseDAO dao = new CourseDAO();
 			int cnt = dao.upload(dto);

@@ -118,7 +118,6 @@
 	<form action="CourseSaveServiceCon" method="post">
 		<input type="text" name="id" value="<%=info.getId() %>" hidden="hidden">
 		<input type="text" name="nickname" value="<%=info.getNickname() %>" hidden="hidden">
-		<input type="text" id="location" name="location">	
 		<div id="map" style="width:100%;height:1000px;"></div>
 		<div>
 			<div>
@@ -191,15 +190,6 @@
 		    
 		    var iwContent = message, // 인포윈도우에 표시할 내용
 		        iwRemoveable = true;
-		
-		    // 인포윈도우를 생성합니다
-		    var infowindow = new kakao.maps.InfoWindow({
-		        content : iwContent,
-		        removable : iwRemoveable
-		    });
-		    
-		    // 인포윈도우를 마커위에 표시합니다 
-		    infowindow.open(map, marker);
 		    
 		    // 지도 중심좌표를 접속위치로 변경합니다
 		    map.setCenter(locPosition);
@@ -316,8 +306,8 @@
 
 
 		</script>
-	
-		<input type="submit" value="저장하기">
+		<br><br><br><br><br><br>
+		<input type="submit" width="100%" value="저장하기">
 	</form>
 	<br><br><br><br>
 	<footer>
