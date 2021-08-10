@@ -91,15 +91,14 @@ public class BanDAO {
 		}
 		return block_list;
 }
-	public int DeleteBan(String[] ban_num) {
+	public int DeleteBan(int ban_num) {
 		try {
 			conn();
 			String sql="delete from block_list where ban_num=? ";
 			psmt = conn.prepareStatement(sql);
-			for(int i=0; i<ban_num.length; i++) {
-				psmt.setString(0, ban_num[i]);
-				cnt = psmt.executeUpdate();
-			}
+
+			psmt.setInt(1, ban_num);
+			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

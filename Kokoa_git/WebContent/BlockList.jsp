@@ -11,6 +11,16 @@
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>차단목록</title>
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script>
+	function addBan(){
+		$('#addBan').show();
+	}
+	function unBan(){
+		$('.ckbox').show();
+		$('.confirm').show();
+	}
+</script>
 </head>
 <style>
 		body{
@@ -122,9 +132,10 @@
 				</td>
 			</tr>
 		</table>
-	<form class="blocklist_form" >
+	<form class="blocklist_form" action="DeleteBanMemberServiceCon" method="post" >
 		<table class="blocklist" style="border:1px; width:600px; height:400px;">
 			<tr>
+				<td></td>
 				<td><span class="blockTitle"><b>차단ID</b></span></td>
 				<td><span class="blockTitle"><b>차단한 날짜</b></span></td>
 			</tr>
@@ -135,22 +146,31 @@
 			<%if(info.getMem_num() == block_list.get(0).getBan_mem_num()) {%>
 			<%for(int i=0; i<block_list.size(); i++){ %>
 			<tr>
+				<td><input type="checkbox" name="chk" value="<%=block_list.get(i).getBan_num()%>" hidden="hidden" class="ckbox">
 				<td><span class="block_content"><%=block_list.get(i).getBan_id() %></span></td>
 				<td><span class="block_content"><%=block_list.get(i).getBlock_date() %></span></td>
 			</tr>
 			<%} %>
 			<%} %>
 		</table>
+		<div>
+			<input type="submit" class="confirm" value="제거하기" hidden="hidden">
+		</div>
 	</form>
 	<div class="delete">
-		<a href="#" onclick='window.open("BlockMem/Delete_mem.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'><i class="far fa-minus-square fa-2x"></i></a>
-		<a href="#" onclick='window.open("BlockMem/Block_mem.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'><i class="far fa-plus-square fa-2x"></i></a>
+		<a href="#" onclick='unBan()'><i class="far fa-minus-square fa-2x"></i></a>
+		<a href="#" onclick='addBan()'><i class="far fa-plus-square fa-2x"></i></a>
 	</div>
-	<div>
-		<button class="confirm">확인</button>
+		<div id="addBan" hidden="hidden">
+		<form action="BanServiceCon">
+			<input type="hidden" name="ban_mem_num" value="<%=info.getMem_num() %>">
+			<input type="text" name="ban_id" placeholder="차단할 id를 입력해주세요">
+			<input type="submit" value="차단하기">
+		</form>
 	</div>
 
 	<footer>
+	
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>

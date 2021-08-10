@@ -18,9 +18,13 @@ public class DeleteBanMemberServiceCon extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		String[] ban_num =request.getParameterValues("chk");
 		System.out.println(Arrays.toString(ban_num));
-
+		
+		int cnt=0;
 		BanDAO dao = new BanDAO();
-		int cnt = dao.DeleteBan(ban_num);
+		for(int i = 0; i<ban_num.length; i++) {
+			cnt += dao.DeleteBan(Integer.parseInt(ban_num[i]));
+			
+		}
 		
 		if(cnt > 0 ) {
 			System.out.println("¼º°ø");

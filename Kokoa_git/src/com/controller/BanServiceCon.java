@@ -33,7 +33,7 @@ public class BanServiceCon extends HttpServlet {
 		}else {
 			System.out.println("½ÇÆÐ");
 		}
-		response.sendRedirect("BlockMem/Block_mem.jsp");
+		response.sendRedirect("BlockList.jsp");
 		
 	}
 
