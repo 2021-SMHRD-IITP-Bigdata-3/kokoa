@@ -170,6 +170,55 @@
                   <option>견종선택</option>
                   <option value ="그레이하운드">그레이하운드</option>
                   <option value ="시츄">시츄</option>
+                  <option value ="래브라도 리트리버">"래브라도 리트리버"</option>
+                  <option value ="포메라니안">"포메라니안"</option>
+                  <option value ="시베리안 허스키">"시베리안 허스키"</option>
+                  <option value ="불도그">"불도그"</option>
+                  <option value ="푸들">"푸들"</option>
+                  <option value ="치와와">"치와와"</option>
+                  <option value ="시바견">"시바견"</option>
+                  <option value ="도베르만 핀셔">"도베르만 핀셔"</option>
+                  <option value ="퍼그">"퍼그"</option>
+                  <option value ="아메리칸 핏불 테리어">"아메리칸 핏불 테리어"</option>
+                  <option value ="로트바일러">"로트바일러"</option>
+                  <option value ="닥스훈트">"닥스훈트"</option>
+                  <option value ="비글">"비글"</option>
+                  <option value ="말티즈">"말티즈"</option>
+                  <option value ="그레이트 데인">"그레이트 데인"</option>
+                  <option value ="차우차우">"차우차우"</option>
+                  <option value ="카네코르소">"카네코르소"</option>
+                  <option value ="사모예드견">"사모예드견"</option>
+                  <option value ="페르시아 마스티프">"페르시아 마스티프"</option>
+                  <option value ="요크셔 테리어">"요크셔 테리어"</option>
+                  <option value ="버니즈 마운틴 도그">"버니즈 마운틴 도그"</option>
+                  <option value ="뉴펀들랜드">"뉴펀들랜드"</option>
+                  <option value ="프렌치 불도그">"프렌치 불도그"</option>
+                  <option value ="복서">"복서"</option>
+                  <option value ="펨브록 웰시코기">"펨브록 웰시코기"</option>
+                  <option value ="세인트버나드">"세인트버나드"</option>
+                  <option value ="보더 콜리">"보더 콜리"</option>
+                  <option value ="러셀 테리어">"러셀 테리어"</option>
+                  <option value ="말티푸">"말티푸"</option>
+                  <option value ="비숑 프리제">"비숑 프리제"</option>
+                  <option value ="잉글리쉬 마스티프">"잉글리쉬 마스티프"</option>
+                  <option value ="잉글리쉬 코커 스패니얼">"잉글리쉬 코커 스패니얼"</option>
+                  <option value ="미니어처 핀셔">"미니어처 핀셔"</option>
+                  <option value ="불 테리어">"불 테리어"</option>
+                  <option value ="래브라두들">"래브라두들"</option>
+                  <option value ="보스턴 테리어">"보스턴 테리어"</option>
+                  <option value ="그레이하운드">"그레이하운드"</option>
+                  <option value ="달마시안">"달마시안"</option>
+                  <option value ="미니어처 슈나우저">"미니어처 슈나우저"</option>
+                  <option value ="토이 푸들">"토이 푸들"</option>
+                  <option value ="바센지">"바센지"</option>
+                  <option value ="아키타견">"아키타견"</option>
+                  <option value ="샤페이">"샤페이"</option>
+                  <option value ="페키니즈">"페키니즈"</option>
+                  <option value ="파피용">"파피용"</option>
+                  <option value ="아프간 하운드">"아프간 하운드"</option>
+                  <option value ="하바나 실크">"하바나 실크"</option>
+                  <option value ="기타">"기타"</option> 
+                
                </select>
             </td>
          </tr>
