@@ -2,22 +2,21 @@ package com.model;
 
 public class CourseDTO {
 	private int course_num;
-	private String tracking_image;
 	private String tracking_time;
 	private String id;
 	private String nickname;
-	public CourseDTO(int course_num, String tracking_image, String tracking_time, String id, String nickname) {
+
+
+	public CourseDTO(String tracking_time, String id, String nickname) {
 		super();
-		this.course_num = course_num;
-		this.tracking_image = tracking_image;
 		this.tracking_time = tracking_time;
 		this.id = id;
 		this.nickname = nickname;
 	}
-	
-	public CourseDTO(String tracking_image, String tracking_time, String id, String nickname) {
+
+	public CourseDTO(int course_num, String tracking_time, String id, String nickname) {
 		super();
-		this.tracking_image = tracking_image;
+		this.course_num = course_num;
 		this.tracking_time = tracking_time;
 		this.id = id;
 		this.nickname = nickname;
@@ -31,12 +30,6 @@ public class CourseDTO {
 		this.course_num = course_num;
 	}
 
-	public String getTracking_image() {
-		return tracking_image;
-	}
-	public void setTracking_image(String tracking_image) {
-		this.tracking_image = tracking_image;
-	}
 	public String getTracking_time() {
 		return tracking_time;
 	}

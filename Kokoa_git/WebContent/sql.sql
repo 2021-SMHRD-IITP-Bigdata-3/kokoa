@@ -120,7 +120,6 @@ start with 1
 create table course_list(
 	course_num number(15),
 	tracking_time varchar2(20) not null,
-	tracking_distance varchar2(20),
 	id varchar2(20),
 	nickname varchar2(20),
 	

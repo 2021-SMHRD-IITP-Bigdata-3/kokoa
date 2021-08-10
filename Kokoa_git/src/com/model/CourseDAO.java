@@ -71,10 +71,9 @@ public class CourseDAO {
 			
 			if(rs.next()) {
 				int course_num = rs.getInt(1);
-				String tracking_image = rs.getString(2);
-				String tracking_time = rs.getString(3);
-				String nickname = rs.getString(5);
-				dto = new CourseDTO(course_num, tracking_image, tracking_time, id, nickname);
+				String tracking_time = rs.getString(2);
+				String nickname = rs.getString(3);
+				dto = new CourseDTO(course_num, tracking_time, id, nickname);
 			}
 
 		} catch (Exception e) {

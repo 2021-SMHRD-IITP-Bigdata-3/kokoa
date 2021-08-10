@@ -18,12 +18,11 @@ public class CourseSaveServiceCon extends HttpServlet {
 
 			request.setCharacterEncoding("EUC-KR");
 
-			String tracking_image = request.getParameter("tracking_image");
 			String tracking_time = request.getParameter("tracking_time");
 			String id = request.getParameter("id");
 			String nickname = request.getParameter("nickname");
 			
-			CourseDTO dto = new CourseDTO(tracking_image, tracking_time, id, nickname);
+			CourseDTO dto = new CourseDTO(tracking_time, id, nickname);
 			CourseDAO dao = new CourseDAO();
 			int cnt = dao.upload(dto);
 			
