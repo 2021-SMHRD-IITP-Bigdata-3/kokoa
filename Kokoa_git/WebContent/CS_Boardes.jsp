@@ -88,7 +88,6 @@
 			</td>
 			</tr>
 	</table>
-	
 	<div id = "board">
 				<table id="list">
 					
@@ -97,7 +96,6 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-						
 						<% if(dto.getcs_pic() != null){%>
 								<img src="img/<%= dto.getcs_pic() %>">
 								<br>							

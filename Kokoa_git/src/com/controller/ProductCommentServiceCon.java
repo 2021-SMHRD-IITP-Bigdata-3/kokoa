@@ -18,19 +18,20 @@ public class ProductCommentServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("EUC-KR");
-		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		String comment_con = request.getParameter("comment_con");
 		String id = request.getParameter("id");
-		System.out.println(board_num);
+		System.out.println(product_num);
 		System.out.println(id);
 		
-		PCommentDTO dto = new PCommentDTO(board_num, id);
+		PCommentDTO dto = new PCommentDTO(product_num,comment_con, id);
 		PCommentDAO dao = new PCommentDAO();
 		int cnt = dao.upload_com(dto);
 		
 		if(cnt>0) {
 			System.out.println("성공");
 			HttpSession session = request.getSession();
-			session.setAttribute("board_num", board_num);
+			session.setAttribute("product_num", product_num);
 		}else {
 			System.out.println("실패");
 		}

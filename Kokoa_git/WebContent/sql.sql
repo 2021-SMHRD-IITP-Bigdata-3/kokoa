@@ -1,3 +1,17 @@
+select * from pcomment_info;
+drop table pcomment_info;
+create table pcomment_info(
+	comment_num number(10),
+	product_num number(10),
+	comment_con varchar2(20),
+	id varchar2(20),
+	wrtie_time date,
+	
+	constraint pcomment_num_pk primary key(comment_num)
+)
+create sequence pcomment_num_seq
+increment by 1
+start with 1
 
 create table k_member(
 	mem_num number(10),

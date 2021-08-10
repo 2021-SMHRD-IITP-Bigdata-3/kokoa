@@ -88,7 +88,6 @@
 	   		position:relative;
 	   		top:-30px;
 	   	}
-<<<<<<< HEAD
 	   	.content-profile {
 	  
 	  align-items: center;
@@ -96,12 +95,10 @@
 	  height: 10px;
 	  width : 10px;
 	}
-=======
 	   	.tr{
 	   		width:100%;
 	   		font-size: 32px;
 			margin-top:50px;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/kokoa.git
 
 	   	}
 	   	.tr_title{
@@ -139,14 +136,12 @@
 						<td>제목</td>
 						<td>가격</td>
 					</tr>
-					
 					<% for(int i=0; i<board_list.size(); i++){ %>
 						<tr class="tr">
 							<td><%= board_list.get(i).getproduct() %> </td>	
 							<td ><a href="Products.jsp?product_num=<%= board_list.get(i).getproduct_num()%>"><img style="width:200px; height:200px;"src="img/<%= board_list.get(i).getproduct_pic() %>"></a></td>
 							<td><%= board_list.get(i).getproduct_title()%> </td>
 							<td><%= board_list.get(i).getproduct_price()%></td>
-					
 						</tr>
 					<%} %>
 				</table>

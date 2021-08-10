@@ -52,9 +52,10 @@ public class PCommentDAO {
 	public int upload_com(PCommentDTO dto) {
 		try {
 			conn();
-			String sql="insert into pcomment_info values(pcomment_num_seq.nextval,?,?,sysdate)";
+			String sql="insert into pcomment_info values(pcomment_num_seq.nextval,?,?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dto.getBoard_num());
+			psmt.setInt(1, dto.getProduct_num());
+			psmt.setString(2, dto.getComment_con());
 			psmt.setString(3, dto.getId());
 			
 			
@@ -76,11 +77,12 @@ public class PCommentDAO {
 			
 			while(rs.next()) {
 				int comment_num = rs.getInt("comment_num");
-				int board_num = rs.getInt("board_num");				
+				int product_num = rs.getInt("product_num");
+				String comment_con= rs.getString("comment_con");
 				String id= rs.getString("id");
 				String write_time= rs.getString("write_time");
 				
-				PCommentDTO dto = new PCommentDTO(comment_num, board_num, id, write_time);
+				PCommentDTO dto = new PCommentDTO(comment_num, product_num,comment_con, id, write_time);
 				comment_list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -91,20 +93,21 @@ public class PCommentDAO {
 		return comment_list;	
 	}
 	
-	public PCommentDTO showOne_com(int board_num) {
+	public PCommentDTO showOne_com(int product_num) {
 		try {
 			conn();
-			String sql="select * from flea_market where board_num=? ";
+			String sql="select * from flea_market where product_num=? ";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, board_num);
+			psmt.setInt(1, product_num);
 			rs = psmt.executeQuery();
 
 			if(rs.next()) {
+				String comment_con = rs.getString("comment_con");
 				String id = rs.getString("id");
 				String write_time = rs.getString("write_time");
 				
-				dto = new PCommentDTO(id, write_time);
+				dto = new PCommentDTO(comment_con, id, write_time);
 				
 			}
 		} catch (SQLException e) {

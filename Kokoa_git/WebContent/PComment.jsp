@@ -213,48 +213,14 @@
 <body>
 
 <%
-int product_num = 0;
-if(session.getAttribute("board_num") == null){
-product_num = Integer.parseInt(request.getParameter("product_num"));
-} else{
-product_num = (Integer)session.getAttribute("board_num");
-}
-MarketDAO dao = new MarketDAO();
-MarketDTO dto = dao.showOne(product_num);
 
 MemberDTO info = (MemberDTO)session.getAttribute("info");
-
-PCommentDAO pcomment_dao = new PCommentDAO();
-ArrayList<PCommentDTO> comment_list = pcomment_dao.showComment();
-int cnt = 0;
-for(int i = 0; i<comment_list.size(); i++){
-	if(comment_list.get(i).getBoard_num()==product_num){
-		cnt++;
-	}
-}
-
+MarketDAO dao = new MarketDAO();
+PCommentDTO dto = dao.showOne(product_num);
 %>
 
-<%
 
-int count;
-
-if(session.getAttribute(product_num+"count") != null)
-{
-	count = ((Integer)session.getAttribute(product_num+"count")).intValue();
-	
-}
-
-else
-{
-	count = 0;	
-}
-
-count++;
-
-%>
-
-<header>
+	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
 		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
@@ -269,28 +235,23 @@ count++;
 	<div class="view">
         <section class="section">
             <div class="content">
-             
-
                 <div class="content_bottom">
                     <div class="content-menuDiv">
                         <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-comment"></i><span><%=cnt %></span></li>
+                            <li class="content-menuIcon"><i class="far fa-comment"></i><span></span></li>
                         </ul>
                     </div>
-                    <div class="views"> 조회수 <%= count%></div>
+                    <div class="views"> 조회수 </div>
                     <div class="content-contents-contents">      
-                    <% for(int i=0; i<comment_list.size(); i++) { %>
-                    	<% if(comment_list.get(i).getBoard_num()==dto.getproduct_num()){ %>
                         <div class="comment">
-                            <div class="comment-id"><%=comment_list.get(i).getId() %></div>
+                            <div class="comment-id"></div>
+                            <div class="comment-con"></div>
                         </div>
-                  		<%} %>
-                   <%} %>
                     </div>
                     <div class="comment-registration">
                     <form method="post" action="ProductCommentServiceCon" style="width:800px;">
-                    	<input type="hidden" name="id" value="<%=info.getId() %>">
-                    	<input type="hidden" name="board_num" value="<%=dto.getproduct_num() %>">
+                    	<input type="hidden" name="id" value="<%=info.getId()%>">
+                    	<input type="hidden" name="product_num" value="">
                         <input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요" name="comment_con">
                         <input type="submit" value="게시하기" class="regist">
                     </form>
@@ -298,13 +259,7 @@ count++;
                 </div>
             </div>
         </section>
-        </div>   
-	 	<%
-		session.setAttribute(product_num+"count", new Integer(count));
-		%>
-		<%session.removeAttribute("board_num"); %>
-	
-	
+        </div>  
 	<footer>
 		<hr>
 		<a href="Main.jsp" style="position: absolute; left:17%; top:60%; transform: translate(-50%,-50%)"><img src="icons/home.png" width="100px" height="160px"></a>

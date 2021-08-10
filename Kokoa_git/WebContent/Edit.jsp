@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
+<title>회원정보수정</title>
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{

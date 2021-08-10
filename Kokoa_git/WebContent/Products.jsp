@@ -172,7 +172,7 @@
 	</div>
 	<div>
 		<button class="priceButton" value="price"><%= dto.getproduct_price() %></button>
-		<button class="comment" value="comment"> ´ñ±Û ³²±â±â  </button>
+		<a href="#" onclick="location.href='PComment.jsp'"><button class="comment" value="comment"> ´ñ±Û ³²±â±â  </button></a>
 	</div>
 	
 	

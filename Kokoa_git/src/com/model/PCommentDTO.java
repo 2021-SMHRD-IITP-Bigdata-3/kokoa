@@ -2,19 +2,22 @@ package com.model;
 
 public class PCommentDTO {
 	private int comment_num;
-	private int board_num;
+	private int product_num;
+	private String comment_con;
 	private String id;
 	private String write_time;
-	
-	public PCommentDTO(String id, String write_time) {
-		super();
-		this.id = id;
-		this.write_time = write_time;
-	}
-	public PCommentDTO(int comment_num, int board_num, String id, String write_time) {
+	public PCommentDTO(int comment_num, int product_num, String comment_con, String id, String write_time) {
 		super();
 		this.comment_num = comment_num;
-		this.board_num = board_num;
+		this.product_num = product_num;
+		this.comment_con = comment_con;
+		this.id = id;
+		this.write_time = write_time;
+		
+	}
+	public PCommentDTO(String comment_con, String id, String write_time) {
+		super();
+		this.comment_con = comment_con;
 		this.id = id;
 		this.write_time = write_time;
 	}
@@ -24,20 +27,17 @@ public class PCommentDTO {
 	public void setComment_num(int comment_num) {
 		this.comment_num = comment_num;
 	}
-	public PCommentDTO(int board_num, String id) {
-		super();
-		this.board_num = board_num;
-		this.id = id;
+	public int getProduct_num() {
+		return product_num;
 	}
-	public PCommentDTO(String id) {
-		super();
-		this.id = id;
+	public void setProduct_num(int product_num) {
+		this.product_num = product_num;
 	}
-	public int getBoard_num() {
-		return board_num;
+	public String getComment_con() {
+		return comment_con;
 	}
-	public void setBoard_num(int board_num) {
-		this.board_num = board_num;
+	public void setComment_con(String comment_con) {
+		this.comment_con = comment_con;
 	}
 	public String getId() {
 		return id;
@@ -50,5 +50,11 @@ public class PCommentDTO {
 	}
 	public void setWrite_time(String write_time) {
 		this.write_time = write_time;
+	}
+	public PCommentDTO(int product_num, String comment_con, String id) {
+		super();
+		this.product_num = product_num;
+		this.comment_con = comment_con;
+		this.id = id;
 	}
 }
