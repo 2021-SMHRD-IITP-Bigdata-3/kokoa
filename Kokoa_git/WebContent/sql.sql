@@ -22,11 +22,9 @@ create table k_member(
 	constraint member_mem_num_pk primary key(mem_num)
 )
 
-
 create sequence mem_num_seq
 increment by 1
 start with 1
-	
 
 create table block_list(
 	ban_num number(10),
@@ -35,11 +33,9 @@ create table block_list(
 	constraint block_list_ban_num_pk primary key(ban_num)
 )
 
-
 create sequence ban_num_seq
 increment by 1
 start with 1
-
 
 create table sns (
 	story_num number(10),
@@ -55,7 +51,6 @@ create sequence story_num_seq
 increment by 1
 start with 1
 
-
 create table notice(
 	write_num number(15),
 	write_title varchar2(50) not null,
@@ -64,12 +59,10 @@ create table notice(
 	constraint notice_write_num_pk primary key(write_num)
 )
 
-
 create sequence notice_seq
 increment by 1
 start with 1
 
-	
 create table faq(
 	write_num number(15),
 	write_title varchar2(50) not null,
@@ -80,8 +73,7 @@ create table faq(
 
 create sequence faq_seq
 increment by 1
-start with 1
-
+start with 
 
 create table cs (
 	cs_num number(10),
@@ -93,11 +85,9 @@ create table cs (
 	constraint cs_num_pk primary key(cs_num)
 )
 
-
 create sequence cs_num_seq
 increment by 1
 start with 1
-
 
 create table report_list(
 	report_num number(15),
@@ -116,21 +106,19 @@ create sequence report_number_seq
 increment by 1
 start with 1
 
-
 create table course_list(
 	course_num number(15),
 	tracking_time varchar2(20) not null,
+	tracking_distance varchar2(20),
 	id varchar2(20),
 	nickname varchar2(20),
 	
 	constraint course_list_course_num_pk primary key(course_num)
 )
 
-
 create sequence course_num_seq
 increment by 1
 start with 1
-
 
 create table buyer(
 	mem_num number(10),
@@ -139,7 +127,6 @@ create table buyer(
 	product_num number(15),
 	constraint buyer_mem_num_fk foreign key(mem_num) references k_member(mem_num)
 )
-
 
 create table seller(
 	seller_num number(20),
@@ -155,8 +142,6 @@ create sequence seller_num_seq
 increment by 1
 start with 1
 
-drop table flea_market;
-
 create table flea_market(
 
 	product_num number(15),
@@ -168,14 +153,10 @@ create table flea_market(
 	product_seller varchar2(20) not null,
 	constraint flea_market_product_num_pk primary key(product_num)
 )
-select * from flea_market
 
 create sequence product_num_seq
 increment by 1
 start with 1
-
-
-
 
 create table matching_chat_list(
 	chatting_room_num number(15),
@@ -195,12 +176,9 @@ create table matching_chat_list(
 	constraint matching_chat_list_chatting_pk primary key(chatting_room_num)
 )
 
-
 create sequence chat_num_seq
 increment by 1
 start with 1
-
-
 
 create table chat(
 	chat_num number(15),
@@ -210,12 +188,9 @@ create table chat(
 )
 
 
-
 create sequence chats_seq
 increment by 1
 start with 1
-
-
 
 create table chattest(
 	num number,
@@ -223,15 +198,9 @@ create table chattest(
 	content varchar(200),
 	day date);
 	
-	
-select * from chattest
-select * from chat
-
 create table indivisual_chat_list(
 	mem_num number(15),
 	chatting_room_num number(15),
 	
 	constraint indivisual_chat_list_pk primary key(mem_num, chatting_room_num)
 )
-
-select * from indivisual_chat_list
