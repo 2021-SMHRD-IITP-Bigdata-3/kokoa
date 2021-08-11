@@ -10,6 +10,9 @@
 <meta charset="EUC-KR">
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>매칭</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style>
    body{
       padding-bottom:150px;
@@ -84,26 +87,26 @@
 	}
 	.info{
 		width: 100%;
-		border-top: 3px solid #61da94;
-		border-bottom: 3px solid #61da94;
+		border: 5px solid #61da94;
+		border-radius: 30px;
 		font-size: 50px;
+		font-family: 'Jua', sans-serif;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: #ebfcf2;
 	}
-	.info>tr>td:first-child{
- 		text-align: right;
- 		padding-right: 10px;
- 	}
- 	.info>tr>td:nth-child(2){
- 		text-align: left;
- 		padding-left: 10px;
- 	}
  	.limitation{
 		width: 100%;
-		border-bottom: 3px solid #61da94;
 		text-align: center;
-		font-size: 30px;
+
 	}
 	.limitation>tr>td:first-child{
  		text-align: center;
+ 	}
+ 	.info_tr>td{
+ 		font-size: 30px;
+		font-family: 'Jua', sans-serif;
+		padding-left: 30px;
  	}
  	#joinChat{
  		width: 100%;
@@ -113,6 +116,14 @@
  	}
  	#filter{
  		font-size: 30px;
+ 	}
+ 	#room_num{
+ 		width: 15%;
+ 		text-align: center;
+ 		border-right: 5px solid #61da94;
+ 	}
+ 	#room_title{
+ 		padding-left: 30px;
  	}
 </style>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -257,31 +268,55 @@
 					<div id=info align="left">
 						<table class="info">
 							<tr>
-								<td>방제목</td>
-								<td><%= matchingList.get(i).getChatting_room_title() %></td>
+								<td rowspan="3" id="room_num"><%= matchingList.get(i).getChatting_room_num() %></td>
+								<td id="room_title"><%= matchingList.get(i).getChatting_room_title() %></td>
 						 	</tr>
-						 	<tr>
-								<td>방장</td>
-								<td><%= matchingList.get(i).getNickname() %></td>
+						 	<tr class="info_tr">
+								<td>
+									<%= matchingList.get(i).getMatching_date() %> <%= matchingList.get(i).getHour() %>시 <%= matchingList.get(i).getMinute() %>분 <%= matchingList.get(i).getLocation() %>
+								</td>
 						 	</tr>
-						 	<tr>
-								<td>산책일</td>
-								<td> <%= matchingList.get(i).getMatching_date() %> <%= matchingList.get(i).getHour() %>시 <%= matchingList.get(i).getMinute() %>분</td>
-						 	</tr>
-						 	<tr>
-								<td>산책장소</td>
-								<td><%= matchingList.get(i).getLocation() %></td>
+						 	<tr class="info_tr">
+								<td>
+									<%if(matchingList.get(i).getGender().equals("남자")){ %>
+									남자만 /
+									<%}else if(matchingList.get(i).getGender().equals("여자")){ %>
+									여자만 /
+									<%} %>
+									<%if(matchingList.get(i).getDog_gender().equals("수컷")){ %>
+									수컷만 /
+									<%}else if(matchingList.get(i).getDog_gender().equals("암컷")){ %>
+									암컷만 /
+									<%}else if(matchingList.get(i).getDog_gender().equals("중성")){ %>
+									중성만 /
+									<%}else if(matchingList.get(i).getDog_gender().equals("수컷암컷")){ %>
+									수컷과 암컷만 /
+									<%}else if(matchingList.get(i).getDog_gender().equals("수컷중성")){ %>
+									수컷과 중성만 /
+									<%}else if(matchingList.get(i).getDog_gender().equals("수컷암컷")){ %>
+									암컷과 중성만 /
+									<%} %>
+									<%if(matchingList.get(i).getDog_size().equals("소형")) {%>
+									소형만 /
+									<%}else if(matchingList.get(i).getDog_size().equals("중형")) {%>
+									중형만 /
+									<%}else if(matchingList.get(i).getDog_size().equals("대형")) {%>
+									대형만 /
+									<%}else if(matchingList.get(i).getDog_size().equals("소형중형")) {%>
+									소형과 중형만 /
+									<%}else if(matchingList.get(i).getDog_size().equals("소형대형")) {%>
+									소형과 대형만 /
+									<%}else if(matchingList.get(i).getDog_size().equals("중형대형")) {%>
+									중형과 대형만 /
+									<%} %>
+									<%= matchingList.get(i).getMin_age() %>세 ~ <%= matchingList.get(i).getMax_age() %>세
+								</td>
 						 	</tr>
 						</table>
 					</div>
 					<div id="limitation" align="left">
 						<table class="limitation">
-							<tr>
-								<td>성별 제한 - <%= matchingList.get(i).getGender() %> / 나이 제한 - <%= matchingList.get(i).getMin_age() %> ~ <%= matchingList.get(i).getMax_age() %></td>
-						 	</tr>
-						 	<tr>
-								<td>강아지 성별 제한 - <%= matchingList.get(i).getDog_gender() %> / 강아지 크기 제한 - <%= matchingList.get(i).getDog_size() %></td>
-						 	</tr>
+
 						</table>
 					</div>
 				</li>
