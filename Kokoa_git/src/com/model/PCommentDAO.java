@@ -116,4 +116,19 @@ public class PCommentDAO {
 			close();
 		} return dto; 
 	}
+	public int delete_com(int product_num_1, int comment_num) {
+		try {
+			conn();
+			String sql="delete from pcomment_info where product_num_1 =? and comment_num=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, product_num_1);
+			psmt.setInt(2, comment_num);
+			
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}return cnt;
+	}
 }

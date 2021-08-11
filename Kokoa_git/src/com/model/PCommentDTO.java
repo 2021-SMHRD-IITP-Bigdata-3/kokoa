@@ -7,6 +7,11 @@ public class PCommentDTO {
 	private String id;
 	private String write_time;
 	
+	public PCommentDTO(String comment_con, String id) {
+		super();
+		this.comment_con = comment_con;
+		this.id = id;
+	}
 	public PCommentDTO(int product_num_1, String comment_con, String id) {
 		super();
 		this.product_num_1 = product_num_1;

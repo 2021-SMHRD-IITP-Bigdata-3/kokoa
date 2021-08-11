@@ -1,17 +1,7 @@
+select * from flea_market;
 select * from pcomment_info;
-drop table pcomment_info;
-create table pcomment_info(
-	comment_num number(10),
-	product_num_1 number(10),
-	comment_con varchar2(20),
-	id varchar2(20),
-	wrtie_time date,
-	
-	constraint pcomment_num_pk primary key(comment_num)
-)
-create sequence pcomment_num_seq
-increment by 1
-start with 1
+select * from comment_info;
+select * from k_member;
 
 create table k_member(
 	mem_num number(10),
@@ -61,6 +51,18 @@ create table sns (
 	constraint sns_story_num_pk primary key(story_num)
 )
 
+SELECT * FROM    ALL_CONSTRAINTS
+SELECT * FROM comment_info
+
+create table comment_info(
+	comment_num number(10),
+	board_num number(10),
+	comment_con varchar2(30),
+	id varchar2(20),
+	write_time date,
+	
+	constraint comment_num_pk primary key(comment_num)
+)
 create sequence story_num_seq
 increment by 1
 start with 1
@@ -168,6 +170,20 @@ create table flea_market(
 	product_seller varchar2(20) not null,
 	constraint flea_market_product_num_pk primary key(product_num)
 )
+
+create table pcomment_info(
+	comment_num number(10),
+	product_num_1 number(10),
+	comment_con varchar2(20),
+	id varchar2(20),
+	write_time date,
+	
+	constraint pcomment_num_pk primary key(comment_num)
+)
+
+create sequence pcomment_num_seq
+increment by 1
+start with 1
 
 create sequence product_num_seq
 increment by 1

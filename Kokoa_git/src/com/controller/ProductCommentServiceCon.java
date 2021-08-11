@@ -35,7 +35,7 @@ public class ProductCommentServiceCon extends HttpServlet {
 		}else {
 			System.out.println("½ÇÆÐ");
 		}
-		response.sendRedirect("PComment.jsp");
+		response.sendRedirect("Products.jsp");
 	}
 
 }

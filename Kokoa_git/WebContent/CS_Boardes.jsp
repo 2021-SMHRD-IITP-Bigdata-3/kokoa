@@ -83,30 +83,27 @@
 	<table class="icon" align="left">
 		<tr>
 			<td>
-			
 				<a class="back" href="#" onclick="location.href='CS_Board.jsp'"><i class="fas fa-arrow-left fa-2x"></i></a>
 			</td>
 			</tr>
 	</table>
 	<div id = "board">
-				<table id="list">
-					
-					<tr>
-						<td colspan="2">내용</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-						<% if(dto.getcs_pic() != null){%>
-								<img src="img/<%= dto.getcs_pic() %>">
-								<br>							
-							<%} %>
-							<%if(dto.getcs_con() != null){ %>
-							<h3> <%= dto.getcs_con() %></h3>
-							<%} %>
-							
-						</td>
-					</tr>
-				</table>
+		<table id="list">
+			<tr>
+				<td colspan="2">내용</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<% if(dto.getcs_pic() != null){%>
+						<img src="img/<%= dto.getcs_pic() %>">
+						<br>							
+					<%} %>
+					<%if(dto.getcs_con() != null){ %>
+					<h3> <%= dto.getcs_con() %></h3>
+					<%} %>
+				</td>
+			</tr>
+		</table>
 	</div>
 			
 		
