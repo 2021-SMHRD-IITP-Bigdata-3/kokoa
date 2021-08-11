@@ -139,7 +139,7 @@
       <a href=""></a>
    </div>
    <div class="banner">
-      <h1 style="font-size:60px">새로 올라온 정보
+      <h1 style="font-size:50px; color:grey;">새로 올라온 정보
          <%if(info != null){ %>
             <input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;" onclick="location.href='SNS.jsp'">
          <%} else{ %>
@@ -172,9 +172,9 @@
 	  <div class="swiper-button-prev"></div>
 	  <div class="swiper-button-next"></div>
 	</div>
-   <br><br><br>
+   <br><br><br><br>
    <div class="banner">
-      <h1 style="font-size:60px">신규 등록 물품
+      <h1 style="font-size:50px; color:grey;">신규 등록 물품
          <%if(info != null){ %>
             <input type="button" value=">" style="border:0; height:60px; width:60px; font-size:60px; color:gray;" onclick="location.href='FleaMarket.jsp'">
          <%} else{ %>
