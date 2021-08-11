@@ -8,13 +8,17 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>방만들기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style>
 	body{
    		padding-top: 150px;
       padding-bottom:150px;
       align-content: center;
       background-color: #f2f2f2;
+      font-family: 'Jua', sans-serif;
    }
    header{
       position: fixed;
