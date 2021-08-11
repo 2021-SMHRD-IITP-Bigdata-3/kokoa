@@ -87,6 +87,10 @@
 	padding-top:150px;
 	color:#61da94;
   }
+  #list{
+  	font-size:35px;
+  	font-weight:bold;
+  }
 </style>
 <body>
 <%
@@ -103,7 +107,7 @@
 	</div>
 	
 		<div id="board">
-				<table id = "list">
+				<table id = "list" style="text-align:left; border-collapse:separate; border-spacing: 50px 40px; margin:auto;">
 					<tr>
 						<td>번호</td>
 						<td>제목</td>

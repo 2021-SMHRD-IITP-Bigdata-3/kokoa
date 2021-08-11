@@ -20,6 +20,7 @@
       background-color: #61da94;
       height: 150px;
       width: 100%;
+      z-index:100;
    }
    footer{
       position: fixed;
@@ -47,6 +48,44 @@
       top: 50%;
       transform: translate(0,-50%);
    }
+   h5{
+	position:relative;
+	left:100px;
+	font-size:30px;
+   }
+   table{
+   	position:relative;
+   	left:100px;
+   }
+   input{
+   	font-size:28px;
+   }
+   .button_{
+	font-size:25px;
+	background-color:#61da94;
+	padding:10px 25px;
+	border:1;
+	outline:0;
+	border: 1px solid #61da94;
+	border-radius:5%;
+	color:white;
+	height:27%;
+   }
+   .intrd{
+   	width:100%;
+   }
+    .button__{
+	font-size:32px;
+	background-color:#61da94;
+	padding:25px 30px;
+	border:1;
+	outline:0;
+	border: 1px solid #61da94;
+	border-radius:5%;
+	color:white;
+	height:27%;
+	margin-top:60px;
+   }
 </style>
 </head>
 <body>
@@ -61,73 +100,72 @@
       <h5 align = "left">아이디</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="id" placeholder = "아이디를 입력해주세요"></td>
-            <td><input type = "button" value = "중복확인" onclick='window.open("IdCheck/IdCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
+            <td><input style="width:600px;" type = "text" name ="id" placeholder = "아이디를 입력해주세요"></td>
+            <td><input class="button_" type = "button" value = "중복확인" onclick='window.open("IdCheck/IdCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
          </tr>
       </table>
-   
       <h5 align = "left">비밀번호</h5>
       <table>
          <tr>
-            <td><input type = "password" name ="pw" placeholder = "비밀번호를 입력해주세요"></td>
+            <td><input style="width:600px;" type = "password" name ="pw" placeholder = "비밀번호를 입력해주세요"></td>
          </tr>
       </table>
             
       <h5 align = "left">닉네임</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="nickname" placeholder = "닉네임을 입력해주세요"></td>
-            <td><input type = "button" value = "중복확인" onclick='window.open("NickCheck/NickCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
+            <td><input style="width:600px;" type = "text" name ="nickname" placeholder = "닉네임을 입력해주세요"></td>
+            <td><input class="button_" type = "button" value = "중복확인" onclick='window.open("NickCheck/NickCheck.jsp","checkForm","width=500,height=300,resizable=no,scrollbars=no")'></td>
          </tr>
       </table>
       
       <h5 align = "left">이름</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="name" placeholder = "이름을 입력해주세요"></td>
+            <td><input style="width:600px;" type = "text" name ="name" placeholder = "이름을 입력해주세요"></td>
          </tr>
       </table>
       
       <h5 align = "left">생년월일</h5>
       <table>
          <tr>
-            <td><input type = "date" name ="birth"></td>
+            <td><input style="width:600px;" type = "date" name ="birth"></td>
          </tr>
       </table>
       
       <h5 align = "left">나이</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="age"></td>
+            <td><input style="width:600px;" type = "text" name ="age"></td>
          </tr>
       </table>
       
-      <h5 align = "left">성별</h5>
-      <table>
+      <h5 align = "left"  style="font-size:27px;">성별</h5>
+      <table style="font-size:27px;">
          <tr>
-            <td>남자<input type = "radio" value = "남자" name ="gender"></td>
-            <td>여자<input type = "radio" value = "여자" name ="gender"></td>
+            <td>남자<input style="width:25px; height:25px;" type = "radio" value = "남자" name ="gender"></td>
+            <td>여자<input style="width:25px; height:25px;" type = "radio" value = "여자" name ="gender"></td>
          </tr>
       </table>
       
       <h5 align = "left">주소</h5>
       <table>
          <tr>
-            <td><input style="width: 400px;" id="member_addr" name="addr" type="text" placeholder="주소" readonly onclick="findAddr()"></td>
+            <td><input style="width: 600px;" id="member_addr" name="addr" type="text" placeholder="주소" readonly onclick="findAddr()"></td>
          </tr>
       </table>
       
       <h5 align = "left">이메일 (선택)</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="email" placeholder = "이메일을 입력해주세요"></td>
+            <td><input style="width:600px;" type = "text" name ="email" placeholder = "이메일을 입력해주세요"></td>
          </tr>
       </table>
       
       <h5 align = "left">휴대전화</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="tel"></td>
+            <td><input style="width:600px;" type = "text" name ="tel"></td>
          </tr>
       </table>
       
@@ -135,7 +173,7 @@
       <table>
          <tr>
             <td>
-               <textarea rows ="10" cols = "20" name="intrd"></textarea>
+               <textarea style="width:600px; height:300px;" name="intrd"></textarea>
             </td>
          </tr>
       </table>
@@ -143,23 +181,23 @@
       <h5 align = "left">반려견 이름</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="dog_name" placeholder = "이름을 입력해주세요"></td>
+            <td><input style="width:600px;" type = "text" name ="dog_name" placeholder = "이름을 입력해주세요"></td>
          </tr>
       </table>   
       
       <h5 align = "left">반려견 나이</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="dog_age" placeholder = "나이를 입력해주세요"></td>
+            <td><input style="width:600px;" type = "text" name ="dog_age" placeholder = "나이를 입력해주세요"></td>
          </tr>
       </table>
             
       <h5 align = "left">반려견 성별</h5>
-      <table>
+      <table style="font-size:27px;">
          <tr>
-            <td>수컷<input type = "radio" value = "수컷" name ="dog_gender"></td>
-            <td>암컷<input type = "radio" value = "암컷" name ="dog_gender"></td>
-            <td>중성<input type = "radio" value = "중성" name ="dog_gender"></td>
+            <td>수컷<input  style="width:25px; height:25px;" type = "radio" value = "수컷" name ="dog_gender"></td>
+            <td>암컷<input  style="width:25px; height:25px;" type = "radio" value = "암컷" name ="dog_gender"></td>
+            <td>중성<input  style="width:25px; height:25px;" type = "radio" value = "중성" name ="dog_gender"></td>
          </tr>
       </table>
       
@@ -219,38 +257,37 @@
                   <option value ="아프간 하운드">"아프간 하운드"</option>
                   <option value ="하바나 실크">"하바나 실크"</option>
                   <option value ="기타">"기타"</option> 
-                
                </select>
             </td>
          </tr>
       </table>
       
       <h5 align = "left">반려견 크기</h5>
-      <table>
+      <table style="font-size:27px;">
          <tr>
-            <td>소형<input type = "radio" value = "소형" name ="dog_size"></td>
-            <td>중형<input type = "radio" value = "중형" name ="dog_size"></td>
-            <td>대형<input type = "radio" value = "대형" name ="dog_size"></td>
+            <td>소형<input style="width:25px; height:25px;" type = "radio" value = "소형" name ="dog_size"></td>
+            <td>중형<input style="width:25px; height:25px;" type = "radio" value = "중형" name ="dog_size"></td>
+            <td>대형<input style="width:25px; height:25px;" type = "radio" value = "대형" name ="dog_size"></td>
          </tr>
       </table>
          
       <h5 align = "left">반려견 사진(선택)</h5>
          <table>
          <tr>
-            <td><input type = "file" name ="dog_pic"></td>
+            <td><input  style="width:550px;" class="button_" type = "file" name ="dog_pic"></td>
          </tr>
       </table>
       
       <h5 align = "left">반려견 번호</h5>
       <table>
          <tr>
-            <td><input type = "text" name ="dog_num"></td>
+            <td><input style="width:600px;" type = "text" name ="dog_num"></td>
          </tr>
       </table>
          
-      <table>
+      <table style="margin:40px 0 0 332px;">
          <tr>
-            <td colspan = "2" align = "center"><input type = "submit" value ="가입 하기"></td>
+            <td colspan = "2" align = "center"><input class="button__" type = "submit" value ="가입 하기"></td>
          </tr>
       </table>
    </form>
