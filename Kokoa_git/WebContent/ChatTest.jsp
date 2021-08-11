@@ -26,12 +26,15 @@
 		font-family: 'Jua', sans-serif;
 	}
 	#bottom{
-		margin: 30px;
+		padding: 30px;
 		font-size: 50px;
 		position: fixed;
+		width:100%;
+		height:125px;
       	bottom: 0;
       	left: 0;
       	z-index:99;
+      	background-color: #E8E8E8;
 	}
 	#content{
 		width:65%;
@@ -44,11 +47,13 @@
 		width:114px;
 		height:114px;
 		border-radius: 20px;
+		font-size: 30px;
 	}
 	#exit{
 		width:114px;
 		height:114px;
 		border-radius: 20px;
+		font-size: 30px;
 	}
 	
 </style>
@@ -85,7 +90,7 @@
 		<input id="content" type="text" placeholder="내용 입력" name="content">
 		
 		<button id="send">입력</button>
-		<input type="button" id="exit" value="채팅방 나가기" name="main" onClick="location.href='ChatList.jsp'">
+		<input type="button" id="exit" value="나가기" name="main" onClick="location.href='ChatList.jsp'">
 	</footer>
 	<script type="text/javascript">
 	
@@ -107,7 +112,7 @@
 			    	   	var chatContainer = $("#chat");
 			    	   	// 입력인자 res에 ChatSelectCon에서 실행한 셀렉트 결과가 들어 있고 그 중에 member_id와 content를 가져와서
 			    	   	// for문 사용해서 뿌려주기
-			    	   	chatContainer.append("<header style='position: fixed; top:0; left:0; height: 150px; width: 100%; z-index:100; font-size:50px; text-align:center;'>"+"<%=title%>"+"</header>"+"<br>");
+			    	   	chatContainer.append("<header style='position: fixed; top:0; left:0; height: 150px; width: 100%; z-index:100; font-size:70px; text-align:center;'>"+"<%=title%>"+"</header>"+"<br>");
 			    		for(var i = 0; i < res.length; i++){
 			    			var id = res[i].id;
 			    			var content = res[i].content;
