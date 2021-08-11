@@ -15,7 +15,9 @@
 <link rel="stylesheet" href="styles.css" />
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>함께하게</title>
-<script src="jquery.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style> 
 	body{
       padding-bottom:150px;
@@ -212,20 +214,30 @@
 </head>
 <body>
 
+
+
 <%
-
+int product_num = 0;
+if(session.getAttribute("product_num_1") == null){
+product_num = Integer.parseInt(request.getParameter("product_num"));
+} else{
+product_num = (Integer)session.getAttribute("product_num_1");
+}
 MemberDTO info = (MemberDTO)session.getAttribute("info");
+
+
 MarketDAO dao = new MarketDAO();
-PCommentDTO dto = dao.showOne(product_num);
+MarketDTO dto = dao.showOne(product_num);
+PCommentDAO comment_dao = new PCommentDAO();
+ArrayList<PCommentDTO> comment_list = comment_dao.showComment();
+
 %>
-
-
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
-	<table class="icon" align="left">
+	<table class="icon">
 		<tr>
 			<td>
 				<a class="back" href="#" onclick="location.href='Products.jsp'"><i class="fas fa-arrow-left fa-2x"></i></a>
@@ -235,23 +247,35 @@ PCommentDTO dto = dao.showOne(product_num);
 	<div class="view">
         <section class="section">
             <div class="content">
+                <div class="content-profile">
+                    <div><img style="width:50px; height:50px;"src="img/<%=dto.getproduct_pic() %>" alt="" class="content-profilePhoto"></div>
+                    <div class="content-more">
+                        <div class="content-id"><%= dto.getproduct_title() %></div>
+                        <div class="content-moreIcon"><i class="fas fa-ellipsis-h"></i></div>
+                    </div>
+                </div>
+                </div>
+                <div class="content-contents">
+                    <img src="img/<%=dto.getproduct_pic() %>" class="content-contents" alt="">
+                </div>
                 <div class="content_bottom">
                     <div class="content-menuDiv">
                         <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-comment"></i><span></span></li>
+                            <li class="content-menuIcon"><i class="far fa-comment" style="font-size:32px;"></i><span style="font-size:30px;"></span></li>
                         </ul>
                     </div>
                     <div class="views"> 조회수 </div>
                     <div class="content-contents-contents">      
+                    <% for(int i=0; i<comment_list.size(); i++) { %>
                         <div class="comment">
-                            <div class="comment-id"></div>
-                            <div class="comment-con"></div>
+                            <div class="comment-id"><%=comment_list.get(i).getId() %></div>
+                            <div class="comment-content"><%=comment_list.get(i).getComment_con() %></div>
                         </div>
-                    </div>
+                   <%} %>
                     <div class="comment-registration">
                     <form method="post" action="ProductCommentServiceCon" style="width:800px;">
                     	<input type="hidden" name="id" value="<%=info.getId()%>">
-                    	<input type="hidden" name="product_num" value="">
+                    	<input type="hidden" name="product_num_1" value="<%=dto.getproduct_num()%>">
                         <input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요" name="comment_con">
                         <input type="submit" value="게시하기" class="regist">
                     </form>
@@ -266,7 +290,7 @@ PCommentDTO dto = dao.showOne(product_num);
 		<a href="Walk.jsp" style="position: absolute; left:34%; top:60%; transform: translate(-50%,-50%)"><img src="icons/map.png" width="100px" height="160px"></a>
 		<a href="Matching.jsp" style="position: absolute; left:51%; top:60%; transform: translate(-50%,-50%)"><img src="icons/matching.png" width="100px" height="160px"></a>
 		<a href="FleaMarket.jsp" style="position: absolute; left:68%; top:60%; transform: translate(-50%,-50%)"><img src="icons/shopping_basket.png" width="100px" height="160px"></a>
-		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="100px"></a>
+		<a href="SNS.jsp" style="position: absolute; left:85%; top:60%; transform: translate(-50%,-50%)"><img src="icons/pawprint.png" width="100px" height="175px"></a>
 	</footer>
 	
 	

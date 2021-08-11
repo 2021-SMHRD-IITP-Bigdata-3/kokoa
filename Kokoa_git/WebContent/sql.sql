@@ -2,7 +2,7 @@ select * from pcomment_info;
 drop table pcomment_info;
 create table pcomment_info(
 	comment_num number(10),
-	product_num number(10),
+	product_num_1 number(10),
 	comment_con varchar2(20),
 	id varchar2(20),
 	wrtie_time date,

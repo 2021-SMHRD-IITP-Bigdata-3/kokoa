@@ -2,24 +2,16 @@ package com.model;
 
 public class PCommentDTO {
 	private int comment_num;
-	private int product_num;
+	private int product_num_1;
 	private String comment_con;
 	private String id;
 	private String write_time;
-	public PCommentDTO(int comment_num, int product_num, String comment_con, String id, String write_time) {
+	
+	public PCommentDTO(int product_num_1, String comment_con, String id) {
 		super();
-		this.comment_num = comment_num;
-		this.product_num = product_num;
+		this.product_num_1 = product_num_1;
 		this.comment_con = comment_con;
 		this.id = id;
-		this.write_time = write_time;
-		
-	}
-	public PCommentDTO(String comment_con, String id, String write_time) {
-		super();
-		this.comment_con = comment_con;
-		this.id = id;
-		this.write_time = write_time;
 	}
 	public int getComment_num() {
 		return comment_num;
@@ -27,11 +19,11 @@ public class PCommentDTO {
 	public void setComment_num(int comment_num) {
 		this.comment_num = comment_num;
 	}
-	public int getProduct_num() {
-		return product_num;
+	public int getProduct_num_1() {
+		return product_num_1;
 	}
-	public void setProduct_num(int product_num) {
-		this.product_num = product_num;
+	public void setProduct_num_1(int product_num_1) {
+		this.product_num_1 = product_num_1;
 	}
 	public String getComment_con() {
 		return comment_con;
@@ -51,10 +43,20 @@ public class PCommentDTO {
 	public void setWrite_time(String write_time) {
 		this.write_time = write_time;
 	}
-	public PCommentDTO(int product_num, String comment_con, String id) {
+	public PCommentDTO(int comment_num, int product_num_1, String comment_con, String id, String write_time) {
 		super();
-		this.product_num = product_num;
+		this.comment_num = comment_num;
+		this.product_num_1 = product_num_1;
 		this.comment_con = comment_con;
 		this.id = id;
+		this.write_time = write_time;
 	}
+	public PCommentDTO(String comment_con, String id, String write_time) {
+		super();
+		this.comment_con = comment_con;
+		this.id = id;
+		this.write_time = write_time;
+	}
+	
+
 }
