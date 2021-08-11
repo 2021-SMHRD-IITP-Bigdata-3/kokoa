@@ -9,6 +9,9 @@
 <meta charset="EUC-KR">
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>FleaMarket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/59b21ab85e.js" crossorigin="anonymous"></script>
 <style>
 	body{
@@ -17,6 +20,7 @@
 	  top:150px;
 	  text-align:center;
 	  padding-top:100px;
+	  font-family: 'Jua', sans-serif;
    }
    
    header{
@@ -124,7 +128,7 @@
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
 	<div class="container">
-			<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 마켓</span></i></a>
+			<a class="back" href="#" onclick="location.href='Main.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="'Jua', sans-serif; font-size:30px"> 마켓</span></i></a>
 			<button class="sell" value="sell" onclick="location.href='UploadProduct.jsp'" >판매등록</button>
 	</div>
 	

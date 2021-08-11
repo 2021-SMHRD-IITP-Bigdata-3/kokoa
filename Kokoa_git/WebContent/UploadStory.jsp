@@ -16,6 +16,7 @@
       padding-bottom:150px;
       text-align: center;
       align-content: center;
+      font-family: 'Jua', sans-serif;
    }
    header{
       position: fixed;
@@ -123,7 +124,7 @@
 		<table class="icon">
 			<tr>
 				<td>
-					<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="font-size:30px"> 스토리 작성</span></i></a>
+					<a class="back" href="#" onclick="location.href='SNS.jsp'"><i class="fas fa-arrow-left fa-2x"><span style="'Jua', sans-serif; font-size:30px"> 스토리 작성</span></i></a>
 				</td>
 			</tr>
 		</table>

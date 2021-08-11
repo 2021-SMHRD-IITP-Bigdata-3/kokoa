@@ -54,7 +54,7 @@ public class PCommentDAO {
 			conn();
 			String sql="insert into pcomment_info values(pcomment_num_seq.nextval,?,?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dto.getProduct_num());
+			psmt.setInt(1, dto.getProduct_num_1());
 			psmt.setString(2, dto.getComment_con());
 			psmt.setString(3, dto.getId());
 			
@@ -77,12 +77,12 @@ public class PCommentDAO {
 			
 			while(rs.next()) {
 				int comment_num = rs.getInt("comment_num");
-				int product_num = rs.getInt("product_num");
+				int product_num_1 = rs.getInt("product_num_1");
 				String comment_con= rs.getString("comment_con");
 				String id= rs.getString("id");
 				String write_time= rs.getString("write_time");
 				
-				PCommentDTO dto = new PCommentDTO(comment_num, product_num,comment_con, id, write_time);
+				PCommentDTO dto = new PCommentDTO(comment_num, product_num_1,comment_con, id, write_time);
 				comment_list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -93,13 +93,13 @@ public class PCommentDAO {
 		return comment_list;	
 	}
 	
-	public PCommentDTO showOne_com(int product_num) {
+	public PCommentDTO showOne_com(int product_num_1) {
 		try {
 			conn();
-			String sql="select * from flea_market where product_num=? ";
+			String sql="select * from flea_market where product_num_1=? ";
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, product_num);
+			psmt.setInt(1, product_num_1);
 			rs = psmt.executeQuery();
 
 			if(rs.next()) {

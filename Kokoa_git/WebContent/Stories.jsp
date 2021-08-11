@@ -18,10 +18,14 @@
 <link rel="shortcut icon" type="imgage/x-icon" href="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzEyMzBfMTEw%2FMDAxNTE0NjQyODEzNjk0.MAVhPpxH_Hdr55KdZV_HQ8C5CzDF5Lcre1zQLEGrl84g.KO0kjg3rYiBEkRrJdxV5b_XDh6WhFXqmPfrbZE7dwXgg.PNG.koowq%2F%25BD%25C3%25B9%25D9%25B0%25DF_%25C4%25C3%25B7%25AF_%25BE%25C6%25C0%25CC%25C4%25DC-01.png&type=sc960_832">
 <title>함께하게</title>
 <script src="jquery.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style> 
 	body{
       padding-bottom:150px;
       height:1500px;
+      font-family: 'Jua', sans-serif;
    }
    
    header{
@@ -284,7 +288,7 @@ count++;
                 <div class="content_bottom">
                     <div class="content-menuDiv">
                         <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-comment" style="font-size:32px;"></i><span style="font-size:30px;"><%=cnt %></span></li>
+                            <li class="content-menuIcon"><i class="far fa-comment" style="font-size:32px;"></i><span style="'Jua', sans-serif; font-size:30px;"><%=cnt %></span></li>
                         </ul>
                     </div>
                     <div class="views"> 조회수 <%= count%></div>
