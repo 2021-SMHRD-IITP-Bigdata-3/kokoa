@@ -133,7 +133,7 @@
       <%} %>     
    </header>
    <div class="banner" style="margin-top:150px; text-align:center;">
-      <a href="Matching.jsp"><img src="icons/puppy.jpg" width="800px" height="500px"></a>
+      <a href="Matching.jsp"><img src="icons/dogmain.png" width="900px" height="600px"></a>
    </div>
    <div class="banner">
       <a href=""></a>

@@ -17,6 +17,7 @@
 		background-image: url("icons/chatbacksmall.png");
 		color: white;
 		overflow: scroll;
+		font-size: 30px;
 	}
 </style>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
