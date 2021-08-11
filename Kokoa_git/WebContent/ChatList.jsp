@@ -27,6 +27,7 @@
 		background-color: #61da94;
 		height: 150px;
 		width: 100%;
+		z-index: 9999;
    }
    footer{
 		position: fixed;
