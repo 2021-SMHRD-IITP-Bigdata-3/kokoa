@@ -23,9 +23,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <style> 
 	body{
-      padding-bottom:150px;
+      padding-bottom:200px;
       height:1500px;
       font-family: 'Jua', sans-serif;
+      padding-bottom: 150px;
    }
    
    header{
@@ -262,7 +263,7 @@ count++;
 %>
 	<header>
 		<a href="MyPage.jsp" id="menu"><img src="icons/menu.png" width="100px" height="100px"></a>
-		<a id="logo"><img src="icons/together.PNG" width="153px" height="100px"></a>
+		<a id="logo"><img src="icons/together1.PNG" width="153px" height="100px"></a>
 		<a href="ChatList.jsp" id="chat"><img src="icons/chat.png" width="100px" height="100px"></a>
 	</header>
 	<table class="icon" align="left">
@@ -273,50 +274,55 @@ count++;
 		</tr>
 	</table>
 	<div class="view">
-        <section class="section">
-            <div class="content">
-                <div class="content-profile">
-                    <div><img style="width:50px; height:50px;"src="img/<%=dto.getStory_pic() %>" alt="" class="content-profilePhoto"></div>
-                    <div class="content-more">
-                        <div class="content-id"><%= dto.getStory_title() %></div>
-                        <div class="content-moreIcon"><i class="fas fa-ellipsis-h"></i></div>
-                    </div>
-                </div>
-                <div class="content-contents">
-                    <img src="img/<%=dto.getStory_pic() %>" class="content-contents" alt="">
-                </div>
-                <div class="content_bottom">
-                    <div class="content-menuDiv">
-                        <ul class="content-menuLeft">
-                            <li class="content-menuIcon"><i class="far fa-comment" style="font-size:32px;"></i><span style="'Jua', sans-serif; font-size:30px;"><%=cnt %></span></li>
-                        </ul>
-                    </div>
-                    <div class="views"> 조회수 <%= count%></div>
-                    <div class="content-contents-contents">
-                        <div class="contents-id"><%= dto.getStory_title() %></div>
-                        <div class="contents-contents"><p class="contents-contents" style="white-space: pre-line;"><%= dto.getStory_con() %></p></div>
-                    <% for(int i=0; i<comment_list.size(); i++) { %>
-                    	<% if(comment_list.get(i).getBoard_num()==dto.getStory_num()){ %>
-                        <div class="comment">
-                            <div class="comment-id"><%=comment_list.get(i).getId() %></div>
-                            <div class="comment-content"><%=comment_list.get(i).getComment_con() %></div>
-                        </div>
-                  		<%} %>
-                   <%} %>
-                    </div>
-                    <div class="comment-registration">
-                    <form method="post" action="WriteCommentServiceCon" style="width:800px;">
-                    	<input type="hidden" name="id" value="<%=info.getId() %>">
-                    	<input type="hidden" name="board_num" value="<%=dto.getStory_num() %>">
-                        <input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요" name="comment_con">
-                        <input type="submit" value="게시하기" class="regist">
-                    </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        </div>    
-        <%
+    	<section class="section">
+        	<div class="content">
+            	<div class="content-profile">
+					<div><img style="width:50px; height:50px;"src="img/<%=dto.getStory_pic() %>" alt="" class="content-profilePhoto"></div>
+					<div class="content-more">
+						<div class="content-id"><%= dto.getStory_title() %></div>
+						<div class="content-moreIcon"><i class="fas fa-ellipsis-h"></i></div>
+					</div>
+				</div>
+				<div class="content-contents">
+					<img src="img/<%=dto.getStory_pic() %>" class="content-contents" alt="">
+				</div>
+				<div class="content_bottom">
+					<div class="content-contents-contents">
+						<div class="contents-id"><%= dto.getStory_title() %></div>
+						<div class="contents-contents"><p class="contents-contents" style="white-space: pre-line;"><%= dto.getStory_con() %></p></div>
+						<div class="views"> 조회수 <%= count%></div>
+						<div class="content-menuDiv">
+							<ul class="content-menuLeft">
+								<li class="content-menuIcon">댓글 <i class="far fa-comment" style="font-size:32px;"></i><span style="'Jua', sans-serif; font-size:30px;"><%=cnt %></span></li>
+							</ul>
+						</div>
+						<% for(int i=0; i<comment_list.size(); i++) { %>
+						<% if(comment_list.get(i).getBoard_num()==dto.getStory_num()){ %>
+						<div class="comment">
+							<div class="comment-id"><%=comment_list.get(i).getId() %></div>
+							<div class="comment-content"><%=comment_list.get(i).getComment_con() %></div>
+							<%if(comment_list.get(i).getId().equals(info.getId())){ %>
+							<div><button id="delete" onClick='location.href="DeleteCommentServiceCon?board_num=<%=comment_list.get(i).getBoard_num()%>&comment_num=<%=comment_list.get(i).getComment_num()%>"'>X</button></div>
+							<%} %>
+						</div>
+						<%} %>
+						<%} %>
+					</div>
+					<br>
+					<div class="comment-registration">
+						<form method="post" action="WriteCommentServiceCon" style="width:800px;">
+							<input type="hidden" name="id" value="<%=info.getId() %>">
+							<input type="hidden" name="board_num" value="<%=dto.getStory_num() %>">
+							<input type="text" class="input-comment" placeholder="여러분의 소중한 댓글을 달아주세요" name="comment_con">
+							<input type="submit" value="게시하기" class="regist">
+						</form>
+					</div>
+				</div>
+				<br><br><br><br><br><br>
+			</div>
+		</section>
+		</div>
+		<%
 		session.setAttribute(story_num+"count", new Integer(count));
 		%>
 		<%session.removeAttribute("board_num"); %>

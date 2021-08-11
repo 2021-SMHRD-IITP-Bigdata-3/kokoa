@@ -114,6 +114,21 @@ public class CommentDAO {
 			close();
 		} return dto; 
 	}
+	public int delete_com(int board_num, int comment_num) {
+		try {
+			conn();
+			String sql="delete from comment_info where board_num =? and comment_num=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, board_num);
+			psmt.setInt(2, comment_num);
+			
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}return cnt;
+	}
 }
 
 

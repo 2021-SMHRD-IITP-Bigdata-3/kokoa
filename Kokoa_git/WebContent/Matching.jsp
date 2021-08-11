@@ -18,6 +18,7 @@
       padding-bottom:150px;
       text-align: center;
       align-content: center;
+      font-family: 'Jua', sans-serif;
    }
    
    header{
@@ -90,7 +91,6 @@
 		border: 5px solid #61da94;
 		border-radius: 30px;
 		font-size: 50px;
-		font-family: 'Jua', sans-serif;
 		padding-top: 10px;
 		padding-bottom: 10px;
 		background-color: #ebfcf2;

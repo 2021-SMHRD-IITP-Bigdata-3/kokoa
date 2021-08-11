@@ -8,12 +8,16 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style>
 	body{
       padding-bottom:150px;
 		text-align: center;
 		align-content: center;
+		font-family: 'Jua', sans-serif;
 	}
 	
    header{
